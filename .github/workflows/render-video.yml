@@ -1,0 +1,127 @@
+name: Montar vídeo (nube)
+
+# Descarga clips en HD (IP de la nube, sin el freno de tu conexión), calibra con
+# Whisper, monta y renderiza. Sube el .mp4 como "artifact" descargable.
+# Requiere SECRETS en el repo (Settings > Secrets and variables > Actions):
+#   YT_COOKIES    -> contenido de cookies.txt SOLO de YouTube (exportar estando en
+#                    youtube.com; el completo no cabe en un secret de 48 KB)
+#   NARRATION_URL -> enlace de descarga directa del narration.mp3 (release/Drive/Dropbox)
+#   PEXELS_API_KEY, SERPAPI_KEY -> opcionales (solo si un vídeo usa imágenes de relleno)
+
+on:
+  workflow_dispatch:
+    inputs:
+      subdir:
+        description: "Carpeta de clips (p.ej. yt-alemanes)"
+        default: "yt-alemanes"
+      manifest:
+        description: "Manifiesto clave/URL de clips"
+        default: "scripts/clips-alemanes.txt"
+
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    timeout-minutes: 320
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Instalar ffmpeg + libs de Chrome (Remotion)
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg libnss3 libatk1.0-0 libatk-bridge2.0-0 \
+            libcups2 libdrm2 libxkbcommon0 libxcomposite1 libxdamage1 libxfixes3 \
+            libxrandr2 libgbm1 libasound2t64 libpango-1.0-0 libcairo2 libatspi2.0-0
+
+      - name: Instalar deno (para el n-challenge de YouTube)
+        run: |
+          curl -fsSL https://deno.land/install.sh | sh -s -- -y
+          echo "$HOME/.deno/bin" >> "$GITHUB_PATH"
+
+      - name: Instalar yt-dlp + plugin PO Token + Whisper
+        run: pip install -U yt-dlp bgutil-ytdlp-pot-provider openai-whisper
+
+      - name: Compilar y arrancar el proveedor de PO Token (bgutil HTTP)
+        run: |
+          git clone --depth 1 https://github.com/Brainicism/bgutil-ytdlp-pot-provider.git /tmp/pot
+          cd /tmp/pot/server
+          npm install --no-audit --no-fund
+          npx tsc
+          nohup node build/main.js > /tmp/pot-server.log 2>&1 &
+          sleep 5
+          curl -s http://127.0.0.1:4416/ping || (cat /tmp/pot-server.log; exit 1)
+
+      - name: npm install (Remotion)
+        run: npm ci || npm install
+
+      - name: Restaurar cookies de YouTube (secret)
+        run: printf '%s\n' "${{ secrets.YT_COOKIES }}" > cookies.txt
+
+      - name: Descargar narración
+        run: |
+          mkdir -p input
+          curl -fL "${{ secrets.NARRATION_URL }}" -o input/narration.mp3
+          ls -la input/narration.mp3
+
+      - name: Descargar clips en HD (IP de la nube)
+        run: |
+          SUB="${{ github.event.inputs.subdir }}"
+          MAN="${{ github.event.inputs.manifest }}"
+          OUT="public/assets/$SUB"; mkdir -p "$OUT"
+          POT="youtubepot-bgutilhttp:base_url=http://127.0.0.1:4416"
+          FMT="bv*[height<=1080][vcodec^=avc1]/bv[height<=1080]/b[height<=1080]"
+          grep -vE '^\s*#|^\s*$' "$MAN" | while read -r key url _; do
+            echo "::group::$key"
+            for try in 1 2 3; do
+              python -m yt_dlp --cookies cookies.txt --no-playlist --no-continue --force-overwrites \
+                --retries 15 --fragment-retries 15 \
+                --extractor-args "youtube:player_client=android_vr" \
+                --extractor-args "$POT" \
+                -f "$FMT" -o "$OUT/marca-$key.%(ext)s" "$url" && break
+              echo "reintento $try..."; sleep 20
+            done
+            echo "::endgroup::"
+          done
+          echo "Descargados:"; ls -la "$OUT" | grep -c '\.mp4$' || true
+
+      - name: Normalizar clips a CFR 30fps
+        run: |
+          SUB="${{ github.event.inputs.subdir }}"
+          cd "public/assets/$SUB"
+          for f in marca-*.mp4; do
+            [ -f "$f" ] || continue
+            o="${f%.mp4}.fix.mp4"
+            ffmpeg -y -hide_banner -loglevel error -fflags +genpts -i "$f" \
+              -vf "fps=30,setpts=PTS-STARTPTS" -c:v libx264 -preset veryfast -crf 20 \
+              -g 15 -keyint_min 15 -sc_threshold 0 -pix_fmt yuv420p -an \
+              -vsync cfr -avoid_negative_ts make_zero -movflags +faststart "$o" && mv -f "$o" "$f"
+          done
+
+      - name: Transcribir voz (calibración anti-drift)
+        run: |
+          mkdir -p out
+          python scripts/_transcribe.py || echo "sin transcripción -> tiempo lineal"
+
+      - name: Generar montaje (config.ts)
+        env:
+          YT_SUBDIR: ${{ github.event.inputs.subdir }}
+          PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
+          SERPAPI_KEY: ${{ secrets.SERPAPI_KEY }}
+        run: node scripts/build-video.mjs
+
+      - name: Renderizar
+        run: npm run render
+
+      - name: Subir el vídeo final
+        uses: actions/upload-artifact@v4
+        with:
+          name: video-final
+          path: out/*.mp4
+          retention-days: 7

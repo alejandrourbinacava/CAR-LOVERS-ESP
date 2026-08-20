@@ -61,13 +61,19 @@ jobs:
       - name: npm install (Remotion)
         run: npm ci || npm install
 
-      - name: Restaurar cookies de YouTube (secret)
-        run: printf '%s\n' "${{ secrets.YT_COOKIES }}" > cookies.txt
+      - name: Restaurar cookies de YouTube (secret, opcional)
+        run: |
+          printf '%s' "${{ secrets.YT_COOKIES }}" > cookies.txt
+          if [ -s cookies.txt ]; then echo "cookies presentes"; else echo "sin cookies (se probará sin ellas)"; fi
 
-      - name: Descargar narración
+      - name: Narración (repo o secret)
         run: |
           mkdir -p input
-          curl -fL "${{ secrets.NARRATION_URL }}" -o input/narration.mp3
+          if [ -f input/narration.mp3 ]; then
+            echo "narración incluida en el repo"
+          else
+            curl -fL "${{ secrets.NARRATION_URL }}" -o input/narration.mp3
+          fi
           ls -la input/narration.mp3
 
       - name: Descargar clips en HD (IP de la nube)
@@ -77,10 +83,11 @@ jobs:
           OUT="public/assets/$SUB"; mkdir -p "$OUT"
           POT="youtubepot-bgutilhttp:base_url=http://127.0.0.1:4416"
           FMT="bv*[height<=1080][vcodec^=avc1]/bv[height<=1080]/b[height<=1080]"
+          COOKIES=""; [ -s cookies.txt ] && COOKIES="--cookies cookies.txt"
           grep -vE '^\s*#|^\s*$' "$MAN" | while read -r key url _; do
             echo "::group::$key"
             for try in 1 2 3; do
-              python -m yt_dlp --cookies cookies.txt --no-playlist --no-continue --force-overwrites \
+              python -m yt_dlp $COOKIES --no-playlist --no-continue --force-overwrites \
                 --retries 15 --fragment-retries 15 \
                 --extractor-args "youtube:player_client=android_vr" \
                 --extractor-args "$POT" \
@@ -89,7 +96,7 @@ jobs:
             done
             echo "::endgroup::"
           done
-          echo "Descargados:"; ls -la "$OUT" | grep -c '\.mp4$' || true
+          echo "Descargados:"; ls "$OUT"/*.mp4 2>/dev/null | wc -l
 
       - name: Normalizar clips a CFR 30fps
         run: |

@@ -1,0 +1,35 @@
+# ===== SECRETOS — NUNCA subir =====
+cookies.txt
+.env
+.env.*
+*.pem
+*.key
+
+# ===== Binarios de herramientas (el CI los instala solo) =====
+deno.exe
+yt-dlp.exe
+*.exe
+
+# ===== Dependencias =====
+node_modules/
+
+# ===== Media pesada (el CI descarga/renderiza; no va al repo) =====
+public/assets/
+out/
+*.mp4
+*.mov
+*.webm
+*.mkv
+*.mp3
+*.wav
+*.part
+*.ytdl
+
+# ===== Temporales =====
+scratchpad/
+.DS_Store
+Thumbs.db
+*.log
+
+# Config local de Claude Code
+.claude/

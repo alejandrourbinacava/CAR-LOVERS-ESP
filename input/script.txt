@@ -1,0 +1,30 @@
+CLIP: suv driving city traffic modern
+CAPTION: HACE 20 AÑOS\nERAN UNA RAREZA
+GRADE: desaturated-cold
+ZOOM: in
+
+DATA: percent | 15 | del mercado europeo en 2005
+
+DATA: percent | 62 | de los turismos vendidos en Espana en 2025
+
+DATA: counter | 714318 | | SUV matriculados en 2025
+
+CLIP: person looking at suv car dealership
+CAPTION: PERO... POR QUE\nUN SUV
+GRADE: teal-orange
+ZOOM: out
+
+CLIP: suv parked showroom clean
+CAPTION: MAS SEGURO. MAS PRACTICO.\nMAS ESPACIO
+GRADE: teal-orange
+ZOOM: in-out
+
+CLIP: highway cars driving fast
+CAPTION: HOY LO COMPROBAMOS\nCON DATOS REALES
+GRADE: teal-orange
+ZOOM: in
+
+CLIP: suv front grille aggressive dark
+CAPTION: LO QUE LOS FABRICANTES\nPREFIEREN QUE NO SEPAS
+GRADE: desaturated-cold
+ZOOM: in

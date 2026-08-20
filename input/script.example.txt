@@ -1,0 +1,37 @@
+# FORMATO DEL GUION (input/script.txt)
+#
+# Cada bloque va separado por una linea en blanco.
+# Dos tipos de bloque:
+#
+# 1) Escena con clip real de coche:
+#    CLIP: <palabras clave en ingles para buscar el clip en Pexels>
+#    CAPTION: <texto que aparece en pantalla, usa \n para salto de linea>
+#    GRADE: teal-orange | desaturated-cold | warm-neutral   (opcional)
+#    ZOOM: in | out | in-out                                 (opcional)
+#
+# 2) Escena de dato animado (grafico tipo Vox):
+#    DATA: counter | <numero> | <sufijo, ej. " CV"> | <etiqueta>
+#    DATA: percent | <numero 0-100> | <etiqueta>
+#    DATA: bars | <etiqueta> | Nombre1:valor1,Nombre2:valor2,Nombre3:valor3
+#
+# La duracion de cada escena se calcula sola, repartiendo la duracion
+# total de tu archivo de audio (input/narration.mp3) proporcionalmente
+# al texto de cada bloque. No hace falta que pongas duraciones a mano.
+
+CLIP: red sports car driving mountain road sunset
+CAPTION: EL COCHE QUE\nCAMBIO TODO
+GRADE: teal-orange
+ZOOM: in
+
+DATA: counter | 630 | CV | de potencia
+
+CLIP: car interior dashboard closeup driving
+GRADE: teal-orange
+ZOOM: out
+
+DATA: percent | 42 | mas eficiente que el modelo anterior
+
+CLIP: sports car highway night city lights
+CAPTION: PERO TIENE\nUN PROBLEMA
+GRADE: desaturated-cold
+ZOOM: in-out

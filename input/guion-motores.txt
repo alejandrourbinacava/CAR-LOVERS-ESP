@@ -1,0 +1,350 @@
+Hay una pregunta que los mecánicos nos hacen constantemente en el taller.
+No cuál es el coche más bonito. No cuál tiene más tecnología.
+Cuál motor merece la pena comprar.
+Y la respuesta nunca es la misma para todas las marcas.
+Porque dentro de cada fabricante hay motores que son genuinas joyas de ingeniería y motores que
+son bombas de relojería esperando explotar.
+Un mismo fabricante puede tener el motor más fiable del mercado en una versión y una catástrofe
+documentada en otra.
+Hoy vamos a hacer lo que nadie ha hecho de forma sistemática con datos verificables.
+Analizamos marca por marca. Identificamos el motor con el historial de longevidad más sólido
+documentado. Y te explicamos exactamente qué versiones evitar y por qué.
+Sin publicidad. Sin opiniones. Con datos de Consumer Reports, J.D. Power, RepairPal, foros
+técnicos especializados y documentación de fabricante.
+TOYOTA: EL MOTOR QUE ARRANCARÁ DESPUÉS DEL APOCALIPSIS
+Toyota es la marca con más motores candidatos a este análisis.
+Tienen el 2GR-FE V6, el 1NZ-FE, el 1KD-FTV, el 2UZ-FE, el sistema híbrido HSD.
+Pero si hay que elegir uno solo, el consenso técnico es unánime.
+El 1NZ-FE y su hermano menor 2NZ-FE.
+Cuatro cilindros. Un litro y medio el primero. Un litro y tres décimas el segundo.
+Bloques de cuatro cilindros de enorme sencillez y durabilidad. Presentes en Yaris, Corolla y Auris
+de primera y segunda generación. Pueden superar los 400.000 km sin problemas mayores con
+mantenimiento básico.
+¿Por qué estos y no el 2GR-FE V6?
+Porque la potencia específica del 1NZ-FE es moderada para su cilindrada. El motor trabaja con
+margen mecánico real en uso cotidiano.
+Sin turbo. Sin inyección directa en las versiones más durables. Sin sistemas de anticontaminación
+complejos en las versiones anteriores a Euro 5.
+Cadena de distribución que en condiciones normales dura la vida del motor.
+Consumo de aceite virtualmente inexistente con el intervalo de cambio correcto.
+El historial en taxis:
+Los taxis equipados con este motor en mercados asiáticos y del sur de Europa tienen casos
+documentados de cuatrocientos mil kilómetros con el motor original sin rectificación.
+Para el mercado actual: el sistema HSD híbrido como sucesor natural
+
+Si buscas el motor Toyota más fiable en un coche de 2026, el tren epicicloidal del sistema híbrido
+HSD es el heredero directo de esa filosofía.
+Sin embrague. Sin sincronizadores. Sin superficies de fricción convencionales. Casos
+documentados de más de cuatrocientos mil kilómetros en taxis híbridos europeos.
+Los motores Toyota que hay que evitar:
+El 1CD-FTV diésel 2.0 D-4D. Inyectores piezoeléctricos problemáticos, juntas de culata con
+historial de fallos, problemas documentados extensamente en mercados europeos.
+El 2GR-FE V6 en versiones tempranas: consumo de aceite prematuro relacionado con los anillos de
+pistón. Toyota lanzó actualizaciones que mejoraron el problema en versiones posteriores.
+HONDA: EL K-SERIES — EL MOTOR QUE NUNCA SE RINDE
+Honda tiene una ventaja sobre la mayoría de fabricantes: casi todos sus motores atmosféricos tienen
+historial de longevidad extraordinaria.
+Pero el que encabeza la lista sin discusión es la familia K-Series.
+El K20 y el K24.
+Dos litros y dos litros y cuatro décimas respectivamente.
+El K20 apareció en el Honda Civic, el Honda CR-V de segunda y tercera generación y el Accord. El
+K24 en versiones más grandes del Accord, CR-V y en el Element.
+Son bloques que toleran muy bien el alto kilometraje. Ampliamente usados en Accord, CR-V y
+Civic.
+Por qué el K-Series es diferente:
+El bloque tiene tolerancias de fabricación que Honda refinó durante décadas. El diseño DOHC con
+VTEC en las versiones de gasolina es un sistema de distribución variable que, cuando el aceite se
+cambia correctamente, tiene historial de longevidad extraordinaria.
+La relación de compresión está en el rango de 9.8:1 a 11:1 dependiendo de la versión. Suficiente
+para extraer rendimiento sin estresar el bloque.
+La distribución por cadena del K-Series es robusta. No tiene el historial de problemas de otros
+motores de la era con correa de distribución.
+Los datos concretos:
+Casos documentados de K24 con más de cuatrocientos mil kilómetros en mercados americanos y
+asiáticos donde el Accord lleva décadas siendo referencia de flotas.
+RepairPal sitúa a Honda en las primeras posiciones de fiabilidad por marca con un coste anual
+medio de mantenimiento inferior a la media del sector.
+El motor Honda del presente: el 1.5 litros turbo moderno
+
+El 1.5 litros turbo que Honda usa en el Civic y CR-V modernos es elogiado por Consumer Reports
+como motor turbo con rendimiento sólido y mínimas quejas de propietarios para ser un motor
+turboalimentado.
+Pero tuvo un problema documentado: dilución de aceite por combustible en climas fríos en
+versiones americanas de 2018-2019. Honda lanzó actualizaciones de software que resolvieron el
+problema en versiones posteriores.
+Si buscas el K-Series de segunda mano: versiones 2003-2010 del Accord 2.4 o el CR-V 2.4. Son los
+que tienen el historial más consolidado.
+Los motores Honda a evitar:
+El 2.0 litros turbo VTEC Turbo de los primeros modelos. En versiones de alta potencia tiene
+sensibilidades de mantenimiento que el K-Series atmosférico no tiene.
+MAZDA: EL SKYACTIV-G 2.5 — LA FILOSOFÍA RIGHT-SIZING
+APLICADA AL MÁXIMO
+Mazda tiene un motor que en 2026 sigue siendo una anomalía técnica en el mercado.
+El Skyactiv-G 2.5 litros.
+Motor 2.5 litros atmosférico. Sin turbo. Con relación de compresión de 13:1, la más alta de
+cualquier motor de gasolina de producción en serie no-híbrido del mercado.
+La fiabilidad del Mazda Skyactiv-G 2.5 ha sido confirmada por Consumer Reports 2024, que lo
+destaca como uno de los motores más confiables del mercado.
+RepairPal sitúa al Mazda CX-5, el SUV que más frecuentemente monta este motor, como número
+uno de fiabilidad entre los 26 SUVs medianos que evalúa. Coste anual de reparaciones: 447 dólares.
+Por qué el 13:1 de compresión importa:
+Una relación de compresión más alta extrae más energía de cada combustión sin sobrealimentador.
+El motor no necesita presurizar el aire de admisión con un turbo para conseguir rendimiento.
+Eso elimina el turbocompresor, el intercooler y sus conductos, los retenes del turbo que con el
+tiempo se deterioran, y el estrés añadido sobre el bloque de la sobrealimentación.
+Y el bloque trabaja al sesenta o setenta por ciento de su capacidad en uso normal.
+Ese margen mecánico se traduce directamente en longevidad.
+Lo que hay que vigilar:
+Las bujías de iridio son críticas para este motor. La relación de compresión de 13:1 depende de una
+ignición precisa. Con bujías desgastadas, la eficiencia cae y el riesgo de detonación sube.
+Cambio de bujías cada cuarenta mil kilómetros. Obligatorio. No negociable.
+La versión turbo: diferente historia
+
+El Skyactiv-G turbo (el motor del CX-5 Turbo y el Mazda3 Turbo) pierde parte de la ventaja de
+fiabilidad por la introducción del turbocompresor. Los datos de longevidad del turbo son menos
+consolidados que los del atmosférico.
+Si priorizas longevidad máxima: versión 2.0 o 2.5 atmosférica sin turbo.
+VOLKSWAGEN: EL 1.9 TDI PD — EL MOTOR DIÉSEL QUE CONSTRUYÓ
+UN IMPERIO
+Volkswagen tiene motores modernos interesantes. Pero cuando en el mundo del automóvil se habla
+del motor más fiable de la historia de VW, hay un consenso casi universal.
+El 1.9 TDI con sistema bomba-inyector. Códigos AFN, ALH, ASZ, PD.
+La versión sin turbo del 1.9 TDI rinde aproximadamente 65 CV pero parece durar para siempre. Sin
+turbo, sin estrés: muchos ejemplos han pasado 400.000 km con solo mantenimiento básico.
+El 1.9 TDI PD (Pumpe-Düse, bomba-inyector) es la versión más desarrollada de esta familia. Los
+inyectores están integrados en el propio cilindro, accionados mecánicamente por el árbol de levas a
+presiones de hasta dos mil bares.
+Sin bomba de alta presión separada. Sin solenoides de control electrónico en el sistema de inyección
+de primera generación. Mecánica pura.
+Un motor VW TDI bien mantenido a menudo puede superar 200.000 millas, y se sabe que algunas
+unidades han llegado a 300.000 millas o más con un mantenimiento adecuado.
+Por qué este motor específicamente:
+Bloque de hierro fundido en las versiones más robustas. Cigüeñal forjado. Tolerancias de
+fabricación que permiten millones de ciclos de combustión sin desgaste apreciable.
+Los mecánicos especializados en flotas lo describen como el motor más fiable que el grupo VAG ha
+producido en la era moderna.
+El punto débil que hay que conocer:
+La correa de distribución. El 1.9 TDI usa correa, no cadena. Y el intervalo de cambio de esa correa
+es crítico.
+Si la correa se rompe en un motor de interferencia (que lo es), el daño es catastrófico. Válvulas
+contra pistones.
+Cambio de correa de distribución y bomba de agua cada 90.000-100.000 km. Sin excepción. Sin
+posibilidad de alargar.
+Con ese mantenimiento cumplido: el motor puede llegar a 400.000-500.000 km sin abrir el bloque.
+El motor VW moderno más fiable:
+Para los que buscan en el mercado actual, el EA888 Gen3 TSI de gasolina 1.5 litros (código
+DADA) ha corregido la mayoría de problemas de las generaciones anteriores: pistones más
+resistentes, cadenas revisadas, mejor lubricación.
+
+El 1.9 TDI PD sin turbo (versión 65-75 CV): la máxima longevidad documentada de la historia de
+VW.
+Los motores VAG que hay que evitar:
+El 1.2 PureTech de Stellantis (que se cuela en el grupo VAG en modelos compartidos): ya lo hemos
+tratado extensamente.
+El 2.0 TSI EA888 Gen1 y Gen2: problemas documentados de consumo de aceite y tensores de
+cadena. La Gen3 corrigió esos problemas.
+El 1.4 TSI con sistema de desactivación de cilindros en versiones tempranas: problemas de
+consumo de aceite documentados.
+BMW: EL B58 — CUANDO BMW APRENDIÓ DE SUS ERRORES
+BMW tiene la historia de motores modernos más dramática de la industria.
+El N54 (2006): motor pionero en twin-turbo e inyección directa de BMW. Extraordinario en
+prestaciones. Catastrófico en fiabilidad. Bomba de alta presión con fallo de diseño tan extendido
+que BMW extendió la garantía a diez años y 190.000 km en Estados Unidos. Juicios colectivos de
+propietarios. La bombas de alta presión de los sellos internos se degradaban prematuramente,
+causando pérdida de presión de combustible.
+El N55 (2009): mejoró el N54. Pero conservó la bomba de agua eléctrica que frecuentemente falla
+entre 60.000 y 100.000 millas. Juntas de tapa de válvula y carcasa de filtro de aceite con fugas
+frecuentes.
+Y entonces llegó el B58.
+En 2016, BMW introdujo el B58 y la industria notó que algo había cambiado.
+El B58 tiene bloque de aluminio de cubierta cerrada que proporciona mayor rigidez y resistencia a
+presiones más altas en los cilindros. Cigüeñal de acero forjado. Bomba de combustible mejorada.
+Propietarios con el 140i y el 340i reportan cuatro años y cien mil kilómetros sin una sola incidencia.
+Cuando el B58 y N55 se comparan directamente, es claro que el B58 es más fiable que el N55.
+El motor de seis cilindros en línea del B58 es considerado por mecánicos especializados en BMW
+como uno de los mejores motores que la marca ha producido en la era moderna.
+Los datos técnicos que explican el salto:
+Cubierta cerrada del bloque: mayor rigidez estructural. Más resistencia a las deformaciones bajo
+presión del turbo.
+Cigüeñal forjado: mayor resistencia a la fatiga en condiciones de carga sostenida.
+Bomba mecánica de combustible en lugar de la eléctrica del N55: elimina el modo de fallo más
+costoso de la generación anterior.
+El punto débil del B58:
+
+Las juntas de la cubierta de válvulas y del módulo de filtro de aceite pueden desarrollar pequeñas
+fugas con el tiempo. Son el problema más frecuente documentado en el B58, y comparado con los
+fallos graves del N54 y N55 es casi anecdótico.
+Inyectores de las versiones más antiguas con vida útil algo más corta. Las versiones post-2019
+tienen inyectores mejorados.
+Para el mecánico: el B58 es la primera vez en décadas que puede recomendar sin reservas un
+motor turbo de BMW a alguien que lo quiere para diez años.
+MERCEDES: EL OM617 — EL MOTOR CON MÁS DE DOS MILLONES DE
+KILÓMETROS DOCUMENTADOS
+Para Mercedes, la respuesta histórica y la respuesta para el presente son completamente diferentes.
+Empecemos con el motor legendario.
+El OM617.
+Cinco cilindros. Tres litros. Diésel de inyección indirecta. Producido entre 1974 y 1991.
+El OM617 está considerado uno de los motores más fiables jamás producidos. Existen informes
+documentados de motores que han superado el millón de kilómetros sin rectificado, y en algunos
+casos excepcionales, los dos millones.
+Dos millones de kilómetros. Con mantenimiento básico.
+Bloque de hierro fundido. Inyección mecánica Bosch de bomba en línea. Cadena de distribución.
+Sin electrónica de gestión del motor. Sin sistemas de anticontaminación.
+Es la encarnación perfecta de la filosofía del margen mecánico: un motor de tres litros produciendo
+entre ochenta y cien caballos trabaja permanentemente al veinte o treinta por ciento de su capacidad
+estructural.
+El OM617 es considerado uno de los motores clave de la popularidad de Mercedes en Norteamérica
+en los años ochenta, ya que era potente y fiable comparado con otros diésel de la época.
+El motor Mercedes moderno más fiable:
+Para el mercado actual, el Mercedes 2.2 CDI, conocido técnicamente como OM646 y OM651 en
+sus generaciones más recientes, tiene historial de longevidad entre los mejores del segmento
+premium moderno.
+El motor diésel Mercedes 2.1 es conocido por su durabilidad y longevidad. Con un mantenimiento y
+cuidado adecuados, este motor puede durar cientos de miles de kilómetros.
+Pero hay que ser precisos:
+El OM651 tuvo problemas documentados con el sistema EGR y el enfriador EGR que ya
+analizamos en detalle en el vídeo de problemas silenciosos del diésel. El sistema de distribución por
+cadena en las primeras versiones también tuvo casos de desgaste prematuro que Mercedes revisó en
+generaciones posteriores.
+
+Para el comprador de segunda mano: versiones post-2012 del OM651 con el sistema de cadena
+revisado tienen datos de longevidad más sólidos.
+Para el conductor que quiere lo más fiable de Mercedes en términos absolutos y puede encontrar un
+W123 o W124 con el OM617 o el OM616 en buen estado: son máquinas que con mantenimiento
+correcto seguirán funcionando en décadas.
+HYUNDAI / KIA: EL GAMMA 1.6 MPI — EL MÁS INFRAVALORADO DE
+LA LISTA
+Hyundai y Kia comparten plataforma, motores y filosofía de desarrollo dentro del Hyundai Motor
+Group.
+Y tienen un motor que constantemente aparece en los datos de fiabilidad sin recibir el
+reconocimiento que merece.
+El motor Gamma 1.6 MPI (Multi-Point Injection). Atmosférico. Sin turbo. Sin inyección directa.
+Presente en el Hyundai i30, el Elantra y el Kia Ceed y Rio.
+Hyundai 1.6 MPI y Kia 1.6 GDI: ambos ofrecen una excelente combinación entre fiabilidad y bajo
+mantenimiento. Motores capaces de recorrer cientos de miles de kilómetros con un mantenimiento
+adecuado.
+Por qué aparece consistentemente en datos de fiabilidad:
+La distribución por cadena de esta familia de motores tiene historial de longevidad sólido cuando el
+aceite se cambia correctamente.
+La arquitectura MPI de inyección multipunto, más antigua tecnológicamente que la GDI de
+inyección directa, tiene la ventaja de no tener el problema de carbonilla en válvulas de admisión que
+afecta a los motores de inyección directa.
+El aceite limpia las válvulas con cada ciclo. Sin acumulación. Sin walnut blasting a los cien mil
+kilómetros.
+La garantía como señal de confianza:
+Hyundai y Kia ofrecen garantías de entre cinco y siete años en muchos mercados. Ningún fabricante
+ofrece garantías largas en componentes que espera que fallen.
+La garantía de siete años de Kia y los cinco de Hyundai son, en sí mismas, un indicador de la
+confianza de la marca en su durabilidad.
+El motor que hay que evitar:
+El motor Theta II 2.0 litros turbo GDI que montaron ciertos modelos Hyundai y Kia entre 2011 y
+2018 tuvo problemas documentados de picadura de pistones y consumo de aceite que generaron
+campañas de garantía extendida y demandas colectivas en Estados Unidos. Las versiones post-2019
+corrigieron esos problemas de forma significativa.
+
+RENAULT: EL K9K 1.5 DCI — EL REY EUROPEO DEL DIÉSEL PEQUEÑO
+Renault tiene un motor que ha sido objeto de estudio en talleres de toda Europa por una razón muy
+concreta.
+Prácticamente no vuelve por averías graves.
+El K9K 1.5 dCi.
+Motor diésel de un litro y cinco décimas. Cuatro cilindros. Presente en el Clio, Mégane, Kangoo,
+Scenic. Pero también en el Nissan Juke, el Nissan Micra, el Dacia Duster, el Mercedes Clase A y B
+de primera generación, y en otros modelos de la alianza Renault-Nissan.
+Es el motor más producido de la alianza y uno de los más longevos documentados en el segmento
+de compactos europeos.
+Casos documentados de K9K con más de 600.000 kilómetros en flotas de mensajería y taxis
+europeos.
+Por qué tiene esos datos:
+Bloque de hierro fundido en las versiones más robustas. Turbo de geometría fija en las versiones de
+acceso que elimina la complejidad de los álabes variables.
+Inyección common rail de primera generación en las versiones más antiguas: presiones más bajas,
+menor estrés en los inyectores.
+Dimensiones del motor correctas para el peso del coche que mueve.
+El punto débil que hay que mencionar:
+El sistema EGR del K9K en uso urbano intensivo acumula carbonilla a un ritmo que requiere
+atención. Un K9K que solo hace ciudad con trayectos cortos puede tener el EGR carbonizado a los
+cien mil kilómetros.
+La solución: limpieza italiana mensual (autopista a cuatro mil revoluciones durante treinta
+segundos) y cambio de aceite cada diez mil kilómetros máximo.
+El FAP en versiones Euro 5 y Euro 6 añade complejidad. Las versiones sin FAP (anteriores a 2011
+en muchos mercados) tienen el historial de longevidad más limpio.
+FORD: EL DURATEC HE 2.0 ATMOSFÉRICO — EL MÁS IGNORADO DE
+FORD
+Ford tiene una imagen de marca en Europa que no siempre refleja la realidad de su ingeniería.
+Y tiene un motor que consistentemente pasa desapercibido pero aparece en los datos de longevidad.
+El Duratec HE 2.0 litros atmosférico. Presente en el Focus, el Mondeo y el C-Max de segunda y
+tercera generación.
+Motor atmosférico de cuatro cilindros. Distribución por cadena. Sin turbo. Sin inyección directa en
+las versiones más robustas.
+
+El Ford 1.6 Ti-VCT de la misma familia también tiene datos de longevidad sólidos en el Focus y
+Fiesta, con distribución por cadena y sin la complejidad turbo.
+Por qué aparece en los datos:
+Ford desarrolló el bloque Duratec con tolerancias de fabricación robustas para el segmento masivo.
+Es un motor diseñado para millones de unidades con costes de producción controlados, lo que
+paradójicamente lo hace más simple y más robusto que alternativas más sofisticadas.
+En flotas de uso intensivo en Europa, el Mondeo 2.0 Duratec tiene historial de doscientos cincuenta
+a trescientos mil kilómetros sin reconstrucción mayor con mantenimiento básico.
+El motor Ford que hay que evitar:
+El EcoBoost 1.0 turbo de tres cilindros tuvo problemas documentados de junta del colector de
+escape y dilución de aceite en versiones tempranas. Ford lanzó actualizaciones que mejoraron el
+problema, pero las versiones anteriores a 2015 tienen ese historial.
+El EcoBoost 1.5 de cuatro cilindros tuvo problemas documentados con el sistema de enfriamiento
+en versiones americanas que causaban daños en la culata.
+SUBARU: EL EJ25 BOXER — CON UNA CONDICIÓN ESENCIAL
+Para Subaru, el análisis requiere ser especialmente preciso porque hay una distinción generacional
+que cambia completamente la recomendación.
+El motor Boxer EJ25 de 2.5 litros en versiones post-2010.
+La familia EJ de motores Boxer de Subaru tiene historial documentado de entre doscientos y
+trescientos mil kilómetros en versiones atmosféricas con mantenimiento básico.
+El motor Boxer de Subaru ha sido refinado durante décadas, mejorando continuamente su
+durabilidad y eficiencia. Este motor no solo proporciona una conducción estable, sino que también
+es conocido por su longevidad, haciendo que los vehículos Subaru sean altamente valorados en el
+mercado de segunda mano.
+La distinción generacional crítica:
+Las versiones del EJ25 producidas antes de 2010 en ciertos mercados tuvieron problemas
+documentados con la junta de culata. La combinación de aluminio en la culata e hierro fundido en el
+bloque tiene coeficientes de dilatación térmica diferentes que con los ciclos continuos de
+calentamiento y enfriamiento pueden crear puntos de fuga.
+Subaru rediseñó la junta en revisiones posteriores a 2010 y el problema se redujo de forma
+significativa.
+Si buscas un Subaru de segunda mano: año de fabricación posterior a 2010 para el EJ25, y verifica
+específicamente el historial de la junta de culata.
+La regla que no puede olvidarse:
+
+El sistema AWD Symmetrical de Subaru requiere cuatro neumáticos idénticos en marca, modelo y
+desgaste. Si un neumático se pincha y se cambia solo ese, la diferencia de diámetro efectivo puede
+dañar el diferencial central.
+Un motor que puede durar trescientos mil kilómetros puede ver comprometida su transmisión por
+cuatro neumáticos mal gestionados.
+Mirando los motores más fiables de cada marca, un patrón emerge con claridad.
+Los motores que más consistentemente aparecen en el extremo superior de longevidad comparten
+características técnicas que ya deberían ser familiares.
+Potencia específica conservadora. Ninguno de los campeones de longevidad trabaja cerca de sus
+límites estructurales en uso normal.
+Complejidad mecánica reducida al mínimo necesario. El 1.9 TDI PD. El K-Series de Honda. El
+1NZ-FE de Toyota. El OM617 de Mercedes. Todos tienen menos puntos de fallo que sus sucesores
+tecnológicamente superiores.
+Materiales correctos en puntos críticos. Bloques de hierro fundido donde el aluminio hubiera sido
+más ligero. Cigüeñales forjados donde la fundición hubiera sido más económica.
+Margen de mantenimiento real. Motores que toleran que el propietario alargue el intervalo de
+aceite diez días sin que sea catastrófico. No como filosofía, sino como consecuencia del margen de
+diseño.
+Y algo más que los datos confirman consistentemente.
+El motor más fiable de cada marca no suele ser el más potente, el más eficiente en ciclo de
+homologación ni el que aparece en los folletos.
+Suele ser el que los ingenieros diseñaron con más margen. El que las normativas de emisiones
+todavía no habían obligado a sobrecomplicar. El que lleva más años en producción y por tanto tiene
+sus bugs resueltos.
+En 2026, encontrar esos motores requiere saber dónde mirar.
+Y ahora ya sabes dónde mirar.
+¿Qué motor tienes actualmente? ¿Cuántos kilómetros llevas y qué problemas has tenido?
+¿Estás de acuerdo con la elección del motor más fiable de tu marca? ¿O crees que hay otro
+candidato mejor?
+Cuéntamelo en los comentarios. Con marca, código de motor, kilómetros y experiencia real.
+Construyamos entre todos el mapa de fiabilidad por motor más completo del mercado español.
+
+Si este vídeo te ayudó a entender qué motor comprar la próxima vez o qué coche de segunda mano
+buscar, compártelo.
+Suscríbete para más análisis técnicos sin filtros.
+Nos vemos en el próximo.

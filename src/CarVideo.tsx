@@ -9,7 +9,7 @@ import { PinImage } from "./aw/PinImage";
 import { DuoPin } from "./aw/DuoPin";
 
 export const CarVideo: React.FC = () => {
-  const { shots, overlays, narrationSrc } = videoConfig;
+  const { shots, overlays, narrationSrc, musicSrc } = videoConfig as typeof videoConfig & { musicSrc?: string };
   const pins = videoConfig.pins ?? [];
 
   // Pista de b-roll: cada shot va detras del anterior (corte cada ~3s)
@@ -28,8 +28,9 @@ export const CarVideo: React.FC = () => {
   return (
     <AbsoluteFill style={{ backgroundColor: "black" }}>
       {narrationSrc && <Audio src={staticFile(narrationSrc)} volume={1} />}
-      {/* Musica de fondo a -30 dB (volume 0.0316 lineal). Regla del cliente. */}
-      <Audio src={staticFile("assets/audio/musica-fondo.mp3")} loop volume={0.0316} />
+      {/* Musica de fondo a -30 dB, SOLO si existe el archivo (regla del cliente:
+          normalmente se añade la música aparte con ducking, no incrustada). */}
+      {musicSrc && <Audio src={staticFile(musicSrc)} loop volume={0.0316} />}
 
 
       {/* PISTA 1: b-roll a pantalla completa */}

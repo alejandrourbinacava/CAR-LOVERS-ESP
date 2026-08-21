@@ -709,11 +709,14 @@ async function main() {
   console.log(`     ${overlays.length} overlays`);
 
   await fs.copyFile(NARRATION, path.join(AUDIO_DIR, "narration.mp3"));
-  await fs.writeFile(CONFIG_PATH, emitConfig(total, shots, overlays, pins), "utf-8");
+  // Música de fondo: solo si el cliente la ha puesto en el proyecto (regla:
+  // normalmente se añade aparte con ducking; en la nube no está y no se incrusta).
+  const hasMusic = await fileExists(path.join(AUDIO_DIR, "musica-fondo.mp3"));
+  await fs.writeFile(CONFIG_PATH, emitConfig(total, shots, overlays, pins, hasMusic), "utf-8");
   console.log(`\n✅ Listo. total=${total.toFixed(1)}s · ${shots.length} planos · ${overlays.length} overlays · ${pins.length} pins.`);
 }
 
-function emitConfig(total, shots, overlays, pins) {
+function emitConfig(total, shots, overlays, pins, hasMusic) {
   const shotsCode = shots
     .map((s) => `  { clipSrc: ${JSON.stringify(s.clipSrc)}, durationInSeconds: ${s.durationInSeconds}, startFromSeconds: ${s.startFromSeconds}, kenBurns: ${JSON.stringify(s.kenBurns)}, framed: ${s.framed}, isImage: ${!!s.isImage}, sfx: ${!!s.sfx} }`)
     .join(",\n");
@@ -755,7 +758,7 @@ export type Pin =
 
 export type VideoConfig = {
   width: number; height: number; fps: number;
-  narrationSrc?: string; totalDurationInSeconds: number;
+  narrationSrc?: string; musicSrc?: string; totalDurationInSeconds: number;
   shots: Shot[]; overlays: Overlay[]; pins: Pin[];
 };
 
@@ -777,7 +780,7 @@ export const videoConfig: VideoConfig = {
   width: 1920,
   height: 1080,
   fps: FPS,
-  narrationSrc: "assets/audio/narration.mp3",
+  narrationSrc: "assets/audio/narration.mp3",${hasMusic ? '\n  musicSrc: "assets/audio/musica-fondo.mp3",' : ""}
   totalDurationInSeconds: ${total.toFixed(2)},
   shots: [
 ${shotsCode}

@@ -52,18 +52,26 @@ jobs:
       - name: Comprobar narración
         run: test -f input/narration.mp3 && ls -la input/narration.mp3
 
-      - name: Normalizar clips a CFR 30fps
+      - name: Normalizar clips a CFR 30fps (rápido, 2 en paralelo)
         run: |
           SUB="${{ github.event.inputs.subdir }}"
           cd "public/assets/$SUB"
+          norm() {
+            local f="$1"; local o="${f%.mp4}.fix.mp4"
+            ffmpeg -y -hide_banner -loglevel error -fflags +genpts -i "$f" \
+              -vf "fps=30,setpts=PTS-STARTPTS,scale=-2:'min(1080,ih)'" -c:v libx264 -preset ultrafast -crf 23 \
+              -g 15 -keyint_min 15 -sc_threshold 0 -pix_fmt yuv420p -an \
+              -vsync cfr -avoid_negative_ts make_zero -movflags +faststart "$o" \
+              && mv -f "$o" "$f" && echo "OK $f"
+          }
+          N=0
           for f in marca-*.mp4; do
             [ -f "$f" ] || continue
-            o="${f%.mp4}.fix.mp4"
-            ffmpeg -y -hide_banner -loglevel error -fflags +genpts -i "$f" \
-              -vf "fps=30,setpts=PTS-STARTPTS,scale=-2:min(1080\,ih)" -c:v libx264 -preset veryfast -crf 20 \
-              -g 15 -keyint_min 15 -sc_threshold 0 -pix_fmt yuv420p -an \
-              -vsync cfr -avoid_negative_ts make_zero -movflags +faststart "$o" && mv -f "$o" "$f"
+            norm "$f" &
+            N=$((N+1)); [ $((N % 2)) -eq 0 ] && wait
           done
+          wait
+          echo "normalizados:"; ls -la marca-*.mp4 | wc -l
 
       - name: Generar montaje (config.ts)
         env:

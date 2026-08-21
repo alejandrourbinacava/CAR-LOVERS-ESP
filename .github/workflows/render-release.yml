@@ -1,0 +1,84 @@
+name: Renderizar desde Release (nube)
+
+# Coge los clips ya subidos al Release "clips-alemanes", normaliza, calibra con
+# Whisper, monta y renderiza. NO usa YouTube (evita el bloqueo de datacenter).
+# La narración va en el repo (input/narration.mp3).
+
+on:
+  workflow_dispatch:
+    inputs:
+      subdir:
+        description: "Carpeta de clips"
+        default: "yt-alemanes"
+      tag:
+        description: "Tag del Release con los clips"
+        default: "clips-alemanes"
+
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    timeout-minutes: 320
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 20 }
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+
+      - name: Instalar ffmpeg + libs de Chrome (Remotion)
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg libnss3 libatk1.0-0 libatk-bridge2.0-0 \
+            libcups2 libdrm2 libxkbcommon0 libxcomposite1 libxdamage1 libxfixes3 \
+            libxrandr2 libgbm1 libasound2t64 libpango-1.0-0 libcairo2 libatspi2.0-0
+
+      - name: Instalar Whisper
+        run: pip install -U openai-whisper
+
+      - name: npm install (Remotion)
+        run: npm ci || npm install
+
+      - name: Descargar clips del Release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          SUB="${{ github.event.inputs.subdir }}"
+          mkdir -p "public/assets/$SUB"
+          gh release download "${{ github.event.inputs.tag }}" -D "public/assets/$SUB" -p 'marca-*.mp4' --clobber
+          echo "Clips:"; ls -la "public/assets/$SUB" | grep -c '\.mp4$'
+
+      - name: Comprobar narración
+        run: test -f input/narration.mp3 && ls -la input/narration.mp3
+
+      - name: Normalizar clips a CFR 30fps
+        run: |
+          SUB="${{ github.event.inputs.subdir }}"
+          cd "public/assets/$SUB"
+          for f in marca-*.mp4; do
+            [ -f "$f" ] || continue
+            o="${f%.mp4}.fix.mp4"
+            ffmpeg -y -hide_banner -loglevel error -fflags +genpts -i "$f" \
+              -vf "fps=30,setpts=PTS-STARTPTS,scale=-2:min(1080\,ih)" -c:v libx264 -preset veryfast -crf 20 \
+              -g 15 -keyint_min 15 -sc_threshold 0 -pix_fmt yuv420p -an \
+              -vsync cfr -avoid_negative_ts make_zero -movflags +faststart "$o" && mv -f "$o" "$f"
+          done
+
+      - name: Transcribir voz (calibración anti-drift)
+        run: |
+          mkdir -p out
+          python scripts/_transcribe.py || echo "sin transcripción -> tiempo lineal"
+
+      - name: Generar montaje (config.ts)
+        env:
+          YT_SUBDIR: ${{ github.event.inputs.subdir }}
+        run: node scripts/build-video.mjs
+
+      - name: Renderizar
+        run: npm run render
+
+      - name: Subir el vídeo final
+        uses: actions/upload-artifact@v4
+        with:
+          name: video-final
+          path: out/*.mp4
+          retention-days: 7

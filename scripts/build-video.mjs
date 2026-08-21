@@ -400,6 +400,16 @@ async function buildTimeAt(guion, total, alignPath) {
 
 // Duracion de un video (seg) parseando la salida de ffmpeg.
 function videoDurationSec(file) {
+  // 1) ffprobe del sistema (rápido y fiable; está en el runner de CI y en winget).
+  for (const bin of ["ffprobe", process.env.FFPROBE || ""]) {
+    if (!bin) continue;
+    try {
+      const out = execSync(`"${bin}" -v error -show_entries format=duration -of default=nk=1:nw=1 "${file}"`, { stdio: ["ignore", "pipe", "ignore"] }).toString().trim();
+      const d = parseFloat(out);
+      if (d > 0) return d;
+    } catch {}
+  }
+  // 2) Fallback: parsear la salida de "npx remotion ffmpeg -i".
   try {
     execSync(`npx remotion ffmpeg -hide_banner -i "${file}"`, { stdio: ["ignore", "pipe", "pipe"] });
   } catch (e) {

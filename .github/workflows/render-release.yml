@@ -22,8 +22,13 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with: { node-version: 20 }
-      - uses: actions/setup-python@v5
-        with: { python-version: "3.12" }
+
+      - name: Liberar disco (runner viene con ~25 GB de basura preinstalada)
+        run: |
+          sudo rm -rf /usr/share/dotnet /opt/ghc /usr/local/lib/android \
+            /opt/hostedtoolcache/CodeQL /usr/local/share/boost "$AGENT_TOOLSDIRECTORY" || true
+          sudo docker image prune -a -f 2>/dev/null || true
+          df -h /
 
       - name: Instalar ffmpeg + libs de Chrome (Remotion)
         run: |
@@ -31,9 +36,6 @@ jobs:
           sudo apt-get install -y ffmpeg libnss3 libatk1.0-0 libatk-bridge2.0-0 \
             libcups2 libdrm2 libxkbcommon0 libxcomposite1 libxdamage1 libxfixes3 \
             libxrandr2 libgbm1 libasound2t64 libpango-1.0-0 libcairo2 libatspi2.0-0
-
-      - name: Instalar Whisper
-        run: pip install -U openai-whisper
 
       - name: npm install (Remotion)
         run: npm ci || npm install
@@ -63,15 +65,12 @@ jobs:
               -vsync cfr -avoid_negative_ts make_zero -movflags +faststart "$o" && mv -f "$o" "$f"
           done
 
-      - name: Transcribir voz (calibración anti-drift)
-        run: |
-          mkdir -p out
-          python scripts/_transcribe.py || echo "sin transcripción -> tiempo lineal"
-
       - name: Generar montaje (config.ts)
         env:
           YT_SUBDIR: ${{ github.event.inputs.subdir }}
-        run: node scripts/build-video.mjs
+        run: |
+          df -h /
+          node scripts/build-video.mjs
 
       - name: Renderizar
         run: npm run render

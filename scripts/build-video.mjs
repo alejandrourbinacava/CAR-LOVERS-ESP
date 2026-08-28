@@ -57,48 +57,59 @@ const SUV_MODELS = [
 ];
 
 const OVERLAYS = [
-  // INTRO / HOOK
-  { anchor: "Hay una pregunta que me hacen", kind: "hook", text: "LOS MECÁNICOS NO\nCOMPRAN ALEMÁN USADO", offset: 0.3 },
-  { anchor: "nunca digo BMW", kind: "caption", text: "NI BMW · NI MERCEDES · NI AUDI" },
+  // HOOK
+  { anchor: "Kia te ofrece siete años", kind: "hook", text: "KIA: 7 AÑOS\nTOYOTA: 3 AÑOS", offset: 0.3 },
+  { anchor: "sigue eligiendo Toyota", kind: "stat", value: "+400.000 KM", sub: "LOS MECÁNICOS ELIGEN TOYOTA" },
 
-  // PARTE 1 — la trampa del precio
-  { anchor: "2.5 sobre 5.0", kind: "stat", value: "2,5/5", sub: "FIABILIDAD BMW · REPAIRPAL (30 DE 32)" },
-  { anchor: "968 dólares", kind: "stat", value: "968 $/AÑO", sub: "REPARACIÓN BMW (MEDIA 652)" },
-  { anchor: "908 dólares", kind: "stat", value: "908 $/AÑO", sub: "MERCEDES-BENZ" },
-  { anchor: "Audi, 987", kind: "stat", value: "987 $/AÑO", sub: "AUDI" },
-  { anchor: "Lexus: 551", kind: "stat", value: "551 $/AÑO", sub: "LEXUS" },
-  { anchor: "un 65% más", kind: "stat", value: "+65%", sub: "ALEMÁN vs LEXUS · MANTENIMIENTO" },
+  // PARTE 1 — donde los coreanos ganan
+  { anchor: "PARTE 1:", kind: "hook", text: "DONDE LOS COREANOS\nSÍ GANAN" },
+  { anchor: "siete años o ciento cincuenta mil", kind: "stat", value: "7 AÑOS / 150.000 KM", sub: "GARANTÍA KIA · TRANSFERIBLE" },
+  { anchor: "cinco años sin límite", kind: "stat", value: "5 AÑOS", sub: "GARANTÍA HYUNDAI · SIN LÍMITE KM" },
+  { anchor: "ofrece tres años", kind: "stat", value: "3 AÑOS", sub: "TOYOTA (RELAX HASTA 10)" },
 
-  // PARTE 2 — fuera de garantía
-  { anchor: "16-17%", kind: "stat", value: "16-17%", sub: "FALLO ESCAPE BMW/MERCEDES (MEDIA 5%)" },
-  { anchor: "tres veces más", kind: "stat", value: "x3", sub: "PROBLEMAS ANTICONTAMINACIÓN" },
-  { anchor: "200-400 euros", kind: "caption", text: "UN SENSOR: 200-400 €" },
+  // PARTE 2 — la trampa de la garantía
+  { anchor: "PARTE 2:", kind: "hook", text: "LA TRAMPA DE LA\nGARANTÍA DE 7 AÑOS" },
+  { anchor: "garantía más larga significa un coche más fiable", kind: "caption", text: "GARANTÍA ≠ FIABILIDAD" },
+  { anchor: "herramienta de marketing", kind: "caption", text: "LA GARANTÍA ES MARKETING, NO FIABILIDAD" },
 
-  // PARTE 3 — arquitectura electrónica
-  { anchor: "setenta y noventa módulos", kind: "stat", value: "70-90", sub: "MÓDULOS ELECTRÓNICOS EN UN BMW" },
-  { anchor: "entre cuatrocientos y mil quinientos", kind: "caption", text: "UN MÓDULO: 400-1.500 €" },
-  { anchor: "cuarenta códigos de error", kind: "stat", value: "40 CÓDIGOS", sub: "DIAGNÓSTICO OFICIAL: 400 €" },
+  // PARTE 3 — los datos de 2026
+  { anchor: "PARTE 3:", kind: "hook", text: "LOS DATOS REALES\nDE 2026" },
+  { anchor: "sesenta y seis sobre cien", kind: "stat", value: "66/100", sub: "TOYOTA · Nº1 CONSUMER REPORTS 2026" },
+  { anchor: "octava posición con cuarenta y ocho", kind: "stat", value: "48/100", sub: "HYUNDAI · 8º" },
+  { anchor: "decimotercera posición", kind: "stat", value: "13º", sub: "KIA · CONSUMER REPORTS" },
+  { anchor: "ciento noventa y ocho problemas", kind: "stat", value: "198", sub: "HYUNDAI · J.D. POWER (PROBL./100)" },
+  { anchor: "Kia obtiene ciento noventa y tres", kind: "stat", value: "193", sub: "KIA · J.D. POWER" },
+  { anchor: "ciento cincuenta y uno problemas", kind: "stat", value: "151", sub: "LEXUS · LÍDER J.D. POWER" },
 
-  // PARTE 4 — coste oculto
-  { anchor: "mecatrónica ZF", kind: "stat", value: "2.000-4.000 €", sub: "MECATRÓNICA ZF · CAJA AUTO" },
-  { anchor: "Turbocompresor", kind: "stat", value: "1.200-2.500 €", sub: "TURBOCOMPRESOR" },
-  { anchor: "veinticinco mil euros en el total", kind: "stat", value: "22-25 MIL €", sub: "COSTE REAL 5 AÑOS (COMPRA 15.000)" },
+  // PARTE 4 — Toyota gana en lo que importa
+  { anchor: "PARTE 4:", kind: "hook", text: "TOYOTA GANA EN LO\nQUE MÁS IMPORTA" },
+  { anchor: "noventa y cinco sobre cien", kind: "stat", value: "95/100", sub: "TOYOTA 4RUNNER · C. REPORTS 2026" },
+  { anchor: "2.5 litros de cuatro cilindros del Camry", kind: "caption", text: "2.5 ATMOSFÉRICO · CAMRY / RAV4" },
 
-  // PARTE 6 — los alemanes que SÍ
-  { anchor: "PARTE 6", kind: "hook", text: "LOS ALEMANES\nQUE SÍ COMPRARÍAMOS" },
-  { anchor: "Golf 1.6 TDI", kind: "caption", text: "VW GOLF 1.6/2.0 TDI · SIN BITURBO" },
-  { anchor: "motor B47", kind: "caption", text: "BMW SERIE 1 · MOTOR B47 (POST-2015)" },
+  // PARTE 5 — Theta II
+  { anchor: "PARTE 5:", kind: "hook", text: "EL ELEFANTE:\nEL MOTOR THETA II" },
+  { anchor: "Theta II de 2.0 y 2.4", kind: "stat", value: "THETA II 2.0/2.4", sub: "HYUNDAI-KIA · 2011-2018" },
+  { anchor: "picadura de pistones", kind: "caption", text: "PICADURA DE PISTONES · CONSUMO DE ACEITE" },
+  { anchor: "demandas colectivas", kind: "caption", text: "RETIRADAS + DEMANDAS COLECTIVAS (EE.UU.)" },
 
-  // PARTE 7 — qué compramos
-  { anchor: "PARTE 7", kind: "hook", text: "QUÉ COMPRAMOS\nEN SU LUGAR" },
-  { anchor: "447 dólares", kind: "stat", value: "447 $/AÑO", sub: "MAZDA CX-5 · Nº1 REPAIRPAL" },
-  { anchor: "300.000 km sin averías", kind: "stat", value: "+300.000 KM", sub: "TOYOTA HÍBRIDO" },
-  { anchor: "60 y el 65 por ciento", kind: "stat", value: "60-65%", sub: "LEXUS RETIENE VALOR (BMW ~40%)" },
-  { anchor: "euros más al año de media", kind: "stat", value: "+365 €/AÑO", sub: "BMW vs LEXUS · MANTENIMIENTO" },
-  { anchor: "cuatro marcas más fiables", kind: "caption", text: "SUZUKI · TOP-4 FIABILIDAD OCU 2026" },
+  // PARTE 6 — ICCU
+  { anchor: "PARTE 6:", kind: "hook", text: "EL COMPONENTE\nCOMPARTIDO: ICCU" },
+  { anchor: "llamado ICCU", kind: "stat", value: "ICCU", sub: "FALLO RECURRENTE · EV COREANOS 2026" },
+  { anchor: "Ioniq 5, el EV6", kind: "caption", text: "IONIQ 5 · EV6 · IONIQ 6 · GV60" },
+
+  // PARTE 7 — valor de reventa
+  { anchor: "PARTE 7:", kind: "hook", text: "EL VALOR DE REVENTA:\nEL JUEZ FINAL" },
+  { anchor: "valora los Toyota usados", kind: "caption", text: "TOYOTA · MEJOR REVENTA DEL MERCADO" },
+  { anchor: "garantía transferible de Kia", kind: "caption", text: "KIA · GARANTÍA TRANSFERIBLE SUMA VALOR" },
+
+  // PARTE 8 — qué comprar
+  { anchor: "PARTE 8:", kind: "hook", text: "¿QUÉ DEBERÍAS\nCOMPRAR?" },
+  { anchor: "Compra Hyundai o Kia si", kind: "caption", text: "HYUNDAI/KIA: GARANTÍA + EQUIPO, SI CAMBIAS PRONTO" },
+  { anchor: "Compra Toyota si", kind: "caption", text: "TOYOTA: 10-15 AÑOS, MÁXIMA FIABILIDAD" },
 
   // CIERRE
-  { anchor: "no ve el badge", kind: "hook", text: "NO VEMOS EL BADGE,\nVEMOS LA ARQUITECTURA" },
+  { anchor: "todavía tiene un nombre", kind: "hook", text: "FIABILIDAD A LARGO PLAZO:\nTOYOTA" },
+  { anchor: "Por ingeniería", kind: "caption", text: "NO POR MARKETING. POR INGENIERÍA." },
   { anchor: "Suscríbete para más", kind: "hook", text: "SUSCRÍBETE" },
 ];
 
@@ -117,36 +128,23 @@ const PINS = [];
 // `anchors` = subcadenas del guion; se usan CÓDIGOS DE MOTOR porque son únicos
 // por marca -> refuerzan la "regla roja" también en la síntesis final.
 const ENTITIES = [
-  // VILLANOS (Partes 1-5 y 8). "villanos" = principal de sección: ROTA entre los
-  // 3 alemanes (el guion habla de "coches alemanes" en general) -> triple metraje,
-  // sin repetir. Las menciones ESPECÍFICAS de modelo pinchan su coche exacto.
-  { key: "villanos", label: "ALEMÁN PREMIUM", query: "", videos: ["bmwserie3", "mercedesclasee", "audia6"], anchors: [] },
-  { key: "bmwserie3", label: "BMW SERIE 3", query: "BMW 3 Series", videos: ["bmwserie3"],
-    anchors: ["Serie 3", "módulo FRM", "módulo CAS", "módulo DSC", "módulo EGS"] },
-  { key: "mercedesclasee", label: "MERCEDES CLASE E", query: "Mercedes-Benz E-Class", videos: ["mercedesclasee"],
-    anchors: ["Clase E", "Mercedes-Benz"] },
-  { key: "audia6", label: "AUDI A6", query: "Audi A6", videos: ["audia6"],
-    anchors: ["Audi A6"] },
-  // ALEMANES QUE SÍ (Parte 6)
-  { key: "vwgolftdi", label: "VW GOLF TDI", query: "Volkswagen Golf", videos: ["vwgolftdi"],
-    anchors: ["Golf", "1.6 TDI", "2.0 TDI", "TDI de Volkswagen"] },
-  { key: "bmwserie1", label: "BMW SERIE 1", query: "BMW 1 Series", videos: ["bmwserie1"],
-    anchors: ["Serie 1", "B47"] },
-  { key: "mercedesclasea", label: "MERCEDES CLASE A/B", query: "Mercedes-Benz A-Class", videos: ["mercedesclasea"],
-    anchors: ["Clase A", "Clase B", "W176", "W246"] },
-  // ALTERNATIVAS / HÉROES (Parte 7)
-  { key: "mazdacx5", label: "MAZDA", query: "Mazda CX-5", videos: ["mazdacx5"],
-    anchors: ["Mazda", "CX-5", "Mazda3", "Skyactiv"] },
-  { key: "toyotarav4", label: "TOYOTA", query: "Toyota RAV4", videos: ["toyotarav4"],
-    anchors: ["Toyota", "RAV4", "Corolla"] },
-  { key: "lexusis", label: "LEXUS", query: "Lexus IS", videos: ["lexusis"],
-    anchors: ["Lexus", "Lexus IS", "Lexus RX"] },
-  { key: "hondacrv", label: "HONDA", query: "Honda CR-V", videos: ["hondacrv"],
-    anchors: ["Honda", "CR-V", "Civic"] },
-  { key: "suzukivitara", label: "SUZUKI", query: "Suzuki Vitara", videos: ["suzukivitara"],
-    anchors: ["Suzuki", "Vitara"] },
-  { key: "daciaduster", label: "DACIA", query: "Dacia Duster", videos: ["daciaduster"],
-    anchors: ["Dacia", "Duster", "K9K"] },
+  // Toyota = HÉROE (rota entre RAV4, Camry, 4Runner)
+  { key: "toyota", label: "TOYOTA", query: "Toyota RAV4", videos: ["toyotarav4", "toyotacamry", "toyota4runner"],
+    anchors: ["RAV4", "Camry", "4Runner", "2.5 litros", "2GR-FE", "1CD-FTV", "Toyota Relax", "híbridos de Toyota"] },
+  // Coreanos general (rota Tucson + Sportage) -> solo primary de sección
+  { key: "coreanos", label: "", query: "", videos: ["hyundaitucson", "kiasportage"], anchors: [] },
+  { key: "hyundai", label: "HYUNDAI", query: "Hyundai Tucson", videos: ["hyundaitucson"],
+    anchors: ["Hyundai", "Tucson", "Theta II"] },
+  { key: "kia", label: "KIA", query: "Kia Sportage", videos: ["kiasportage"],
+    anchors: ["Kia", "Sportage"] },
+  // EV coreanos (Parte 6) -> rota Ioniq5 + EV6
+  { key: "coreanosev", label: "", query: "", videos: ["hyundaiioniq5", "kiaev6"], anchors: [] },
+  { key: "hyundaiioniq5", label: "HYUNDAI IONIQ 5", query: "Hyundai Ioniq 5", videos: ["hyundaiioniq5"],
+    anchors: ["Ioniq 5", "Ioniq 6"] },
+  { key: "kiaev6", label: "KIA EV6", query: "Kia EV6", videos: ["kiaev6"],
+    anchors: ["EV6", "GV60"] },
+  { key: "lexus", label: "LEXUS", query: "Lexus RX", videos: ["lexusrx"],
+    anchors: ["Lexus"] },
   { key: "cierre", label: "", query: "", videos: [], anchors: [] },
 ];
 
@@ -155,18 +153,16 @@ const ENTITIES = [
 // genérico). anchor = cabecera de sección en el guion. La intro (antes de TOYOTA)
 // queda sin principal -> vídeo general.
 const SECTIONS = [
-  { anchor: "PARTE 1:", primary: "villanos" },
-  { anchor: "PARTE 2:", primary: "villanos" },
-  { anchor: "PARTE 3:", primary: "villanos" },
-  { anchor: "PARTE 4:", primary: "villanos" },
-  { anchor: "PARTE 5:", primary: "villanos" },
-  { anchor: "PARTE 6", primary: "vwgolftdi" },
-  { anchor: "SENSACIONES: MAZDA", primary: "mazdacx5" },
-  { anchor: "FIABILIDAD: TOYOTA", primary: "toyotarav4" },
-  { anchor: "RAZONABLE: LEXUS", primary: "lexusis" },
-  { anchor: "PRACTICIDAD: HONDA", primary: "hondacrv" },
-  { anchor: "AJUSTADO: SUZUKI", primary: "suzukivitara" },
-  { anchor: "PARTE 8:", primary: "villanos" },
+  { anchor: "PARTE 1:", primary: "coreanos" },
+  { anchor: "PARTE 2:", primary: "coreanos" },
+  { anchor: "PARTE 3:", primary: "toyota" },
+  { anchor: "PARTE 4:", primary: "toyota" },
+  { anchor: "PARTE 5:", primary: "coreanos" },
+  { anchor: "PARTE 6:", primary: "coreanosev" },
+  { anchor: "PARTE 7:", primary: "toyota" },
+  { anchor: "PARTE 8:", primary: "coreanos" },
+  { anchor: "Compra Toyota si", primary: "toyota" },
+  { anchor: "CONCLUSIÓN", primary: "toyota" },
 ];
 
 async function loadEnv() {

@@ -14,7 +14,9 @@ const out = path.join(ROOT, "out", `${titulo}.mp4`);
 const extra = process.argv.slice(2).join(" ");
 
 console.log(`Renderizando -> ${out}`);
-execSync(`npx remotion render src/index.ts CarVideo "${out}" --crf=23 ${extra}`, {
+// --timeout alto: en runners lentos (2 núcleos) decodificar clips largos tarda
+// más de los 30s por defecto y salta "delayRender timeout". 120s da margen.
+execSync(`npx remotion render src/index.ts CarVideo "${out}" --crf=23 --timeout=120000 ${extra}`, {
   stdio: "inherit",
 });
 console.log(`\n✅ Listo: ${out}`);

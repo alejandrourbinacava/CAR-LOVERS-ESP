@@ -30,7 +30,7 @@ export const CarVideo: React.FC = () => {
       {narrationSrc && <Audio src={staticFile(narrationSrc)} volume={1} />}
       {/* Musica de fondo a -30 dB, SOLO si existe el archivo (regla del cliente:
           normalmente se añade la música aparte con ducking, no incrustada). */}
-      {musicSrc && <Audio src={staticFile(musicSrc)} loop volume={0.0316} />}
+      {musicSrc && <Audio src={staticFile(musicSrc)} loop volume={0.1} />}
 
 
       {/* PISTA 1: b-roll a pantalla completa */}

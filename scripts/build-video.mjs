@@ -32,84 +32,80 @@ const CLIPS_PER_QUERY = 8;
 // Busquedas de b-roll SUV-estrictas (regla del cliente: solo SUV cuando habla
 // de SUV; nada de deportivos ni escenas random). Los planos de peaton/prensa
 // son tematicos de su seccion.
+// VÍDEO 6 (LSPI): conceptual, NO SUV. B-roll temático de motor. Estas queries
+// solo se usan como red de seguridad (si los clips de YouTube salieran cortos y
+// no se activara la ruta usingYt); con clips ≥100s el relleno es genInterleaved.
 const PARTS = [
-  { key: "intro", anchor: null, queries: ["suv driving highway", "suv city street", "suv road aerial", "black suv driving"] },
-  { key: "p1", anchor: "PARTE 1:", queries: ["suv car dealership", "suv showroom", "suv parking lot", "suv new car"] },
-  { key: "p2", anchor: "PARTE 2:", queries: ["suv driving highway fast", "suv gas station", "suv aerial highway", "suv dashboard driving"] },
-  { key: "p3", anchor: "PARTE 3:", queries: ["suv tire close up", "suv wheel", "suv tire change garage", "suv brakes wheel"] },
-  { key: "p4", anchor: "PARTE 4:", queries: ["suv trunk open cargo", "suv boot luggage", "suv interior seats", "suv loading luggage"] },
-  { key: "p5", anchor: "PARTE 5:", queries: ["suv crash test", "suv driving snow", "suv headlights night", "suv winter road"] },
-  { key: "p6", anchor: "PARTE 6:", queries: ["pedestrian crossing street", "people crosswalk city", "suv front grille close up", "city crosswalk pedestrians"] },
-  { key: "p7", anchor: "PARTE 7:", queries: ["suv exhaust pipe", "electric suv charging", "suv city traffic", "suv highway traffic"] },
-  { key: "p8", anchor: "PARTE 8:", queries: ["suv offroad dirt road", "suv mountain road", "suv countryside driving", "suv adventure travel"] },
-  { key: "p9", anchor: "PARTE 9:", queries: ["suv showroom lineup", "suv parking dealership", "suv factory production", "suv highway driving"] },
-  { key: "p10", anchor: "PARTE 10:", queries: ["suv city driving", "suv parked street", "suv highway aerial", "suv dashboard interior"] },
-  { key: "fin", anchor: "CONCLUSIÓN", queries: ["suv driving sunset", "suv dealership customer", "suv steering wheel", "suv road trip"] },
+  { key: "intro", anchor: null, queries: ["car engine running", "engine pistons animation", "car dashboard driving", "engine bay closeup"] },
+  { key: "p1", anchor: "PARTE 1:", queries: ["car driving highway dashboard", "hand gear shift stick", "tachometer rpm gauge", "car accelerating road"] },
+  { key: "p2", anchor: "PARTE 2:", queries: ["engine combustion animation", "car engine cylinder", "engine pistons moving", "engine motor running"] },
+  { key: "p3", anchor: "PARTE 3:", queries: ["turbo engine", "modern car engine bay", "engine fuel injection", "car engine factory"] },
+  { key: "p4", anchor: "PARTE 4:", queries: ["engine oil pouring", "dirty engine carbon", "engine oil change", "fuel injector cleaning"] },
+  { key: "p5", anchor: "PARTE 5:", queries: ["car eco mode button", "car dashboard city driving", "car city traffic", "car dashboard buttons"] },
+  { key: "p6", anchor: "PARTE 6:", queries: ["hand gear shift stick", "car gear lever", "tachometer rpm", "engine oil bottle"] },
+  { key: "p7", anchor: "PARTE 7:", queries: ["car exhaust smoke", "blue smoke exhaust pipe", "car engine warning light", "car dashboard warning light"] },
+  { key: "fin", anchor: "CONCLUSIÓN", queries: ["car engine running", "car driving sunset", "hand gear shift stick", "car dashboard highway"] },
 ];
 
 // Modelos SUV para el POOL DE IMAGENES (relleno garantizado de SUV real cuando
 // los clips no basten). Se usan como planos de b-roll (tarjeta + Ken Burns).
 // Modelos con imagen ya en disco (evita depender de descargas nuevas, que
 // Wikimedia esta limitando por IP en esta sesion).
-const SUV_MODELS = [
-  "Toyota RAV4", "Honda CR-V", "Nissan Qashqai", "Hyundai Tucson", "Kia Sportage",
-  "Volkswagen Tiguan", "Mazda CX-5", "Volvo XC60", "Skoda Kodiaq", "Ford Kuga",
-];
+// Vídeo 6 (LSPI) es conceptual: sin pool de imágenes de SUV (serían fuera de tema).
+const SUV_MODELS = [];
 
+// VÍDEO 6 — LSPI. Anclas verificadas literalmente en input/guion-completo.txt.
 const OVERLAYS = [
   // HOOK
-  { anchor: "Kia te ofrece siete años", kind: "hook", text: "KIA: 7 AÑOS\nTOYOTA: 3 AÑOS", offset: 0.3 },
-  { anchor: "sigue eligiendo Toyota", kind: "stat", value: "+400.000 KM", sub: "LOS MECÁNICOS ELIGEN TOYOTA" },
+  { anchor: "agujerear un pistón", kind: "caption", text: "AGUJEREA PISTONES · DOBLA BIELAS" },
+  { anchor: "Se llama LSPI", kind: "hook", text: "SE LLAMA\nLSPI" },
 
-  // PARTE 1 — donde los coreanos ganan
-  { anchor: "PARTE 1:", kind: "hook", text: "DONDE LOS COREANOS\nSÍ GANAN" },
-  { anchor: "siete años o ciento cincuenta mil", kind: "stat", value: "7 AÑOS / 150.000 KM", sub: "GARANTÍA KIA · TRANSFERIBLE" },
-  { anchor: "cinco años sin límite", kind: "stat", value: "5 AÑOS", sub: "GARANTÍA HYUNDAI · SIN LÍMITE KM" },
-  { anchor: "ofrece tres años", kind: "stat", value: "3 AÑOS", sub: "TOYOTA (RELAX HASTA 10)" },
+  // PARTE 1 — el gesto
+  { anchor: "PARTE 1:", kind: "hook", text: "EL GESTO QUE TODOS\nHACEMOS SIN PENSAR" },
+  { anchor: "acelerar con fuerza en marcha alta a bajas revoluciones", kind: "caption", text: "ACELERAR FUERTE + MARCHA ALTA + BAJAS RPM" },
+  { anchor: "ruleta rusa mecánica", kind: "caption", text: "= RULETA RUSA MECÁNICA" },
 
-  // PARTE 2 — la trampa de la garantía
-  { anchor: "PARTE 2:", kind: "hook", text: "LA TRAMPA DE LA\nGARANTÍA DE 7 AÑOS" },
-  { anchor: "garantía más larga significa un coche más fiable", kind: "caption", text: "GARANTÍA ≠ FIABILIDAD" },
-  { anchor: "herramienta de marketing", kind: "caption", text: "LA GARANTÍA ES MARKETING, NO FIABILIDAD" },
+  // PARTE 2 — qué es
+  { anchor: "PARTE 2:", kind: "hook", text: "QUÉ ES\nEL LSPI" },
+  { anchor: "Low Speed Pre-Ignition", kind: "stat", value: "LSPI", sub: "PRE-IGNICIÓN A BAJAS REVOLUCIONES" },
+  { anchor: "martillazo dentro del motor", kind: "caption", text: "SUENA COMO UN MARTILLAZO EN EL MOTOR" },
+  { anchor: "pistones agujereados, segmentos rotos y bielas dobladas", kind: "caption", text: "PISTÓN AGUJEREADO · SEGMENTOS ROTOS · BIELA DOBLADA" },
 
-  // PARTE 3 — los datos de 2026
-  { anchor: "PARTE 3:", kind: "hook", text: "LOS DATOS REALES\nDE 2026" },
-  { anchor: "sesenta y seis sobre cien", kind: "stat", value: "66/100", sub: "TOYOTA · Nº1 CONSUMER REPORTS 2026" },
-  { anchor: "octava posición con cuarenta y ocho", kind: "stat", value: "48/100", sub: "HYUNDAI · 8º" },
-  { anchor: "decimotercera posición", kind: "stat", value: "13º", sub: "KIA · CONSUMER REPORTS" },
-  { anchor: "ciento noventa y ocho problemas", kind: "stat", value: "198", sub: "HYUNDAI · J.D. POWER (PROBL./100)" },
-  { anchor: "Kia obtiene ciento noventa y tres", kind: "stat", value: "193", sub: "KIA · J.D. POWER" },
-  { anchor: "ciento cincuenta y uno problemas", kind: "stat", value: "151", sub: "LEXUS · LÍDER J.D. POWER" },
+  // PARTE 3 — solo motores modernos
+  { anchor: "PARTE 3:", kind: "hook", text: "SOLO AFECTA A LOS\nMOTORES MODERNOS" },
+  { anchor: "alta compresión con inyección directa", kind: "caption", text: "ALTA COMPRESIÓN + TURBO + INYECCIÓN DIRECTA" },
+  { anchor: "1.2 PureTech de Stellantis o un Ford EcoBoost", kind: "caption", text: "ZONA DE RIESGO: PureTech · EcoBoost" },
+  { anchor: "los TSI y TFSI", kind: "caption", text: "TSI · TFSI · TCe · DIG-T · T-GDI" },
 
-  // PARTE 4 — Toyota gana en lo que importa
-  { anchor: "PARTE 4:", kind: "hook", text: "TOYOTA GANA EN LO\nQUE MÁS IMPORTA" },
-  { anchor: "noventa y cinco sobre cien", kind: "stat", value: "95/100", sub: "TOYOTA 4RUNNER · C. REPORTS 2026" },
-  { anchor: "2.5 litros de cuatro cilindros del Camry", kind: "caption", text: "2.5 ATMOSFÉRICO · CAMRY / RAV4" },
+  // PARTE 4 — los 3 factores
+  { anchor: "PARTE 4:", kind: "hook", text: "LOS 3 FACTORES\nQUE DISPARAN EL LSPI" },
+  { anchor: "por debajo de dos mil quinientas revoluciones", kind: "stat", value: "< 2.500 RPM", sub: "ZONA DE MÁXIMO RIESGO" },
+  { anchor: "carbonilla y los sedimentos", kind: "caption", text: "FACTOR 2 · CARBONILLA Y SEDIMENTOS" },
+  { anchor: "aceite incorrecto", kind: "caption", text: "FACTOR 3 · ACEITE INCORRECTO" },
+  { anchor: "API SP, ACEA C6 o ILSAC GF-6", kind: "stat", value: "API SP · ACEA C6 · GF-6", sub: "ACEITES CON TEST ANTI-LSPI" },
 
-  // PARTE 5 — Theta II
-  { anchor: "PARTE 5:", kind: "hook", text: "EL ELEFANTE:\nEL MOTOR THETA II" },
-  { anchor: "Theta II de 2.0 y 2.4", kind: "stat", value: "THETA II 2.0/2.4", sub: "HYUNDAI-KIA · 2011-2018" },
-  { anchor: "picadura de pistones", kind: "caption", text: "PICADURA DE PISTONES · CONSUMO DE ACEITE" },
-  { anchor: "demandas colectivas", kind: "caption", text: "RETIRADAS + DEMANDAS COLECTIVAS (EE.UU.)" },
+  // PARTE 5 — modo ECO
+  { anchor: "PARTE 5:", kind: "hook", text: "EL ERROR DENTRO\nDEL ERROR: EL MODO ECO" },
+  { anchor: "modo ECO te mete sistemáticamente", kind: "caption", text: "MODO ECO = BAJAS RPM SISTEMÁTICAS" },
+  { anchor: "desactivar el modo ECO", kind: "caption", text: "TURBO + CIUDAD → DESACTIVA EL MODO ECO" },
 
-  // PARTE 6 — ICCU
-  { anchor: "PARTE 6:", kind: "hook", text: "EL COMPONENTE\nCOMPARTIDO: ICCU" },
-  { anchor: "llamado ICCU", kind: "stat", value: "ICCU", sub: "FALLO RECURRENTE · EV COREANOS 2026" },
-  { anchor: "Ioniq 5, el EV6", kind: "caption", text: "IONIQ 5 · EV6 · IONIQ 6 · GV60" },
+  // PARTE 6 — cómo evitarlo (las 5 reglas)
+  { anchor: "PARTE 6:", kind: "hook", text: "CÓMO DEJAR DE\nDESTRUIR TU MOTOR" },
+  { anchor: "nunca aceleres con fuerza por debajo de dos mil quinientas", kind: "caption", text: "REGLA 1 · NUNCA ACELERAR FUERTE < 2.500 RPM" },
+  { anchor: "baja una marcha primero", kind: "caption", text: "¿POTENCIA? BAJA UNA MARCHA PRIMERO" },
+  { anchor: "el aceite que especifica tu fabricante", kind: "caption", text: "REGLA 2 · EL ACEITE EXACTO DEL FABRICANTE" },
+  { anchor: "mantén la cámara de combustión limpia", kind: "caption", text: "REGLA 3 · CÁMARA LIMPIA (LIMPIEZA ITALIANA)" },
+  { anchor: "desactiva el modo ECO en ciudad", kind: "caption", text: "REGLA 4 · DESACTIVA EL MODO ECO EN CIUDAD" },
+  { anchor: "limpiadores de inyectores", kind: "caption", text: "REGLA 5 · LIMPIA INYECTORES /15-20.000 KM" },
 
-  // PARTE 7 — valor de reventa
-  { anchor: "PARTE 7:", kind: "hook", text: "EL VALOR DE REVENTA:\nEL JUEZ FINAL" },
-  { anchor: "valora los Toyota usados", kind: "caption", text: "TOYOTA · MEJOR REVENTA DEL MERCADO" },
-  { anchor: "garantía transferible de Kia", kind: "caption", text: "KIA · GARANTÍA TRANSFERIBLE SUMA VALOR" },
+  // PARTE 7 — síntomas
+  { anchor: "PARTE 7:", kind: "hook", text: "¿YA ESTÁ PASANDO\nEN TU MOTOR?" },
+  { anchor: "martillazo metálico seco", kind: "caption", text: "SÍNTOMA · MARTILLAZO METÁLICO SECO" },
+  { anchor: "humo azulado por el escape", kind: "caption", text: "HUMO AZUL = DAÑO HECHO · AL TALLER" },
 
-  // PARTE 8 — qué comprar
-  { anchor: "PARTE 8:", kind: "hook", text: "¿QUÉ DEBERÍAS\nCOMPRAR?" },
-  { anchor: "Compra Hyundai o Kia si", kind: "caption", text: "HYUNDAI/KIA: GARANTÍA + EQUIPO, SI CAMBIAS PRONTO" },
-  { anchor: "Compra Toyota si", kind: "caption", text: "TOYOTA: 10-15 AÑOS, MÁXIMA FIABILIDAD" },
-
-  // CIERRE
-  { anchor: "todavía tiene un nombre", kind: "hook", text: "FIABILIDAD A LARGO PLAZO:\nTOYOTA" },
-  { anchor: "Por ingeniería", kind: "caption", text: "NO POR MARKETING. POR INGENIERÍA." },
+  // CONCLUSIÓN
+  { anchor: "ochenta por ciento de los conductores", kind: "stat", value: "80%", sub: "NO SABE QUE LO HACE" },
+  { anchor: "bajar esa marcha", kind: "hook", text: "LA SOLUCIÓN:\nBAJA UNA MARCHA" },
   { anchor: "Suscríbete para más", kind: "hook", text: "SUSCRÍBETE" },
 ];
 
@@ -127,24 +123,41 @@ const PINS = [];
 // vacío, la marca cae a IMÁGENES (Wikimedia/SerpAPI) usando `query`.
 // `anchors` = subcadenas del guion; se usan CÓDIGOS DE MOTOR porque son únicos
 // por marca -> refuerzan la "regla roja" también en la síntesis final.
+// VÍDEO 6 — LSPI (conceptual). Cada entidad = un CONCEPTO con su clip temático
+// (marca-<key>.mp4 en public/assets/yt-lspi). `videos` vacío -> cae a genérico.
 const ENTITIES = [
-  // Toyota = HÉROE (rota entre RAV4, Camry, 4Runner)
-  { key: "toyota", label: "TOYOTA", query: "Toyota RAV4", videos: ["toyotarav4", "toyotacamry", "toyota4runner"],
-    anchors: ["RAV4", "Camry", "4Runner", "2.5 litros", "2GR-FE", "1CD-FTV", "Toyota Relax", "híbridos de Toyota"] },
-  // Coreanos general (rota Tucson + Sportage) -> solo primary de sección
-  { key: "coreanos", label: "", query: "", videos: ["hyundaitucson", "kiasportage"], anchors: [] },
-  { key: "hyundai", label: "HYUNDAI", query: "Hyundai Tucson", videos: ["hyundaitucson"],
-    anchors: ["Hyundai", "Tucson", "Theta II"] },
-  { key: "kia", label: "KIA", query: "Kia Sportage", videos: ["kiasportage"],
-    anchors: ["Kia", "Sportage"] },
-  // EV coreanos (Parte 6) -> rota Ioniq5 + EV6
-  { key: "coreanosev", label: "", query: "", videos: ["hyundaiioniq5", "kiaev6"], anchors: [] },
-  { key: "hyundaiioniq5", label: "HYUNDAI IONIQ 5", query: "Hyundai Ioniq 5", videos: ["hyundaiioniq5"],
-    anchors: ["Ioniq 5", "Ioniq 6"] },
-  { key: "kiaev6", label: "KIA EV6", query: "Kia EV6", videos: ["kiaev6"],
-    anchors: ["EV6", "GV60"] },
-  { key: "lexus", label: "LEXUS", query: "Lexus RX", videos: ["lexusrx"],
-    anchors: ["Lexus"] },
+  // Núcleo: motor / cámara de combustión (rota combustion + tsi para variedad)
+  { key: "combustion", label: "", query: "", videos: ["combustion", "tsi"],
+    anchors: ["LSPI", "pre-ignición", "preignición", "preencendido", "encendido prematuro",
+      "pistón", "biela", "cámara de combustión", "chispa", "bujía", "cilindro"] },
+  // Cuentavueltas / revoluciones (el gesto)
+  { key: "tacometro", label: "", query: "", videos: ["tacometro"],
+    anchors: ["revoluciones", "mil quinientas", "dos mil quinientas", "tres mil",
+      "cuatro mil", "el motor gira bajo", "de vueltas"] },
+  // Cambio de marcha (la solución)
+  { key: "cambio", label: "", query: "", videos: ["cambio"],
+    anchors: ["marcha alta", "reduce una marcha", "baja una marcha", "bajar esa marcha",
+      "reducir de marcha", "Cuarta, quinta"] },
+  // Motores de riesgo -> rotación (primary de PARTE 3)
+  { key: "riesgo", label: "", query: "", videos: ["ecoboost", "puretech", "tsi"], anchors: [] },
+  { key: "ecoboost", label: "", query: "", videos: ["ecoboost"],
+    anchors: ["EcoBoost", "Ford EcoBoost"] },
+  { key: "puretech", label: "", query: "", videos: ["puretech"],
+    anchors: ["PureTech", "Stellantis"] },
+  { key: "tsi", label: "", query: "", videos: ["tsi"],
+    anchors: ["TSI", "TFSI", "TCe", "DIG-T", "T-GDI", "turbo de inyección directa", "inyección directa"] },
+  // Carbonilla / sedimentos (factor 2)
+  { key: "carbonilla", label: "", query: "", videos: ["carbonilla"],
+    anchors: ["carbonilla", "sedimentos", "depósitos de carbón", "incandescencia"] },
+  // Inyectores (regla 5)
+  { key: "inyectores", label: "", query: "", videos: ["inyectores"],
+    anchors: ["inyectores"] },
+  // Modo ECO
+  { key: "ecomode", label: "", query: "", videos: ["ecomode"],
+    anchors: ["modo ECO"] },
+  // Humo azul / síntomas
+  { key: "humo", label: "", query: "", videos: ["humo"],
+    anchors: ["humo azul", "humo azulado", "segmentos del pistón", "testigo de avería", "quemando aceite"] },
   { key: "cierre", label: "", query: "", videos: [], anchors: [] },
 ];
 
@@ -152,17 +165,16 @@ const ENTITIES = [
 // se menciona explícitamente otra cosa, se muestra el vídeo de ESA marca (no uno
 // genérico). anchor = cabecera de sección en el guion. La intro (antes de TOYOTA)
 // queda sin principal -> vídeo general.
+// VÍDEO 6 — LSPI: primary temático por parte (la intro/HOOK cae a mención combustion).
 const SECTIONS = [
-  { anchor: "PARTE 1:", primary: "coreanos" },
-  { anchor: "PARTE 2:", primary: "coreanos" },
-  { anchor: "PARTE 3:", primary: "toyota" },
-  { anchor: "PARTE 4:", primary: "toyota" },
-  { anchor: "PARTE 5:", primary: "coreanos" },
-  { anchor: "PARTE 6:", primary: "coreanosev" },
-  { anchor: "PARTE 7:", primary: "toyota" },
-  { anchor: "PARTE 8:", primary: "coreanos" },
-  { anchor: "Compra Toyota si", primary: "toyota" },
-  { anchor: "CONCLUSIÓN", primary: "toyota" },
+  { anchor: "PARTE 1:", primary: "tacometro" },   // el gesto / revoluciones
+  { anchor: "PARTE 2:", primary: "combustion" },  // mecanismo del LSPI
+  { anchor: "PARTE 3:", primary: "riesgo" },       // motores modernos de riesgo
+  { anchor: "PARTE 4:", primary: "carbonilla" },   // los 3 factores
+  { anchor: "PARTE 5:", primary: "ecomode" },      // modo ECO
+  { anchor: "PARTE 6:", primary: "cambio" },       // baja una marcha
+  { anchor: "PARTE 7:", primary: "humo" },         // síntomas
+  { anchor: "CONCLUSIÓN", primary: "combustion" },
 ];
 
 async function loadEnv() {
@@ -424,13 +436,20 @@ async function getYtWindows() {
   const wins = [];
   for (const f of files) {
     const dur = videoDurationSec(path.join(YT_DIR, f));
-    if (dur < 100) continue;
+    if (dur < 25) continue;
     const src = `assets/${YT_SUBDIR}/${f}`;
     // "marca-<key>.mp4" -> vídeo etiquetado de esa marca/modelo.
     const mm = f.match(/^marca-([a-z0-9]+)\./i);
     const brand = mm ? mm[1].toLowerCase() : null;
-    // Saltamos 45s de intro y 45s de outro (donde suele haber caretas/logos).
-    for (let t = 45; t < dur - 45; t += 7) {
+    // Margen/paso adaptativos: los vídeos LARGOS de YouTube suelen tener careta
+    // (saltar 45s intro/outro); los CORTOS de stock (tacómetro, cambio de marcha,
+    // animación TSI) no tienen careta -> margen pequeño para no quedarnos sin
+    // ventanas. Se deja siempre ≥8s de cola para que quepa el plano (hasta 7s).
+    const shortClip = dur < 200;
+    const margin = shortClip ? Math.min(6, dur * 0.05) : 45;
+    const endMargin = shortClip ? 9 : 45;
+    const step = shortClip ? 4 : 7;
+    for (let t = margin; t < dur - endMargin; t += step) {
       wins.push({ src, key: `${src}#${Math.round(t)}`, file: src, fixedStart: +t.toFixed(1), brand });
     }
   }

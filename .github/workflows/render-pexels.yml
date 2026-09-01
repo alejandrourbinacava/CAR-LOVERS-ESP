@@ -1,0 +1,80 @@
+name: Renderizar (nube, b-roll Pexels)
+
+# Para vídeos CONCEPTUALES (sin clips de marca): el b-roll es stock limpio de
+# Pexels, que la nube descarga sola (Pexels no bloquea datacenters como YouTube).
+# No hay que subir clips. Necesita el secret PEXELS_API_KEY en el repo.
+# La narración y out/_align.json van en el repo.
+
+on:
+  workflow_dispatch:
+    inputs:
+      subdir:
+        description: "Carpeta de clips de marca (vacía en conceptuales)"
+        default: "yt-lspi"
+
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    timeout-minutes: 320
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 20 }
+
+      - name: Liberar disco
+        run: |
+          sudo rm -rf /usr/share/dotnet /opt/ghc /usr/local/lib/android \
+            /opt/hostedtoolcache/CodeQL /usr/local/share/boost "$AGENT_TOOLSDIRECTORY" || true
+          sudo docker image prune -a -f 2>/dev/null || true
+          df -h /
+
+      - name: Instalar ffmpeg + libs de Chrome (Remotion)
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg libnss3 libatk1.0-0 libatk-bridge2.0-0 \
+            libcups2 libdrm2 libxkbcommon0 libxcomposite1 libxdamage1 libxfixes3 \
+            libxrandr2 libgbm1 libasound2t64 libpango-1.0-0 libcairo2 libatspi2.0-0
+
+      - name: npm install (Remotion)
+        run: npm ci || npm install
+
+      - name: Comprobar narración
+        run: test -f input/narration.mp3 && ls -la input/narration.mp3
+
+      - name: Generar montaje + descargar b-roll Pexels
+        env:
+          YT_SUBDIR: ${{ github.event.inputs.subdir }}
+          PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
+        run: |
+          test -n "$PEXELS_API_KEY" || { echo "FALTA el secret PEXELS_API_KEY en el repo"; exit 1; }
+          node scripts/build-video.mjs
+
+      - name: Normalizar b-roll a CFR 30fps (seguro para Remotion)
+        run: |
+          cd public/assets/clips
+          norm() {
+            local f="$1"; local o="${f%.mp4}.fix.mp4"
+            ffmpeg -y -hide_banner -loglevel error -fflags +genpts -i "$f" \
+              -vf "fps=30,setpts=PTS-STARTPTS,scale=-2:'min(1080,ih)'" -c:v libx264 -preset ultrafast -crf 23 \
+              -g 15 -keyint_min 15 -sc_threshold 0 -pix_fmt yuv420p -an \
+              -vsync cfr -avoid_negative_ts make_zero -movflags +faststart "$o" \
+              && mv -f "$o" "$f" || echo "  (aviso: no se normalizó $f)"
+          }
+          N=0
+          for f in v-*.mp4; do
+            [ -f "$f" ] || continue
+            norm "$f" &
+            N=$((N+1)); [ $((N % 3)) -eq 0 ] && wait
+          done
+          wait
+          echo "normalizados: $(ls v-*.mp4 2>/dev/null | wc -l)"
+
+      - name: Renderizar
+        run: npm run render
+
+      - name: Subir el vídeo final
+        uses: actions/upload-artifact@v4
+        with:
+          name: video-final
+          path: out/*.mp4
+          retention-days: 7

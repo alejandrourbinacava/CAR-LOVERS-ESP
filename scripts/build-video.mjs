@@ -615,8 +615,13 @@ async function main() {
   const keyOf = (c) => c.key ?? c.src;
   const fileOf = (c) => c.file ?? c.src;
   const pick = (pool) => {
-    let cand = pool.filter((c) => fileOf(c) !== prevFile);
-    if (!cand.length) cand = pool.slice();
+    // Regla del cliente: NINGÚN clip aparece 2 veces en el mismo vídeo.
+    // 1) clips NO usados aún de la parte activa (temáticos).
+    let cand = pool.filter((c) => !usedCount[keyOf(c)] && fileOf(c) !== prevFile);
+    // 2) si la parte agotó sus clips nuevos, tirar del pool GLOBAL sin usar.
+    if (!cand.length) cand = allClips.filter((c) => !usedCount[keyOf(c)] && fileOf(c) !== prevFile);
+    // 3) último recurso (agotados los 236 únicos): el menos usado, no adyacente.
+    if (!cand.length) { cand = pool.filter((c) => fileOf(c) !== prevFile); if (!cand.length) cand = pool.slice(); }
     cand.sort((a, b) => (usedCount[keyOf(a)] || 0) - (usedCount[keyOf(b)] || 0));
     const c = cand[0];
     usedCount[keyOf(c)] = (usedCount[keyOf(c)] || 0) + 1;

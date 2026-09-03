@@ -32,19 +32,19 @@ const CLIPS_PER_QUERY = 8;
 // Busquedas de b-roll SUV-estrictas (regla del cliente: solo SUV cuando habla
 // de SUV; nada de deportivos ni escenas random). Los planos de peaton/prensa
 // son tematicos de su seccion.
-// VÍDEO 6 (LSPI): conceptual, NO SUV. B-roll temático de motor. Estas queries
-// solo se usan como red de seguridad (si los clips de YouTube salieran cortos y
-// no se activara la ruta usingYt); con clips ≥100s el relleno es genInterleaved.
+// VÍDEO 7 (CAJAS AUTOMÁTICAS DSG/CVT): conceptual, b-roll stock Pexels limpio
+// (caja/transmisión/aceite). Sin clips de YouTube -> ruta Pexels (usingYt=false).
 const PARTS = [
-  { key: "intro", anchor: null, queries: ["car engine running", "engine pistons animation", "car dashboard driving", "engine bay closeup"] },
-  { key: "p1", anchor: "PARTE 1:", queries: ["car driving highway dashboard", "hand gear shift stick", "tachometer rpm gauge", "car accelerating road"] },
-  { key: "p2", anchor: "PARTE 2:", queries: ["engine combustion animation", "car engine cylinder", "engine pistons moving", "engine motor running"] },
-  { key: "p3", anchor: "PARTE 3:", queries: ["turbo engine", "modern car engine bay", "engine fuel injection", "car engine factory"] },
-  { key: "p4", anchor: "PARTE 4:", queries: ["engine oil pouring", "dirty engine carbon", "engine oil change", "fuel injector cleaning"] },
-  { key: "p5", anchor: "PARTE 5:", queries: ["car eco mode button", "car dashboard city driving", "car city traffic", "car dashboard buttons"] },
-  { key: "p6", anchor: "PARTE 6:", queries: ["hand gear shift stick", "car gear lever", "tachometer rpm", "engine oil bottle"] },
-  { key: "p7", anchor: "PARTE 7:", queries: ["car exhaust smoke", "blue smoke exhaust pipe", "car engine warning light", "car dashboard warning light"] },
-  { key: "fin", anchor: "CONCLUSIÓN", queries: ["car engine running", "car driving sunset", "hand gear shift stick", "car dashboard highway"] },
+  { key: "intro", anchor: null, queries: ["automatic gearbox", "car gear selector", "car transmission", "luxury car interior gear shift"] },
+  { key: "p1", anchor: "PARTE 1:", queries: ["transmission oil change", "gearbox oil", "car mechanic transmission", "automatic gear stick close up"] },
+  { key: "p2", anchor: "PARTE 2:", queries: ["dual clutch gearbox", "cvt transmission", "car gearbox cutaway", "car engine transmission"] },
+  { key: "p3", anchor: "PARTE 3:", queries: ["car odometer dashboard", "oil change garage", "car engine oil pouring", "mechanic garage car"] },
+  { key: "p4", anchor: "PARTE 4:", queries: ["transmission fluid change", "oil flush machine", "car fluid change garage", "automatic transmission service"] },
+  { key: "p5", anchor: "PARTE 5:", queries: ["hand automatic gear shift", "car gear selector", "driving city traffic", "car parking reverse"] },
+  { key: "p6", anchor: "PARTE 6:", queries: ["car diagnostic obd scanner", "mechanic laptop car", "car dashboard electronics", "car computer diagnostic"] },
+  { key: "p7", anchor: "PARTE 7:", queries: ["car dashboard warning light", "driving car dashboard", "car gear shifting", "tachometer rpm gauge"] },
+  { key: "p8", anchor: "PARTE 8:", queries: ["car mechanic transmission repair", "gearbox repair garage", "transmission oil change", "car mechanic engine"] },
+  { key: "fin", anchor: "CONCLUSIÓN", queries: ["automatic gear shift close up", "car transmission", "car driving highway", "mechanic gearbox repair"] },
 ];
 
 // Modelos SUV para el POOL DE IMAGENES (relleno garantizado de SUV real cuando
@@ -54,58 +54,69 @@ const PARTS = [
 // Vídeo 6 (LSPI) es conceptual: sin pool de imágenes de SUV (serían fuera de tema).
 const SUV_MODELS = [];
 
-// VÍDEO 6 — LSPI. Anclas verificadas literalmente en input/guion-completo.txt.
+// VÍDEO 7 — CAJAS AUTOMÁTICAS (DSG/CVT). Anclas verificadas literalmente en
+// input/guion-completo.txt (42 anclas, 0 faltantes).
 const OVERLAYS = [
   // HOOK
-  { anchor: "agujerear un pistón", kind: "caption", text: "AGUJEREA PISTONES · DOBLA BIELAS" },
-  { anchor: "Se llama LSPI", kind: "hook", text: "SE LLAMA\nLSPI" },
+  { anchor: "Entre dos mil y cuatro mil euros", kind: "stat", value: "2.000-4.000 €", sub: "LA FACTURA MÁS TEMIDA DEL AUTOMÓVIL" },
+  { anchor: "Ninguna de ellas es", kind: "hook", text: "NINGUNA CAJA ES\n\"DE POR VIDA\"" },
 
-  // PARTE 1 — el gesto
-  { anchor: "PARTE 1:", kind: "hook", text: "EL GESTO QUE TODOS\nHACEMOS SIN PENSAR" },
-  { anchor: "acelerar con fuerza en marcha alta a bajas revoluciones", kind: "caption", text: "ACELERAR FUERTE + MARCHA ALTA + BAJAS RPM" },
-  { anchor: "ruleta rusa mecánica", kind: "caption", text: "= RULETA RUSA MECÁNICA" },
+  // PARTE 1 — "de por vida" es mentira
+  { anchor: "PARTE 1:", kind: "hook", text: "SECRETO 1\n\"DE POR VIDA\" = MENTIRA" },
+  { anchor: "cada sesenta mil kilómetros", kind: "stat", value: "DSG: ACEITE + FILTRO", sub: "CADA 60.000 KM" },
+  { anchor: "refrigera los embragues y transmite la presión hidráulica", kind: "caption", text: "EL ACEITE LUBRICA + REFRIGERA + DA PRESIÓN" },
+  { anchor: "estás conduciendo hacia una avería", kind: "caption", text: "SIN CAMBIO DE ACEITE = AVERÍA SEGURA" },
 
-  // PARTE 2 — qué es
-  { anchor: "PARTE 2:", kind: "hook", text: "QUÉ ES\nEL LSPI" },
-  { anchor: "Low Speed Pre-Ignition", kind: "stat", value: "LSPI", sub: "PRE-IGNICIÓN A BAJAS REVOLUCIONES" },
-  { anchor: "martillazo dentro del motor", kind: "caption", text: "SUENA COMO UN MARTILLAZO EN EL MOTOR" },
-  { anchor: "pistones agujereados, segmentos rotos y bielas dobladas", kind: "caption", text: "PISTÓN AGUJEREADO · SEGMENTOS ROTOS · BIELA DOBLADA" },
+  // PARTE 2 — cada caja su punto débil
+  { anchor: "PARTE 2:", kind: "hook", text: "SECRETO 2\nCADA CAJA, SU PUNTO DÉBIL" },
+  { anchor: "entre dos mil y tres mil quinientos euros", kind: "stat", value: "2.000-3.500 €", sub: "CAMBIAR LA MECATRÓNICA DSG" },
+  { anchor: "siete velocidades en seco", kind: "caption", text: "DSG 7 SECA (DQ200) · EMBRAGUES EN CIUDAD" },
+  { anchor: "seis velocidades húmeda", kind: "caption", text: "DSG 6 HÚMEDA (DQ250) · MÁS ROBUSTA, EXIGE ACEITE" },
+  { anchor: "de 2008 a 2014", kind: "stat", value: "2008-2014", sub: "MÁS CASOS DE FALLO DE MECATRÓNICA" },
+  { anchor: "la correa metálica y el sobrecalentamiento", kind: "caption", text: "CVT: TALÓN DE AQUILES = CORREA + ACEITE" },
+  { anchor: "CVT Jatco", kind: "caption", text: "CVT JATCO · DEMANDAS EN EE.UU." },
+  { anchor: "cada cuarenta o sesenta mil kilómetros", kind: "stat", value: "CVT: ACEITE", sub: "CADA 40-60.000 KM" },
+  { anchor: "treinta y cinco a cuarenta mil kilómetros", kind: "caption", text: "QASHQAI CVT: HASTA CADA 35-40.000 KM" },
 
-  // PARTE 3 — solo motores modernos
-  { anchor: "PARTE 3:", kind: "hook", text: "SOLO AFECTA A LOS\nMOTORES MODERNOS" },
-  { anchor: "alta compresión con inyección directa", kind: "caption", text: "ALTA COMPRESIÓN + TURBO + INYECCIÓN DIRECTA" },
-  { anchor: "1.2 PureTech de Stellantis o un Ford EcoBoost", kind: "caption", text: "ZONA DE RIESGO: PureTech · EcoBoost" },
-  { anchor: "los TSI y TFSI", kind: "caption", text: "TSI · TFSI · TCe · DIG-T · T-GDI" },
+  // PARTE 3 — el tiempo cuenta como el km
+  { anchor: "PARTE 3:", kind: "hook", text: "SECRETO 3\nEL TIEMPO CUENTA COMO EL KM" },
+  { anchor: "sesenta mil kilómetros o cada cuatro años", kind: "stat", value: "60.000 KM · O 4 AÑOS", sub: "LO QUE OCURRA ANTES" },
+  { anchor: "se degrada por oxidación con el paso del tiempo", kind: "caption", text: "EL ACEITE SE OXIDA CON LOS AÑOS, NO SOLO CON EL USO" },
 
-  // PARTE 4 — los 3 factores
-  { anchor: "PARTE 4:", kind: "hook", text: "LOS 3 FACTORES\nQUE DISPARAN EL LSPI" },
-  { anchor: "por debajo de dos mil quinientas revoluciones", kind: "stat", value: "< 2.500 RPM", sub: "ZONA DE MÁXIMO RIESGO" },
-  { anchor: "carbonilla y los sedimentos", kind: "caption", text: "FACTOR 2 · CARBONILLA Y SEDIMENTOS" },
-  { anchor: "aceite incorrecto", kind: "caption", text: "FACTOR 3 · ACEITE INCORRECTO" },
-  { anchor: "API SP, ACEA C6 o ILSAC GF-6", kind: "stat", value: "API SP · ACEA C6 · GF-6", sub: "ACEITES CON TEST ANTI-LSPI" },
+  // PARTE 4 — la diálisis
+  { anchor: "PARTE 4:", kind: "hook", text: "SECRETO 4\nLA DIÁLISIS QUE CASI NADIE HACE" },
+  { anchor: "solo renuevas entre el cincuenta y el sesenta por ciento", kind: "stat", value: "CAMBIO NORMAL", sub: "SOLO RENUEVA 50-60%" },
+  { anchor: "noventa o noventa y cinco por ciento", kind: "stat", value: "DIÁLISIS", sub: "RENUEVA 90-95%" },
+  { anchor: "pregunta específicamente por la diálisis", kind: "caption", text: "CON MUCHOS KM: PIDE DIÁLISIS, NO VACIADO" },
 
-  // PARTE 5 — modo ECO
-  { anchor: "PARTE 5:", kind: "hook", text: "EL ERROR DENTRO\nDEL ERROR: EL MODO ECO" },
-  { anchor: "modo ECO te mete sistemáticamente", kind: "caption", text: "MODO ECO = BAJAS RPM SISTEMÁTICAS" },
-  { anchor: "desactivar el modo ECO", kind: "caption", text: "TURBO + CIUDAD → DESACTIVA EL MODO ECO" },
+  // PARTE 5 — los hábitos que matan la caja
+  { anchor: "PARTE 5:", kind: "hook", text: "SECRETO 5\nLOS HÁBITOS QUE MATAN TU CAJA" },
+  { anchor: "MOVER EL COCHE CON EL MOTOR APAGADO", kind: "caption", text: "ERROR 1 · MOVER EL COCHE CON EL MOTOR APAGADO" },
+  { anchor: "genera calor y desgasta los embragues", kind: "caption", text: "ERROR 2 · PARADO EN 'D' = CALOR Y DESGASTE" },
+  { anchor: "EXIGIR LA CAJA EN FRÍO", kind: "caption", text: "ERROR 3 · EXIGIR LA CAJA EN FRÍO" },
+  { anchor: "CAMBIAR ENTRE D Y R SIN PARAR", kind: "caption", text: "ERROR 4 · CAMBIAR D-R SIN PARAR DEL TODO" },
+  { anchor: "ABUSAR DEL MODO MANUAL Y EL LAUNCH CONTROL", kind: "caption", text: "ERROR 5 · ABUSAR DEL LAUNCH CONTROL" },
 
-  // PARTE 6 — cómo evitarlo (las 5 reglas)
-  { anchor: "PARTE 6:", kind: "hook", text: "CÓMO DEJAR DE\nDESTRUIR TU MOTOR" },
-  { anchor: "nunca aceleres con fuerza por debajo de dos mil quinientas", kind: "caption", text: "REGLA 1 · NUNCA ACELERAR FUERTE < 2.500 RPM" },
-  { anchor: "baja una marcha primero", kind: "caption", text: "¿POTENCIA? BAJA UNA MARCHA PRIMERO" },
-  { anchor: "el aceite que especifica tu fabricante", kind: "caption", text: "REGLA 2 · EL ACEITE EXACTO DEL FABRICANTE" },
-  { anchor: "mantén la cámara de combustión limpia", kind: "caption", text: "REGLA 3 · CÁMARA LIMPIA (LIMPIEZA ITALIANA)" },
-  { anchor: "desactiva el modo ECO en ciudad", kind: "caption", text: "REGLA 4 · DESACTIVA EL MODO ECO EN CIUDAD" },
-  { anchor: "limpiadores de inyectores", kind: "caption", text: "REGLA 5 · LIMPIA INYECTORES /15-20.000 KM" },
+  // PARTE 6 — el software también falla
+  { anchor: "PARTE 6:", kind: "hook", text: "SECRETO 6\nEL SOFTWARE TAMBIÉN FALLA" },
+  { anchor: "entrar en modo emergencia", kind: "caption", text: "SOFTWARE VIEJO = TIRONES O MODO EMERGENCIA" },
+  { anchor: "software de la mecatrónica está actualizado", kind: "caption", text: "ANTES DE REPARAR: ACTUALIZA EL SOFTWARE" },
 
-  // PARTE 7 — síntomas
-  { anchor: "PARTE 7:", kind: "hook", text: "¿YA ESTÁ PASANDO\nEN TU MOTOR?" },
-  { anchor: "martillazo metálico seco", kind: "caption", text: "SÍNTOMA · MARTILLAZO METÁLICO SECO" },
-  { anchor: "humo azulado por el escape", kind: "caption", text: "HUMO AZUL = DAÑO HECHO · AL TALLER" },
+  // PARTE 7 — las señales antes de morir
+  { anchor: "PARTE 7:", kind: "hook", text: "SECRETO 7\nLAS SEÑALES ANTES DE MORIR" },
+  { anchor: "Tirones o sacudidas al cambiar de marcha", kind: "caption", text: "SEÑAL · TIRONES AL CAMBIAR (EN FRÍO)" },
+  { anchor: "Retraso al meter marcha atrás", kind: "caption", text: "SEÑAL · RETRASO AL METER MARCHA ATRÁS" },
+  { anchor: "el motor sube de revoluciones pero el coche no acelera", kind: "caption", text: "CVT · SUBEN LAS RPM PERO NO ACELERA" },
+  { anchor: "se resuelven con un simple cambio de aceite", kind: "caption", text: "A TIEMPO: MUCHAS SE ARREGLAN CON ACEITE" },
+
+  // PARTE 8 — cuándo el aceite ya no salva
+  { anchor: "PARTE 8:", kind: "hook", text: "SECRETO 8\nCUÁNDO EL ACEITE YA NO SALVA" },
+  { anchor: "preventivo, no siempre curativo", kind: "caption", text: "EL ACEITE ES PREVENTIVO, NO CURATIVO" },
+  { anchor: "el aceite nuevo no reparará la pieza desgastada", kind: "caption", text: "SI YA HAY DAÑO MECÁNICO, EL ACEITE LLEGA TARDE" },
+  { anchor: "cambiar el aceite de golpe a veces puede empeorar", kind: "caption", text: "2ª MANO QUE YA PATINA: QUE LO VALORE UN ESPECIALISTA" },
 
   // CONCLUSIÓN
-  { anchor: "ochenta por ciento de los conductores", kind: "stat", value: "80%", sub: "NO SABE QUE LO HACE" },
-  { anchor: "bajar esa marcha", kind: "hook", text: "LA SOLUCIÓN:\nBAJA UNA MARCHA" },
+  { anchor: "no falla por casualidad", kind: "hook", text: "NO FALLA POR MALA SUERTE:\nFALLA POR EL MANTENIMIENTO" },
   { anchor: "Suscríbete para más", kind: "hook", text: "SUSCRÍBETE" },
 ];
 
@@ -374,11 +385,17 @@ async function buildTimeAt(guion, total, alignPath) {
 
   const anchors = [{ pos: 0, t: 0 }];
   let gi = 0; // puntero monótono en gwords
+  // Salto máximo por segmento: un segmento avanza ~7-20 palabras del guion. Frases
+  // repetidas ("de por vida", "el aceite", "cada X mil km") harían saltar el puntero
+  // cientos de palabras hacia una ocurrencia posterior y colapsarían el resto de la
+  // alineación. Acotamos la ventana de búsqueda para rechazar esos saltos falsos.
+  const MAXSTEP = 80;
   for (const seg of segs) {
     const sw = norm(seg.text || "").split(" ").filter(Boolean);
     if (sw.length < 3) continue;
     let found = -1;
-    for (let j = gi; j < gwords.length - 2; j++) {
+    const jhi = Math.min(gwords.length - 2, gi + MAXSTEP);
+    for (let j = gi; j < jhi; j++) {
       if (gwords[j].w === sw[0] && gwords[j + 1].w === sw[1] && gwords[j + 2].w === sw[2]) { found = j; break; }
     }
     if (found >= 0) { anchors.push({ pos: gwords[found].pos, t: +seg.start }); gi = found + 1; }

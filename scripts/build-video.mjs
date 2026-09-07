@@ -32,19 +32,42 @@ const CLIPS_PER_QUERY = 8;
 // Busquedas de b-roll SUV-estrictas (regla del cliente: solo SUV cuando habla
 // de SUV; nada de deportivos ni escenas random). Los planos de peaton/prensa
 // son tematicos de su seccion.
-// VÍDEO 7 (CAJAS AUTOMÁTICAS DSG/CVT): conceptual, b-roll stock Pexels limpio
-// (caja/transmisión/aceite). Sin clips de YouTube -> ruta Pexels (usingYt=false).
+// VÍDEO 8 (TIER LIST SUV): b-roll SUV genérico de Pexels de FONDO; los MODELOS
+// concretos van como imágenes "sticky" (ver MODELS abajo) sobre ese fondo.
 const PARTS = [
-  { key: "intro", anchor: null, queries: ["automatic gearbox", "car gear selector", "car transmission", "luxury car interior gear shift"] },
-  { key: "p1", anchor: "PARTE 1:", queries: ["transmission oil change", "gearbox oil", "car mechanic transmission", "automatic gear stick close up"] },
-  { key: "p2", anchor: "PARTE 2:", queries: ["dual clutch gearbox", "cvt transmission", "car gearbox cutaway", "car engine transmission"] },
-  { key: "p3", anchor: "PARTE 3:", queries: ["car odometer dashboard", "oil change garage", "car engine oil pouring", "mechanic garage car"] },
-  { key: "p4", anchor: "PARTE 4:", queries: ["transmission fluid change", "oil flush machine", "car fluid change garage", "automatic transmission service"] },
-  { key: "p5", anchor: "PARTE 5:", queries: ["hand automatic gear shift", "car gear selector", "driving city traffic", "car parking reverse"] },
-  { key: "p6", anchor: "PARTE 6:", queries: ["car diagnostic obd scanner", "mechanic laptop car", "car dashboard electronics", "car computer diagnostic"] },
-  { key: "p7", anchor: "PARTE 7:", queries: ["car dashboard warning light", "driving car dashboard", "car gear shifting", "tachometer rpm gauge"] },
-  { key: "p8", anchor: "PARTE 8:", queries: ["car mechanic transmission repair", "gearbox repair garage", "transmission oil change", "car mechanic engine"] },
-  { key: "fin", anchor: "CONCLUSIÓN", queries: ["automatic gear shift close up", "car transmission", "car driving highway", "mechanic gearbox repair"] },
+  { key: "intro", anchor: null, queries: ["suv driving highway", "suv city street", "white suv road", "black suv driving"] },
+  { key: "s", anchor: "TIER S — LOS INTOCABLES", queries: ["suv driving highway", "luxury suv road", "suv aerial road", "white suv driving"] },
+  { key: "a", anchor: "TIER A — MUY RECOMENDABLES", queries: ["suv city street", "suv parked street", "suv driving road", "suv dashboard driving"] },
+  { key: "b", anchor: "TIER B — CORRECTOS", queries: ["suv city traffic", "suv parking lot", "suv driving highway", "suv road aerial"] },
+  { key: "c", anchor: "TIER C — CON PRECAUCIÓN", queries: ["suv dashboard driving", "suv city street", "suv engine bay", "suv driving road"] },
+  { key: "d", anchor: "TIER D — EVITAR", queries: ["suv parked street", "suv city traffic", "suv driving highway", "black suv driving"] },
+  { key: "f", anchor: "TIER F — HUIR", queries: ["luxury suv driving", "suv road aerial", "suv dashboard", "suv driving highway"] },
+  { key: "resumen", anchor: "EL RESUMEN VISUAL", queries: ["suv driving highway", "suv city street", "suv parked dealership", "white suv driving"] },
+  { key: "patron", anchor: "EL PATRÓN QUE EXPLICA", queries: ["car engine bay", "suv driving highway", "car dashboard", "suv aerial road"] },
+  { key: "fin", anchor: "LLAMADA A LA ACCIÓN", queries: ["suv driving sunset", "suv dealership", "suv steering wheel", "suv road trip"] },
+];
+
+// MODELOS de la tier list: cada uno se muestra como IMAGEN "sticky" (varias fotos
+// del modelo con Ken Burns) desde que se nombra hasta el siguiente modelo. anchor =
+// cabecera del modelo en el guion (literal). query = búsqueda de imagen (SerpAPI/
+// Wikimedia). tier = badge. Respeta la regla roja: se ve el modelo del que se habla.
+const MODELS = [
+  { anchor: "LEXUS NX / RX", query: "Lexus NX 2023 suv", label: "LEXUS NX / RX" },
+  { anchor: "TOYOTA RAV4 / TOYOTA C-HR", query: "Toyota RAV4 2023", label: "TOYOTA RAV4" },
+  { anchor: "SUBARU FORESTER / OUTBACK", query: "Subaru Forester 2023", label: "SUBARU FORESTER" },
+  { anchor: "MAZDA CX-5", query: "Mazda CX-5 2023", label: "MAZDA CX-5" },
+  { anchor: "SUZUKI VITARA / S-CROSS", query: "Suzuki Vitara 2023", label: "SUZUKI VITARA" },
+  { anchor: "HONDA CR-V", query: "Honda CR-V 2023", label: "HONDA CR-V" },
+  { anchor: "KIA SPORTAGE / HYUNDAI TUCSON", query: "Kia Sportage 2023", label: "KIA SPORTAGE / HYUNDAI TUCSON" },
+  { anchor: "TOYOTA CH-R, NISSAN QASHQAI", query: "Nissan Qashqai 2023", label: "NISSAN QASHQAI J12" },
+  { anchor: "SEAT ARONA / VOLKSWAGEN T-ROC / SKODA KAMIQ", query: "Volkswagen T-Roc 2023", label: "VW T-ROC / ARONA / KAMIQ" },
+  { anchor: "DACIA DUSTER / SANDERO STEPWAY", query: "Dacia Duster 2023", label: "DACIA DUSTER" },
+  { anchor: "PEUGEOT 3008 / CITROËN C5 AIRCROSS", query: "Peugeot 3008 2023", label: "PEUGEOT 3008 / C5 AIRCROSS" },
+  { anchor: "JEEP COMPASS / RENEGADE", query: "Jeep Compass 2023", label: "JEEP COMPASS / RENEGADE" },
+  { anchor: "NISSAN QASHQAI (generación J11", query: "Nissan Qashqai 2016", label: "NISSAN QASHQAI J11" },
+  { anchor: "MG ZS / MG HS", query: "MG ZS SUV 2023", label: "MG ZS / HS" },
+  { anchor: "ALFA ROMEO STELVIO / DS7 CROSSBACK", query: "Alfa Romeo Stelvio 2023", label: "ALFA STELVIO / DS7" },
+  { anchor: "LAND ROVER (Range Rover, Sport, Evoque", query: "Range Rover Evoque 2023", label: "LAND ROVER" },
 ];
 
 // Modelos SUV para el POOL DE IMAGENES (relleno garantizado de SUV real cuando
@@ -54,70 +77,64 @@ const PARTS = [
 // Vídeo 6 (LSPI) es conceptual: sin pool de imágenes de SUV (serían fuera de tema).
 const SUV_MODELS = [];
 
-// VÍDEO 7 — CAJAS AUTOMÁTICAS (DSG/CVT). Anclas verificadas literalmente en
-// input/guion-completo.txt (42 anclas, 0 faltantes).
+// VÍDEO 8 — TIER LIST SUV FIABILIDAD 2026. Badges de TIER + stats OCU/coste.
+// Anclas verificadas literalmente en input/guion-completo.txt (40, 0 faltantes).
 const OVERLAYS = [
   // HOOK
-  { anchor: "Entre dos mil y cuatro mil euros", kind: "stat", value: "2.000-4.000 €", sub: "LA FACTURA MÁS TEMIDA DEL AUTOMÓVIL" },
-  { anchor: "Ninguna de ellas es", kind: "hook", text: "NINGUNA CAJA ES\n\"DE POR VIDA\"" },
+  { anchor: "ochenta y cinco mil quinientos noventa conductores", kind: "stat", value: "85.590", sub: "CONDUCTORES REALES · OCU 2026" },
+  { anchor: "algún tapado va a subir", kind: "hook", text: "TIER LIST SUV\nFIABILIDAD 2026" },
 
-  // PARTE 1 — "de por vida" es mentira
-  { anchor: "PARTE 1:", kind: "hook", text: "SECRETO 1\n\"DE POR VIDA\" = MENTIRA" },
-  { anchor: "cada sesenta mil kilómetros", kind: "stat", value: "DSG: ACEITE + FILTRO", sub: "CADA 60.000 KM" },
-  { anchor: "refrigera los embragues y transmite la presión hidráulica", kind: "caption", text: "EL ACEITE LUBRICA + REFRIGERA + DA PRESIÓN" },
-  { anchor: "estás conduciendo hacia una avería", kind: "caption", text: "SIN CAMBIO DE ACEITE = AVERÍA SEGURA" },
+  // TIER S
+  { anchor: "TIER S — LOS INTOCABLES", kind: "hook", text: "TIER S\nLOS INTOCABLES" },
+  { anchor: "LEXUS NX / RX", kind: "stat", value: "TIER S", sub: "LEXUS NX / RX" },
+  { anchor: "noventa y tres puntos", kind: "stat", value: "OCU 93/100", sub: "LEXUS · Nº1 FIABILIDAD 2026" },
+  { anchor: "quinientos cincuenta euros anuales", kind: "stat", value: "550 €/AÑO", sub: "MANTENIMIENTO LEXUS (vs 900 ALEMANAS)" },
+  { anchor: "TOYOTA RAV4 / TOYOTA C-HR", kind: "stat", value: "TIER S", sub: "TOYOTA RAV4 / C-HR" },
+  { anchor: "noventa y seis puntos sobre cien en su categoría", kind: "stat", value: "OCU 96/100", sub: "TOYOTA RAV4 · HÍBRIDO HSD" },
+  { anchor: "SUBARU FORESTER / OUTBACK", kind: "stat", value: "TIER S", sub: "SUBARU FORESTER / OUTBACK" },
+  { anchor: "noventa y un puntos en la OCU 2026, junto a Toyota", kind: "stat", value: "OCU 91/100", sub: "SUBARU · BOXER + AWD PERMANENTE" },
 
-  // PARTE 2 — cada caja su punto débil
-  { anchor: "PARTE 2:", kind: "hook", text: "SECRETO 2\nCADA CAJA, SU PUNTO DÉBIL" },
-  { anchor: "entre dos mil y tres mil quinientos euros", kind: "stat", value: "2.000-3.500 €", sub: "CAMBIAR LA MECATRÓNICA DSG" },
-  { anchor: "siete velocidades en seco", kind: "caption", text: "DSG 7 SECA (DQ200) · EMBRAGUES EN CIUDAD" },
-  { anchor: "seis velocidades húmeda", kind: "caption", text: "DSG 6 HÚMEDA (DQ250) · MÁS ROBUSTA, EXIGE ACEITE" },
-  { anchor: "de 2008 a 2014", kind: "stat", value: "2008-2014", sub: "MÁS CASOS DE FALLO DE MECATRÓNICA" },
-  { anchor: "la correa metálica y el sobrecalentamiento", kind: "caption", text: "CVT: TALÓN DE AQUILES = CORREA + ACEITE" },
-  { anchor: "CVT Jatco", kind: "caption", text: "CVT JATCO · DEMANDAS EN EE.UU." },
-  { anchor: "cada cuarenta o sesenta mil kilómetros", kind: "stat", value: "CVT: ACEITE", sub: "CADA 40-60.000 KM" },
-  { anchor: "treinta y cinco a cuarenta mil kilómetros", kind: "caption", text: "QASHQAI CVT: HASTA CADA 35-40.000 KM" },
+  // TIER A
+  { anchor: "TIER A — MUY RECOMENDABLES", kind: "hook", text: "TIER A\nMUY RECOMENDABLES" },
+  { anchor: "MAZDA CX-5", kind: "stat", value: "TIER A", sub: "MAZDA CX-5 · 2.0 SKYACTIV ATMOSFÉRICO" },
+  { anchor: "cuatrocientos cuarenta y siete euros", kind: "stat", value: "447 €/AÑO", sub: "MAZDA CX-5 · Nº1 RepairPal" },
+  { anchor: "SUZUKI VITARA / S-CROSS", kind: "stat", value: "TIER A", sub: "SUZUKI VITARA / S-CROSS · BARATO DE MANTENER" },
+  { anchor: "HONDA CR-V", kind: "stat", value: "TIER A", sub: "HONDA CR-V e:HEV · i-MMD" },
+  { anchor: "KIA SPORTAGE / HYUNDAI TUCSON", kind: "stat", value: "TIER A", sub: "KIA SPORTAGE / HYUNDAI TUCSON" },
+  { anchor: "evita las versiones con el motor 1.6 T-GDI", kind: "caption", text: "EVITA EL 1.6 T-GDI · MEJOR HÍBRIDO O ATMOSFÉRICO" },
 
-  // PARTE 3 — el tiempo cuenta como el km
-  { anchor: "PARTE 3:", kind: "hook", text: "SECRETO 3\nEL TIEMPO CUENTA COMO EL KM" },
-  { anchor: "sesenta mil kilómetros o cada cuatro años", kind: "stat", value: "60.000 KM · O 4 AÑOS", sub: "LO QUE OCURRA ANTES" },
-  { anchor: "se degrada por oxidación con el paso del tiempo", kind: "caption", text: "EL ACEITE SE OXIDA CON LOS AÑOS, NO SOLO CON EL USO" },
+  // TIER B
+  { anchor: "TIER B — CORRECTOS", kind: "hook", text: "TIER B\nCORRECTOS" },
+  { anchor: "NISSAN QASHQAI (solo generación J12", kind: "stat", value: "TIER B", sub: "NISSAN QASHQAI J12 (2021+) · CORREGIDO" },
+  { anchor: "SEAT ARONA / VOLKSWAGEN T-ROC / SKODA KAMIQ", kind: "stat", value: "TIER B", sub: "T-ROC / ARONA / KAMIQ · TSI EA211" },
+  { anchor: "de la posición treinta y uno a la veinticinco", kind: "caption", text: "VW SUBE: PUESTO 31 A 25 (OCU 2026)" },
+  { anchor: "DACIA DUSTER / SANDERO STEPWAY", kind: "stat", value: "TIER B", sub: "DACIA DUSTER · SIMPLE Y BARATO" },
 
-  // PARTE 4 — la diálisis
-  { anchor: "PARTE 4:", kind: "hook", text: "SECRETO 4\nLA DIÁLISIS QUE CASI NADIE HACE" },
-  { anchor: "solo renuevas entre el cincuenta y el sesenta por ciento", kind: "stat", value: "CAMBIO NORMAL", sub: "SOLO RENUEVA 50-60%" },
-  { anchor: "noventa o noventa y cinco por ciento", kind: "stat", value: "DIÁLISIS", sub: "RENUEVA 90-95%" },
-  { anchor: "pregunta específicamente por la diálisis", kind: "caption", text: "CON MUCHOS KM: PIDE DIÁLISIS, NO VACIADO" },
+  // TIER C
+  { anchor: "TIER C — CON PRECAUCIÓN", kind: "hook", text: "TIER C\nCON PRECAUCIÓN" },
+  { anchor: "PEUGEOT 3008 / CITROËN C5 AIRCROSS", kind: "stat", value: "TIER C", sub: "PEUGEOT 3008 / C5 AIRCROSS · 1.2 PureTech" },
+  { anchor: "setenta y seis puntos, superadas incluso por Volkswagen", kind: "stat", value: "OCU 76/100", sub: "PEUGEOT/CITROËN · POR DEBAJO DE VW" },
+  { anchor: "correa de distribución en baño de aceite", kind: "caption", text: "CORREA DE DISTRIBUCIÓN EN BAÑO DE ACEITE (PureTech)" },
+  { anchor: "JEEP COMPASS / RENEGADE", kind: "stat", value: "TIER C", sub: "JEEP COMPASS / RENEGADE · 1.3 GSE + DCT" },
+  { anchor: "NISSAN QASHQAI (generación J11", kind: "stat", value: "TIER C → D", sub: "QASHQAI J11 · CVT JATCO PROBLEMÁTICA" },
 
-  // PARTE 5 — los hábitos que matan la caja
-  { anchor: "PARTE 5:", kind: "hook", text: "SECRETO 5\nLOS HÁBITOS QUE MATAN TU CAJA" },
-  { anchor: "MOVER EL COCHE CON EL MOTOR APAGADO", kind: "caption", text: "ERROR 1 · MOVER EL COCHE CON EL MOTOR APAGADO" },
-  { anchor: "genera calor y desgasta los embragues", kind: "caption", text: "ERROR 2 · PARADO EN 'D' = CALOR Y DESGASTE" },
-  { anchor: "EXIGIR LA CAJA EN FRÍO", kind: "caption", text: "ERROR 3 · EXIGIR LA CAJA EN FRÍO" },
-  { anchor: "CAMBIAR ENTRE D Y R SIN PARAR", kind: "caption", text: "ERROR 4 · CAMBIAR D-R SIN PARAR DEL TODO" },
-  { anchor: "ABUSAR DEL MODO MANUAL Y EL LAUNCH CONTROL", kind: "caption", text: "ERROR 5 · ABUSAR DEL LAUNCH CONTROL" },
+  // TIER D
+  { anchor: "TIER D — EVITAR", kind: "hook", text: "TIER D\nEVITAR SALVO GANGA" },
+  { anchor: "MG ZS / MG HS", kind: "stat", value: "TIER D", sub: "MG ZS / HS · 'LA GRAN DECEPCIÓN' OCU" },
+  { anchor: "setenta y dos puntos, solo por delante de Land Rover", kind: "stat", value: "OCU 72/100", sub: "MG · PENÚLTIMA POSICIÓN" },
+  { anchor: "ALFA ROMEO STELVIO / DS7 CROSSBACK", kind: "stat", value: "TIER D", sub: "ALFA STELVIO / DS7 · ELÉCTRICA + DEPRECIACIÓN" },
 
-  // PARTE 6 — el software también falla
-  { anchor: "PARTE 6:", kind: "hook", text: "SECRETO 6\nEL SOFTWARE TAMBIÉN FALLA" },
-  { anchor: "entrar en modo emergencia", kind: "caption", text: "SOFTWARE VIEJO = TIRONES O MODO EMERGENCIA" },
-  { anchor: "software de la mecatrónica está actualizado", kind: "caption", text: "ANTES DE REPARAR: ACTUALIZA EL SOFTWARE" },
+  // TIER F
+  { anchor: "TIER F — HUIR", kind: "hook", text: "TIER F\nHUIR" },
+  { anchor: "LAND ROVER (Range Rover, Sport, Evoque, Discovery, Defender)", kind: "stat", value: "TIER F", sub: "LAND ROVER · ÚLTIMO DE LA OCU 2026" },
+  { anchor: "última posición de la OCU 2026 con sesenta y cuatro puntos", kind: "stat", value: "OCU 64/100", sub: "LAND ROVER · FAROLILLO ROJO" },
+  { anchor: "El triángulo del terror", kind: "caption", text: "TRIÁNGULO DEL TERROR: NEUMÁTICA + ELECTRÓNICA + ACCESO" },
 
-  // PARTE 7 — las señales antes de morir
-  { anchor: "PARTE 7:", kind: "hook", text: "SECRETO 7\nLAS SEÑALES ANTES DE MORIR" },
-  { anchor: "Tirones o sacudidas al cambiar de marcha", kind: "caption", text: "SEÑAL · TIRONES AL CAMBIAR (EN FRÍO)" },
-  { anchor: "Retraso al meter marcha atrás", kind: "caption", text: "SEÑAL · RETRASO AL METER MARCHA ATRÁS" },
-  { anchor: "el motor sube de revoluciones pero el coche no acelera", kind: "caption", text: "CVT · SUBEN LAS RPM PERO NO ACELERA" },
-  { anchor: "se resuelven con un simple cambio de aceite", kind: "caption", text: "A TIEMPO: MUCHAS SE ARREGLAN CON ACEITE" },
-
-  // PARTE 8 — cuándo el aceite ya no salva
-  { anchor: "PARTE 8:", kind: "hook", text: "SECRETO 8\nCUÁNDO EL ACEITE YA NO SALVA" },
-  { anchor: "preventivo, no siempre curativo", kind: "caption", text: "EL ACEITE ES PREVENTIVO, NO CURATIVO" },
-  { anchor: "el aceite nuevo no reparará la pieza desgastada", kind: "caption", text: "SI YA HAY DAÑO MECÁNICO, EL ACEITE LLEGA TARDE" },
-  { anchor: "cambiar el aceite de golpe a veces puede empeorar", kind: "caption", text: "2ª MANO QUE YA PATINA: QUE LO VALORE UN ESPECIALISTA" },
-
-  // CONCLUSIÓN
-  { anchor: "no falla por casualidad", kind: "hook", text: "NO FALLA POR MALA SUERTE:\nFALLA POR EL MANTENIMIENTO" },
-  { anchor: "Suscríbete para más", kind: "hook", text: "SUSCRÍBETE" },
+  // PATRÓN + CIERRE
+  { anchor: "EL PATRÓN QUE EXPLICA", kind: "hook", text: "EL PATRÓN:\nSIMPLE ARRIBA, COMPLEJO ABAJO" },
+  { anchor: "desconfía de los excesos de electrónica", kind: "caption", text: "MECÁNICA PROBADA > EXCESO DE ELECTRÓNICA" },
+  { anchor: "puede subir o bajar dos tiers según el motor", kind: "caption", text: "EL MOTOR CONCRETO MUEVE 2 TIERS" },
+  { anchor: "Suscríbete para la tier list", kind: "hook", text: "SUSCRÍBETE" },
 ];
 
 // PINS: imagen del MODELO exacto anclada a donde se menciona.
@@ -547,6 +564,42 @@ async function main() {
     }
   }
   console.log(`     ${pins.length} pins de modelo (comparativas/duos)`);
+
+  // IMÁGENES STICKY DE MODELO (tier list): cada modelo se ve DESDE que se nombra
+  // HASTA el siguiente límite (otro modelo o cabecera de tier). Entre la cabecera
+  // de un tier y su primer modelo NO hay pin -> b-roll SUV genérico. Cada tramo se
+  // trocea en subplanos de ~7s ciclando varias fotos del modelo (variedad + regla
+  // roja: se ve el modelo del que se habla).
+  if (typeof MODELS !== "undefined" && MODELS.length) {
+    const tierHeaders = ["TIER S — LOS INTOCABLES", "TIER A — MUY RECOMENDABLES",
+      "TIER B — CORRECTOS", "TIER C — CON PRECAUCIÓN", "TIER D — EVITAR",
+      "TIER F — HUIR", "EL RESUMEN VISUAL"];
+    const bnds = [];
+    for (const m of MODELS) { const i = guion.indexOf(m.anchor); if (i >= 0) bnds.push(timeAt(i) ?? 0); }
+    for (const h of tierHeaders) { const i = guion.indexOf(h); if (i >= 0) bnds.push(timeAt(i) ?? 0); }
+    bnds.sort((a, b) => a - b);
+    const nextBnd = (t) => { for (const b of bnds) if (b > t + 0.5) return b; return total; };
+    let mp = 0;
+    for (const m of MODELS) {
+      const i = guion.indexOf(m.anchor);
+      if (i < 0) { console.warn(`[!] modelo ancla no encontrada: "${m.anchor}"`); continue; }
+      const from = Math.max(0, timeAt(i) ?? 0);
+      const end = Math.min(nextBnd(from), total);
+      const span = end - from;
+      if (span < 1.5) continue;
+      const imgs = await getWikiImages(m.query, 5);
+      if (!imgs.length) { console.warn(`[!] modelo sin imagen: ${m.query}`); continue; }
+      const CHUNK = 7;
+      const n = Math.max(1, Math.round(span / CHUNK));
+      const d = span / n;
+      for (let k = 0; k < n; k++) {
+        pins.push({ kind: "image", src: imgs[k % imgs.length], label: m.label,
+          fromSeconds: +(from + k * d).toFixed(2), durationInSeconds: +d.toFixed(2) });
+        mp++;
+      }
+    }
+    console.log(`     ${mp} planos de modelo STICKY para ${MODELS.length} modelos`);
+  }
 
   // ENTIDADES: escaneo del guion + material (8 imagenes/entidad para no repetir).
   console.log("[2a2] Escaneando entidades y buscando su material...");

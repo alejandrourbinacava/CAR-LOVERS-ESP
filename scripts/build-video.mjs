@@ -39,7 +39,7 @@ const PARTS = [
   { key: "intro", anchor: null, queries: ["car mechanic garage", "car repair invoice", "mechanic working car", "auto repair shop"] },
   { key: "a1", anchor: "AVERÍA 1:", queries: ["car dashboard warning light", "car diagnostic obd scanner", "mechanic laptop diagnostic", "check engine light"] },
   { key: "a2", anchor: "AVERÍA 2:", queries: ["diesel exhaust smoke", "car exhaust pipe", "mechanic under car", "car particulate filter"] },
-  { key: "a3", anchor: "AVERÍA 3:", queries: ["engine oil pouring", "car engine bay", "engine oil dipstick", "mechanic engine"] },
+  { key: "a3", anchor: "AVERÍA 3:", queries: ["car engine oil change", "mechanic pouring engine oil car", "car engine bay closeup", "checking car engine oil dipstick"] },
   { key: "a4", anchor: "AVERÍA 4:", queries: ["automatic gearbox", "car transmission", "car gear selector", "car mechanic transmission"] },
   { key: "a5", anchor: "AVERÍA 5:", queries: ["car suspension", "car shock absorber", "mechanic car wheel", "car underbody garage"] },
   { key: "presu", anchor: "EL PRESUPUESTO POR ESCRITO", queries: ["car repair invoice", "signing document paper", "calculator money desk", "auto repair reception"] },
@@ -241,7 +241,10 @@ async function serpImages(query, base, need) {
   return out;
 }
 
-const seenIds = new Set();
+// Clips Pexels vetados (colaron fuera de tema, p.ej. aceite de COCINA en el vídeo
+// de averías). Se pre-siembran en seenIds para que getClips no los use nunca.
+const BLACKLIST_IDS = [26620319, 26620441, 8987271];
+const seenIds = new Set(BLACKLIST_IDS);
 
 // Descarga hasta `max` clips de una busqueda. Devuelve [{src,duration}].
 async function getClips(query, max) {

@@ -1,1717 +1,1357 @@
 [
 {
 "start": 0.0,
-"end": 2.6,
-"text": "Voy a hacer algo que ningún concesionario se atreve a hacer."
+"end": 3.56,
+"text": "Voy a decir algo que a muchos compañeros de profesión no les va a gustar."
 },
 {
-"start": 2.6,
-"end": 4.84,
-"text": "Voy a coger los SUV más vendidos de España"
+"start": 3.56,
+"end": 7.44,
+"text": "Hay talleres que cobran el triple de lo que costaría resolver el problema real."
 },
 {
-"start": 4.84,
-"end": 8.0,
-"text": "y los voy a colocar en una tier list de la S a la F."
+"start": 7.44,
+"end": 9.44,
+"text": "No siempre por mala fe."
 },
 {
-"start": 8.0,
-"end": 10.6,
-"text": "La S para los que comprarías con los ojos cerrados"
+"start": 9.44,
+"end": 11.24,
+"text": "A veces por comodidad."
 },
 {
-"start": 10.6,
-"end": 13.0,
-"text": "y llegarán a los 300.000 kilómetros sin drama."
+"start": 11.24,
+"end": 14.04,
+"text": "A veces por falta de conocimiento."
 },
 {
-"start": 13.0,
-"end": 16.2,
-"text": "La S para los que con datos en la mano deberías salir corriendo"
+"start": 14.04,
+"end": 15.28,
+"text": "Y a veces..."
 },
 {
-"start": 16.2,
-"end": 19.2,
-"text": "aunque el precio parezca una ganga y no lo voy a hacer por opinión."
+"start": 15.28,
+"end": 16.28,
+"text": "Sí."
 },
 {
-"start": 19.2,
-"end": 21.0,
-"text": "Ni por qué marca me cae mejor."
+"start": 16.28,
+"end": 19.32,
+"text": "Porque saben que tú no tienes ni idea de lo que estás pagando."
 },
 {
-"start": 21.0,
-"end": 24.0,
-"text": "Lo voy a hacer con los datos de la AUQ 2020-26"
+"start": 19.32,
+"end": 22.76,
+"text": "El coste medio de una reparación en España en 2026"
 },
 {
-"start": 24.0,
-"end": 28.0,
-"text": "basados en 85.590 conductores europeos reales."
+"start": 22.76,
+"end": 25.6,
+"text": "ya alcanza los 684 euros."
 },
 {
-"start": 28.0,
-"end": 33.0,
-"text": "Con los datos de J de Power y con el coste real de mantenimiento de cada uno."
+"start": 25.6,
+"end": 28.08,
+"text": "Un 9% más que el año anterior."
 },
 {
-"start": 33.0,
-"end": 36.0,
-"text": "Fiabilidad pura y coste total de propiedad."
+"start": 28.2,
+"end": 32.64,
+"text": "Y una parte de ese dinero en muchos casos es dinero que no deberías haber pagado."
 },
 {
-"start": 36.0,
-"end": 39.0,
-"text": "Las dos cosas que de verdad importan cuando el coche estuyo y la garantía,"
+"start": 32.64,
+"end": 37.36,
+"text": "Porque hay cinco averías concretas donde el sobrecoste es sistemático."
 },
 {
-"start": 39.0,
-"end": 40.0,
-"text": "ya expiro."
+"start": 37.36,
+"end": 41.4,
+"text": "Donde el taller, en lugar de resolver la causa real por poco dinero,"
 },
 {
-"start": 40.0,
-"end": 44.0,
-"text": "Preparate, porque algunos de los SUV más vendidos de España van a caer"
+"start": 41.4,
+"end": 44.68,
+"text": "te cambia el componente completo por mucho dinero."
 },
 {
-"start": 44.0,
-"end": 47.0,
-"text": "mucho más abajo de lo que su publicidad sugiere"
+"start": 44.68,
+"end": 49.04,
+"text": "Hoy te voy a enseñar exactamente cuáles son esas cinco averías."
 },
 {
-"start": 47.0,
-"end": 49.0,
-"text": "y algún tapado va a subir a lo más alto."
+"start": 49.04,
+"end": 52.24,
+"text": "¿Cuál es la solución barata que a menudo funciona?"
 },
 {
-"start": 49.0,
-"end": 50.0,
-"text": "Empezamos por arriba."
+"start": 52.24,
+"end": 55.04,
+"text": "Y cómo detectar si te están inflando la factura."
 },
 {
-"start": 50.0,
-"end": 52.0,
-"text": "Tieres los intocables."
+"start": 55.04,
+"end": 57.08,
+"text": "No para que te pelees con tu mecánico."
 },
 {
-"start": 52.0,
-"end": 54.0,
-"text": "Comprar con los ojos cerrados."
+"start": 57.08,
+"end": 60.24,
+"text": "Sino para que llegues al taller sabiendo lo que pasa."
 },
 {
-"start": 54.0,
-"end": 56.0,
-"text": "Esta es la élite."
+"start": 60.24,
+"end": 64.64,
+"text": "Porque el cliente que sabe no es el cliente al que se le infla la factura."
 },
 {
-"start": 56.0,
-"end": 59.0,
-"text": "Los SUV que combinan la máxima fiabilidad documentada"
+"start": 64.64,
+"end": 65.72,
+"text": "Empezamos."
 },
 {
-"start": 59.0,
-"end": 61.0,
-"text": "con un coste de propiedad que compensa."
+"start": 65.72,
+"end": 66.92,
+"text": "Avería uno."
 },
 {
-"start": 61.0,
-"end": 65.0,
-"text": "Si compras uno de estos, la probabilidad de acabar en el taller"
+"start": 66.92,
+"end": 70.52,
+"text": "El testigo del motor y el cambio de sensor que no ha reglanado."
 },
 {
-"start": 65.0,
-"end": 66.0,
-"text": "por avería graves mínima."
+"start": 70.52,
+"end": 72.52,
+"text": "Empezamos por la más común."
 },
 {
-"start": 66.0,
-"end": 71.0,
-"text": "Lexus NX, RX, el número uno absoluto."
+"start": 72.52,
+"end": 75.08,
+"text": "La que más dinero mueve de forma innecesaria."
 },
 {
-"start": 71.0,
-"end": 73.0,
-"text": "Sin discusión posible."
+"start": 75.08,
+"end": 77.04,
+"text": "Se enciende el testigo del motor."
 },
 {
-"start": 73.0,
-"end": 77.0,
-"text": "Lexus repite como la marca más fiable del mercado en 2026"
+"start": 77.04,
+"end": 79.28,
+"text": "Es ese símbolo amarillo con forma de motor."
 },
 {
-"start": 77.0,
-"end": 79.0,
-"text": "con 93 puntos sobre 100 en la AUQ,"
+"start": 79.28,
+"end": 80.76,
+"text": "Llevas el coche al taller."
 },
 {
-"start": 79.0,
-"end": 81.0,
-"text": "la única marca que supera los 90."
+"start": 80.76,
+"end": 82.24,
+"text": "Conectan el diagnóstico."
 },
 {
-"start": 81.0,
-"end": 85.0,
-"text": "El NX y el RX combinan acabados premium"
+"start": 82.24,
+"end": 86.56,
+"text": "Sale un código de error que apunta por ejemplo a la sonda lambda o al sensor de oxígeno."
 },
 {
-"start": 85.0,
-"end": 87.0,
-"text": "con la arquitectura híbrida de Toyota."
+"start": 86.56,
+"end": 88.92,
+"text": "Y aquí está el error que cuesta dinero."
 },
 {
-"start": 87.0,
-"end": 90.0,
-"text": "Coste de mantenimiento de los más bajos del segmento premium."
+"start": 88.92,
+"end": 90.96,
+"text": "Muchos talleres, ante ese código,"
 },
 {
-"start": 90.0,
-"end": 93.0,
-"text": "Al redor de 550 euros anuales de media,"
+"start": 90.96,
+"end": 94.12,
+"text": "cambian directamente el sensor al que apunta el código."
 },
 {
-"start": 93.0,
-"end": 96.0,
-"text": "frente a los 900 de las alemanas."
+"start": 94.12,
+"end": 97.32,
+"text": "200, 300 euros entre pieza y mano de obra."
 },
 {
-"start": 96.0,
-"end": 98.0,
-"text": "Garantía de hasta 10 años en el sistema híbrido"
+"start": 97.32,
+"end": 99.32,
+"text": "Te devuelven el coche."
 },
 {
-"start": 98.0,
-"end": 99.0,
-"text": "si mantienes la red oficial."
+"start": 99.32,
+"end": 100.64,
+"text": "El testigo se apaga."
 },
 {
-"start": 99.0,
-"end": 101.0,
-"text": "Tier S sin ninguna duda."
+"start": 100.64,
+"end": 103.36,
+"text": "Y a las dos semanas se vuelve a encender."
 },
 {
-"start": 101.0,
-"end": 104.0,
-"text": "Toyota RAV4, Toyota C-H-R."
+"start": 103.36,
+"end": 104.72,
+"text": "¿Por qué ocurre esto?"
 },
 {
-"start": 104.0,
-"end": 108.0,
-"text": "El RAV4 es probablemente el SUV más equilibrado del mercado"
+"start": 104.72,
+"end": 108.4,
+"text": "Los propios expertos del sector lo advierten en 2026."
 },
 {
-"start": 108.0,
-"end": 109.0,
-"text": "en fiabilidad."
+"start": 108.4,
+"end": 112.84,
+"text": "Un testigo encendido no siempre indica que haya que sustituir el componente al que apunta."
 },
 {
-"start": 109.0,
-"end": 111.0,
-"text": "En el estudio ócudos 1026,"
+"start": 112.84,
+"end": 117.16,
+"text": "El código de error te dice donde el sistema detecta una lectura anómala."
 },
 {
-"start": 111.0,
-"end": 114.0,
-"text": "el Toyota RAV4 aparece entre los grandes"
+"start": 117.16,
+"end": 119.48,
+"text": "No necesariamente que componente está roto."
 },
 {
-"start": 114.0,
-"end": 117.0,
-"text": "con 96 puntos sobre 100 en su categoría."
+"start": 119.48,
+"end": 123.68,
+"text": "Una sonda lambda puede dar lectura a Ronia porque la sonda es temal."
 },
 {
-"start": 117.0,
-"end": 120.0,
-"text": "El sistema híbrido, HSD, con tren epicicloidal,"
+"start": 123.68,
+"end": 126.6,
+"text": "O porque haya una entrada de aire falsa en la admisión."
 },
 {
-"start": 120.0,
-"end": 123.0,
-"text": "sin embrague, ni correa, que desgastar."
+"start": 126.6,
+"end": 128.76,
+"text": "O porque un injector esté sucio."
 },
 {
-"start": 123.0,
-"end": 126.0,
-"text": "Datos de longevidad de más de 250.000 kilómetros"
+"start": 128.76,
+"end": 131.52,
+"text": "O porque haya un problema en el cableado o en el conector."
 },
 {
-"start": 126.0,
-"end": 128.0,
-"text": "con mantenimiento mínimo."
+"start": 131.52,
+"end": 134.24,
+"text": "Si el taller cambia la sonda sin verificar la causa real,"
 },
 {
-"start": 128.0,
-"end": 131.0,
-"text": "El C-H-R, comparte la misma mecánica probada"
+"start": 134.24,
+"end": 136.04,
+"text": "cambia una pieza que estaba bien."
 },
 {
-"start": 131.0,
-"end": 133.0,
-"text": "en formato más compacto."
+"start": 136.04,
+"end": 137.56,
+"text": "El problema sigue."
 },
 {
-"start": 133.0,
-"end": 134.0,
-"text": "Tier S."
+"start": 137.56,
+"end": 140.24,
+"text": "Y a los pocos kilómetros, el testigo vuelve."
 },
 {
-"start": 134.0,
-"end": 136.0,
-"text": "Es el estándar contra el que se mide todo lo demás."
+"start": 140.24,
+"end": 141.92,
+"text": "¿Cómo detectar el inflado?"
 },
 {
-"start": 136.0,
-"end": 138.0,
-"text": "Su Varu Forester. Outback."
+"start": 141.92,
+"end": 143.56,
+"text": "La clave está en el diagnóstico."
 },
 {
-"start": 138.0,
-"end": 141.0,
-"text": "Su Varu se consolida en el grupo de cabeza con 91 puntos"
+"start": 143.56,
+"end": 145.24,
+"text": "Los especialistas son claros."
 },
 {
-"start": 141.0,
-"end": 145.0,
-"text": "en la ócudos 2026, junto a Toyota y Suzuki."
+"start": 145.24,
+"end": 147.84,
+"text": "Diagnosticar bien antes de actuar no es un lujo."
 },
 {
-"start": 145.0,
-"end": 147.0,
-"text": "El motor boxer y la atracción total simétrica"
+"start": 147.84,
+"end": 151.88,
+"text": "Es la diferencia entre resolver el problema y acumular facturas sin resultado."
 },
 {
-"start": 147.0,
-"end": 150.0,
-"text": "al AWD permanente le dan una robustez mecánica"
+"start": 151.88,
+"end": 155.6,
+"text": "Antes de autorizar el cambio de cualquier sensor, pregunta."
 },
 {
-"start": 150.0,
-"end": 152.0,
-"text": "que los datos de consumer reports confirman"
+"start": 155.6,
+"end": 157.76,
+"text": "¿Habéis verificado que el sensor es la causa?"
 },
 {
-"start": 152.0,
-"end": 155.0,
-"text": "especialmente en el largo plazo de 5 a 10 años."
+"start": 157.76,
+"end": 159.52,
+"text": "O solo que el código apunta él."
 },
 {
-"start": 155.0,
-"end": 157.0,
-"text": "La condición."
+"start": 159.52,
+"end": 164.08,
+"text": "Un taller serio te explicará cómo ha confirmado que ese componente es el culpable."
 },
 {
-"start": 157.0,
-"end": 159.0,
-"text": "4 Neumáticos idénticos siempre."
+"start": 164.08,
+"end": 166.76,
+"text": "Un taller que inflate dirá simplemente."
 },
 {
-"start": 159.0,
-"end": 162.0,
-"text": "Y en versiones post, 001-0."
+"start": 166.76,
+"end": 168.2,
+"text": "Lo dice la máquina."
 },
 {
-"start": 162.0,
-"end": 165.0,
-"text": "Para evitar el problema de junta de culata de las generaciones anteriores."
+"start": 168.2,
+"end": 169.96,
+"text": "La máquina no dice que cambiar."
 },
 {
-"start": 165.0,
-"end": 168.0,
-"text": "Tier S. para quien vive en zona de montaña o nieve."
+"start": 169.96,
+"end": 172.48,
+"text": "Dice dónde mirar. Habería dos."
 },
 {
-"start": 168.0,
-"end": 170.0,
-"text": "Tiera muy recomendables."
+"start": 172.48,
+"end": 174.08,
+"text": "El fap obstruido."
 },
 {
-"start": 171.0,
-"end": 173.0,
-"text": "Compras segura con matices menores."
+"start": 174.08,
+"end": 176.56,
+"text": "Y el cambio de filtro completo evitable."
 },
 {
-"start": 173.0,
-"end": 175.0,
-"text": "Excelentes SUV con datos sólidos."
+"start": 176.56,
+"end": 178.44,
+"text": "Esta es la máscara de la lista."
 },
 {
-"start": 175.0,
-"end": 178.0,
-"text": "No están en la S por un pequeño matiz de coste,"
+"start": 178.44,
+"end": 181.2,
+"text": "Y donde el sobrecoste puede ser de miles de euros."
 },
 {
-"start": 178.0,
-"end": 181.0,
-"text": "red de servicio o historial algo más corto."
+"start": 181.2,
+"end": 184.96,
+"text": "Los sistemas de misiones, catalizadores, filtros de partículas,"
 },
 {
-"start": 181.0,
-"end": 183.0,
-"text": "Pero son compras muy seguras."
+"start": 184.96,
+"end": 190.44,
+"text": "válvulas, GR y Sondas NOx concentran el 17,9% de las intervenciones"
 },
 {
-"start": 183.0,
-"end": 184.0,
-"text": "Mazda CX-5."
+"start": 190.44,
+"end": 193.16,
+"text": "en los talleres españoles en 2026."
 },
 {
-"start": 184.0,
-"end": 186.0,
-"text": "El tapado que merece estar casi en la S."
+"start": 193.16,
+"end": 195.24,
+"text": "Es la categoría que más ha crecido."
 },
 {
-"start": 186.0,
-"end": 190.0,
-"text": "Mazda aparece en el bloque de 89 puntos de la ócud,"
+"start": 195.24,
+"end": 196.56,
+"text": "El escenario típico."
 },
 {
-"start": 190.0,
-"end": 191.0,
-"text": "2026."
+"start": 196.56,
+"end": 199.44,
+"text": "Tu diez el pierde potencia, se encienda el testigo del fap."
 },
 {
-"start": 191.0,
-"end": 193.0,
-"text": "El CX-5 con motor 2,"
+"start": 199.44,
+"end": 200.44,
+"text": "Vas al taller."
 },
 {
-"start": 193.0,
-"end": 194.0,
-"text": "Escaillac tifatmospérico,"
+"start": 200.44,
+"end": 203.64,
+"text": "Y algunos talleres te dan directamente la peor noticia."
 },
 {
-"start": 194.0,
-"end": 198.0,
-"text": "es número uno de fiabilidad entre los SUV medianos según repérpal."
+"start": 203.64,
+"end": 206.44,
+"text": "Hay que cambiar el filtro de partículas completo."
 },
 {
-"start": 198.0,
-"end": 202.0,
-"text": "Con un coste anual de reparaciones de apenas 447 euros."
+"start": 206.44,
+"end": 209.24,
+"text": "Entre mil y más de 2.000 euros."
 },
 {
-"start": 202.0,
-"end": 205.0,
-"text": "Motor sin turbo, sin fape en gasolina."
+"start": 209.24,
+"end": 211.04,
+"text": "¿Por qué ha menudo ese evitable?"
 },
 {
-"start": 205.0,
-"end": 207.0,
-"text": "Sin los puntos débiles del downsizing."
+"start": 211.04,
+"end": 214.72,
+"text": "Los propios expertos lo advierten en 2026."
 },
 {
-"start": 207.0,
-"end": 209.0,
-"text": "Conduce mejor que casi cualquier rival."
+"start": 214.72,
+"end": 218.4,
+"text": "Limpiar el filtro de partículas sin resolver el origen del problema"
 },
 {
-"start": 209.0,
-"end": 214.0,
-"text": "Solo se queda las puertas de la S por el consumo ligeramente superior en autopista."
+"start": 218.4,
+"end": 220.28,
+"text": "solo retrasa la siguiente visita."
 },
 {
-"start": 214.0,
-"end": 216.0,
-"text": "Por lo demás, es una compra brillante."
+"start": 220.28,
+"end": 221.92,
+"text": "Pero también es cierto lo contrario."
 },
 {
-"start": 216.0,
-"end": 218.0,
-"text": "Suzuki Vitara."
+"start": 221.92,
+"end": 225.44,
+"text": "Cambiar el filtro completo cuando todavía se puede regenerar o limpiar"
 },
 {
-"start": 218.0,
-"end": 220.0,
-"text": "S. Cross."
+"start": 225.44,
+"end": 227.16,
+"text": "es un gasto des proporcionado."
 },
 {
-"start": 220.0,
-"end": 224.0,
-"text": "Suzuki en el grupo de cabeza con 91 puntos en la ócud, 2026."
+"start": 227.16,
+"end": 229.68,
+"text": "Un fap saturado tiene varios niveles de solución."
 },
 {
-"start": 224.0,
-"end": 229.0,
-"text": "Gracias a su sencillez mecánica y a compartir componentes con Toyota en varios modelos."
+"start": 229.68,
+"end": 231.48,
+"text": "De más barato a más caro."
 },
 {
-"start": 229.0,
-"end": 231.0,
-"text": "El Vitara con el sistema Mile Hybrid Simple."
+"start": 231.48,
+"end": 233.84,
+"text": "Primero, la regeneración forzada."
 },
 {
-"start": 231.0,
-"end": 234.0,
-"text": "Es de los SUV más baratos de mantener del mercado."
+"start": 233.84,
+"end": 236.04,
+"text": "Si el fap está saturado pero no destruido,"
 },
 {
-"start": 234.0,
-"end": 235.0,
-"text": "Poco complejidad."
+"start": 236.04,
+"end": 238.92,
+"text": "una regeneración forzada en taller o incluso una conducción"
 },
 {
-"start": 235.0,
-"end": 236.0,
-"text": "Pocos puntos de fallo."
+"start": 238.92,
+"end": 241.12,
+"text": "sostenida en autopista puede limpiarlo."
 },
 {
-"start": 236.0,
-"end": 237.0,
-"text": "Tier A."
+"start": 241.12,
+"end": 243.08,
+"text": "Coster bajo o incluso gratis."
 },
 {
-"start": 237.0,
-"end": 240.0,
-"text": "Por su combinación invatible de fiabilidad y coste bajo."
+"start": 243.08,
+"end": 245.48,
+"text": "Segundo, la limpieza del fap."
 },
 {
-"start": 240.0,
-"end": 243.0,
-"text": "Le falta algo de refinamiento para la A alta."
+"start": 245.48,
+"end": 248.36,
+"text": "Existen procesos del impieza química o por ultrasonidos"
 },
 {
-"start": 243.0,
-"end": 245.0,
-"text": "Pero como compra racional, es difícil de batir."
-},
-{
-"start": 245.0,
-"end": 247.0,
-"text": "Honda CR-UV."
-},
-{
-"start": 247.0,
+"start": 248.36,
 "end": 251.0,
-"text": "Honda en el bloque de 89 puntos de la ócud, 2026."
+"text": "que desmontan el filtro y lo limpian a fondo."
 },
 {
 "start": 251.0,
-"end": 256.0,
-"text": "El CR-UV-E HIV con el sistema IMMD."
+"end": 253.6,
+"text": "Cuesta una fracción de lo que cuesta uno nuevo."
 },
 {
-"start": 256.0,
-"end": 258.0,
-"text": "Es de los híbridos más eficientes en ciudad."
+"start": 253.6,
+"end": 256.04,
+"text": "Tercero, y solo si los anteriores fallan,"
 },
 {
-"start": 258.0,
-"end": 259.0,
-"text": "Tiera."
+"start": 256.04,
+"end": 257.76,
+"text": "el cambio del filtro completo."
 },
 {
-"start": 259.0,
-"end": 260.0,
-"text": "Muy sólido."
+"start": 257.76,
+"end": 259.48,
+"text": "¿Cómo detectar el inflado?"
 },
 {
-"start": 260.0,
-"end": 267.0,
-"text": "Se queda fuera de la S, sólo porque el sistema IMMD tiene menos años de datos acumulados que el HSD de Toyota."
+"start": 259.48,
+"end": 262.16,
+"text": "Si te proponen directamente cambiar el fap completo,"
 },
 {
-"start": 267.0,
-"end": 270.0,
-"text": "Y la batería más pequeña puede sufrir más en climas extremos."
+"start": 262.16,
+"end": 265.88,
+"text": "sin haber intentado antes una regeneración forzada o una limpieza,"
 },
 {
-"start": 270.0,
-"end": 272.0,
-"text": "Kia Sportage."
+"start": 265.88,
+"end": 267.08,
+"text": "pregunta."
 },
 {
-"start": 272.0,
-"end": 273.0,
-"text": "Hyundai Tucson."
+"start": 267.08,
+"end": 271.4,
+"text": "¿Habéis intentado regenerarlo o limpiarlo antes de plantear el cambio completo?"
 },
 {
-"start": 273.0,
+"start": 271.4,
 "end": 275.0,
-"text": "Versiones híbridas y gasolina."
+"text": "Y sobre todo, la pregunta clave que los expertos subrayan."
 },
 {
 "start": 275.0,
-"end": 279.0,
-"text": "Kia y Hyundai en el grupo de fiabilidad alta de la ócud, 2026."
+"end": 277.32,
+"text": "¿Cuál es la causa por la que se ha saturado?"
 },
 {
-"start": 279.0,
-"end": 281.0,
-"text": "El argumento de peso."
+"start": 277.32,
+"end": 278.2,
+"text": "¿Por qué?"
 },
 {
-"start": 281.0,
-"end": 284.0,
-"text": "La garantía de siete años de Kia y cinco de Hyundai."
+"start": 278.2,
+"end": 280.36,
+"text": "Si te cambian el fap pero no resuelven,"
 },
 {
-"start": 284.0,
-"end": 286.0,
-"text": "Tiera con una advertencia."
+"start": 280.36,
+"end": 281.76,
+"text": "¿por qué se saturó?"
 },
 {
-"start": 286.0,
-"end": 291.0,
-"text": "Evita las versiones con el motor 1.6 TGDI de la familia que tuvo problemas documentados."
+"start": 281.76,
+"end": 283.16,
+"text": "Trayectos cortos."
 },
 {
-"start": 291.0,
-"end": 295.0,
-"text": "Y prioriza las híbridas o las de gasolina atmosférica más simples."
+"start": 283.16,
+"end": 284.16,
+"text": "Un sensor."
 },
 {
-"start": 295.0,
-"end": 296.0,
-"text": "Tier B. Correctos."
+"start": 284.16,
+"end": 285.68,
+"text": "Un problema de inyección."
 },
 {
-"start": 296.0,
-"end": 298.0,
-"text": "Compra válida si el precio acompaña."
+"start": 285.84,
+"end": 290.16,
+"text": "El fap nuevo se volverá a saturar y habrás pagado el cambio para nada."
 },
 {
-"start": 298.0,
-"end": 300.0,
-"text": "SUV decentes."
+"start": 290.16,
+"end": 291.56,
+"text": "Avería tres."
 },
 {
-"start": 300.0,
-"end": 302.0,
-"text": "Simbrillar ni preocupar."
+"start": 291.56,
+"end": 295.92,
+"text": "El consumo de aceite y el diagnóstico de motor caro que empieza por lo barato."
 },
 {
-"start": 302.0,
-"end": 305.0,
-"text": "Fiabilidad en la media o ligeramente por encima."
+"start": 295.92,
+"end": 299.72,
+"text": "Esta vería estraicionera porque el sobrecoste viene de saltarse los pasos baratos"
 },
 {
-"start": 305.0,
-"end": 309.0,
-"text": "Compra razonables si el precio es bueno y el mantenimiento está documentado."
+"start": 299.72,
+"end": 301.2,
+"text": "e ir directo a los caros."
 },
 {
-"start": 309.0,
-"end": 312.0,
-"text": "Toyota C.H.R. Nissan Qascai."
+"start": 301.2,
+"end": 302.16,
+"text": "El escenario."
 },
 {
-"start": 312.0,
-"end": 315.0,
-"text": "Solo generación J12 desde 2021."
+"start": 302.16,
+"end": 303.72,
+"text": "Tu coche consume aceite."
 },
 {
-"start": 315.0,
-"end": 316.0,
-"text": "El cascai nuevo."
+"start": 303.72,
+"end": 305.28,
+"text": "El nivel baja entre cambios."
 },
 {
-"start": 316.0,
-"end": 320.0,
-"text": "El J2S desde 2021 con el motor 1.3, Mildhyebred."
+"start": 305.28,
+"end": 306.92,
+"text": "No hay fugas visibles."
 },
 {
-"start": 320.0,
-"end": 322.0,
-"text": "Y especialmente en versión manual."
+"start": 306.92,
+"end": 311.48,
+"text": "Algunos talleres, ante ese síntoma, diagnostican directamente lo más caro."
 },
 {
-"start": 322.0,
-"end": 325.0,
-"text": "Corrigió gran parte de los problemas de la generación anterior."
+"start": 311.48,
+"end": 315.36,
+"text": "Son los segmentos del piston o son los retenes de válvulas."
 },
 {
-"start": 325.0,
-"end": 326.0,
-"text": "Tier B."
+"start": 315.36,
+"end": 319.32,
+"text": "Reparaciones que empiezan en varios cientos de euros y pueden llegar a miles porque implica"
 },
 {
-"start": 326.0,
-"end": 328.0,
-"text": "La versión nueva es un coche correcto."
+"start": 319.32,
+"end": 320.32,
+"text": "anabrier el motor."
 },
 {
-"start": 328.0,
-"end": 331.0,
-"text": "Muy lejos del desastre que fue con la CbT Antigua."
+"start": 320.32,
+"end": 321.92,
+"text": "¿Por qué ha menudo ese habitable?"
 },
 {
-"start": 332.0,
-"end": 333.0,
-"text": "Seat Arona."
+"start": 321.92,
+"end": 325.96,
+"text": "Como ya expliqué en otros vídeos, el consumo de aceite sin fuga visible tiene causas"
 },
 {
-"start": 333.0,
-"end": 335.0,
-"text": "Volkswagen T.Rock."
+"start": 325.96,
+"end": 327.76,
+"text": "que van de lo barato a lo caro."
 },
 {
-"start": 335.0,
-"end": 336.0,
-"text": "Escoda Cámica."
+"start": 327.76,
+"end": 329.92,
+"text": "Y hay que descartarlas en ese orden."
 },
 {
-"start": 336.0,
-"end": 338.0,
-"text": "Con motor 1.3, Mildhyebred."
+"start": 329.92,
+"end": 332.72,
+"text": "La causa más barata y frecuentemente ignorada."
 },
 {
-"start": 338.0,
-"end": 340.0,
-"text": "O 1.5."
+"start": 332.72,
+"end": 334.76,
+"text": "El sistema de ventilación del cárter."
 },
 {
-"start": 340.0,
-"end": 341.0,
-"text": "T.S.A."
+"start": 334.76,
+"end": 336.76,
+"text": "La válvula PCUV."
 },
 {
-"start": 341.0,
-"end": 343.0,
-"text": "E a 211 Evo."
+"start": 336.76,
+"end": 341.44,
+"text": "Cuando el separador de aceite se obstruye, el motor consume aceite sin fuga visible"
 },
 {
-"start": 343.0,
-"end": 346.0,
-"text": "Volkswagen ha mejorado varias posiciones en la Oculus 2026."
+"start": 341.44,
+"end": 344.32,
+"text": "y su cambio cuesta entre 20 y 80 euros."
 },
 {
-"start": 346.0,
-"end": 349.0,
-"text": "Subiendo de la posición 31 a la 25."
+"start": 344.32,
+"end": 348.36,
+"text": "Solo si ese sistema está bien tiene sentido pensar en retenes de válvulas."
 },
 {
-"start": 349.0,
-"end": 354.0,
-"text": "Los T.S.A. y del grupo VH en sus versiones más recientes son correctos si el mantenimiento es riguroso."
+"start": 348.36,
+"end": 351.08,
+"text": "Y solo si eso está bien en los segmentos."
 },
 {
-"start": 354.0,
-"end": 357.0,
-"text": "El punto de bil sigue siendo la sensibilidad a la C.H.R."
+"start": 351.08,
+"end": 352.84,
+"text": "¿Cómo detectar el inflado?"
 },
 {
-"start": 357.0,
-"end": 360.0,
-"text": "Exacto y la cadena de distribución en algunas versiones."
+"start": 352.84,
+"end": 357.68,
+"text": "Si ante un consumo de aceite te proponen directamente abrir el motor o cambiar segmentos sin haber"
 },
 {
-"start": 360.0,
-"end": 361.0,
-"text": "Tier B."
+"start": 357.68,
+"end": 361.28,
+"text": "verificado antes el sistema de ventilación del cárter para…"
 },
 {
-"start": 361.0,
-"end": 363.0,
-"text": "Con mantenimiento perfecto funcionan bien."
+"start": 361.28,
+"end": 362.28,
+"text": "Pregunta."
 },
 {
-"start": 363.0,
-"end": 365.0,
-"text": "Con mantenimiento descuidado bajan rápido."
+"start": 362.28,
+"end": 366.4,
+"text": "¿A ver si comprobar la válvula PCUV y el sistema de ventilación del cárter antes de plantear"
 },
 {
-"start": 365.0,
-"end": 367.0,
-"text": "Dacia Duster."
+"start": 366.4,
+"end": 367.4,
+"text": "abrir el motor?"
 },
 {
-"start": 367.0,
-"end": 368.0,
-"text": "Sandero Stepway."
+"start": 367.4,
+"end": 370.4,
+"text": "Un diagnóstico en esto empieza por lo barato y sube."
 },
 {
-"start": 368.0,
-"end": 373.0,
-"text": "Dacia en la zona media de la Oculus 2026 con datos aceptables gracias a su sencillez mecánica."
+"start": 370.4,
+"end": 373.84,
+"text": "Un diagnóstico que infla empieza por lo caro porque da más beneficio."
 },
 {
-"start": 373.0,
-"end": 374.0,
-"text": "Tier B."
+"start": 373.84,
+"end": 375.0,
+"text": "Habría cuatro."
 },
 {
-"start": 374.0,
-"end": 380.0,
-"text": "No es el más refinado ni el mejor acabado, pero su simplicidad mecánica lo hace barato de mantener y sin grandes sorpresas."
+"start": 375.0,
+"end": 376.64,
+"text": "Los tirones de la caja automática."
 },
 {
-"start": 380.0,
-"end": 383.0,
-"text": "Para presupuesto ajustado, una opción honesta."
+"start": 376.64,
+"end": 381.08,
+"text": "Y la reconstrucción, que podía ser un cambio de aceite, está la traten profundidad"
 },
 {
-"start": 383.0,
-"end": 385.0,
-"text": "Tier C. con precaución."
+"start": 381.08,
+"end": 383.2,
+"text": "en el vídeo de cajas automáticas."
 },
 {
-"start": 385.0,
-"end": 388.0,
-"text": "Solo con historial impecable y precio muy bueno."
+"start": 383.2,
+"end": 385.24,
+"text": "Pero es tan común que merece estar aquí."
 },
 {
-"start": 388.0,
-"end": 391.0,
-"text": "Aquí empiezan los que requieren cautela."
+"start": 385.24,
+"end": 386.24,
+"text": "El escenario."
 },
 {
-"start": 391.0,
-"end": 394.0,
-"text": "Motores o transvisiones con puntos débiles documentados."
+"start": 386.24,
+"end": 388.44,
+"text": "Tu caja automática da tirones."
 },
 {
-"start": 394.0,
-"end": 397.0,
-"text": "Comprables solo con historial completo y sabiendo lo que vigilar."
+"start": 388.44,
+"end": 389.44,
+"text": "Cambios bruscos."
 },
 {
-"start": 397.0,
-"end": 399.0,
-"text": "P.H.R.3.08."
+"start": 389.44,
+"end": 391.28,
+"text": "Retraso al meter marcha."
 },
 {
-"start": 399.0,
-"end": 400.0,
-"text": "Citroen."
+"start": 391.28,
+"end": 396.12,
+"text": "Y algunos talleres, ante esos síntomas, diagnostican directamente lo peor."
 },
 {
-"start": 400.0,
-"end": 402.0,
-"text": "Cinco aircros."
+"start": 396.12,
+"end": 398.12,
+"text": "Hay que reconstruir la caja."
 },
 {
-"start": 402.0,
-"end": 404.0,
-"text": "Motor 1.2."
+"start": 398.12,
+"end": 400.24,
+"text": "O hay que cambiar la mecatrónica."
 },
 {
-"start": 404.0,
-"end": 406.0,
-"text": "PureTech."
+"start": 400.24,
+"end": 402.52,
+"text": "Entre 2000 y 4000 euros."
 },
 {
-"start": 406.0,
-"end": 407.0,
-"text": "P.H.R.10."
+"start": 402.52,
+"end": 403.96,
+"text": "¿Qué ha menudo es evitable?"
 },
 {
-"start": 407.0,
+"start": 403.96,
+"end": 407.52,
+"text": "En muchos casos esos tirones tienen dos causas mucho más baratas."
+},
+{
+"start": 407.52,
+"end": 408.52,
+"text": "Primera."
+},
+{
+"start": 408.52,
 "end": 410.0,
-"text": "Quedan en la zona baja media de la Oculus 2026."
+"text": "El aceite de gradado."
 },
 {
 "start": 410.0,
-"end": 413.0,
-"text": "Con 76 puntos superadas incluso por Volkswagen."
+"end": 412.84,
+"text": "Los especialistas en transmisiones lo confirman."
 },
 {
-"start": 413.0,
-"end": 417.0,
-"text": "El motor 1.2 PureTech con la correa de distribución en baño de aceite es el problema."
+"start": 412.84,
+"end": 417.8,
+"text": "Si el problema se debe a su ciudad en los solenoides o de gradación del fluido, la sustitución"
 },
 {
-"start": 417.0,
-"end": 421.0,
-"text": "En formato SW pesado, el estrés es mayor."
+"start": 417.8,
+"end": 420.88,
+"text": "del aceite suele mejorar notablemente el comportamiento."
 },
 {
-"start": 421.0,
-"end": 422.0,
-"text": "Tier C."
+"start": 420.88,
+"end": 424.68,
+"text": "Un cambio de aceite y filtro cuesta una fracción de una reconstrucción."
 },
 {
-"start": 422.0,
-"end": 426.0,
-"text": "Si es la versión 10 el Blue HD o el híbrido con motor más grande, sube."
+"start": 424.68,
+"end": 425.68,
+"text": "Segunda."
 },
 {
-"start": 426.0,
-"end": 428.0,
-"text": "Con el 1.2 PureTech."
+"start": 425.68,
+"end": 427.0,
+"text": "El software."
 },
 {
-"start": 428.0,
-"end": 430.0,
-"text": "Precaución máxima."
+"start": 427.0,
+"end": 431.6,
+"text": "Como ya expliqué, a veces los tirones no son mecánicos, sino de software desactualizado"
 },
 {
-"start": 430.0,
-"end": 431.0,
-"text": "Hip-compas."
+"start": 431.6,
+"end": 433.32,
+"text": "de la mecatrónica."
 },
 {
-"start": 431.0,
-"end": 434.0,
-"text": "Renegada motor 1.3 GSE-T4."
+"start": 433.32,
+"end": 437.76,
+"text": "Una actualización barata puede resolver lo que parecía una avería mecánica cara."
 },
 {
-"start": 434.0,
-"end": 439.0,
-"text": "Jeep entre las marcas con mayor incidencia de problemas eléctricos según la Oculus 2026."
+"start": 437.76,
+"end": 439.4,
+"text": "Como detectar el inflado."
 },
 {
-"start": 439.0,
-"end": 443.0,
-"text": "El motor 1.3 GSE con potencia específica muy alta."
+"start": 439.4,
+"end": 444.16,
+"text": "Si ante los primeros tirones te proponen directamente reconstruir la caja o cambiar la mecatrónica,"
 },
 {
-"start": 443.0,
-"end": 447.0,
-"text": "Y la caja DCT en seco con comportamiento rático en ciudad."
+"start": 444.16,
+"end": 445.16,
+"text": "pregunta."
 },
 {
-"start": 447.0,
-"end": 448.0,
-"text": "Tier C."
+"start": 445.16,
+"end": 450.16,
+"text": "¿Habéis probado antes un cambio de aceite y filtro y verificado que el software está actualizado?"
 },
 {
-"start": 448.0,
-"end": 452.0,
-"text": "Curiosamente el Renegade 10 el obtuvo buena nota en un segmento concreto de la Oculus,"
+"start": 450.16,
+"end": 452.12,
+"text": "Ahora bien, seamos justos."
 },
 {
-"start": 452.0,
-"end": 455.0,
-"text": "pero las versiones de gasolina con esa caja bajan la media."
+"start": 452.12,
+"end": 457.36,
+"text": "Si la caja ya patina abiertamente, huele a quemado o los embrages ya están quemados, el aceite"
 },
 {
-"start": 455.0,
-"end": 456.0,
-"text": "Nissan Quasky."
+"start": 457.36,
+"end": 460.84,
+"text": "nuevo llega tarde y la reparación mayor si es necesaria."
 },
 {
-"start": 456.0,
-"end": 457.0,
-"text": "Generación John C."
+"start": 460.84,
+"end": 464.96,
+"text": "La clave es que se hayan descartado antes las opciones baratas."
 },
 {
-"start": 457.0,
-"end": 460.0,
-"text": "2014 hasta 2021 con CBT."
+"start": 464.96,
+"end": 466.12,
+"text": "Avería 5."
 },
 {
-"start": 460.0,
-"end": 462.0,
-"text": "Tier C tirando AD."
+"start": 466.12,
+"end": 470.08,
+"text": "El ruido en la suspensión y el cambio de componentes que estaban bien."
 },
 {
-"start": 462.0,
-"end": 468.0,
-"text": "La CBT Jacko de esta generación es el problema documentado con más casos en foros y demandas colectivas."
+"start": 470.08,
+"end": 474.04,
+"text": "Cerramos con una de las más frecuentes y donde el sobrecoste es muy común."
 },
 {
-"start": 469.0,
-"end": 474.0,
-"text": "Comparable solo con historial de cambios de fluido cada 35 o 40.000 kilómetros."
+"start": 474.04,
+"end": 475.04,
+"text": "El escenario."
 },
 {
-"start": 474.0,
-"end": 477.0,
-"text": "Sin ese historial, baja a la F."
+"start": 475.04,
+"end": 479.64,
+"text": "Hoy es un ruido en la suspensión, un golpe teo, un crujido al pasar por baches."
 },
 {
-"start": 477.0,
-"end": 478.0,
-"text": "Tier D."
+"start": 479.64,
+"end": 483.8,
+"text": "Y algunos talleres, ante ese ruido, cambian componentes caros."
 },
 {
-"start": 478.0,
-"end": 480.0,
-"text": "Evitar salvo ganga con garantía."
+"start": 483.8,
+"end": 485.4,
+"text": "Amortiguadores completos."
 },
 {
-"start": 480.0,
-"end": 482.0,
-"text": "Problemas documentados serios."
+"start": 485.4,
+"end": 487.24,
+"text": "Brazos de suspensión enteros."
 },
 {
-"start": 482.0,
-"end": 483.0,
-"text": "O incertidumbre alta."
+"start": 487.24,
+"end": 488.72,
+"text": "El conjunto completo."
 },
 {
-"start": 483.0,
-"end": 487.0,
-"text": "Solo para quien sabe exactamente lo que compra y tiene colchón para reparaciones."
+"start": 488.72,
+"end": 492.2,
+"text": "Cuando muchas veces el ruido viene de una pieza pequeña y barata, ¿por qué a menudo"
 },
 {
-"start": 487.0,
-"end": 490.0,
-"text": "MGZTS, MGHES."
+"start": 492.2,
+"end": 493.4,
+"text": "es evitable?"
 },
 {
-"start": 490.0,
-"end": 492.0,
-"text": "Aquí está la gran sorpresa negativa."
+"start": 493.4,
+"end": 497.68,
+"text": "Los ruidos de suspensión tienen un origen concreto que un buen diagnóstico identifica."
 },
 {
-"start": 492.0,
-"end": 496.0,
-"text": "El segundo, SUV más vendido de España en fiabilidad de Tier D."
+"start": 497.68,
+"end": 500.6,
+"text": "Y muy frecuentemente ese origen es una pieza económica."
 },
 {
-"start": 497.0,
-"end": 499.0,
-"text": "MG, a pesar de su enorme éxito comercial,"
+"start": 500.6,
+"end": 502.2,
+"text": "Un silent block desgastado."
 },
 {
-"start": 499.0,
-"end": 505.0,
-"text": "queda relegada a la penúltima posición del ranking OQ con 72 puntos, solo por delante de Lanrober."
+"start": 502.2,
+"end": 504.48,
+"text": "La pieza de goma que amortigo a las uniones."
 },
 {
-"start": 505.0,
-"end": 508.0,
-"text": "La ócula califica como la gran decepción del informe."
+"start": 504.48,
+"end": 505.48,
+"text": "Barato."
 },
 {
-"start": 508.0,
-"end": 510.0,
-"text": "El problema no es solo la fiabilidad medida."
+"start": 505.48,
+"end": 507.72,
+"text": "Una rottula con algura."
 },
 {
-"start": 510.0,
-"end": 512.0,
-"text": "Es la incertidumbre a largo plazo."
+"start": 507.72,
+"end": 508.72,
+"text": "Económica."
 },
 {
-"start": 512.0,
-"end": 516.0,
-"text": "La red detallera es todavía en construcción y la disponibilidad de piezas."
+"start": 508.72,
+"end": 510.96,
+"text": "Un enlace obioleta de la barra estabilizadora."
 },
 {
-"start": 516.0,
-"end": 517.0,
-"text": "Tier D."
+"start": 510.96,
+"end": 514.04,
+"text": "De las piezas más baratas del coche y una de las causas más frecuentes de ruido de"
 },
 {
-"start": 517.0,
-"end": 519.0,
-"text": "Vende mucho por precio."
+"start": 514.04,
+"end": 515.04,
+"text": "suspensión."
 },
 {
-"start": 519.0,
-"end": 521.0,
-"text": "Los datos de fiabilidad no acompañan."
+"start": 515.04,
+"end": 517.2,
+"text": "Los tacos o topes de la suspensión."
 },
 {
-"start": 521.0,
-"end": 523.0,
-"text": "Alfa Romeo Estelvio."
+"start": 517.2,
+"end": 519.04,
+"text": "Cómo detectar el inflado."
 },
 {
-"start": 523.0,
-"end": 528.0,
-"text": "D.S.7 Crossback. Alfa Romeo entre las marcas con más problemas eléctricos de la ócula."
+"start": 519.04,
+"end": 522.56,
+"text": "Si ante un ruido de suspensión te proponen cambiar amortiguadores completos o brazos"
 },
 {
-"start": 528.0,
-"end": 533.0,
-"text": "El D.S.7 comparte los problemas del puertec, comprecio Premium y depreciación brutal."
+"start": 522.56,
+"end": 526.12,
+"text": "enteros sin haber localizado el origen exacto del ruido pregunta."
 },
 {
-"start": 533.0,
-"end": 534.0,
-"text": "Tier D."
+"start": 526.12,
+"end": 529.04,
+"text": "¿Habéis identificado exactamente qué componente hace el ruido?"
 },
 {
-"start": 534.0,
-"end": 535.0,
-"text": "Bonitos."
+"start": 529.04,
+"end": 531.48,
+"text": "¿O vais a cambiar el conjunto entero por si acaso?"
 },
 {
-"start": 535.0,
-"end": 536.0,
-"text": "Con carácter."
+"start": 531.48,
+"end": 536.28,
+"text": "Cambiar el conjunto entero por si acaso es la frase que más dinero de más te va a costar."
 },
 {
-"start": 536.0,
-"end": 538.0,
-"text": "Pero con historial que no compensa el riesgo económico."
+"start": 536.28,
+"end": 539.0,
+"text": "Un buen mecánico localiza el ruido en la pieza exacta."
 },
 {
-"start": 538.0,
-"end": 540.0,
-"text": "Tier F.E.W."
+"start": 539.0,
+"end": 543.6,
+"text": "Un taller que infla cambia todo el conjunto para asegurarse y te pasa la factura de todo."
 },
 {
-"start": 540.0,
-"end": 542.0,
-"text": "Aunque el precio parece a un regalo."
+"start": 543.6,
+"end": 545.68,
+"text": "La herramienta que lo cambia todo."
 },
 {
-"start": 542.0,
-"end": 543.0,
-"text": "El fondo de la tabla."
+"start": 545.68,
+"end": 547.52,
+"text": "El presupuesto por escrito."
 },
 {
-"start": 543.0,
-"end": 548.0,
-"text": "Con datos en la mano, la probabilidad de facturas desproporcionadas es demasiado alta."
+"start": 547.52,
+"end": 551.72,
+"text": "Antes de las conclusiones, la protección más importante que tienes."
 },
 {
-"start": 548.0,
-"end": 549.0,
-"text": "Lanrober."
+"start": 551.72,
+"end": 560.72,
+"text": "En España, el real decreto 1457 sobre 1986 regula la actividad de los talleres y establece"
 },
 {
-"start": 549.0,
-"end": 550.0,
-"text": "Range Rover."
+"start": 560.72,
+"end": 565.4,
+"text": "que el taller tiene la obligación de realizar correctamente el trabajo comprometido."
 },
 {
-"start": 550.0,
-"end": 551.0,
-"text": "Sport."
+"start": 565.4,
+"end": 569.04,
+"text": "Tienes derecho a un presupuesto por escrito antes de que hagan cualquier reparación."
 },
 {
-"start": 551.0,
-"end": 552.0,
-"text": "Evoke."
+"start": 569.04,
+"end": 570.12,
+"text": "Estuderecho legal."
 },
 {
-"start": 552.0,
-"end": 553.0,
-"text": "Discovery."
+"start": 570.12,
+"end": 574.24,
+"text": "Si ese presupuesto debe detallar las piezas, la mano de obra y el diagnóstico."
 },
 {
-"start": 553.0,
-"end": 554.0,
-"text": "Defender."
+"start": 574.24,
+"end": 578.92,
+"text": "Y si el taller entrega el vehículo y la avería original no sea solucionado,"
 },
 {
-"start": 554.0,
-"end": 555.0,
-"text": "El farolillo rojo."
+"start": 578.92,
+"end": 582.6,
+"text": "estás ante una reparación defectuosa y tienes derecho a reclamar."
 },
 {
-"start": 555.0,
-"end": 556.0,
-"text": "Indiscutible."
+"start": 582.6,
+"end": 585.36,
+"text": "El consejo práctico más importante de todo el vídeo."
 },
 {
-"start": 556.0,
-"end": 559.0,
-"text": "Lanrober ocupa la última posición de la ócula."
+"start": 585.36,
+"end": 589.12,
+"text": "Para verías caras, pide siempre un segundo presupuesto en otro taller."
 },
 {
-"start": 559.0,
-"end": 561.0,
-"text": "2016, con 64 puntos."
+"start": 589.12,
+"end": 591.76,
+"text": "Especialmente uno independiente especializado."
 },
 {
-"start": 561.0,
-"end": 563.0,
-"text": "Repitiendo la posición del año anterior."
+"start": 591.76,
+"end": 596.24,
+"text": "La diferencia entre dos presupuestos para la misma avería puede ser de cientos o miles de euros."
 },
 {
-"start": 563.0,
-"end": 566.0,
-"text": "Las reparaciones pueden ser muy costosas."
+"start": 596.24,
+"end": 599.16,
+"text": "Y esa diferencia sale directamente de tu bolsillo."
 },
 {
-"start": 566.0,
-"end": 569.0,
-"text": "Con fallos graves recurrentes en el electrónica y motorizaciones."
+"start": 599.16,
+"end": 601.24,
+"text": "Como reconocer un taller honesto."
 },
 {
-"start": 569.0,
-"end": 572.0,
-"text": "Ya le dedique un vídeo entero al Range Rover de segunda mano."
+"start": 601.24,
+"end": 603.12,
+"text": "No todos son talleres que inflan."
 },
 {
-"start": 572.0,
-"end": 573.0,
-"text": "El triángulo del terror."
+"start": 603.12,
+"end": 604.68,
+"text": "La mayoría son honestos."
 },
 {
-"start": 573.0,
-"end": 574.0,
-"text": "Suspensión neumática."
-},
-{
-"start": 574.0,
-"end": 578.0,
-"text": "El electrónica de 70, 90 módulos y acceso imposible a componentes."
-},
-{
-"start": 578.0,
-"end": 579.0,
-"text": "Tier F.E."
-},
-{
-"start": 579.0,
-"end": 582.0,
-"text": "Sin matices en el mercado de segunda mano fuera de garantía."
-},
-{
-"start": 582.0,
-"end": 585.0,
-"text": "En garantía y con presupuesto ilimitado."
-},
-{
-"start": 585.0,
-"end": 586.0,
-"text": "Es otra conversación."
-},
-{
-"start": 586.0,
-"end": 588.0,
-"text": "El resumen visual de la tier list."
-},
-{
-"start": 588.0,
-"end": 591.0,
-"text": "Déjame ordenarlo para que lo tengas claro de un vistazo."
-},
-{
-"start": 591.0,
-"end": 592.0,
-"text": "Tier F.E."
-},
-{
-"start": 592.0,
-"end": 593.0,
-"text": "Lexus NX."
-},
-{
-"start": 593.0,
-"end": 594.0,
-"text": "RX."
-},
-{
-"start": 594.0,
-"end": 596.0,
-"text": "Toyota RAV4."
-},
-{
-"start": 596.0,
-"end": 597.0,
-"text": "CHR."
-},
-{
-"start": 597.0,
-"end": 598.0,
-"text": "Subaru Forester."
-},
-{
-"start": 598.0,
-"end": 599.0,
-"text": "Outback."
-},
-{
-"start": 599.0,
-"end": 600.0,
-"text": "Tier F.E.W."
-},
-{
-"start": 600.0,
-"end": 602.0,
-"text": "Más da CX-5."
-},
-{
-"start": 602.0,
-"end": 603.0,
-"text": "Su Zuki Vitara."
-},
-{
-"start": 603.0,
-"end": 604.0,
-"text": "S-Cross."
-},
-{
-"start": 604.0,
-"end": 605.0,
-"text": "Honda CR-W."
-},
-{
-"start": 605.0,
+"start": 604.68,
 "end": 607.0,
-"text": "Kia Sportage."
+"text": "Y ahí señales claras para reconocerlos."
 },
 {
 "start": 607.0,
-"end": 608.0,
-"text": "Hyundai Tuxon."
+"end": 609.52,
+"text": "Un taller honesto te explica la causa del problema."
 },
 {
-"start": 608.0,
-"end": 610.0,
-"text": "Ibridos y gasolina simple."
+"start": 609.52,
+"end": 611.28,
+"text": "No solo que pieza va a cambiar."
 },
 {
-"start": 610.0,
-"end": 611.0,
-"text": "Tier B."
+"start": 611.28,
+"end": 616.08,
+"text": "Un taller honesto empieza por las soluciones baratas y solo escala las caras y las primeras fallan."
 },
 {
-"start": 611.0,
-"end": 612.0,
-"text": "Nissan Cascay."
+"start": 616.08,
+"end": 620.76,
+"text": "Un taller honesto te da presupuesto por escrito y detallado, sin que tengas que insistir."
 },
 {
-"start": 612.0,
-"end": 613.0,
-"text": "Joe C.Nuevo."
+"start": 620.76,
+"end": 623.84,
+"text": "Un taller honesto no le importa que pidas una segunda opinión."
 },
 {
-"start": 613.0,
-"end": 615.0,
-"text": "U-V-U-VT-Rock."
+"start": 623.84,
+"end": 625.76,
+"text": "Al contrario, la respeta."
 },
 {
-"start": 615.0,
-"end": 616.0,
-"text": "Sea Tarona."
+"start": 625.76,
+"end": 629.72,
+"text": "Y un taller honesto te devuelve las piezas viejas que ha cambiado si se las pides."
 },
 {
-"start": 616.0,
-"end": 617.0,
-"text": "Skoda Kamiq."
+"start": 629.72,
+"end": 633.48,
+"text": "Es tu derecho y ver la pieza vieja confirma que realmente estaba dañada."
 },
 {
-"start": 617.0,
-"end": 619.0,
-"text": "Con mantenimiento estricto."
+"start": 633.48,
+"end": 636.76,
+"text": "Si tu taller cumple todo esto, conservalo."
 },
 {
-"start": 619.0,
-"end": 620.0,
-"text": "Dacia Duster."
+"start": 636.76,
+"end": 639.92,
+"text": "Un buen mecánico de confianza vale su peso en oro."
 },
 {
-"start": 620.0,
-"end": 621.0,
-"text": "Tier C."
-},
-{
-"start": 621.0,
-"end": 623.0,
-"text": "Peugeot 2008."
-},
-{
-"start": 623.0,
-"end": 624.0,
-"text": "Citroen 5."
-},
-{
-"start": 624.0,
-"end": 625.0,
-"text": "Air Cross PureTech."
-},
-{
-"start": 625.0,
-"end": 626.0,
-"text": "Jeep Compass."
-},
-{
-"start": 626.0,
-"end": 627.0,
-"text": "Renegade 1.3."
-},
-{
-"start": 627.0,
-"end": 629.0,
-"text": "Nissan Cascay 11."
-},
-{
-"start": 629.0,
-"end": 630.0,
-"text": "Con CbT."
-},
-{
-"start": 630.0,
-"end": 631.0,
-"text": "Tier D."
-},
-{
-"start": 631.0,
-"end": 632.0,
-"text": "MGZ-S."
-},
-{
-"start": 632.0,
-"end": 633.0,
-"text": "H-S."
-},
-{
-"start": 633.0,
-"end": 634.0,
-"text": "Alfa Romeo Estelvio."
-},
-{
-"start": 634.0,
-"end": 636.0,
-"text": "DS-7 Crossback."
-},
-{
-"start": 636.0,
-"end": 637.0,
-"text": "Tier F."
-},
-{
-"start": 637.0,
-"end": 640.0,
-"text": "Lanrover en todas sus formas de segunda mano fuera de garantía."
-},
-{
-"start": 640.0,
+"start": 639.92,
 "end": 641.0,
-"text": "El Patron."
+"text": "Conclusión."
 },
 {
 "start": 641.0,
-"end": 643.0,
-"text": "Que explica toda la Tier List."
+"end": 644.36,
+"text": "El cliente que sabe no es el cliente al que se infla."
 },
 {
-"start": 643.0,
-"end": 647.0,
-"text": "Si te fijas, hay una lógica que atraviesa toda la tabla de arriba abajo."
+"start": 644.36,
+"end": 646.84,
+"text": "El coste de las reparaciones sube cada año."
 },
 {
-"start": 647.0,
-"end": 649.0,
-"text": "Arriba en la S y la A."
+"start": 646.84,
+"end": 650.32,
+"text": "684 euros de media en 2026."
 },
 {
-"start": 649.0,
-"end": 653.0,
-"text": "Domina los motores atmosféricos o ibridos sin turbo extremo."
+"start": 650.32,
+"end": 652.0,
+"text": "Un 9% más."
 },
 {
-"start": 653.0,
-"end": 654.0,
-"text": "La mecánica probada."
+"start": 652.0,
+"end": 655.12,
+"text": "Partedes a su vida es real e inevitable."
 },
 {
-"start": 654.0,
-"end": 656.0,
-"text": "La electrónica moderada."
+"start": 655.12,
+"end": 660.04,
+"text": "Los coches son más complejos, la electrónica es más cara, el diagnóstico requiere más tiempo"
 },
 {
-"start": 656.0,
-"end": 657.0,
-"text": "Y las marcas japonesas."
+"start": 660.04,
+"end": 661.04,
+"text": "y equipos."
 },
 {
-"start": 657.0,
-"end": 658.0,
-"text": "Abajo."
+"start": 661.04,
+"end": 662.92,
+"text": "Pero otra parte no lo es."
 },
 {
-"start": 658.0,
-"end": 659.0,
-"text": "En la D."
+"start": 662.92,
+"end": 666.88,
+"text": "Es el sobrecoste de cambiar componentes que estaban bien, desaltarse las soluciones"
 },
 {
-"start": 659.0,
-"end": 660.0,
-"text": "Y la F."
+"start": 666.88,
+"end": 671.28,
+"text": "baratas para ir directo a las caras, de cambiar el conjunto entero por si acaso."
 },
 {
-"start": 660.0,
-"end": 662.0,
-"text": "Domina en la complejidad electrónica excesiva."
+"start": 671.28,
+"end": 674.6,
+"text": "La defensa contra eso no es desconfiar de todos los talleres."
 },
 {
-"start": 662.0,
-"end": 664.0,
-"text": "El Downsizing Agresivo."
+"start": 674.6,
+"end": 676.28,
+"text": "La mayoría son honestos."
 },
 {
-"start": 664.0,
-"end": 666.0,
-"text": "Con motores pequeños moviendo."
+"start": 676.28,
+"end": 679.2,
+"text": "La defensa es llegar sabiendo."
 },
 {
-"start": 666.0,
-"end": 667.0,
-"text": "S.W."
+"start": 679.2,
+"end": 680.84,
+"text": "Preguntar por la causa."
 },
 {
-"start": 667.0,
-"end": 668.0,
-"text": "Pesados."
+"start": 680.84,
+"end": 682.56,
+"text": "No solo por la pieza."
 },
 {
-"start": 668.0,
-"end": 669.0,
-"text": "Las transmisiones problemáticas."
+"start": 682.56,
+"end": 686.84,
+"text": "Exigir que se descarten las soluciones baratas antes que las caras."
 },
 {
-"start": 669.0,
-"end": 671.0,
-"text": "Y las marcas con red de servicio limitada."
+"start": 686.84,
+"end": 688.72,
+"text": "Pedir presupuesto por escrito."
 },
 {
-"start": 671.0,
-"end": 673.0,
-"text": "O incertidumbre de datos."
+"start": 688.72,
+"end": 691.8,
+"text": "Y para verías grandes buscar una segunda opinión."
 },
 {
-"start": 673.0,
-"end": 677.0,
-"text": "La Oculus resume perfectamente en su informe de 2026."
+"start": 691.8,
+"end": 697.08,
+"text": "Los 5 casos de hoy, el sensor que no era, el FAP que se podía limpiar, el consumo de aceite"
 },
 {
-"start": 677.0,
-"end": 679.0,
-"text": "Si buscas un coche para los próximos 10 años."
+"start": 697.08,
+"end": 702.28,
+"text": "que era la PZW, la caja que solo necesitaba aceite, la suspensión, que era un silent"
 },
 {
-"start": 679.0,
-"end": 681.0,
-"text": "Apuesta por marcas con mecánicas probadas."
+"start": 702.28,
+"end": 705.24,
+"text": "block, tienen algo en común, en todos."
 },
 {
-"start": 681.0,
-"end": 684.0,
-"text": "Y desconfía de los excesos de electrónica innecesaria."
+"start": 705.24,
+"end": 709.6,
+"text": "La solución barata existe y en todos hay talleres que van directo a la cara."
 },
 {
-"start": 684.0,
-"end": 687.0,
-"text": "Que sólo añaden puntos potenciales de ruptura."
+"start": 709.6,
+"end": 711.52,
+"text": "Ahora sabes distinguir una de otra."
 },
 {
-"start": 687.0,
-"end": 688.0,
-"text": "La Tier List."
+"start": 711.52,
+"end": 714.68,
+"text": "Y ese conocimiento es exactamente lo que te protege el bolsillo."
 },
 {
-"start": 688.0,
-"end": 690.0,
-"text": "No es más que esa frase convertida en una tabla."
+"start": 714.68,
+"end": 717.28,
+"text": "¿Te han inflado alguna vez una factura de taller?"
 },
 {
-"start": 690.0,
-"end": 691.0,
-"text": "La advertencia final."
+"start": 717.28,
+"end": 719.44,
+"text": "¿Te cambiaron algo que no era el problema real?"
 },
 {
-"start": 691.0,
-"end": 692.0,
-"text": "Que cambia todo."
+"start": 719.44,
+"end": 723.72,
+"text": "¿O tienes un mecánico de confianza que hace exactamente lo contrario y quieres reivindicarlo?"
 },
 {
-"start": 692.0,
-"end": 693.0,
-"text": "Antes de cerrar."
+"start": 723.72,
+"end": 725.88,
+"text": "Cuéntame lo en los comentarios."
 },
 {
-"start": 693.0,
-"end": 695.0,
-"text": "La advertencia más importante."
+"start": 725.88,
+"end": 729.8,
+"text": "Con la vería, lo que te cobraron y lo que resultó ser en realidad."
 },
 {
-"start": 695.0,
-"end": 696.0,
-"text": "Esta Tier List."
+"start": 729.8,
+"end": 734.36,
+"text": "Construyamos entre todos la guía de defensa del conductor más completa del mercado español."
 },
 {
-"start": 696.0,
-"end": 698.0,
-"text": "Es por marca y modelo general."
+"start": 734.36,
+"end": 739.08,
+"text": "Y si este vídeo puede ahorrarle dinero a alguien que va a ir a talleres esta semana, compártelo."
 },
 {
-"start": 698.0,
-"end": 699.0,
-"text": "Pero como dice la propia Oculus."
+"start": 739.08,
+"end": 741.84,
+"text": "Puede ser el consejo más rentable que reciba este mes."
 },
 {
-"start": 699.0,
-"end": 700.0,
-"text": "Dentro de una misma marca."
+"start": 741.84,
+"end": 745.12,
+"text": "Suscríbete para más conocimiento que protege tu bolsillo del sobrecoste."
 },
 {
-"start": 700.0,
-"end": 701.0,
-"text": "Y generaciones muy sólidas."
-},
-{
-"start": 701.0,
-"end": 703.0,
-"text": "Y otras con más incidencias."
-},
-{
-"start": 703.0,
-"end": 705.0,
-"text": "El modelo y la motorización concreta."
-},
-{
-"start": 705.0,
-"end": 706.0,
-"text": "Mueve mucho la aguja."
-},
-{
-"start": 706.0,
-"end": 708.0,
-"text": "Un mismo modelo puede subir o bajar dos tier."
-},
-{
-"start": 708.0,
-"end": 709.0,
-"text": "Según el motor que lleve."
-},
-{
-"start": 709.0,
-"end": 711.0,
-"text": "Un Peugeot 3.810."
-},
-{
-"start": 711.0,
-"end": 714.0,
-"text": "No es lo mismo que uno con el 1.2 PureTech."
-},
-{
-"start": 714.0,
-"end": 715.0,
-"text": "Un Kia Sport Asíbrido."
-},
-{
-"start": 715.0,
-"end": 718.0,
-"text": "No es lo mismo que uno con el turbo problemático."
-},
-{
-"start": 718.0,
-"end": 720.0,
-"text": "Y por encima de todo eso está el mantenimiento."
-},
-{
-"start": 720.0,
-"end": 723.0,
-"text": "El SUV mejor colocado de la Tier S sin mantenimiento."
-},
-{
-"start": 723.0,
-"end": 725.0,
-"text": "Se convierte en un problema."
-},
-{
-"start": 725.0,
-"end": 728.0,
-"text": "Y el de Tier C con mantenimiento impecable y usado con cabeza."
-},
-{
-"start": 728.0,
-"end": 729.0,
-"text": "Puede darte un servicio digno."
-},
-{
-"start": 729.0,
-"end": 732.0,
-"text": "La Tier List dice dónde están las probabilidades."
-},
-{
-"start": 732.0,
-"end": 734.0,
-"text": "Tu decisión de compra y tu mantenimiento."
-},
-{
-"start": 734.0,
-"end": 735.0,
-"text": "Deciden el resultado final."
-},
-{
-"start": 735.0,
-"end": 736.0,
-"text": "Llamada a la acción."
-},
-{
-"start": 736.0,
-"end": 737.0,
-"text": "Ahora quiero la tuya."
-},
-{
-"start": 737.0,
-"end": 739.0,
-"text": "¿Estás de acuerdo con esta Tier List?"
-},
-{
-"start": 739.0,
-"end": 741.0,
-"text": "¿Subirías o bajarías algún SUP?"
-},
-{
-"start": 741.0,
-"end": 745.0,
-"text": "¿Tienes uno de los que he colocado en la C, la D o la F?"
-},
-{
-"start": 745.0,
-"end": 747.0,
-"text": "¿Estás de acuerdo con esta Tier List?"
-},
-{
-"start": 747.0,
-"end": 749.0,
-"text": "¿Subirías o bajarías algún SUP?"
-},
-{
-"start": 749.0,
-"end": 752.0,
-"text": "¿O la F y tu experiencia contradice los datos?"
-},
-{
-"start": 752.0,
-"end": 753.0,
-"text": "Cuéntame lo."
-},
-{
-"start": 753.0,
-"end": 754.0,
-"text": "Quiero saberlo."
-},
-{
-"start": 754.0,
-"end": 757.0,
-"text": "¿Crees que algún SUV de la S no merece estar tan arriba?"
-},
-{
-"start": 757.0,
-"end": 759.0,
-"text": "Déjame tu propia Tier List en los comentarios."
-},
-{
-"start": 759.0,
-"end": 762.0,
-"text": "Con marca, modelo, motor y kilómetros."
-},
-{
-"start": 762.0,
-"end": 765.0,
-"text": "Este es el tipo de debate que hace grande a este canal."
-},
-{
-"start": 765.0,
-"end": 769.0,
-"text": "Con datos, sin insultos, con experiencia real."
-},
-{
-"start": 769.0,
-"end": 773.0,
-"text": "Y si esta Tier List ayuda a decidir tu próxima compra o a esquivar un error caro,"
-},
-{
-"start": 773.0,
-"end": 776.0,
-"text": "compártela con quien esté buscando SUV ahora mismo."
-},
-{
-"start": 776.0,
-"end": 778.0,
-"text": "Suscríbete para la Tier List de Verlinas,"
-},
-{
-"start": 778.0,
-"end": 781.0,
-"text": "la de compactos y la de marcas completas que vienen pronto."
-},
-{
-"start": 781.0,
-"end": 782.0,
+"start": 745.12,
+"end": 746.4,
 "text": "Nos vemos en el próximo."
 }
 ]

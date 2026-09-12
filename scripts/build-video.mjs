@@ -32,43 +32,23 @@ const CLIPS_PER_QUERY = 8;
 // Busquedas de b-roll SUV-estrictas (regla del cliente: solo SUV cuando habla
 // de SUV; nada de deportivos ni escenas random). Los planos de peaton/prensa
 // son tematicos de su seccion.
-// VÍDEO 8 (TIER LIST SUV): b-roll SUV genérico de Pexels de FONDO; los MODELOS
-// concretos van como imágenes "sticky" (ver MODELS abajo) sobre ese fondo.
+// VÍDEO 9 (AVERÍAS QUE INFLA EL TALLER): conceptual, b-roll stock Pexels limpio
+// (mecánico, diagnóstico, escape/FAP, aceite, caja, suspensión, factura). Sin
+// modelos concretos -> ruta Pexels (usingYt=false).
 const PARTS = [
-  { key: "intro", anchor: null, queries: ["suv driving highway", "suv city street", "white suv road", "black suv driving"] },
-  { key: "s", anchor: "TIER S — LOS INTOCABLES", queries: ["suv driving highway", "luxury suv road", "suv aerial road", "white suv driving"] },
-  { key: "a", anchor: "TIER A — MUY RECOMENDABLES", queries: ["suv city street", "suv parked street", "suv driving road", "suv dashboard driving"] },
-  { key: "b", anchor: "TIER B — CORRECTOS", queries: ["suv city traffic", "suv parking lot", "suv driving highway", "suv road aerial"] },
-  { key: "c", anchor: "TIER C — CON PRECAUCIÓN", queries: ["suv dashboard driving", "suv city street", "suv engine bay", "suv driving road"] },
-  { key: "d", anchor: "TIER D — EVITAR", queries: ["suv parked street", "suv city traffic", "suv driving highway", "black suv driving"] },
-  { key: "f", anchor: "TIER F — HUIR", queries: ["luxury suv driving", "suv road aerial", "suv dashboard", "suv driving highway"] },
-  { key: "resumen", anchor: "EL RESUMEN VISUAL", queries: ["suv driving highway", "suv city street", "suv parked dealership", "white suv driving"] },
-  { key: "patron", anchor: "EL PATRÓN QUE EXPLICA", queries: ["car engine bay", "suv driving highway", "car dashboard", "suv aerial road"] },
-  { key: "fin", anchor: "LLAMADA A LA ACCIÓN", queries: ["suv driving sunset", "suv dealership", "suv steering wheel", "suv road trip"] },
+  { key: "intro", anchor: null, queries: ["car mechanic garage", "car repair invoice", "mechanic working car", "auto repair shop"] },
+  { key: "a1", anchor: "AVERÍA 1:", queries: ["car dashboard warning light", "car diagnostic obd scanner", "mechanic laptop diagnostic", "check engine light"] },
+  { key: "a2", anchor: "AVERÍA 2:", queries: ["diesel exhaust smoke", "car exhaust pipe", "mechanic under car", "car particulate filter"] },
+  { key: "a3", anchor: "AVERÍA 3:", queries: ["engine oil pouring", "car engine bay", "engine oil dipstick", "mechanic engine"] },
+  { key: "a4", anchor: "AVERÍA 4:", queries: ["automatic gearbox", "car transmission", "car gear selector", "car mechanic transmission"] },
+  { key: "a5", anchor: "AVERÍA 5:", queries: ["car suspension", "car shock absorber", "mechanic car wheel", "car underbody garage"] },
+  { key: "presu", anchor: "EL PRESUPUESTO POR ESCRITO", queries: ["car repair invoice", "signing document paper", "calculator money desk", "auto repair reception"] },
+  { key: "honesto", anchor: "CÓMO RECONOCER UN TALLER HONESTO", queries: ["mechanic shaking hands", "car mechanic explaining", "mechanic working car", "auto repair shop"] },
+  { key: "fin", anchor: "CONCLUSIÓN:", queries: ["car mechanic garage", "car driving road", "mechanic working car", "car workshop"] },
 ];
 
-// MODELOS de la tier list: cada uno se muestra como IMAGEN "sticky" (varias fotos
-// del modelo con Ken Burns) desde que se nombra hasta el siguiente modelo. anchor =
-// cabecera del modelo en el guion (literal). query = búsqueda de imagen (SerpAPI/
-// Wikimedia). tier = badge. Respeta la regla roja: se ve el modelo del que se habla.
-const MODELS = [
-  { anchor: "LEXUS NX / RX", query: "Lexus NX 2023 suv", label: "LEXUS NX / RX" },
-  { anchor: "TOYOTA RAV4 / TOYOTA C-HR", query: "Toyota RAV4 2023", label: "TOYOTA RAV4" },
-  { anchor: "SUBARU FORESTER / OUTBACK", query: "Subaru Forester 2023", label: "SUBARU FORESTER" },
-  { anchor: "MAZDA CX-5", query: "Mazda CX-5 2023", label: "MAZDA CX-5" },
-  { anchor: "SUZUKI VITARA / S-CROSS", query: "Suzuki Vitara 2023", label: "SUZUKI VITARA" },
-  { anchor: "HONDA CR-V", query: "Honda CR-V 2023", label: "HONDA CR-V" },
-  { anchor: "KIA SPORTAGE / HYUNDAI TUCSON", query: "Kia Sportage 2023", label: "KIA SPORTAGE / HYUNDAI TUCSON" },
-  { anchor: "TOYOTA CH-R, NISSAN QASHQAI", query: "Nissan Qashqai 2023", label: "NISSAN QASHQAI J12" },
-  { anchor: "SEAT ARONA / VOLKSWAGEN T-ROC / SKODA KAMIQ", query: "Volkswagen T-Roc 2023", label: "VW T-ROC / ARONA / KAMIQ" },
-  { anchor: "DACIA DUSTER / SANDERO STEPWAY", query: "Dacia Duster 2023", label: "DACIA DUSTER" },
-  { anchor: "PEUGEOT 3008 / CITROËN C5 AIRCROSS", query: "Peugeot 3008 2023", label: "PEUGEOT 3008 / C5 AIRCROSS" },
-  { anchor: "JEEP COMPASS / RENEGADE", query: "Jeep Compass 2023", label: "JEEP COMPASS / RENEGADE" },
-  { anchor: "NISSAN QASHQAI (generación J11", query: "Nissan Qashqai 2016", label: "NISSAN QASHQAI J11" },
-  { anchor: "MG ZS / MG HS", query: "MG ZS SUV 2023", label: "MG ZS / HS" },
-  { anchor: "ALFA ROMEO STELVIO / DS7 CROSSBACK", query: "Alfa Romeo Stelvio 2023", label: "ALFA STELVIO / DS7" },
-  { anchor: "LAND ROVER (Range Rover, Sport, Evoque", query: "Range Rover Evoque 2023", label: "LAND ROVER" },
-];
+// Vídeo conceptual: sin modelos concretos (el motor sticky de MODELS queda inactivo).
+const MODELS = [];
 
 // Modelos SUV para el POOL DE IMAGENES (relleno garantizado de SUV real cuando
 // los clips no basten). Se usan como planos de b-roll (tarjeta + Ken Burns).
@@ -77,64 +57,58 @@ const MODELS = [
 // Vídeo 6 (LSPI) es conceptual: sin pool de imágenes de SUV (serían fuera de tema).
 const SUV_MODELS = [];
 
-// VÍDEO 8 — TIER LIST SUV FIABILIDAD 2026. Badges de TIER + stats OCU/coste.
-// Anclas verificadas literalmente en input/guion-completo.txt (40, 0 faltantes).
+// VÍDEO 9 — 5 AVERÍAS QUE EL TALLER INFLA. Anclas verificadas literalmente en
+// input/guion-completo.txt (0 faltantes).
 const OVERLAYS = [
   // HOOK
-  { anchor: "ochenta y cinco mil quinientos noventa conductores", kind: "stat", value: "85.590", sub: "CONDUCTORES REALES · OCU 2026" },
-  { anchor: "algún tapado va a subir", kind: "hook", text: "TIER LIST SUV\nFIABILIDAD 2026" },
+  { anchor: "cobran el triple", kind: "hook", text: "5 AVERÍAS QUE\nEL TALLER INFLA" },
+  { anchor: "seiscientos ochenta y cuatro euros", kind: "stat", value: "684 €", sub: "COSTE MEDIO REPARACIÓN · ESPAÑA 2026 (+9%)" },
 
-  // TIER S
-  { anchor: "TIER S — LOS INTOCABLES", kind: "hook", text: "TIER S\nLOS INTOCABLES" },
-  { anchor: "LEXUS NX / RX", kind: "stat", value: "TIER S", sub: "LEXUS NX / RX" },
-  { anchor: "noventa y tres puntos", kind: "stat", value: "OCU 93/100", sub: "LEXUS · Nº1 FIABILIDAD 2026" },
-  { anchor: "quinientos cincuenta euros anuales", kind: "stat", value: "550 €/AÑO", sub: "MANTENIMIENTO LEXUS (vs 900 ALEMANAS)" },
-  { anchor: "TOYOTA RAV4 / TOYOTA C-HR", kind: "stat", value: "TIER S", sub: "TOYOTA RAV4 / C-HR" },
-  { anchor: "noventa y seis puntos sobre cien en su categoría", kind: "stat", value: "OCU 96/100", sub: "TOYOTA RAV4 · HÍBRIDO HSD" },
-  { anchor: "SUBARU FORESTER / OUTBACK", kind: "stat", value: "TIER S", sub: "SUBARU FORESTER / OUTBACK" },
-  { anchor: "noventa y un puntos en la OCU 2026, junto a Toyota", kind: "stat", value: "OCU 91/100", sub: "SUBARU · BOXER + AWD PERMANENTE" },
+  // AVERÍA 1 — testigo del motor
+  { anchor: "AVERÍA 1:", kind: "hook", text: "AVERÍA 1\nEL TESTIGO DEL MOTOR" },
+  { anchor: "cambian directamente el sensor", kind: "caption", text: "CAMBIAN EL SENSOR SIN VERIFICAR LA CAUSA" },
+  { anchor: "¿Habéis verificado que el sensor es la causa", kind: "caption", text: "PREGUNTA: ¿ES LA CAUSA, O SOLO EL CÓDIGO APUNTA?" },
+  { anchor: "La máquina no dice qué cambiar", kind: "caption", text: "LA MÁQUINA DICE DÓNDE MIRAR, NO QUÉ CAMBIAR" },
 
-  // TIER A
-  { anchor: "TIER A — MUY RECOMENDABLES", kind: "hook", text: "TIER A\nMUY RECOMENDABLES" },
-  { anchor: "MAZDA CX-5", kind: "stat", value: "TIER A", sub: "MAZDA CX-5 · 2.0 SKYACTIV ATMOSFÉRICO" },
-  { anchor: "cuatrocientos cuarenta y siete euros", kind: "stat", value: "447 €/AÑO", sub: "MAZDA CX-5 · Nº1 RepairPal" },
-  { anchor: "SUZUKI VITARA / S-CROSS", kind: "stat", value: "TIER A", sub: "SUZUKI VITARA / S-CROSS · BARATO DE MANTENER" },
-  { anchor: "HONDA CR-V", kind: "stat", value: "TIER A", sub: "HONDA CR-V e:HEV · i-MMD" },
-  { anchor: "KIA SPORTAGE / HYUNDAI TUCSON", kind: "stat", value: "TIER A", sub: "KIA SPORTAGE / HYUNDAI TUCSON" },
-  { anchor: "evita las versiones con el motor 1.6 T-GDI", kind: "caption", text: "EVITA EL 1.6 T-GDI · MEJOR HÍBRIDO O ATMOSFÉRICO" },
+  // AVERÍA 2 — FAP obstruido
+  { anchor: "AVERÍA 2:", kind: "hook", text: "AVERÍA 2\nEL FAP OBSTRUIDO" },
+  { anchor: "diecisiete coma nueve por ciento", kind: "stat", value: "17,9%", sub: "EMISIONES · LO QUE MÁS CRECE EN TALLER 2026" },
+  { anchor: "Entre mil y más de dos mil euros", kind: "stat", value: "1.000-2.000+ €", sub: "LO QUE PIDEN POR CAMBIAR EL FAP COMPLETO" },
+  { anchor: "la regeneración forzada", kind: "caption", text: "1º REGENERACIÓN FORZADA (barato o gratis)" },
+  { anchor: "la limpieza del FAP", kind: "caption", text: "2º LIMPIEZA DEL FAP (una fracción del precio)" },
+  { anchor: "¿Cuál es la causa por la que se ha saturado?", kind: "caption", text: "PREGUNTA CLAVE: ¿POR QUÉ SE HA SATURADO?" },
 
-  // TIER B
-  { anchor: "TIER B — CORRECTOS", kind: "hook", text: "TIER B\nCORRECTOS" },
-  { anchor: "NISSAN QASHQAI (solo generación J12", kind: "stat", value: "TIER B", sub: "NISSAN QASHQAI J12 (2021+) · CORREGIDO" },
-  { anchor: "SEAT ARONA / VOLKSWAGEN T-ROC / SKODA KAMIQ", kind: "stat", value: "TIER B", sub: "T-ROC / ARONA / KAMIQ · TSI EA211" },
-  { anchor: "de la posición treinta y uno a la veinticinco", kind: "caption", text: "VW SUBE: PUESTO 31 A 25 (OCU 2026)" },
-  { anchor: "DACIA DUSTER / SANDERO STEPWAY", kind: "stat", value: "TIER B", sub: "DACIA DUSTER · SIMPLE Y BARATO" },
+  // AVERÍA 3 — consumo de aceite
+  { anchor: "AVERÍA 3:", kind: "hook", text: "AVERÍA 3\nEL CONSUMO DE ACEITE" },
+  { anchor: "la válvula PCV", kind: "stat", value: "VÁLVULA PCV", sub: "LA CAUSA BARATA QUE SE IGNORA" },
+  { anchor: "entre veinte y ochenta euros", kind: "stat", value: "20-80 €", sub: "CAMBIAR LA PCV (vs abrir el motor)" },
+  { anchor: "empieza por lo barato y sube", kind: "caption", text: "DIAGNÓSTICO HONESTO: EMPIEZA POR LO BARATO" },
 
-  // TIER C
-  { anchor: "TIER C — CON PRECAUCIÓN", kind: "hook", text: "TIER C\nCON PRECAUCIÓN" },
-  { anchor: "PEUGEOT 3008 / CITROËN C5 AIRCROSS", kind: "stat", value: "TIER C", sub: "PEUGEOT 3008 / C5 AIRCROSS · 1.2 PureTech" },
-  { anchor: "setenta y seis puntos, superadas incluso por Volkswagen", kind: "stat", value: "OCU 76/100", sub: "PEUGEOT/CITROËN · POR DEBAJO DE VW" },
-  { anchor: "correa de distribución en baño de aceite", kind: "caption", text: "CORREA DE DISTRIBUCIÓN EN BAÑO DE ACEITE (PureTech)" },
-  { anchor: "JEEP COMPASS / RENEGADE", kind: "stat", value: "TIER C", sub: "JEEP COMPASS / RENEGADE · 1.3 GSE + DCT" },
-  { anchor: "NISSAN QASHQAI (generación J11", kind: "stat", value: "TIER C → D", sub: "QASHQAI J11 · CVT JATCO PROBLEMÁTICA" },
+  // AVERÍA 4 — tirones de la caja automática
+  { anchor: "AVERÍA 4:", kind: "hook", text: "AVERÍA 4\nTIRONES DE LA CAJA AUTOMÁTICA" },
+  { anchor: "Entre dos mil y cuatro mil euros", kind: "stat", value: "2.000-4.000 €", sub: "LO QUE PIDEN: RECONSTRUIR CAJA / MECATRÓNICA" },
+  { anchor: "la sustitución del aceite suele mejorar", kind: "caption", text: "MUCHAS VECES = SOLO CAMBIO DE ACEITE Y FILTRO" },
+  { anchor: "no son mecánicos sino de software", kind: "caption", text: "O SOFTWARE DESACTUALIZADO (ARREGLO BARATO)" },
 
-  // TIER D
-  { anchor: "TIER D — EVITAR", kind: "hook", text: "TIER D\nEVITAR SALVO GANGA" },
-  { anchor: "MG ZS / MG HS", kind: "stat", value: "TIER D", sub: "MG ZS / HS · 'LA GRAN DECEPCIÓN' OCU" },
-  { anchor: "setenta y dos puntos, solo por delante de Land Rover", kind: "stat", value: "OCU 72/100", sub: "MG · PENÚLTIMA POSICIÓN" },
-  { anchor: "ALFA ROMEO STELVIO / DS7 CROSSBACK", kind: "stat", value: "TIER D", sub: "ALFA STELVIO / DS7 · ELÉCTRICA + DEPRECIACIÓN" },
+  // AVERÍA 5 — ruido en la suspensión
+  { anchor: "AVERÍA 5:", kind: "hook", text: "AVERÍA 5\nRUIDO EN LA SUSPENSIÓN" },
+  { anchor: "cambian componentes caros: amortiguadores completos", kind: "caption", text: "CAMBIAN AMORTIGUADORES / BRAZOS ENTEROS" },
+  { anchor: "Un silentblock desgastado", kind: "caption", text: "SUELE SER: SILENTBLOCK · RÓTULA · BIELETA (barato)" },
+  { anchor: "el conjunto entero por si acaso", kind: "caption", text: "'EL CONJUNTO ENTERO POR SI ACASO' = TU DINERO" },
 
-  // TIER F
-  { anchor: "TIER F — HUIR", kind: "hook", text: "TIER F\nHUIR" },
-  { anchor: "LAND ROVER (Range Rover, Sport, Evoque, Discovery, Defender)", kind: "stat", value: "TIER F", sub: "LAND ROVER · ÚLTIMO DE LA OCU 2026" },
-  { anchor: "última posición de la OCU 2026 con sesenta y cuatro puntos", kind: "stat", value: "OCU 64/100", sub: "LAND ROVER · FAROLILLO ROJO" },
-  { anchor: "El triángulo del terror", kind: "caption", text: "TRIÁNGULO DEL TERROR: NEUMÁTICA + ELECTRÓNICA + ACCESO" },
+  // PRESUPUESTO POR ESCRITO
+  { anchor: "EL PRESUPUESTO POR ESCRITO", kind: "hook", text: "TU MEJOR ARMA:\nEL PRESUPUESTO POR ESCRITO" },
+  { anchor: "Real Decreto 1457/1986", kind: "stat", value: "RD 1457/1986", sub: "TU DERECHO A PRESUPUESTO POR ESCRITO" },
+  { anchor: "pide siempre un segundo presupuesto", kind: "caption", text: "AVERÍAS CARAS: PIDE SIEMPRE UN 2º PRESUPUESTO" },
 
-  // PATRÓN + CIERRE
-  { anchor: "EL PATRÓN QUE EXPLICA", kind: "hook", text: "EL PATRÓN:\nSIMPLE ARRIBA, COMPLEJO ABAJO" },
-  { anchor: "desconfía de los excesos de electrónica", kind: "caption", text: "MECÁNICA PROBADA > EXCESO DE ELECTRÓNICA" },
-  { anchor: "puede subir o bajar dos tiers según el motor", kind: "caption", text: "EL MOTOR CONCRETO MUEVE 2 TIERS" },
-  { anchor: "Suscríbete para la tier list", kind: "hook", text: "SUSCRÍBETE" },
+  // TALLER HONESTO
+  { anchor: "CÓMO RECONOCER UN TALLER HONESTO", kind: "hook", text: "CÓMO RECONOCER\nUN TALLER HONESTO" },
+  { anchor: "te explica la causa del problema", kind: "caption", text: "HONESTO: EXPLICA LA CAUSA, NO SOLO LA PIEZA" },
+  { anchor: "te devuelve las piezas viejas", kind: "caption", text: "HONESTO: TE DEVUELVE LAS PIEZAS VIEJAS" },
+
+  // CONCLUSIÓN
+  { anchor: "La defensa es llegar sabiendo", kind: "hook", text: "LA DEFENSA:\nLLEGAR SABIENDO" },
+  { anchor: "Suscríbete para más", kind: "hook", text: "SUSCRÍBETE" },
 ];
 
 // PINS: imagen del MODELO exacto anclada a donde se menciona.

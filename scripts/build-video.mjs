@@ -48,19 +48,8 @@ const PARTS = [
   { key: "patron", anchor: "EL PATRÓN QUE CONECTA", queries: ["used car dealership", "car key handover", "mechanic inspecting car", "car driving road"] },
 ];
 
-// MODELOS (imagen "sticky" desde que se nombra hasta el siguiente modelo/límite).
-// Grupos -> se usa un modelo representativo para la imagen.
-const MODELS = [
-  { anchor: "1. AUDI Q7", query: "Audi Q7 2020", label: "AUDI Q7 · 2019-2024" },
-  { anchor: "2. FORD FOCUS", query: "Ford Focus 2020", label: "FORD FOCUS · 2019-2021" },
-  { anchor: "3. LOS PRIMOS BRITÁNICOS", query: "Range Rover Evoque 2020", label: "E-PACE · DISCOVERY SPORT · EVOQUE" },
-  { anchor: "4. NISSAN QASHQAI", query: "Nissan Qashqai 2022", label: "NISSAN QASHQAI · 2021-2022" },
-  { anchor: "5. RENAULT CLIO V", query: "Renault Captur 2021", label: "RENAULT CLIO V / CAPTUR E-TECH" },
-  { anchor: "6. STELLANTIS", query: "Peugeot 3008 2021", label: "STELLANTIS · PureTech / BlueHDi" },
-  { anchor: "7. TESLA MODEL 3", query: "Tesla Model 3 2021", label: "TESLA MODEL 3 · 2019-2022" },
-  { anchor: "8. GRUPO VOLKSWAGEN", query: "Volkswagen Golf 8 2021", label: "GRUPO VW · GOLF 8 / DSG" },
-  { anchor: "9. VOLVO XC60", query: "Volvo XC60 2021", label: "VOLVO XC60 · SENSUS" },
-];
+// Vídeo 10: clips reales de modelo (ENTITIES/SECTIONS), no imágenes sticky.
+const MODELS = [];
 
 // Modelos SUV para el POOL DE IMAGENES (relleno garantizado de SUV real cuando
 // los clips no basten). Se usan como planos de b-roll (tarjeta + Ken Burns).
@@ -148,41 +137,21 @@ const PINS = [];
 // vacío, la marca cae a IMÁGENES (Wikimedia/SerpAPI) usando `query`.
 // `anchors` = subcadenas del guion; se usan CÓDIGOS DE MOTOR porque son únicos
 // por marca -> refuerzan la "regla roja" también en la síntesis final.
-// VÍDEO 6 — LSPI (conceptual). Cada entidad = un CONCEPTO con su clip temático
-// (marca-<key>.mp4 en public/assets/yt-lspi). `videos` vacío -> cae a genérico.
+// VÍDEO 10 — COCHES QUE NUNCA COMPRAR: 1 CLIP real por modelo (marca-<key>.mp4 en
+// public/assets/yt-nocompres). Cada modelo se ve EN MOVIMIENTO durante su sección.
 const ENTITIES = [
-  // Núcleo: motor / cámara de combustión (rota combustion + tsi para variedad)
-  { key: "combustion", label: "", query: "", videos: ["combustion", "tsi"],
-    anchors: ["LSPI", "pre-ignición", "preignición", "preencendido", "encendido prematuro",
-      "pistón", "biela", "cámara de combustión", "chispa", "bujía", "cilindro"] },
-  // Cuentavueltas / revoluciones (el gesto)
-  { key: "tacometro", label: "", query: "", videos: ["tacometro"],
-    anchors: ["revoluciones", "mil quinientas", "dos mil quinientas", "tres mil",
-      "cuatro mil", "el motor gira bajo", "de vueltas"] },
-  // Cambio de marcha (la solución)
-  { key: "cambio", label: "", query: "", videos: ["cambio"],
-    anchors: ["marcha alta", "reduce una marcha", "baja una marcha", "bajar esa marcha",
-      "reducir de marcha", "Cuarta, quinta"] },
-  // Motores de riesgo -> rotación (primary de PARTE 3)
-  { key: "riesgo", label: "", query: "", videos: ["ecoboost", "puretech", "tsi"], anchors: [] },
-  { key: "ecoboost", label: "", query: "", videos: ["ecoboost"],
-    anchors: ["EcoBoost", "Ford EcoBoost"] },
-  { key: "puretech", label: "", query: "", videos: ["puretech"],
-    anchors: ["PureTech", "Stellantis"] },
-  { key: "tsi", label: "", query: "", videos: ["tsi"],
-    anchors: ["TSI", "TFSI", "TCe", "DIG-T", "T-GDI", "turbo de inyección directa", "inyección directa"] },
-  // Carbonilla / sedimentos (factor 2)
-  { key: "carbonilla", label: "", query: "", videos: ["carbonilla"],
-    anchors: ["carbonilla", "sedimentos", "depósitos de carbón", "incandescencia"] },
-  // Inyectores (regla 5)
-  { key: "inyectores", label: "", query: "", videos: ["inyectores"],
-    anchors: ["inyectores"] },
-  // Modo ECO
-  { key: "ecomode", label: "", query: "", videos: ["ecomode"],
-    anchors: ["modo ECO"] },
-  // Humo azul / síntomas
-  { key: "humo", label: "", query: "", videos: ["humo"],
-    anchors: ["humo azul", "humo azulado", "segmentos del pistón", "testigo de avería", "quemando aceite"] },
+  { key: "q7", label: "", query: "", videos: ["q7"], anchors: ["Audi Q7", "Q7"] },
+  { key: "focus", label: "", query: "", videos: ["focus"], anchors: ["Ford Focus", "Focus"] },
+  { key: "evoque", label: "", query: "", videos: ["evoque"],
+    anchors: ["Evoque", "Discovery Sport", "E-Pace", "Ingenium"] },
+  { key: "qashqai", label: "", query: "", videos: ["qashqai"], anchors: ["Qashqai"] },
+  { key: "captur", label: "", query: "", videos: ["captur"],
+    anchors: ["Clio V", "Captur", "E-Tech", "Arkana", "Mégane"] },
+  { key: "peugeot", label: "", query: "", videos: ["peugeot"],
+    anchors: ["Peugeot", "Citroën", "PureTech", "BlueHDi", "Opel", "Stellantis"] },
+  { key: "tesla", label: "", query: "", videos: ["tesla"], anchors: ["Tesla", "Model 3", "Fremont"] },
+  { key: "golf", label: "", query: "", videos: ["golf"], anchors: ["Golf 8", "MQB Evo", "DSG"] },
+  { key: "volvo", label: "", query: "", videos: ["volvo"], anchors: ["Volvo", "XC60", "Sensus"] },
   { key: "cierre", label: "", query: "", videos: [], anchors: [] },
 ];
 
@@ -190,16 +159,19 @@ const ENTITIES = [
 // se menciona explícitamente otra cosa, se muestra el vídeo de ESA marca (no uno
 // genérico). anchor = cabecera de sección en el guion. La intro (antes de TOYOTA)
 // queda sin principal -> vídeo general.
-// VÍDEO 6 — LSPI: primary temático por parte (la intro/HOOK cae a mención combustion).
+// VÍDEO 10 — cada sección muestra el CLIP del modelo del que se habla. La sección
+// de patrón/lección cae a "cierre" (rotación de todos los modelos).
 const SECTIONS = [
-  { anchor: "PARTE 1:", primary: "tacometro" },   // el gesto / revoluciones
-  { anchor: "PARTE 2:", primary: "combustion" },  // mecanismo del LSPI
-  { anchor: "PARTE 3:", primary: "riesgo" },       // motores modernos de riesgo
-  { anchor: "PARTE 4:", primary: "carbonilla" },   // los 3 factores
-  { anchor: "PARTE 5:", primary: "ecomode" },      // modo ECO
-  { anchor: "PARTE 6:", primary: "cambio" },       // baja una marcha
-  { anchor: "PARTE 7:", primary: "humo" },         // síntomas
-  { anchor: "CONCLUSIÓN", primary: "combustion" },
+  { anchor: "1. AUDI Q7", primary: "q7" },
+  { anchor: "2. FORD FOCUS", primary: "focus" },
+  { anchor: "3. LOS PRIMOS BRITÁNICOS", primary: "evoque" },
+  { anchor: "4. NISSAN QASHQAI", primary: "qashqai" },
+  { anchor: "5. RENAULT CLIO V", primary: "captur" },
+  { anchor: "6. STELLANTIS", primary: "peugeot" },
+  { anchor: "7. TESLA MODEL 3", primary: "tesla" },
+  { anchor: "8. GRUPO VOLKSWAGEN", primary: "golf" },
+  { anchor: "9. VOLVO XC60", primary: "volvo" },
+  { anchor: "EL PATRÓN QUE CONECTA", primary: "cierre" },
 ];
 
 async function loadEnv() {

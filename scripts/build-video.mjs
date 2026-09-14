@@ -32,23 +32,35 @@ const CLIPS_PER_QUERY = 8;
 // Busquedas de b-roll SUV-estrictas (regla del cliente: solo SUV cuando habla
 // de SUV; nada de deportivos ni escenas random). Los planos de peaton/prensa
 // son tematicos de su seccion.
-// VÍDEO 9 (AVERÍAS QUE INFLA EL TALLER): conceptual, b-roll stock Pexels limpio
-// (mecánico, diagnóstico, escape/FAP, aceite, caja, suspensión, factura). Sin
-// modelos concretos -> ruta Pexels (usingYt=false).
+// VÍDEO 10 (COCHES QUE NUNCA DEBES COMPRAR): por MODELOS concretos. B-roll de
+// coche/premium de Pexels de FONDO; cada modelo va como imagen "sticky" (MODELS).
 const PARTS = [
-  { key: "intro", anchor: null, queries: ["car mechanic garage", "car repair invoice", "mechanic working car", "auto repair shop"] },
-  { key: "a1", anchor: "AVERÍA 1:", queries: ["car dashboard warning light", "car diagnostic obd scanner", "mechanic laptop diagnostic", "check engine light"] },
-  { key: "a2", anchor: "AVERÍA 2:", queries: ["diesel exhaust smoke", "car exhaust pipe", "mechanic under car", "car particulate filter"] },
-  { key: "a3", anchor: "AVERÍA 3:", queries: ["car engine oil change", "mechanic pouring engine oil car", "car engine bay closeup", "checking car engine oil dipstick"] },
-  { key: "a4", anchor: "AVERÍA 4:", queries: ["automatic gearbox", "car transmission", "car gear selector", "car mechanic transmission"] },
-  { key: "a5", anchor: "AVERÍA 5:", queries: ["car suspension", "car shock absorber", "mechanic car wheel", "car underbody garage"] },
-  { key: "presu", anchor: "EL PRESUPUESTO POR ESCRITO", queries: ["car repair invoice", "signing document paper", "calculator money desk", "auto repair reception"] },
-  { key: "honesto", anchor: "CÓMO RECONOCER UN TALLER HONESTO", queries: ["mechanic shaking hands", "car mechanic explaining", "mechanic working car", "auto repair shop"] },
-  { key: "fin", anchor: "CONCLUSIÓN:", queries: ["car mechanic garage", "car driving road", "mechanic working car", "car workshop"] },
+  { key: "intro", anchor: null, queries: ["used car dealership", "suv driving highway", "car key handover", "luxury car showroom"] },
+  { key: "q7", anchor: "1. AUDI Q7", queries: ["luxury suv air suspension", "premium suv driving", "suv parked street", "car suspension repair"] },
+  { key: "focus", anchor: "2. FORD FOCUS", queries: ["car gearbox transmission", "mechanic transmission oil leak", "hatchback driving road", "car under repair garage"] },
+  { key: "brit", anchor: "3. LOS PRIMOS BRITÁNICOS", queries: ["car engine timing chain", "luxury suv engine bay", "mechanic engine repair", "premium suv road"] },
+  { key: "qashqai", anchor: "4. NISSAN QASHQAI", queries: ["car dashboard touchscreen", "car infotainment screen", "suv interior dashboard", "car multimedia system"] },
+  { key: "renault", anchor: "5. RENAULT CLIO V", queries: ["hybrid car engine", "car transmission gearbox", "hybrid car driving city", "car service garage"] },
+  { key: "stellantis", anchor: "6. STELLANTIS", queries: ["car engine timing belt", "diesel engine bay", "car engine oil", "car exhaust pipe"] },
+  { key: "tesla", anchor: "7. TESLA MODEL 3", queries: ["electric car assembly factory", "car body panel", "electric car charging", "car production line"] },
+  { key: "vw", anchor: "8. GRUPO VOLKSWAGEN", queries: ["car touchscreen dashboard", "dual clutch gearbox", "car dashboard buttons", "car software screen"] },
+  { key: "volvo", anchor: "9. VOLVO XC60", queries: ["car infotainment screen", "premium suv interior", "suv dashboard touchscreen", "premium suv driving"] },
+  { key: "patron", anchor: "EL PATRÓN QUE CONECTA", queries: ["used car dealership", "car key handover", "mechanic inspecting car", "car driving road"] },
 ];
 
-// Vídeo conceptual: sin modelos concretos (el motor sticky de MODELS queda inactivo).
-const MODELS = [];
+// MODELOS (imagen "sticky" desde que se nombra hasta el siguiente modelo/límite).
+// Grupos -> se usa un modelo representativo para la imagen.
+const MODELS = [
+  { anchor: "1. AUDI Q7", query: "Audi Q7 2020", label: "AUDI Q7 · 2019-2024" },
+  { anchor: "2. FORD FOCUS", query: "Ford Focus 2020", label: "FORD FOCUS · 2019-2021" },
+  { anchor: "3. LOS PRIMOS BRITÁNICOS", query: "Range Rover Evoque 2020", label: "E-PACE · DISCOVERY SPORT · EVOQUE" },
+  { anchor: "4. NISSAN QASHQAI", query: "Nissan Qashqai 2022", label: "NISSAN QASHQAI · 2021-2022" },
+  { anchor: "5. RENAULT CLIO V", query: "Renault Captur 2021", label: "RENAULT CLIO V / CAPTUR E-TECH" },
+  { anchor: "6. STELLANTIS", query: "Peugeot 3008 2021", label: "STELLANTIS · PureTech / BlueHDi" },
+  { anchor: "7. TESLA MODEL 3", query: "Tesla Model 3 2021", label: "TESLA MODEL 3 · 2019-2022" },
+  { anchor: "8. GRUPO VOLKSWAGEN", query: "Volkswagen Golf 8 2021", label: "GRUPO VW · GOLF 8 / DSG" },
+  { anchor: "9. VOLVO XC60", query: "Volvo XC60 2021", label: "VOLVO XC60 · SENSUS" },
+];
 
 // Modelos SUV para el POOL DE IMAGENES (relleno garantizado de SUV real cuando
 // los clips no basten). Se usan como planos de b-roll (tarjeta + Ken Burns).
@@ -57,57 +69,68 @@ const MODELS = [];
 // Vídeo 6 (LSPI) es conceptual: sin pool de imágenes de SUV (serían fuera de tema).
 const SUV_MODELS = [];
 
-// VÍDEO 9 — 5 AVERÍAS QUE EL TALLER INFLA. Anclas verificadas literalmente en
-// input/guion-completo.txt (0 faltantes).
+// VÍDEO 10 — COCHES QUE NUNCA DEBES COMPRAR (modelos y años). Anclas verificadas
+// literalmente en input/guion-completo.txt.
 const OVERLAYS = [
   // HOOK
-  { anchor: "cobran el triple", kind: "hook", text: "5 AVERÍAS QUE\nEL TALLER INFLA" },
-  { anchor: "seiscientos ochenta y cuatro euros", kind: "stat", value: "684 €", sub: "COSTE MEDIO REPARACIÓN · ESPAÑA 2026 (+9%)" },
+  { anchor: "nombrar años exactos", kind: "hook", text: "COCHES QUE NUNCA\nDEBES COMPRAR" },
+  { anchor: "más en reparaciones que el propio coche", kind: "caption", text: "REPARACIONES QUE CUESTAN MÁS QUE EL COCHE" },
 
-  // AVERÍA 1 — testigo del motor
-  { anchor: "AVERÍA 1:", kind: "hook", text: "AVERÍA 1\nEL TESTIGO DEL MOTOR" },
-  { anchor: "cambian directamente el sensor", kind: "caption", text: "CAMBIAN EL SENSOR SIN VERIFICAR LA CAUSA" },
-  { anchor: "¿Habéis verificado que el sensor es la causa", kind: "caption", text: "PREGUNTA: ¿ES LA CAUSA, O SOLO EL CÓDIGO APUNTA?" },
-  { anchor: "La máquina no dice qué cambiar", kind: "caption", text: "LA MÁQUINA DICE DÓNDE MIRAR, NO QUÉ CAMBIAR" },
+  // 1. Audi Q7
+  { anchor: "1. AUDI Q7", kind: "hook", text: "AUDI Q7 (2ª GEN)\n2019-2024" },
+  { anchor: "la suspensión neumática", kind: "stat", value: "SUSPENSIÓN NEUMÁTICA", sub: "FUGAS + COMPRESOR QUEMADO" },
+  { anchor: "el coche se inclina visiblemente hacia un lado", kind: "caption", text: "SÍNTOMA: APARCADO, SE INCLINA HACIA UN LADO" },
+  { anchor: "Una factura de cuatro cifras", kind: "stat", value: "4 CIFRAS", sub: "RENOVAR EL SISTEMA NEUMÁTICO" },
 
-  // AVERÍA 2 — FAP obstruido
-  { anchor: "AVERÍA 2:", kind: "hook", text: "AVERÍA 2\nEL FAP OBSTRUIDO" },
-  { anchor: "diecisiete coma nueve por ciento", kind: "stat", value: "17,9%", sub: "EMISIONES · LO QUE MÁS CRECE EN TALLER 2026" },
-  { anchor: "Entre mil y más de dos mil euros", kind: "stat", value: "1.000-2.000+ €", sub: "LO QUE PIDEN POR CAMBIAR EL FAP COMPLETO" },
-  { anchor: "la regeneración forzada", kind: "caption", text: "1º REGENERACIÓN FORZADA (barato o gratis)" },
-  { anchor: "la limpieza del FAP", kind: "caption", text: "2º LIMPIEZA DEL FAP (una fracción del precio)" },
-  { anchor: "¿Cuál es la causa por la que se ha saturado?", kind: "caption", text: "PREGUNTA CLAVE: ¿POR QUÉ SE HA SATURADO?" },
+  // 2. Ford Focus
+  { anchor: "2. FORD FOCUS", kind: "hook", text: "FORD FOCUS (4ª GEN)\n2019-2021" },
+  { anchor: "las fugas de aceite en la caja de cambios", kind: "stat", value: "FUGA DE ACEITE", sub: "EN LA CAJA (MANUAL Y AUTOMÁTICA)" },
+  { anchor: "un desgaste catastrófico de los componentes internos", kind: "caption", text: "SIN ACEITE = CAJA DE CAMBIOS DESTROZADA" },
 
-  // AVERÍA 3 — consumo de aceite
-  { anchor: "AVERÍA 3:", kind: "hook", text: "AVERÍA 3\nEL CONSUMO DE ACEITE" },
-  { anchor: "la válvula PCV", kind: "stat", value: "VÁLVULA PCV", sub: "LA CAUSA BARATA QUE SE IGNORA" },
-  { anchor: "entre veinte y ochenta euros", kind: "stat", value: "20-80 €", sub: "CAMBIAR LA PCV (vs abrir el motor)" },
-  { anchor: "empieza por lo barato y sube", kind: "caption", text: "DIAGNÓSTICO HONESTO: EMPIEZA POR LO BARATO" },
+  // 3. Británicos (Ingenium)
+  { anchor: "3. LOS PRIMOS BRITÁNICOS", kind: "hook", text: "JAGUAR E-PACE · DISCOVERY\nSPORT · EVOQUE (2019-24)" },
+  { anchor: "los motores Ingenium", kind: "stat", value: "MOTOR INGENIUM", sub: "ACEITE + CALOR + CADENA" },
+  { anchor: "problemas con la cadena de distribución", kind: "caption", text: "LO MÁS GRAVE: CADENA DE DISTRIBUCIÓN" },
+  { anchor: "último puesto del ranking de fiabilidad de la OCU 2026 con sesenta y cuatro puntos", kind: "stat", value: "OCU 64/100", sub: "LAND ROVER · ÚLTIMO PUESTO" },
 
-  // AVERÍA 4 — tirones de la caja automática
-  { anchor: "AVERÍA 4:", kind: "hook", text: "AVERÍA 4\nTIRONES DE LA CAJA AUTOMÁTICA" },
-  { anchor: "Entre dos mil y cuatro mil euros", kind: "stat", value: "2.000-4.000 €", sub: "LO QUE PIDEN: RECONSTRUIR CAJA / MECATRÓNICA" },
-  { anchor: "la sustitución del aceite suele mejorar", kind: "caption", text: "MUCHAS VECES = SOLO CAMBIO DE ACEITE Y FILTRO" },
-  { anchor: "no son mecánicos sino de software", kind: "caption", text: "O SOFTWARE DESACTUALIZADO (ARREGLO BARATO)" },
+  // 4. Nissan Qashqai
+  { anchor: "4. NISSAN QASHQAI", kind: "hook", text: "NISSAN QASHQAI (3ª GEN)\n2021-2022" },
+  { anchor: "los fallos del sistema multimedia y la electrónica", kind: "stat", value: "ELECTRÓNICA", sub: "PANTALLAS QUE SE BLOQUEAN Y REINICIAN" },
+  { anchor: "verifica que el software esté actualizado", kind: "caption", text: "SOLO 1ª SERIES · COMPRUEBA EL SOFTWARE AL DÍA" },
 
-  // AVERÍA 5 — ruido en la suspensión
-  { anchor: "AVERÍA 5:", kind: "hook", text: "AVERÍA 5\nRUIDO EN LA SUSPENSIÓN" },
-  { anchor: "cambian componentes caros: amortiguadores completos", kind: "caption", text: "CAMBIAN AMORTIGUADORES / BRAZOS ENTEROS" },
-  { anchor: "Un silentblock desgastado", kind: "caption", text: "SUELE SER: SILENTBLOCK · RÓTULA · BIELETA (barato)" },
-  { anchor: "el conjunto entero por si acaso", kind: "caption", text: "'EL CONJUNTO ENTERO POR SI ACASO' = TU DINERO" },
+  // 5. Renault E-Tech
+  { anchor: "5. RENAULT CLIO V", kind: "hook", text: "RENAULT CLIO V · CAPTUR II\nE-TECH (2020-2022)" },
+  { anchor: "más de trescientos treinta y cuatro mil vehículos", kind: "stat", value: "+334.000", sub: "COCHES EN LA CAMPAÑA DE RENAULT" },
+  { anchor: "junta de estanqueidad del circuito de lubricación", kind: "caption", text: "FUGA EN LA JUNTA DE LUBRICACIÓN DE LA CAJA" },
+  { anchor: "verifica que haya pasado la operación técnica especial", kind: "caption", text: "EXIGE QUE HAYA PASADO LA CAMPAÑA RENAULT" },
 
-  // PRESUPUESTO POR ESCRITO
-  { anchor: "EL PRESUPUESTO POR ESCRITO", kind: "hook", text: "TU MEJOR ARMA:\nEL PRESUPUESTO POR ESCRITO" },
-  { anchor: "Real Decreto 1457/1986", kind: "stat", value: "RD 1457/1986", sub: "TU DERECHO A PRESUPUESTO POR ESCRITO" },
-  { anchor: "pide siempre un segundo presupuesto", kind: "caption", text: "AVERÍAS CARAS: PIDE SIEMPRE UN 2º PRESUPUESTO" },
+  // 6. Stellantis
+  { anchor: "6. STELLANTIS", kind: "hook", text: "STELLANTIS (CITROËN·FIAT·\nPEUGEOT·OPEL) 2019-24" },
+  { anchor: "el motor 1.2 PureTech", kind: "stat", value: "1.2 PureTech", sub: "CORREA DE DISTRIBUCIÓN EN ACEITE" },
+  { anchor: "el problema mecánico más extendido del mercado europeo", kind: "caption", text: "EL FALLO MECÁNICO MÁS EXTENDIDO DE EUROPA" },
+  { anchor: "el sistema AdBlue de los diésel BlueHDi", kind: "stat", value: "BlueHDi + AdBlue", sub: "SENSORES · CRISTALIZACIÓN · ARRANQUE BLOQUEADO" },
 
-  // TALLER HONESTO
-  { anchor: "CÓMO RECONOCER UN TALLER HONESTO", kind: "hook", text: "CÓMO RECONOCER\nUN TALLER HONESTO" },
-  { anchor: "te explica la causa del problema", kind: "caption", text: "HONESTO: EXPLICA LA CAUSA, NO SOLO LA PIEZA" },
-  { anchor: "te devuelve las piezas viejas", kind: "caption", text: "HONESTO: TE DEVUELVE LAS PIEZAS VIEJAS" },
+  // 7. Tesla Model 3
+  { anchor: "7. TESLA MODEL 3", kind: "hook", text: "TESLA MODEL 3\n(FREMONT 2019-2022)" },
+  { anchor: "calidad de fabricación, ajuste y acabado", kind: "stat", value: "CALIDAD DE FABRICACIÓN", sub: "PANELES · MOLDURAS · SELLADO · PINTURA" },
+  { anchor: "fabricadas en la fábrica de Berlín", kind: "caption", text: "LAS DE BERLÍN (EUROPA) VAN MEJOR" },
 
-  // CONCLUSIÓN
-  { anchor: "La defensa es llegar sabiendo", kind: "hook", text: "LA DEFENSA:\nLLEGAR SABIENDO" },
+  // 8. Grupo VW
+  { anchor: "8. GRUPO VOLKSWAGEN", kind: "hook", text: "GRUPO VW (AUDI·SEAT·VW)\nSOFTWARE + CAJA DSG" },
+  { anchor: "el software de la plataforma MQB Evo", kind: "stat", value: "MQB EVO", sub: "SOFTWARE + INFOTAINMENT (2020-2022)" },
+  { anchor: "El Golf 8 fue el ejemplo más sonado", kind: "caption", text: "GOLF 8: TANTAS QUEJAS QUE VOLVIERON LOS BOTONES" },
+  { anchor: "la caja de cambios DSG", kind: "stat", value: "CAJA DSG", sub: "MECATRÓNICA CARA · ACEITE OBLIGATORIO" },
+
+  // 9. Volvo XC60
+  { anchor: "9. VOLVO XC60", kind: "hook", text: "VOLVO XC60 (2ª GEN)\nSENSUS 2019-2022" },
+  { anchor: "el sistema Sensus", kind: "stat", value: "SISTEMA SENSUS", sub: "SE CUELGA · LENTO · SE REINICIA" },
+  { anchor: "migró posteriormente a un sistema basado en Android", kind: "caption", text: "LOS POSTERIORES (ANDROID) VAN MEJOR" },
+
+  // PATRÓN + LECCIÓN
+  { anchor: "EL PATRÓN QUE CONECTA", kind: "hook", text: "EL PATRÓN:\nCOMPLEJIDAD + PRIMERAS SERIES" },
+  { anchor: "casi todos son problemas de las PRIMERAS unidades", kind: "caption", text: "CASI TODO: FALLOS DE LAS PRIMERAS SERIES" },
+  { anchor: "NUNCA COMPRES LA PRIMERA HORNADA", kind: "hook", text: "LA LECCIÓN:\nNUNCA LA PRIMERA HORNADA" },
+  { anchor: "Dejar que pasen dos o tres años", kind: "caption", text: "ESPERA 2-3 AÑOS: COMPRA LA VERSIÓN DEPURADA" },
   { anchor: "Suscríbete para más", kind: "hook", text: "SUSCRÍBETE" },
 ];
 
@@ -548,9 +571,9 @@ async function main() {
   // trocea en subplanos de ~7s ciclando varias fotos del modelo (variedad + regla
   // roja: se ve el modelo del que se habla).
   if (typeof MODELS !== "undefined" && MODELS.length) {
-    const tierHeaders = ["TIER S — LOS INTOCABLES", "TIER A — MUY RECOMENDABLES",
-      "TIER B — CORRECTOS", "TIER C — CON PRECAUCIÓN", "TIER D — EVITAR",
-      "TIER F — HUIR", "EL RESUMEN VISUAL"];
+    // Límites extra (además de los propios MODELS): dónde deja de verse el último
+    // modelo. Aquí, cuando empieza la sección de patrón/lección.
+    const tierHeaders = ["EL PATRÓN QUE CONECTA"];
     const bnds = [];
     for (const m of MODELS) { const i = guion.indexOf(m.anchor); if (i >= 0) bnds.push(timeAt(i) ?? 0); }
     for (const h of tierHeaders) { const i = guion.indexOf(h); if (i >= 0) bnds.push(timeAt(i) ?? 0); }

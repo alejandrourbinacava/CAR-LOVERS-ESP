@@ -1,1357 +1,1742 @@
 [
 {
 "start": 0.0,
-"end": 3.56,
-"text": "Voy a decir algo que a muchos compañeros de profesión no les va a gustar."
+"end": 2.0,
+"text": "Voy a nombrar marcas."
 },
 {
-"start": 3.56,
-"end": 7.44,
-"text": "Hay talleres que cobran el triple de lo que costaría resolver el problema real."
+"start": 2.0,
+"end": 3.42,
+"text": "Voy a nombrar modelos."
 },
 {
-"start": 7.44,
-"end": 9.44,
-"text": "No siempre por mala fe."
+"start": 3.42,
+"end": 5.42,
+"text": "Y voy a nombrar años exactos."
 },
 {
-"start": 9.44,
-"end": 11.24,
-"text": "A veces por comodidad."
+"start": 5.42,
+"end": 9.26,
+"text": "No voy a esconderme detrás de generalidades como hacen otros para no molestar a nadie."
 },
 {
-"start": 11.24,
-"end": 14.04,
-"text": "A veces por falta de conocimiento."
+"start": 9.26,
+"end": 10.92,
+"text": "Porque hay coches concretos,"
 },
 {
-"start": 14.04,
-"end": 15.28,
-"text": "Y a veces..."
+"start": 10.92,
+"end": 15.0,
+"text": "de años concretos que un mecánico no comprarían y regalados fuera de garantía."
 },
 {
-"start": 15.28,
-"end": 16.28,
-"text": "Sí."
+"start": 15.0,
+"end": 17.14,
+"text": "No porque la marca sea mala en general."
 },
 {
-"start": 16.28,
-"end": 19.32,
-"text": "Porque saben que tú no tienes ni idea de lo que estás pagando."
+"start": 17.14,
+"end": 20.1,
+"text": "Muchas de estas marcas fabrican también coches excelentes,"
 },
 {
-"start": 19.32,
-"end": 22.76,
-"text": "El coste medio de una reparación en España en 2026"
+"start": 20.1,
+"end": 23.7,
+"text": "sino porque esa combinación específica de modelo, motor y año"
 },
 {
-"start": 22.76,
-"end": 25.6,
-"text": "ya alcanza los 684 euros."
+"start": 23.7,
+"end": 28.14,
+"text": "arrastra problemas documentados que te pueden costar más en reparaciones que el propio coche."
 },
 {
-"start": 25.6,
-"end": 28.08,
-"text": "Un 9% más que el año anterior."
+"start": 28.24,
+"end": 32.34,
+"text": "Y lo peor es que muchos de estos coches se venden ahora mismo en el mercado de segunda mano"
 },
 {
-"start": 28.2,
-"end": 32.64,
-"text": "Y una parte de ese dinero en muchos casos es dinero que no deberías haber pagado."
+"start": 32.34,
+"end": 34.2,
+"text": "a precios que parecen atractivos."
 },
 {
-"start": 32.64,
-"end": 37.36,
-"text": "Porque hay cinco averías concretas donde el sobrecoste es sistemático."
+"start": 34.2,
+"end": 38.54,
+"text": "Precisamente porque sus dueños quieren deshacerse de ellos antes de que llegue la próxima factura."
 },
 {
-"start": 37.36,
-"end": 41.4,
-"text": "Donde el taller, en lugar de resolver la causa real por poco dinero,"
+"start": 38.54,
+"end": 40.34,
+"text": "Hoy te voy a dar la lista."
 },
 {
-"start": 41.4,
-"end": 44.68,
-"text": "te cambia el componente completo por mucho dinero."
+"start": 40.34,
+"end": 41.64,
+"text": "Con datos."
 },
 {
-"start": 44.68,
+"start": 41.64,
+"end": 43.94,
+"text": "Para que no seas tú quién heré del problema."
+},
+{
+"start": 43.94,
+"end": 44.84,
+"text": "Preparate."
+},
+{
+"start": 44.84,
+"end": 47.14,
+"text": "Porque hay modelos muy populares en esta lista."
+},
+{
+"start": 47.14,
+"end": 47.94,
+"text": "Uno."
+},
+{
+"start": 47.94,
 "end": 49.04,
-"text": "Hoy te voy a enseñar exactamente cuáles son esas cinco averías."
+"text": "Audi Qt."
 },
 {
 "start": 49.04,
-"end": 52.24,
-"text": "¿Cuál es la solución barata que a menudo funciona?"
+"end": 50.24,
+"text": "Dos era generación."
 },
 {
-"start": 52.24,
-"end": 55.04,
-"text": "Y cómo detectar si te están inflando la factura."
+"start": 50.24,
+"end": 52.64,
+"text": "2019 hasta 2024."
 },
 {
-"start": 55.04,
-"end": 57.08,
-"text": "No para que te pelees con tu mecánico."
+"start": 52.64,
+"end": 54.34,
+"text": "La suspensión que se desinfla."
 },
 {
-"start": 57.08,
-"end": 60.24,
-"text": "Sino para que llegues al taller sabiendo lo que pasa."
+"start": 54.34,
+"end": 55.84,
+"text": "Empezamos por arriba."
 },
 {
-"start": 60.24,
-"end": 64.64,
-"text": "Porque el cliente que sabe no es el cliente al que se le infla la factura."
+"start": 55.94,
+"end": 60.74,
+"text": "Por un SUV Premium que impresiona en el concesionario y que puede arruinarte en el taller."
 },
 {
-"start": 64.64,
-"end": 65.72,
-"text": "Empezamos."
+"start": 60.74,
+"end": 65.74,
+"text": "El Audi Q7 de segunda generación es un coche extraordinariamente tecnológico."
 },
 {
-"start": 65.72,
-"end": 66.92,
-"text": "Avería uno."
+"start": 65.74,
+"end": 68.14,
+"text": "Y ahí está precisamente su talón de aquiles."
 },
 {
-"start": 66.92,
-"end": 70.52,
-"text": "El testigo del motor y el cambio de sensor que no ha reglanado."
+"start": 68.14,
+"end": 69.24,
+"text": "El problema."
 },
 {
-"start": 70.52,
-"end": 72.52,
-"text": "Empezamos por la más común."
+"start": 69.24,
+"end": 71.04,
+"text": "La suspensión neuática."
 },
 {
-"start": 72.52,
-"end": 75.08,
-"text": "La que más dinero mueve de forma innecesaria."
+"start": 71.04,
+"end": 73.34,
+"text": "En lugar de los muelles tradicionales de acero,"
 },
 {
-"start": 75.08,
-"end": 77.04,
-"text": "Se enciende el testigo del motor."
+"start": 73.34,
+"end": 75.34,
+"text": "el Q7 usa folles neuáticos."
 },
 {
-"start": 77.04,
-"end": 79.28,
-"text": "Es ese símbolo amarillo con forma de motor."
+"start": 75.34,
+"end": 78.54,
+"text": "Volsas de aire que regulan la altura y la dureza de la suspensión."
 },
 {
-"start": 79.28,
-"end": 80.76,
-"text": "Llevas el coche al taller."
+"start": 78.54,
+"end": 80.74,
+"text": "En papel es una maravilla de confort."
 },
 {
-"start": 80.76,
-"end": 82.24,
-"text": "Conectan el diagnóstico."
+"start": 80.74,
+"end": 83.14,
+"text": "En la realidad de un coche con años y kilómetros,"
 },
 {
-"start": 82.24,
-"end": 86.56,
-"text": "Sale un código de error que apunta por ejemplo a la sonda lambda o al sensor de oxígeno."
+"start": 83.24,
+"end": 86.04,
+"text": "es una de las aberías más caras y predecibles."
 },
 {
-"start": 86.56,
-"end": 88.92,
-"text": "Y aquí está el error que cuesta dinero."
+"start": 86.04,
+"end": 90.14,
+"text": "Esos folles neuáticos tienden a presentar fugas con el paso del tiempo."
 },
 {
-"start": 88.92,
-"end": 90.96,
-"text": "Muchos talleres, ante ese código,"
+"start": 90.14,
+"end": 92.44,
+"text": "Y una fuga, aunque sea pequeña,"
 },
 {
-"start": 90.96,
-"end": 94.12,
-"text": "cambian directamente el sensor al que apunta el código."
+"start": 92.44,
+"end": 94.44,
+"text": "tiene un síntoma inconfundible."
 },
 {
-"start": 94.12,
-"end": 97.32,
-"text": "200, 300 euros entre pieza y mano de obra."
+"start": 94.44,
+"end": 97.74,
+"text": "El coche se inclina visiblemente hacia un lado cuando está aparcado."
 },
 {
-"start": 97.32,
-"end": 99.32,
-"text": "Te devuelven el coche."
+"start": 97.74,
+"end": 99.84,
+"text": "Si ves un cusiete aparcado que está cojo,"
 },
 {
-"start": 99.32,
-"end": 100.64,
-"text": "El testigo se apaga."
+"start": 99.84,
+"end": 102.94,
+"text": "inclinado hacia una esquina, ya sabes lo que le pasa."
 },
 {
-"start": 100.64,
-"end": 103.36,
-"text": "Y a las dos semanas se vuelve a encender."
+"start": 102.94,
+"end": 104.24,
+"text": "Y no es lo único."
 },
 {
-"start": 103.36,
-"end": 104.72,
-"text": "¿Por qué ocurre esto?"
+"start": 104.24,
+"end": 105.74,
+"text": "Cuando un folle tiene fuga,"
 },
 {
-"start": 104.72,
-"end": 108.4,
-"text": "Los propios expertos del sector lo advierten en 2026."
+"start": 105.74,
+"end": 108.94,
+"text": "el compresor que mantiene la presión trabaja de más para compensar."
 },
 {
-"start": 108.4,
-"end": 112.84,
-"text": "Un testigo encendido no siempre indica que haya que sustituir el componente al que apunta."
+"start": 108.94,
+"end": 112.14,
+"text": "Y ese compresor, forzado, acaba quemándose."
 },
 {
-"start": 112.84,
-"end": 117.16,
-"text": "El código de error te dice donde el sistema detecta una lectura anómala."
+"start": 112.24,
+"end": 113.94,
+"text": "Una vería lleva a la otra."
 },
 {
-"start": 117.16,
-"end": 119.48,
-"text": "No necesariamente que componente está roto."
+"start": 113.94,
+"end": 115.54,
+"text": "El resultado."
 },
 {
-"start": 119.48,
-"end": 123.68,
-"text": "Una sonda lambda puede dar lectura a Ronia porque la sonda es temal."
+"start": 115.54,
+"end": 118.04,
+"text": "Lo que empieza como el cambio de un folle"
 },
 {
-"start": 123.68,
-"end": 126.6,
-"text": "O porque haya una entrada de aire falsa en la admisión."
+"start": 118.04,
+"end": 121.64,
+"text": "puede convertirse en la renovación de todo el sistema neuático."
 },
 {
-"start": 126.6,
-"end": 128.76,
-"text": "O porque un injector esté sucio."
+"start": 121.64,
+"end": 123.54,
+"text": "Una factura de cuatro cifras."
 },
 {
-"start": 128.76,
-"end": 131.52,
-"text": "O porque haya un problema en el cableado o en el conector."
+"start": 123.54,
+"end": 126.94,
+"text": "Es exactamente el mismo problema del que hablen el vídeo del Range Rover."
 },
 {
-"start": 131.52,
-"end": 134.24,
-"text": "Si el taller cambia la sonda sin verificar la causa real,"
+"start": 126.94,
+"end": 131.14,
+"text": "La suspensión neuática es espectacular cuando funciona y ruinosa cuando falla."
 },
 {
-"start": 134.24,
-"end": 136.04,
-"text": "cambia una pieza que estaba bien."
+"start": 131.14,
+"end": 132.44,
+"text": "Dos."
 },
 {
-"start": 136.04,
-"end": 137.56,
-"text": "El problema sigue."
+"start": 132.44,
+"end": 133.74,
+"text": "Forz Focus."
 },
 {
-"start": 137.56,
+"start": 133.74,
+"end": 135.54,
+"text": "Cuatronera generación."
+},
+{
+"start": 135.54,
+"end": 138.34,
+"text": "2019 hasta 2021."
+},
+{
+"start": 138.34,
 "end": 140.24,
-"text": "Y a los pocos kilómetros, el testigo vuelve."
+"text": "La fuga que mata la caja."
 },
 {
-"start": 140.24,
-"end": 141.92,
-"text": "¿Cómo detectar el inflado?"
+"start": 140.34,
+"end": 142.34,
+"text": "Bajamos de segmento pero no de gravedad."
 },
 {
-"start": 141.92,
-"end": 143.56,
-"text": "La clave está en el diagnóstico."
+"start": 142.34,
+"end": 145.14,
+"text": "Las primeras unidades de la cuarta generación del Forz Focus,"
 },
 {
-"start": 143.56,
-"end": 145.24,
-"text": "Los especialistas son claros."
+"start": 145.14,
+"end": 147.34,
+"text": "las de 2019 a 2021,"
 },
 {
-"start": 145.24,
-"end": 147.84,
-"text": "Diagnosticar bien antes de actuar no es un lujo."
+"start": 147.34,
+"end": 149.54,
+"text": "arrastraron varios problemas de juventud."
 },
 {
-"start": 147.84,
-"end": 151.88,
-"text": "Es la diferencia entre resolver el problema y acumular facturas sin resultado."
+"start": 149.54,
+"end": 153.64,
+"text": "Esos fallos típicos de cuando un modelo es nuevo y todavía no está depurado."
 },
 {
-"start": 151.88,
-"end": 155.6,
-"text": "Antes de autorizar el cambio de cualquier sensor, pregunta."
+"start": 153.64,
+"end": 155.54,
+"text": "El problema más grave y reportado."
 },
 {
-"start": 155.6,
-"end": 157.76,
-"text": "¿Habéis verificado que el sensor es la causa?"
+"start": 155.54,
+"end": 158.04,
+"text": "Las fugas de aceite en la caja de cambios."
 },
 {
-"start": 157.76,
-"end": 159.52,
-"text": "O solo que el código apunta él."
+"start": 158.04,
+"end": 158.74,
+"text": "Y ojo,"
 },
 {
-"start": 159.52,
-"end": 164.08,
-"text": "Un taller serio te explicará cómo ha confirmado que ese componente es el culpable."
+"start": 158.74,
+"end": 161.74,
+"text": "porque afecta tanto a la versión manual como a la automática."
 },
 {
-"start": 164.08,
-"end": 166.76,
-"text": "Un taller que inflate dirá simplemente."
+"start": 161.74,
+"end": 165.54,
+"text": "Una fuga de aceite en la transmisión es especialmente peligrosa por una razón."
 },
 {
-"start": 166.76,
-"end": 168.2,
-"text": "Lo dice la máquina."
+"start": 165.54,
+"end": 167.44,
+"text": "No es como una fuga de aceite del motor,"
 },
 {
-"start": 168.2,
-"end": 169.96,
-"text": "La máquina no dice que cambiar."
+"start": 167.44,
+"end": 169.34,
+"text": "que la ves en el suelo y la detectas."
 },
 {
-"start": 169.96,
-"end": 172.48,
-"text": "Dice dónde mirar. Habería dos."
+"start": 169.44,
+"end": 174.44,
+"text": "Una fuga lenta en la caja de cambios puede pasar desapercibida durante mucho tiempo."
 },
 {
-"start": 172.48,
-"end": 174.08,
-"text": "El fap obstruido."
+"start": 174.44,
+"end": 175.44,
+"text": "Y mientras tanto,"
 },
 {
-"start": 174.08,
-"end": 176.56,
-"text": "Y el cambio de filtro completo evitable."
+"start": 175.44,
+"end": 177.64,
+"text": "el nivel de aceite de la transmisión baja."
 },
 {
-"start": 176.56,
-"end": 178.44,
-"text": "Esta es la máscara de la lista."
+"start": 177.64,
+"end": 179.74,
+"text": "Cuando la caja trabaja con poco aceite,"
 },
 {
-"start": 178.44,
-"end": 181.2,
-"text": "Y donde el sobrecoste puede ser de miles de euros."
+"start": 179.74,
+"end": 181.24,
+"text": "los componentes internos,"
 },
 {
-"start": 181.2,
-"end": 184.96,
-"text": "Los sistemas de misiones, catalizadores, filtros de partículas,"
+"start": 181.24,
+"end": 182.24,
+"text": "los engranajes,"
 },
 {
-"start": 184.96,
-"end": 190.44,
-"text": "válvulas, GR y Sondas NOx concentran el 17,9% de las intervenciones"
+"start": 182.24,
+"end": 183.74,
+"text": "los sincronizadores,"
 },
 {
-"start": 190.44,
-"end": 193.16,
-"text": "en los talleres españoles en 2026."
+"start": 183.74,
+"end": 184.74,
+"text": "los embrages,"
 },
 {
-"start": 193.16,
-"end": 195.24,
-"text": "Es la categoría que más ha crecido."
+"start": 184.74,
+"end": 186.74,
+"text": "funcionan sin la lubricación adecuada."
 },
 {
-"start": 195.24,
-"end": 196.56,
-"text": "El escenario típico."
+"start": 186.74,
+"end": 188.04,
+"text": "El resultado."
 },
 {
-"start": 196.56,
-"end": 199.44,
-"text": "Tu diez el pierde potencia, se encienda el testigo del fap."
+"start": 188.04,
+"end": 192.74,
+"text": "Un desgaste catastrófico de los componentes internos que lleva a una vería muy cara."
 },
 {
-"start": 199.44,
-"end": 200.44,
-"text": "Vas al taller."
+"start": 192.74,
+"end": 194.74,
+"text": "Lo que empezó como una junta que goceaba,"
 },
 {
-"start": 200.44,
-"end": 203.64,
-"text": "Y algunos talleres te dan directamente la peor noticia."
+"start": 194.74,
+"end": 197.14,
+"text": "acaba siendo una caja de cambios destrozada."
 },
 {
-"start": 203.64,
-"end": 206.44,
-"text": "Hay que cambiar el filtro de partículas completo."
+"start": 197.14,
+"end": 198.94,
+"text": "Si miras un focus de estos años,"
 },
 {
-"start": 206.44,
-"end": 209.24,
-"text": "Entre mil y más de 2.000 euros."
+"start": 199.04,
+"end": 203.34,
+"text": "revisa el historial de la transmisión y busca cualquier rastro de fuga bajo el coche."
 },
 {
-"start": 209.24,
-"end": 211.04,
-"text": "¿Por qué ha menudo ese evitable?"
+"start": 203.34,
+"end": 207.34,
+"text": "Es la diferencia entre una reparación menor a tiempo y una catástrofe."
 },
 {
-"start": 211.04,
-"end": 214.72,
-"text": "Los propios expertos lo advierten en 2026."
+"start": 207.34,
+"end": 208.24,
+"text": "Tres."
 },
 {
-"start": 214.72,
-"end": 218.4,
-"text": "Limpiar el filtro de partículas sin resolver el origen del problema"
+"start": 208.24,
+"end": 210.14,
+"text": "Los primos británicos."
 },
 {
-"start": 218.4,
-"end": 220.28,
-"text": "solo retrasa la siguiente visita."
+"start": 210.14,
+"end": 211.54,
+"text": "Jaguar y Pace."
 },
 {
-"start": 220.28,
-"end": 221.92,
-"text": "Pero también es cierto lo contrario."
+"start": 211.54,
+"end": 213.34,
+"text": "Land Rover Discovery Sport."
 },
 {
-"start": 221.92,
-"end": 225.44,
-"text": "Cambiar el filtro completo cuando todavía se puede regenerar o limpiar"
+"start": 213.34,
+"end": 214.14,
+"text": "Y evoque."
 },
 {
-"start": 225.44,
-"end": 227.16,
-"text": "es un gasto des proporcionado."
+"start": 214.14,
+"end": 215.54,
+"text": "2019."
 },
 {
-"start": 227.16,
-"end": 229.68,
-"text": "Un fap saturado tiene varios niveles de solución."
+"start": 215.54,
+"end": 216.94,
+"text": "Hasta 2024."
 },
 {
-"start": 229.68,
-"end": 231.48,
-"text": "De más barato a más caro."
+"start": 216.94,
+"end": 220.54,
+"text": "A grupos estos tres porque comparten plataforma y lamentablemente."
 },
 {
-"start": 231.48,
-"end": 233.84,
-"text": "Primero, la regeneración forzada."
+"start": 220.54,
+"end": 222.14,
+"text": "Comparten problemas."
 },
 {
-"start": 233.84,
-"end": 236.04,
-"text": "Si el fap está saturado pero no destruido,"
+"start": 222.14,
+"end": 223.24,
+"text": "El Jaguar y Pace,"
 },
 {
-"start": 236.04,
-"end": 238.92,
-"text": "una regeneración forzada en taller o incluso una conducción"
+"start": 223.24,
+"end": 226.54,
+"text": "el Land Rover Discovery Sport y el Range Rover Book de estos años"
 },
 {
-"start": 238.92,
-"end": 241.12,
-"text": "sostenida en autopista puede limpiarlo."
+"start": 226.54,
+"end": 228.34,
+"text": "son primos hermanos por dentro."
 },
 {
-"start": 241.12,
-"end": 243.08,
-"text": "Coster bajo o incluso gratis."
+"start": 228.44,
+"end": 230.64,
+"text": "El principal foco de averías."
 },
 {
-"start": 243.08,
-"end": 245.48,
-"text": "Segundo, la limpieza del fap."
+"start": 230.64,
+"end": 232.14,
+"text": "Los motores Ingenium."
 },
 {
-"start": 245.48,
-"end": 248.36,
-"text": "Existen procesos del impieza química o por ultrasonidos"
+"start": 232.14,
+"end": 234.24,
+"text": "Tanto en versión 10 el como gasolina."
 },
 {
-"start": 248.36,
-"end": 251.0,
-"text": "que desmontan el filtro y lo limpian a fondo."
+"start": 234.24,
+"end": 238.04,
+"text": "Los motores Ingenium tienen casos documentados de tres problemas serios."
 },
 {
-"start": 251.0,
-"end": 253.6,
-"text": "Cuesta una fracción de lo que cuesta uno nuevo."
+"start": 238.04,
+"end": 238.84,
+"text": "Primero."
 },
 {
-"start": 253.6,
-"end": 256.04,
-"text": "Tercero, y solo si los anteriores fallan,"
+"start": 238.84,
+"end": 240.74,
+"text": "Consumo excesivo de aceite."
 },
 {
-"start": 256.04,
-"end": 257.76,
-"text": "el cambio del filtro completo."
+"start": 240.74,
+"end": 243.34,
+"text": "El motor quemada aceite a un ritmo que no es normal."
 },
 {
-"start": 257.76,
-"end": 259.48,
-"text": "¿Cómo detectar el inflado?"
+"start": 243.34,
+"end": 244.24,
+"text": "Segundo."
 },
 {
-"start": 259.48,
-"end": 262.16,
-"text": "Si te proponen directamente cambiar el fap completo,"
+"start": 244.24,
+"end": 245.74,
+"text": "Sobre calentamiento."
 },
 {
-"start": 262.16,
-"end": 265.88,
-"text": "sin haber intentado antes una regeneración forzada o una limpieza,"
+"start": 245.74,
+"end": 248.04,
+"text": "Problemas en la gestión térmica del motor."
 },
 {
-"start": 265.88,
-"end": 267.08,
-"text": "pregunta."
+"start": 248.04,
+"end": 249.14,
+"text": "Y tercero."
 },
 {
-"start": 267.08,
-"end": 271.4,
-"text": "¿Habéis intentado regenerarlo o limpiarlo antes de plantear el cambio completo?"
+"start": 249.14,
+"end": 250.14,
+"text": "El más grave."
 },
 {
-"start": 271.4,
-"end": 275.0,
-"text": "Y sobre todo, la pregunta clave que los expertos subrayan."
+"start": 250.14,
+"end": 252.44,
+"text": "Problemas con la cadena de distribución."
 },
 {
-"start": 275.0,
-"end": 277.32,
-"text": "¿Cuál es la causa por la que se ha saturado?"
+"start": 252.44,
+"end": 255.24,
+"text": "Cuando la cadena de distribución de un motor da problemas,"
 },
 {
-"start": 277.32,
-"end": 278.2,
-"text": "¿Por qué?"
+"start": 255.24,
+"end": 256.94,
+"text": "no es una reparación menor."
 },
 {
-"start": 278.2,
-"end": 280.36,
-"text": "Si te cambian el fap pero no resuelven,"
+"start": 257.04,
+"end": 260.04,
+"text": "Es una intervención mayor que puede terminar en daño interno del motor"
 },
 {
-"start": 280.36,
-"end": 281.76,
-"text": "¿por qué se saturó?"
+"start": 260.04,
+"end": 261.34,
+"text": "si la cadena falla."
 },
 {
-"start": 281.76,
-"end": 283.16,
-"text": "Trayectos cortos."
+"start": 261.34,
+"end": 264.44,
+"text": "A esto se suma lo que ya sabemos del Land Rover por otros vídeos."
 },
 {
-"start": 283.16,
-"end": 284.16,
-"text": "Un sensor."
+"start": 264.44,
+"end": 268.84,
+"text": "La marca ocupa el último puesto del ranking de fiabilidad de la OQ-2026."
 },
 {
-"start": 284.16,
-"end": 285.68,
-"text": "Un problema de inyección."
+"start": 268.84,
+"end": 269.84,
+"text": "Con 64 puntos."
 },
 {
-"start": 285.84,
-"end": 290.16,
-"text": "El fap nuevo se volverá a saturar y habrás pagado el cambio para nada."
+"start": 269.84,
+"end": 271.24,
+"text": "El farolillo rojo."
 },
 {
-"start": 290.16,
-"end": 291.56,
-"text": "Avería tres."
+"start": 271.24,
+"end": 272.34,
+"text": "El resultado."
 },
 {
-"start": 291.56,
-"end": 295.92,
-"text": "El consumo de aceite y el diagnóstico de motor caro que empieza por lo barato."
+"start": 272.34,
+"end": 276.24,
+"text": "S.I.U.V Premium con imagen atractiva y precio de segunda mano tentador."
 },
 {
-"start": 295.92,
-"end": 299.72,
-"text": "Esta vería estraicionera porque el sobrecoste viene de saltarse los pasos baratos"
+"start": 276.24,
+"end": 280.34,
+"text": "Pero con motorizaciones que pueden generar facturas desproporcionadas."
 },
 {
-"start": 299.72,
-"end": 301.2,
-"text": "e ir directo a los caros."
+"start": 280.34,
+"end": 282.74,
+"text": "La combinación más peligrosa que existe."
 },
 {
-"start": 301.2,
-"end": 302.16,
-"text": "El escenario."
+"start": 282.74,
+"end": 283.74,
+"text": "Cuatro."
 },
 {
-"start": 302.16,
-"end": 303.72,
-"text": "Tu coche consume aceite."
+"start": 283.74,
+"end": 285.64,
+"text": "Nissan Quaskye."
 },
 {
-"start": 303.72,
-"end": 305.28,
-"text": "El nivel baja entre cambios."
+"start": 285.74,
+"end": 287.64,
+"text": "Tres era generación."
 },
 {
-"start": 305.28,
-"end": 306.92,
-"text": "No hay fugas visibles."
+"start": 287.64,
+"end": 290.74,
+"text": "2021 hasta 2022."
 },
 {
-"start": 306.92,
-"end": 311.48,
-"text": "Algunos talleres, ante ese síntoma, diagnostican directamente lo más caro."
+"start": 290.74,
+"end": 293.34,
+"text": "La electrónica que no estuvo a la altura."
 },
 {
-"start": 311.48,
-"end": 315.36,
-"text": "Son los segmentos del piston o son los retenes de válvulas."
+"start": 293.34,
+"end": 297.24,
+"text": "El Cascay es uno de los SUV más vendidos de Europa."
 },
 {
-"start": 315.36,
-"end": 319.32,
-"text": "Reparaciones que empiezan en varios cientos de euros y pueden llegar a miles porque implica"
+"start": 297.24,
+"end": 300.74,
+"text": "Y su tercera generación dio un salto enorme en diseño y tecnología."
 },
 {
-"start": 319.32,
-"end": 320.32,
-"text": "anabrier el motor."
+"start": 300.74,
+"end": 302.54,
+"text": "Pero las primeras unidades."
 },
 {
-"start": 320.32,
-"end": 321.92,
-"text": "¿Por qué ha menudo ese habitable?"
+"start": 302.54,
+"end": 307.74,
+"text": "Las de 2021 y 2022 tuvieron un problema que empañó ese salto."
 },
 {
-"start": 321.92,
-"end": 325.96,
-"text": "Como ya expliqué en otros vídeos, el consumo de aceite sin fuga visible tiene causas"
+"start": 307.74,
+"end": 309.04,
+"text": "El problema."
 },
 {
-"start": 325.96,
-"end": 327.76,
-"text": "que van de lo barato a lo caro."
+"start": 309.04,
+"end": 312.54,
+"text": "Los fallos del sistema multimedia y la electrónica general."
 },
 {
-"start": 327.76,
-"end": 329.92,
-"text": "Y hay que descartarlas en ese orden."
+"start": 312.54,
+"end": 314.34,
+"text": "Pantallas que se bloquean."
 },
 {
-"start": 329.92,
-"end": 332.72,
-"text": "La causa más barata y frecuentemente ignorada."
+"start": 314.34,
+"end": 316.04,
+"text": "Que se reinician solas."
 },
 {
-"start": 332.72,
-"end": 334.76,
-"text": "El sistema de ventilación del cárter."
+"start": 316.04,
+"end": 317.64,
+"text": "Que dejan de responder."
 },
 {
-"start": 334.76,
-"end": 336.76,
-"text": "La válvula PCUV."
+"start": 317.64,
+"end": 321.64,
+"text": "En un coche moderno donde gran parte de las funciones dependen de esa pantalla central."
 },
 {
-"start": 336.76,
-"end": 341.44,
-"text": "Cuando el separador de aceite se obstruye, el motor consume aceite sin fuga visible"
+"start": 321.64,
+"end": 325.44,
+"text": "Klimatización, navegación, cámaras, ajustes."
 },
 {
-"start": 341.44,
-"end": 344.32,
-"text": "y su cambio cuesta entre 20 y 80 euros."
+"start": 325.44,
+"end": 328.14,
+"text": "Una pantalla que se bloquea no es solo una molestia."
 },
 {
-"start": 344.32,
-"end": 348.36,
-"text": "Solo si ese sistema está bien tiene sentido pensar en retenes de válvulas."
+"start": 328.14,
+"end": 330.44,
+"text": "Es perder el acceso a funciones del coche."
 },
 {
-"start": 348.36,
-"end": 351.08,
-"text": "Y solo si eso está bien en los segmentos."
+"start": 330.44,
+"end": 335.24,
+"text": "Estos fallos electrónicos fueron especialmente frecuentes en las primeras series de esta generación."
 },
 {
-"start": 351.08,
-"end": 352.84,
-"text": "¿Cómo detectar el inflado?"
+"start": 335.24,
+"end": 337.44,
+"text": "Cuando el sistema todavía no estaba depurado."
 },
 {
-"start": 352.84,
-"end": 357.68,
-"text": "Si ante un consumo de aceite te proponen directamente abrir el motor o cambiar segmentos sin haber"
+"start": 337.44,
+"end": 339.04,
+"text": "El matiz importante."
 },
 {
-"start": 357.68,
-"end": 361.28,
-"text": "verificado antes el sistema de ventilación del cárter para…"
+"start": 339.14,
+"end": 343.74,
+"text": "Ni se han fuertes olviendo estos problemas con actualizaciones de software en unidades posteriores."
 },
 {
-"start": 361.28,
-"end": 362.28,
-"text": "Pregunta."
+"start": 343.74,
+"end": 349.94,
+"text": "Por eso este problema afecta específicamente a las primeras unidades de 2021 y principios de 2022."
 },
 {
-"start": 362.28,
-"end": 366.4,
-"text": "¿A ver si comprobar la válvula PCUV y el sistema de ventilación del cárter antes de plantear"
+"start": 349.94,
+"end": 351.94,
+"text": "Si miras un casca y de esta generación."
 },
 {
-"start": 366.4,
-"end": 367.4,
-"text": "abrir el motor?"
+"start": 351.94,
+"end": 357.44,
+"text": "Verifica que el software está actualizado la última versión y prueba a fondo el sistema multimedia antes de comprar."
 },
 {
-"start": 367.4,
-"end": 370.4,
-"text": "Un diagnóstico en esto empieza por lo barato y sube."
+"start": 357.44,
+"end": 358.44,
+"text": "5."
 },
 {
-"start": 370.4,
-"end": 373.84,
-"text": "Un diagnóstico que infla empieza por lo caro porque da más beneficio."
+"start": 358.44,
+"end": 361.04,
+"text": "Renold, Cleo, OV y Captur E."
 },
 {
-"start": 373.84,
-"end": 375.0,
-"text": "Habría cuatro."
+"start": 361.04,
+"end": 362.54,
+"text": "ITEK y Bridos."
 },
 {
-"start": 375.0,
-"end": 376.64,
-"text": "Los tirones de la caja automática."
+"start": 362.54,
+"end": 365.24,
+"text": "2020 hasta 2023."
 },
 {
-"start": 376.64,
-"end": 381.08,
-"text": "Y la reconstrucción, que podía ser un cambio de aceite, está la traten profundidad"
+"start": 365.24,
+"end": 367.04,
+"text": "La caja que pierde aceite."
 },
 {
-"start": 381.08,
-"end": 383.2,
-"text": "en el vídeo de cajas automáticas."
+"start": 367.14,
+"end": 372.04,
+"text": "Aquí tengo un dato contrastado que refuerza tu información y que hace este punto especialmente sólido."
 },
 {
-"start": 383.2,
-"end": 385.24,
-"text": "Pero es tan común que merece estar aquí."
+"start": 372.04,
+"end": 375.54,
+"text": "Las versiones y Bridos ITEK del Renold Cleo, OV y Captur 2."
 },
 {
-"start": 385.24,
-"end": 386.24,
-"text": "El escenario."
+"start": 375.54,
+"end": 378.24,
+"text": "Fabricadas entre 2020 y 2022."
 },
 {
-"start": 386.24,
-"end": 388.44,
-"text": "Tu caja automática da tirones."
+"start": 378.24,
+"end": 380.44,
+"text": "Tienen un problema documentado en la transmisión."
 },
 {
-"start": 388.44,
-"end": 389.44,
-"text": "Cambios bruscos."
+"start": 380.44,
+"end": 381.74,
+"text": "Y no lo digo yo solo."
 },
 {
-"start": 389.44,
-"end": 391.28,
-"text": "Retraso al meter marcha."
+"start": 381.74,
+"end": 383.24,
+"text": "Lo dice el propio Renold."
 },
 {
-"start": 391.28,
-"end": 396.12,
-"text": "Y algunos talleres, ante esos síntomas, diagnostican directamente lo peor."
+"start": 383.24,
+"end": 384.44,
+"text": "Con sus actos."
 },
 {
-"start": 396.12,
-"end": 398.12,
-"text": "Hay que reconstruir la caja."
+"start": 384.44,
+"end": 392.04,
+"text": "Renold puso en marcha una operación técnica especial que afecta a más de 334.000 vehículos fabricados entre septiembre de 2020."
 },
 {
-"start": 398.12,
-"end": 400.24,
-"text": "O hay que cambiar la mecatrónica."
+"start": 392.04,
+"end": 394.04,
+"text": "Y septiembre de 2022."
 },
 {
-"start": 400.24,
-"end": 402.52,
-"text": "Entre 2000 y 4000 euros."
+"start": 394.04,
+"end": 396.74,
+"text": "En España casi 25.000 coches."
 },
 {
-"start": 402.52,
-"end": 403.96,
-"text": "¿Qué ha menudo es evitable?"
+"start": 396.74,
+"end": 398.04,
+"text": "Los modelos afectados."
 },
 {
-"start": 403.96,
-"end": 407.52,
-"text": "En muchos casos esos tirones tienen dos causas mucho más baratas."
+"start": 398.04,
+"end": 399.14,
+"text": "Cleo, OV, ITEK."
 },
 {
-"start": 407.52,
-"end": 408.52,
-"text": "Primera."
+"start": 399.14,
+"end": 404.24,
+"text": "Captur 2. ITEK tanto híbrido convencional como enchufable, Megane y Arcana, ITEK."
 },
 {
-"start": 408.52,
-"end": 410.0,
-"text": "El aceite de gradado."
+"start": 404.24,
+"end": 405.74,
+"text": "El origen del problema."
 },
 {
-"start": 410.0,
-"end": 412.84,
-"text": "Los especialistas en transmisiones lo confirman."
+"start": 405.74,
+"end": 410.34,
+"text": "Un posible defecto en la Junta de Estanqueidad del Circuito de Lubricación de la Caja de Cambios."
 },
 {
-"start": 412.84,
-"end": 417.8,
-"text": "Si el problema se debe a su ciudad en los solenoides o de gradación del fluido, la sustitución"
+"start": 410.34,
+"end": 414.24,
+"text": "Es decir, una fuga en el sistema de lubricación de la transmisión híbrida."
 },
 {
-"start": 417.8,
-"end": 420.88,
-"text": "del aceite suele mejorar notablemente el comportamiento."
+"start": 414.24,
+"end": 420.24,
+"text": "La caja de cambios de estos híbridos, la caja Acra Bots sin embrague convencional, es innovadora."
 },
 {
-"start": 420.88,
-"end": 424.68,
-"text": "Un cambio de aceite y filtro cuesta una fracción de una reconstrucción."
+"start": 420.24,
+"end": 426.34,
+"text": "Pero esa Junta de Estanqueidad ha generado suficientes casos como para que Renold ya me amas de 300.000 coches"
 },
 {
-"start": 424.68,
-"end": 425.68,
-"text": "Segunda."
+"start": 426.44,
+"end": 428.64,
+"text": "a pasar por el taller de forma preventiva."
 },
 {
-"start": 425.68,
-"end": 427.0,
-"text": "El software."
+"start": 428.64,
+"end": 435.94,
+"text": "Los foros de propietarios documentan tirones, ruidos y en casos graves presupuestos de reparación de transmisión que superan los 3.000 euros."
 },
 {
-"start": 427.0,
-"end": 431.6,
-"text": "Como ya expliqué, a veces los tirones no son mecánicos, sino de software desactualizado"
+"start": 435.94,
+"end": 436.84,
+"text": "El Matiz."
 },
 {
-"start": 431.6,
-"end": 433.32,
-"text": "de la mecatrónica."
+"start": 436.84,
+"end": 443.14,
+"text": "Renold recalibró el sistema a partir de mayo de 2021 y está haciendo las intervenciones preventivas."
 },
 {
-"start": 433.32,
-"end": 437.76,
-"text": "Una actualización barata puede resolver lo que parecía una avería mecánica cara."
+"start": 443.14,
+"end": 448.14,
+"text": "Si consideras uno de estos, verifica que haya pasado la operación técnica especial de Renold."
 },
 {
-"start": 437.76,
-"end": 439.4,
-"text": "Como detectar el inflado."
+"start": 448.14,
+"end": 450.64,
+"text": "Sin ese sello, precaución máxima."
 },
 {
-"start": 439.4,
-"end": 444.16,
-"text": "Si ante los primeros tirones te proponen directamente reconstruir la caja o cambiar la mecatrónica,"
+"start": 450.64,
+"end": 451.64,
+"text": "6."
 },
 {
-"start": 444.16,
-"end": 445.16,
-"text": "pregunta."
+"start": 451.64,
+"end": 455.84,
+"text": "Este y antes, Citroen, Fiat, Pugh, Opel."
 },
 {
-"start": 445.16,
-"end": 450.16,
-"text": "¿Habéis probado antes un cambio de aceite y filtro y verificado que el software está actualizado?"
+"start": 455.94,
+"end": 459.94,
+"text": "Los dos problemas mayúsculos, 2019 hasta 2024."
 },
 {
-"start": 450.16,
-"end": 452.12,
-"text": "Ahora bien, seamos justos."
+"start": 459.94,
+"end": 464.44,
+"text": "Con el grupo Stellantis tenemos que hablar de dos problemas que afectan a un enorme número de coches."
 },
 {
-"start": 452.12,
-"end": 457.36,
-"text": "Si la caja ya patina abiertamente, huele a quemado o los embrages ya están quemados, el aceite"
+"start": 464.44,
+"end": 465.44,
+"text": "Problema 1."
 },
 {
-"start": 457.36,
-"end": 460.84,
-"text": "nuevo llega tarde y la reparación mayor si es necesaria."
+"start": 465.44,
+"end": 467.14,
+"text": "El motor 1.2."
 },
 {
-"start": 460.84,
-"end": 464.96,
-"text": "La clave es que se hayan descartado antes las opciones baratas."
+"start": 467.14,
+"end": 468.14,
+"text": "Putec."
 },
 {
-"start": 464.96,
-"end": 466.12,
-"text": "Avería 5."
+"start": 468.14,
+"end": 470.44,
+"text": "2019 hasta 2024."
 },
 {
-"start": 466.12,
-"end": 470.08,
-"text": "El ruido en la suspensión y el cambio de componentes que estaban bien."
+"start": 470.44,
+"end": 474.74,
+"text": "Ya le he dedicado tiempo en otros vídeos, pero hay que repetirlo porque afecta muchísimos coches."
 },
 {
-"start": 470.08,
-"end": 474.04,
-"text": "Cerramos con una de las más frecuentes y donde el sobrecoste es muy común."
+"start": 474.74,
+"end": 479.14,
+"text": "El 1.2 Putec usa una correa de distribución sumergida en el aceite del motor."
 },
 {
-"start": 474.04,
-"end": 475.04,
-"text": "El escenario."
+"start": 479.14,
+"end": 481.34,
+"text": "Esa correa se degrada prematuramente."
 },
 {
-"start": 475.04,
-"end": 479.64,
-"text": "Hoy es un ruido en la suspensión, un golpe teo, un crujido al pasar por baches."
+"start": 481.44,
+"end": 485.94,
+"text": "Y cuando se degrada, sus fragmentos contaminan el circuito de lubricación,"
 },
 {
-"start": 479.64,
-"end": 483.8,
-"text": "Y algunos talleres, ante ese ruido, cambian componentes caros."
+"start": 485.94,
+"end": 490.44,
+"text": "pudiendo dañar la bomba de aceite y provocar averías catastróficas de motor."
 },
 {
-"start": 483.8,
-"end": 485.4,
-"text": "Amortiguadores completos."
+"start": 490.44,
+"end": 495.74,
+"text": "Afecta a Pugh, Citroen, Opel y otros modelos del grupo con este motor."
 },
 {
-"start": 485.4,
-"end": 487.24,
-"text": "Brazos de suspensión enteros."
+"start": 495.74,
+"end": 499.74,
+"text": "Es probablemente el problema mecánico más extendido del mercado europeo actual."
 },
 {
-"start": 487.24,
-"end": 488.72,
-"text": "El conjunto completo."
+"start": 499.74,
+"end": 500.94,
+"text": "Problema 2."
 },
 {
-"start": 488.72,
-"end": 492.2,
-"text": "Cuando muchas veces el ruido viene de una pieza pequeña y barata, ¿por qué a menudo"
+"start": 500.94,
+"end": 504.14,
+"text": "El sistema AdBlue de los 10 el Blue HD,"
 },
 {
-"start": 492.2,
-"end": 493.4,
-"text": "es evitable?"
+"start": 504.14,
+"end": 507.24,
+"text": "2019 hasta 2024."
 },
 {
-"start": 493.4,
-"end": 497.68,
-"text": "Los ruidos de suspensión tienen un origen concreto que un buen diagnóstico identifica."
+"start": 507.34,
+"end": 512.34,
+"text": "Los 10 el Blue HD del grupo tienen historial documentado de problemas con el sistema AdBlue."
 },
 {
-"start": 497.68,
-"end": 500.6,
-"text": "Y muy frecuentemente ese origen es una pieza económica."
+"start": 512.34,
+"end": 519.34,
+"text": "Fajos en los sensores, cristalización del líquido, mensajes de arranque bloqueado por fallo del sistema anti-contaminación."
 },
 {
-"start": 500.6,
-"end": 502.2,
-"text": "Un silent block desgastado."
+"start": 519.34,
+"end": 522.84,
+"text": "Ya explique en profundidad el problema del AdBlue en otro vídeo."
 },
 {
-"start": 502.2,
-"end": 504.48,
-"text": "La pieza de goma que amortigo a las uniones."
+"start": 522.84,
+"end": 526.34,
+"text": "En estos modelos Estelantis es un punto de fallo recurrente."
 },
 {
-"start": 504.48,
-"end": 505.48,
-"text": "Barato."
+"start": 526.34,
+"end": 527.34,
+"text": "El resultado."
 },
 {
-"start": 505.48,
-"end": 507.72,
-"text": "Una rottula con algura."
+"start": 527.34,
+"end": 532.34,
+"text": "Dos de las motorizaciones más vendidas del grupo, tanto en gasolina como en 10 el,"
 },
 {
-"start": 507.72,
-"end": 508.72,
-"text": "Económica."
+"start": 532.34,
+"end": 534.14,
+"text": "con problemas documentados."
 },
 {
-"start": 508.72,
-"end": 510.96,
-"text": "Un enlace obioleta de la barra estabilizadora."
+"start": 534.24,
+"end": 538.04,
+"text": "Si miras un Estelantis de estos años, la motorización lo es todo."
 },
 {
-"start": 510.96,
-"end": 514.04,
-"text": "De las piezas más baratas del coche y una de las causas más frecuentes de ruido de"
+"start": 538.04,
+"end": 539.24,
+"text": "Siete."
 },
 {
-"start": 514.04,
-"end": 515.04,
-"text": "suspensión."
+"start": 539.24,
+"end": 540.44,
+"text": "Tes la model,"
 },
 {
-"start": 515.04,
-"end": 517.2,
-"text": "Los tacos o topes de la suspensión."
+"start": 540.44,
+"end": 541.24,
+"text": "tres,"
 },
 {
-"start": 517.2,
-"end": 519.04,
-"text": "Cómo detectar el inflado."
+"start": 541.24,
+"end": 542.54,
+"text": "dos mil diecinueve,"
 },
 {
-"start": 519.04,
-"end": 522.56,
-"text": "Si ante un ruido de suspensión te proponen cambiar amortiguadores completos o brazos"
+"start": 542.54,
+"end": 544.64,
+"text": "hasta dos mil veintidós."
 },
 {
-"start": 522.56,
-"end": 526.12,
-"text": "enteros sin haber localizado el origen exacto del ruido pregunta."
+"start": 544.64,
+"end": 547.94,
+"text": "Brillante en concepto y regular en fabricación,"
 },
 {
-"start": 526.12,
-"end": 529.04,
-"text": "¿Habéis identificado exactamente qué componente hace el ruido?"
+"start": 547.94,
+"end": 551.04,
+"text": "el Tes la model tres es un coche brillante en su concepto."
 },
 {
-"start": 529.04,
-"end": 531.48,
-"text": "¿O vais a cambiar el conjunto entero por si acaso?"
+"start": 551.04,
+"end": 552.94,
+"text": "Tecnologicamente adelantado."
 },
 {
-"start": 531.48,
-"end": 536.28,
-"text": "Cambiar el conjunto entero por si acaso es la frase que más dinero de más te va a costar."
+"start": 552.94,
+"end": 554.54,
+"text": "Comprescaciones que asombran."
 },
 {
-"start": 536.28,
-"end": 539.0,
-"text": "Un buen mecánico localiza el ruido en la pieza exacta."
+"start": 554.54,
+"end": 555.94,
+"text": "Pero su ejecución,"
 },
 {
-"start": 539.0,
-"end": 543.6,
-"text": "Un taller que infla cambia todo el conjunto para asegurarse y te pasa la factura de todo."
+"start": 555.94,
+"end": 562.04,
+"text": "especialmente en las unidades fabricadas en la planta de fremonten Estados Unidos entre 2019 y 2022,"
 },
 {
-"start": 543.6,
-"end": 545.68,
-"text": "La herramienta que lo cambia todo."
+"start": 562.04,
+"end": 563.54,
+"text": "deja mucho que desear."
 },
 {
-"start": 545.68,
-"end": 547.52,
-"text": "El presupuesto por escrito."
+"start": 563.64,
+"end": 565.24,
+"text": "El problema no es mecánico."
 },
 {
-"start": 547.52,
-"end": 551.72,
-"text": "Antes de las conclusiones, la protección más importante que tienes."
+"start": 565.24,
+"end": 568.24,
+"text": "Es de calidad de fabricación ajuste y acabado."
 },
 {
-"start": 551.72,
-"end": 560.72,
-"text": "En España, el real decreto 1457 sobre 1986 regula la actividad de los talleres y establece"
+"start": 568.24,
+"end": 571.44,
+"text": "Paneles de carrocería con separaciones y regulares."
 },
 {
-"start": 560.72,
-"end": 565.4,
-"text": "que el taller tiene la obligación de realizar correctamente el trabajo comprometido."
+"start": 571.44,
+"end": 573.64,
+"text": "Molduras mal ajustadas."
 },
 {
-"start": 565.4,
-"end": 569.04,
-"text": "Tienes derecho a un presupuesto por escrito antes de que hagan cualquier reparación."
+"start": 573.64,
+"end": 577.24,
+"text": "Problemas desellado que generan ruidos de aireofiltraciones."
 },
 {
-"start": 569.04,
-"end": 570.12,
-"text": "Estuderecho legal."
+"start": 577.24,
+"end": 578.94,
+"text": "Pintura con defectos."
 },
 {
-"start": 570.12,
-"end": 574.24,
-"text": "Si ese presupuesto debe detallar las piezas, la mano de obra y el diagnóstico."
+"start": 578.94,
+"end": 582.14,
+"text": "Estos no son problemas que dejen el coche tirado en la carretera."
 },
 {
-"start": 574.24,
-"end": 578.92,
-"text": "Y si el taller entrega el vehículo y la avería original no sea solucionado,"
+"start": 582.14,
+"end": 585.34,
+"text": "El tren motor y eléctrico de Tesla es en general robusto."
 },
 {
-"start": 578.92,
-"end": 582.6,
-"text": "estás ante una reparación defectuosa y tienes derecho a reclamar."
+"start": 585.34,
+"end": 587.04,
+"text": "Pero son problemas de calidad,"
 },
 {
-"start": 582.6,
-"end": 585.36,
-"text": "El consejo práctico más importante de todo el vídeo."
+"start": 587.04,
+"end": 588.84,
+"text": "que en un coche de ese precio,"
 },
 {
-"start": 585.36,
-"end": 589.12,
-"text": "Para verías caras, pide siempre un segundo presupuesto en otro taller."
+"start": 588.84,
+"end": 590.24,
+"text": "no deberían existir."
 },
 {
-"start": 589.12,
-"end": 591.76,
-"text": "Especialmente uno independiente especializado."
+"start": 590.24,
+"end": 592.54,
+"text": "Y que pueden generar molestias constantes."
 },
 {
-"start": 591.76,
-"end": 596.24,
-"text": "La diferencia entre dos presupuestos para la misma avería puede ser de cientos o miles de euros."
+"start": 592.64,
+"end": 593.44,
+"text": "Ruidos."
 },
 {
-"start": 596.24,
-"end": 599.16,
-"text": "Y esa diferencia sale directamente de tu bolsillo."
+"start": 593.44,
+"end": 594.54,
+"text": "Filtraciones."
 },
 {
-"start": 599.16,
-"end": 601.24,
-"text": "Como reconocer un taller honesto."
+"start": 594.54,
+"end": 595.14,
+"text": "Piezas."
 },
 {
-"start": 601.24,
-"end": 603.12,
-"text": "No todos son talleres que inflan."
+"start": 595.14,
+"end": 596.44,
+"text": "Que hay que reajustar."
 },
 {
-"start": 603.12,
-"end": 604.68,
-"text": "La mayoría son honestos."
+"start": 596.44,
+"end": 598.24,
+"text": "El matiz importante."
 },
 {
-"start": 604.68,
-"end": 607.0,
-"text": "Y ahí señales claras para reconocerlos."
+"start": 598.24,
+"end": 602.44,
+"text": "Tesla ha mejorado significativamente la calidad de fabricación en unidades posteriores,"
 },
 {
-"start": 607.0,
-"end": 609.52,
-"text": "Un taller honesto te explica la causa del problema."
+"start": 602.44,
+"end": 606.14,
+"text": "especialmente las fabricadas en la fábrica de Berlim para el mercado europeo."
 },
 {
-"start": 609.52,
-"end": 611.28,
-"text": "No solo que pieza va a cambiar."
+"start": 606.14,
+"end": 609.44,
+"text": "El problema se concentra en las primeras unidades de fremont."
 },
 {
-"start": 611.28,
-"end": 616.08,
-"text": "Un taller honesto empieza por las soluciones baratas y solo escala las caras y las primeras fallan."
+"start": 609.44,
+"end": 611.74,
+"text": "Si consideras un modelo 3 de estos años,"
 },
 {
-"start": 616.08,
-"end": 620.76,
-"text": "Un taller honesto te da presupuesto por escrito y detallado, sin que tengas que insistir."
+"start": 611.74,
+"end": 614.14,
+"text": "revisa afondo los ajustes de carrocería,"
 },
 {
-"start": 620.76,
-"end": 623.84,
-"text": "Un taller honesto no le importa que pidas una segunda opinión."
+"start": 614.14,
+"end": 616.44,
+"text": "los sellados y el historial de la unidad."
 },
 {
-"start": 623.84,
-"end": 625.76,
-"text": "Al contrario, la respeta."
+"start": 616.44,
+"end": 617.44,
+"text": "8."
 },
 {
-"start": 625.76,
-"end": 629.72,
-"text": "Y un taller honesto te devuelve las piezas viejas que ha cambiado si se las pides."
+"start": 617.44,
+"end": 618.64,
+"text": "Grupo Volkswagen."
 },
 {
-"start": 629.72,
-"end": 633.48,
-"text": "Es tu derecho y ver la pieza vieja confirma que realmente estaba dañada."
+"start": 618.64,
+"end": 619.44,
+"text": "Audi."
 },
 {
-"start": 633.48,
-"end": 636.76,
-"text": "Si tu taller cumple todo esto, conservalo."
+"start": 619.44,
+"end": 620.24,
+"text": "Seat."
 },
 {
-"start": 636.76,
-"end": 639.92,
-"text": "Un buen mecánico de confianza vale su peso en oro."
+"start": 620.34,
+"end": 621.14,
+"text": "UB."
 },
 {
-"start": 639.92,
-"end": 641.0,
-"text": "Conclusión."
+"start": 621.14,
+"end": 623.24,
+"text": "El software y la caja de SG."
 },
 {
-"start": 641.0,
-"end": 644.36,
-"text": "El cliente que sabe no es el cliente al que se infla."
+"start": 623.24,
+"end": 625.24,
+"text": "El grupo Volkswagen tampoco se libra,"
 },
 {
-"start": 644.36,
+"start": 625.24,
+"end": 627.24,
+"text": "con dos problemas muy extendidos."
+},
+{
+"start": 627.24,
+"end": 628.64,
+"text": "Problema 1."
+},
+{
+"start": 628.64,
+"end": 631.24,
+"text": "El software de la plataforma MQB Evo."
+},
+{
+"start": 631.24,
+"end": 633.84,
+"text": "2020 hasta 2022."
+},
+{
+"start": 633.84,
+"end": 637.04,
+"text": "Los primeros coches del grupo con la plataforma MQB Evo"
+},
+{
+"start": 637.04,
+"end": 638.54,
+"text": "y el nuevo sistema de software"
+},
+{
+"start": 638.54,
+"end": 642.44,
+"text": "tuvieron problemas documentados de fallos electrónicos y de info entretenimiento."
+},
+{
+"start": 642.44,
+"end": 643.64,
+"text": "Pantallas que fallan,"
+},
+{
+"start": 643.64,
+"end": 645.14,
+"text": "sistemas que se reinician,"
+},
+{
+"start": 645.14,
 "end": 646.84,
-"text": "El coste de las reparaciones sube cada año."
+"text": "funciones que no responden."
 },
 {
 "start": 646.84,
-"end": 650.32,
-"text": "684 euros de media en 2026."
+"end": 648.74,
+"text": "El golf ocho fue el ejemplo más sonado,"
 },
 {
-"start": 650.32,
-"end": 652.0,
-"text": "Un 9% más."
+"start": 648.74,
+"end": 652.14,
+"text": "con quejas tan generalizadas sobre su electrónica y su sistema tactil"
 },
 {
-"start": 652.0,
-"end": 655.12,
-"text": "Partedes a su vida es real e inevitable."
+"start": 652.14,
+"end": 654.34,
+"text": "que Volkswagen tuvo que lanzar actualizaciones"
 },
 {
-"start": 655.12,
-"end": 660.04,
-"text": "Los coches son más complejos, la electrónica es más cara, el diagnóstico requiere más tiempo"
+"start": 654.34,
+"end": 657.64,
+"text": "y acabó recuperando botones físicos en generaciones posteriores."
 },
 {
-"start": 660.04,
-"end": 661.04,
-"text": "y equipos."
+"start": 657.64,
+"end": 658.64,
+"text": "Problema 2."
 },
 {
-"start": 661.04,
-"end": 662.92,
-"text": "Pero otra parte no lo es."
+"start": 658.64,
+"end": 660.54,
+"text": "La caja de cambios de SG."
 },
 {
-"start": 662.92,
-"end": 666.88,
-"text": "Es el sobrecoste de cambiar componentes que estaban bien, desaltarse las soluciones"
+"start": 660.54,
+"end": 663.14,
+"text": "2019 hasta 2024."
 },
 {
-"start": 666.88,
-"end": 671.28,
-"text": "baratas para ir directo a las caras, de cambiar el conjunto entero por si acaso."
+"start": 663.14,
+"end": 665.74,
+"text": "Ya le dediqué un vídeo entero a las cajas automáticas."
 },
 {
-"start": 671.28,
-"end": 674.6,
-"text": "La defensa contra eso no es desconfiar de todos los talleres."
+"start": 665.74,
+"end": 667.74,
+"text": "La DSG es brillante conduciendo,"
 },
 {
-"start": 674.6,
-"end": 676.28,
-"text": "La mayoría son honestos."
+"start": 667.74,
+"end": 671.44,
+"text": "pero su mecatronica es el componente más caro y crítico cuando falla"
 },
 {
-"start": 676.28,
-"end": 679.2,
-"text": "La defensa es llegar sabiendo."
+"start": 671.44,
+"end": 673.74,
+"text": "y el mantenimiento de la aceite es obligatorio,"
 },
 {
-"start": 679.2,
-"end": 680.84,
-"text": "Preguntar por la causa."
+"start": 673.74,
+"end": 676.14,
+"text": "aunque el fabricante lo pinte como de por vida."
 },
 {
-"start": 680.84,
-"end": 682.56,
-"text": "No solo por la pieza."
+"start": 676.14,
+"end": 678.54,
+"text": "La DSG de siete velocidades en seco"
 },
 {
-"start": 682.56,
-"end": 686.84,
-"text": "Exigir que se descarten las soluciones baratas antes que las caras."
+"start": 678.54,
+"end": 681.14,
+"text": "es especialmente sensible en un urbano intensivo."
 },
 {
-"start": 686.84,
-"end": 688.72,
-"text": "Pedir presupuesto por escrito."
+"start": 681.14,
+"end": 682.44,
+"text": "El resultado."
 },
 {
-"start": 688.72,
-"end": 691.8,
-"text": "Y para verías grandes buscar una segunda opinión."
+"start": 682.44,
+"end": 684.14,
+"text": "Coches por lo demás competentes,"
 },
 {
-"start": 691.8,
-"end": 697.08,
-"text": "Los 5 casos de hoy, el sensor que no era, el FAP que se podía limpiar, el consumo de aceite"
+"start": 684.14,
+"end": 686.34,
+"text": "pero con dos puntos de fallo que hay que vigilar"
 },
 {
-"start": 697.08,
-"end": 702.28,
-"text": "que era la PZW, la caja que solo necesitaba aceite, la suspensión, que era un silent"
+"start": 686.34,
+"end": 690.14,
+"text": "y que requieren mantenimiento riguroso de la caja y software actualizado."
 },
 {
-"start": 702.28,
-"end": 705.24,
-"text": "block, tienen algo en común, en todos."
+"start": 690.14,
+"end": 690.94,
+"text": "9."
 },
 {
-"start": 705.24,
-"end": 709.6,
-"text": "La solución barata existe y en todos hay talleres que van directo a la cara."
+"start": 690.94,
+"end": 693.94,
+"text": "Volvo XC60 2era generación."
 },
 {
-"start": 709.6,
-"end": 711.52,
-"text": "Ahora sabes distinguir una de otra."
+"start": 693.94,
+"end": 697.44,
+"text": "Sensus 2019 hasta 2022."
 },
 {
-"start": 711.52,
-"end": 714.68,
-"text": "Y ese conocimiento es exactamente lo que te protege el bolsillo."
+"start": 697.44,
+"end": 699.34,
+"text": "La pantalla que se cuelga."
 },
 {
-"start": 714.68,
-"end": 717.28,
-"text": "¿Te han inflado alguna vez una factura de taller?"
+"start": 699.34,
+"end": 702.14,
+"text": "Cerramos con un coche que en fiabilidad mecánica es bastante bueno,"
 },
 {
-"start": 717.28,
-"end": 719.44,
-"text": "¿Te cambiaron algo que no era el problema real?"
+"start": 702.14,
+"end": 705.34,
+"text": "pero que tiene un punto débil concreto que genera muchas quejas."
 },
 {
-"start": 719.44,
-"end": 723.72,
-"text": "¿O tienes un mecánico de confianza que hace exactamente lo contrario y quieres reivindicarlo?"
+"start": 705.34,
+"end": 708.14,
+"text": "El Volvo XC60 de segunda generación."
 },
 {
-"start": 723.72,
-"end": 725.88,
+"start": 708.24,
+"end": 713.24,
+"text": "En los modelos con el sistema de Info entretenimiento sensus de 2019 a 2022."
+},
+{
+"start": 713.24,
+"end": 714.24,
+"text": "El problema."
+},
+{
+"start": 714.24,
+"end": 715.74,
+"text": "El sistema sensus."
+},
+{
+"start": 715.74,
+"end": 718.24,
+"text": "Fallos diversos en el sistema de Info entretenimiento"
+},
+{
+"start": 718.24,
+"end": 720.54,
+"text": "que puede bloquearse o funcionar con lentitud."
+},
+{
+"start": 720.54,
+"end": 724.44,
+"text": "Pantallas que tardan en responder, que se reinician, que se cuelgan."
+},
+{
+"start": 724.44,
+"end": 727.54,
+"text": "No es un problema que afecte a la fiabilidad mecánica del coche,"
+},
+{
+"start": 727.54,
+"end": 728.54,
+"text": "que es sólida,"
+},
+{
+"start": 728.54,
+"end": 729.84,
+"text": "pero en un coche premium,"
+},
+{
+"start": 729.84,
+"end": 733.54,
+"text": "un sistema de Info entretenimiento que funciona con lentitud o se bloquea"
+},
+{
+"start": 733.54,
+"end": 736.14,
+"text": "es una molestia constante que empaña la experiencia."
+},
+{
+"start": 736.14,
+"end": 737.14,
+"text": "El Matiz."
+},
+{
+"start": 737.24,
+"end": 741.54,
+"text": "Volvo migró posteriormente a un sistema basado en Android que mejoró notablemente."
+},
+{
+"start": 741.54,
+"end": 745.24,
+"text": "El problema se concentra en las unidades con el sistema sensus antiguo."
+},
+{
+"start": 745.24,
+"end": 747.84,
+"text": "El patrón que conecta a todos estos coches."
+},
+{
+"start": 747.84,
+"end": 749.14,
+"text": "Si te has fijado,"
+},
+{
+"start": 749.14,
+"end": 752.24,
+"text": "hay un hilo conductor que recorre casi toda la lista."
+},
+{
+"start": 752.24,
+"end": 755.84,
+"text": "La mayoría de estos problemas no son de mecánica tradicional."
+},
+{
+"start": 755.84,
+"end": 757.74,
+"text": "Son de complejidad añadida."
+},
+{
+"start": 757.74,
+"end": 759.94,
+"text": "Sus pensión neumática en lugar de muelles."
+},
+{
+"start": 759.94,
+"end": 762.94,
+"text": "Transmisiones híbridas innovadoras, pero no depuradas."
+},
+{
+"start": 762.94,
+"end": 765.94,
+"text": "Sistemas de Info entretenimiento cada vez más complejos."
+},
+{
+"start": 766.04,
+"end": 768.24,
+"text": "Software que gobierna funciones críticas."
+},
+{
+"start": 768.24,
+"end": 772.04,
+"text": "Motores de Downsizing con soluciones arriesgadas como la Corea en aceite."
+},
+{
+"start": 772.04,
+"end": 774.64,
+"text": "Y hay un segundo patrón todavía más importante."
+},
+{
+"start": 774.64,
+"end": 778.34,
+"text": "Casi todos son problemas de las primeras unidades de cada modelo tecnología."
+},
+{
+"start": 778.34,
+"end": 781.14,
+"text": "El Focus 2019 hasta 2021."
+},
+{
+"start": 781.14,
+"end": 784.04,
+"text": "El Cascay 2021 hasta 2022."
+},
+{
+"start": 784.04,
+"end": 787.34,
+"text": "El Renold etec 2020 hasta 2022."
+},
+{
+"start": 787.34,
+"end": 788.64,
+"text": "El Tesla de Fremont,"
+},
+{
+"start": 788.64,
+"end": 791.94,
+"text": "el MQB Evo 2020 hasta 2022."
+},
+{
+"start": 792.04,
+"end": 796.14,
+"text": "Los fabricantes fueron corrigiendo muchos de estos problemas en unidades posteriores."
+},
+{
+"start": 796.14,
+"end": 798.74,
+"text": "Eso nos deja una lección práctica muy valiosa."
+},
+{
+"start": 798.74,
+"end": 799.74,
+"text": "La lección."
+},
+{
+"start": 799.74,
+"end": 802.74,
+"text": "Nunca compres la primera ornada de una tecnología nueva."
+},
+{
+"start": 802.74,
+"end": 806.34,
+"text": "La conclusión más útil de este vídeo no es una lista de coches a evitar."
+},
+{
+"start": 806.34,
+"end": 808.74,
+"text": "Es un principio que te servirá para siempre."
+},
+{
+"start": 808.74,
+"end": 812.44,
+"text": "Las primeras unidades de un modelo nuevo o de una tecnología nueva."
+},
+{
+"start": 812.44,
+"end": 815.04,
+"text": "Son las que más problemas de juventud arrastran."
+},
+{
+"start": 815.04,
+"end": 819.64,
+"text": "Son en la práctica los conejillos de índias que pagan por depurar la tecnología."
+},
+{
+"start": 819.74,
+"end": 823.04,
+"text": "Los fabricantes lanzan, detectan los problemas con los primeros clientes"
+},
+{
+"start": 823.04,
+"end": 825.04,
+"text": "y los corrigen en la siguiente serie."
+},
+{
+"start": 825.04,
+"end": 828.34,
+"text": "Por eso, si vas a comprar un coche con tecnología nueva,"
+},
+{
+"start": 828.34,
+"end": 831.34,
+"text": "la sabiduría del mecánico es esperar."
+},
+{
+"start": 831.34,
+"end": 833.74,
+"text": "Dejar que pasen dos o tres años."
+},
+{
+"start": 833.74,
+"end": 836.84,
+"text": "Comprar la versión ya depurada no la primera ornada."
+},
+{
+"start": 836.84,
+"end": 840.34,
+"text": "Un coche con la misma tecnología pero fabricado dos años después"
+},
+{
+"start": 840.34,
+"end": 843.64,
+"text": "suele tener la mayoría de estos problemas ya resuelto de fábrica."
+},
+{
+"start": 843.64,
+"end": 847.74,
+"text": "Y si vas a comprar de segunda mano una de estas unidades problemáticas concretas,"
+},
+{
+"start": 847.74,
+"end": 848.94,
+"text": "la regla es clara."
+},
+{
+"start": 849.04,
+"end": 852.34,
+"text": "Verifica que haya pasado las campañas y actualizaciones del fabricante."
+},
+{
+"start": 852.34,
+"end": 854.04,
+"text": "Exige el historial completo."
+},
+{
+"start": 854.04,
+"end": 857.54,
+"text": "Y si no lo tiene, alejate por muy atractivo que sea el precio."
+},
+{
+"start": 857.54,
+"end": 861.54,
+"text": "Porque el precio atractivo de un coche problemático no es una ganga."
+},
+{
+"start": 861.54,
+"end": 865.04,
+"text": "Es el anticipo de la factura que su anterior dueño no quiso pagar."
+},
+{
+"start": 865.04,
+"end": 867.04,
+"text": "¿Tienes alguno de estos coches?"
+},
+{
+"start": 867.04,
+"end": 869.54,
+"text": "¿Coincide tu experiencia con lo que he contado?"
+},
+{
+"start": 869.54,
+"end": 871.54,
+"text": "¿O has tenido suerte ni ningún problema?"
+},
+{
+"start": 871.54,
+"end": 874.34,
+"text": "¿Crees que falta algún modelo que debería estar en esta lista?"
+},
+{
+"start": 874.34,
+"end": 875.84,
 "text": "Cuéntame lo en los comentarios."
 },
 {
-"start": 725.88,
-"end": 729.8,
-"text": "Con la vería, lo que te cobraron y lo que resultó ser en realidad."
+"start": 875.84,
+"end": 878.84,
+"text": "Con marca, modelo, año exacto y qué problema tuviste."
 },
 {
-"start": 729.8,
-"end": 734.36,
-"text": "Construyamos entre todos la guía de defensa del conductor más completa del mercado español."
+"start": 878.84,
+"end": 879.94,
+"text": "Si lo tuviste."
 },
 {
-"start": 734.36,
-"end": 739.08,
-"text": "Y si este vídeo puede ahorrarle dinero a alguien que va a ir a talleres esta semana, compártelo."
+"start": 879.94,
+"end": 883.94,
+"text": "Construyamos entre todos la guía más honesta de coches a evitar del mercado español"
 },
 {
-"start": 739.08,
-"end": 741.84,
-"text": "Puede ser el consejo más rentable que reciba este mes."
+"start": 883.94,
+"end": 886.14,
+"text": "con experiencias reales de propietarios."
 },
 {
-"start": 741.84,
-"end": 745.12,
-"text": "Suscríbete para más conocimiento que protege tu bolsillo del sobrecoste."
+"start": 886.14,
+"end": 890.14,
+"text": "Y si conoces a alguien que está a punto de comprar uno de estos modelos concretos,"
 },
 {
-"start": 745.12,
-"end": 746.4,
+"start": 890.14,
+"end": 892.64,
+"text": "comparte este vídeo con él antes de que firme."
+},
+{
+"start": 892.64,
+"end": 895.84,
+"text": "Puede ahorrarle miles de euros y muchos dolores de cabeza."
+},
+{
+"start": 895.84,
+"end": 899.84,
+"text": "Suscríbete para más verdades que los vendedores de segunda mano prefieren que no sepas."
+},
+{
+"start": 899.84,
+"end": 901.14,
 "text": "Nos vemos en el próximo."
 }
 ]

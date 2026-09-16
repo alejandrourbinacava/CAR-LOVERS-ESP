@@ -28,9 +28,9 @@ export const CarVideo: React.FC = () => {
   return (
     <AbsoluteFill style={{ backgroundColor: "black" }}>
       {narrationSrc && <Audio src={staticFile(narrationSrc)} volume={1} />}
-      {/* Musica de fondo a -30 dB, SOLO si existe el archivo (regla del cliente:
-          normalmente se añade la música aparte con ducking, no incrustada). */}
-      {musicSrc && <Audio src={staticFile(musicSrc)} loop volume={0.1} />}
+      {/* Musica de fondo del canal a ~-25 dB (0.056 lineal), en bucle, SOLO si
+          existe el archivo. Se aplica a TODOS los videos. */}
+      {musicSrc && <Audio src={staticFile(musicSrc)} loop volume={0.056} />}
 
 
       {/* PISTA 1: b-roll a pantalla completa */}

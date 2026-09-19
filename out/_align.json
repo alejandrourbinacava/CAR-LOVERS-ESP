@@ -1,1742 +1,1357 @@
 [
 {
 "start": 0.0,
-"end": 2.0,
-"text": "Voy a nombrar marcas."
+"end": 4.0,
+"text": "Hay un gesto que haces casi cada día, un gesto de tres segundos."
 },
 {
-"start": 2.0,
-"end": 3.42,
-"text": "Voy a nombrar modelos."
+"start": 4.0,
+"end": 8.0,
+"text": "Tan normal, tan automático, que ni siquiera piensas en él,"
 },
 {
-"start": 3.42,
-"end": 5.42,
-"text": "Y voy a nombrar años exactos."
+"start": 8.0,
+"end": 13.0,
+"text": "y ese gesto puede estar destrozando el turbo de tu coche desde dentro, sin que lo oigas."
 },
 {
-"start": 5.42,
-"end": 9.26,
-"text": "No voy a esconderme detrás de generalidades como hacen otros para no molestar a nadie."
-},
-{
-"start": 9.26,
-"end": 10.92,
-"text": "Porque hay coches concretos,"
-},
-{
-"start": 10.92,
+"start": 13.0,
 "end": 15.0,
-"text": "de años concretos que un mecánico no comprarían y regalados fuera de garantía."
+"text": "Sin que lo veas."
 },
 {
 "start": 15.0,
-"end": 17.14,
-"text": "No porque la marca sea mala en general."
+"end": 21.0,
+"text": "Sin ninguna viso, hasta que un día, alrededor de los 60.000 o los 80.000 kilómetros,"
 },
 {
-"start": 17.14,
-"end": 20.1,
-"text": "Muchas de estas marcas fabrican también coches excelentes,"
+"start": 21.0,
+"end": 25.0,
+"text": "aparece el humo azul por el escape, la pérdida de potencia."
 },
 {
-"start": 20.1,
-"end": 23.7,
-"text": "sino porque esa combinación específica de modelo, motor y año"
+"start": 25.0,
+"end": 29.0,
+"text": "El silbido que antes no estaba, y entonces llega la factura."
 },
 {
-"start": 23.7,
-"end": 28.14,
-"text": "arrastra problemas documentados que te pueden costar más en reparaciones que el propio coche."
+"start": 30.0,
+"end": 33.0,
+"text": "Que en un turbo, es siempre una factura de cuatro cifras."
 },
 {
-"start": 28.24,
-"end": 32.34,
-"text": "Y lo peor es que muchos de estos coches se venden ahora mismo en el mercado de segunda mano"
+"start": 33.0,
+"end": 35.0,
+"text": "Lo más frustrante es esto."
 },
 {
-"start": 32.34,
-"end": 34.2,
-"text": "a precios que parecen atractivos."
+"start": 35.0,
+"end": 38.0,
+"text": "Es el turbo casi nunca falla porque sea defectuoso."
 },
 {
-"start": 34.2,
-"end": 38.54,
-"text": "Precisamente porque sus dueños quieren deshacerse de ellos antes de que llegue la próxima factura."
+"start": 38.0,
+"end": 40.0,
+"text": "Falla por algo que hiciste tú."
 },
 {
-"start": 38.54,
-"end": 40.34,
-"text": "Hoy te voy a dar la lista."
+"start": 40.0,
+"end": 41.0,
+"text": "Un hábito."
 },
 {
-"start": 40.34,
-"end": 41.64,
-"text": "Con datos."
+"start": 41.0,
+"end": 44.0,
+"text": "Una costumbre inocente que nadie te explicó que estaba mal."
 },
 {
-"start": 41.64,
-"end": 43.94,
-"text": "Para que no seas tú quién heré del problema."
+"start": 44.0,
+"end": 47.0,
+"text": "Los talleres especializados en turbos lo confirman con datos."
 },
 {
-"start": 43.94,
-"end": 44.84,
-"text": "Preparate."
+"start": 47.0,
+"end": 52.0,
+"text": "Más del 60% de los turbos que llegan para reparación han fallado por problemas de lubricación,"
 },
 {
-"start": 44.84,
-"end": 47.14,
-"text": "Porque hay modelos muy populares en esta lista."
+"start": 52.0,
+"end": 56.0,
+"text": "y una parte enorme de esos casos se podría haber evitado con un solo cambio de hábito."
 },
 {
-"start": 47.14,
-"end": 47.94,
-"text": "Uno."
+"start": 57.0,
+"end": 60.0,
+"text": "Hoy te voy a explicar exactamente cuál es ese error."
 },
 {
-"start": 47.94,
-"end": 49.04,
-"text": "Audi Qt."
+"start": 60.0,
+"end": 62.0,
+"text": "¿Por qué destroza el turbo?"
 },
 {
-"start": 49.04,
-"end": 50.24,
-"text": "Dos era generación."
+"start": 62.0,
+"end": 64.0,
+"text": "Y cómo dejar de cometerlo a partir de hoy mismo."
 },
 {
-"start": 50.24,
-"end": 52.64,
-"text": "2019 hasta 2024."
+"start": 64.0,
+"end": 65.0,
+"text": "Presta atención."
 },
 {
-"start": 52.64,
-"end": 54.34,
-"text": "La suspensión que se desinfla."
+"start": 65.0,
+"end": 69.0,
+"text": "Porque esto te puede ahorrar la vería más cara y más evitable de tu coche."
 },
 {
-"start": 54.34,
-"end": 55.84,
-"text": "Empezamos por arriba."
+"start": 69.0,
+"end": 70.0,
+"text": "Parse uno."
 },
 {
-"start": 55.94,
-"end": 60.74,
-"text": "Por un SUV Premium que impresiona en el concesionario y que puede arruinarte en el taller."
+"start": 70.0,
+"end": 73.0,
+"text": "Entender al enemigo, que es realmente un turbo."
 },
 {
-"start": 60.74,
-"end": 65.74,
-"text": "El Audi Q7 de segunda generación es un coche extraordinariamente tecnológico."
+"start": 73.0,
+"end": 79.0,
+"text": "Para entender por qué se rompe, primero hay que entender a qué velocidad y a qué temperatura trabaja esta pieza."
 },
 {
-"start": 65.74,
-"end": 68.14,
-"text": "Y ahí está precisamente su talón de aquiles."
+"start": 79.0,
+"end": 81.0,
+"text": "Y los números te van a sorprender."
 },
 {
-"start": 68.14,
-"end": 69.24,
-"text": "El problema."
+"start": 82.0,
+"end": 88.0,
+"text": "El turbo o turbocompresor es una pieza que aprovecha los gases de escape del motor para comprimir el aire que entra."
 },
 {
-"start": 69.24,
-"end": 71.04,
-"text": "La suspensión neuática."
+"start": 88.0,
+"end": 94.0,
+"text": "Más aire comprimido significa más oxígeno, más combustión, más potencia de un motor pequeño."
 },
 {
-"start": 71.04,
-"end": 73.34,
-"text": "En lugar de los muelles tradicionales de acero,"
+"start": 94.0,
+"end": 98.0,
+"text": "Para hacer ese trabajo, el turbo tiene un eje central con dos turbinas en los extremos."
 },
 {
-"start": 73.34,
-"end": 75.34,
-"text": "el Q7 usa folles neuáticos."
+"start": 98.0,
+"end": 101.0,
+"text": "Y ese eje gira velocidades que cuesta imaginar."
 },
 {
-"start": 75.34,
-"end": 78.54,
-"text": "Volsas de aire que regulan la altura y la dureza de la suspensión."
+"start": 101.0,
+"end": 108.0,
+"text": "Un turbo moderno puede girar por encima de las 100.000, 150.000 e incluso 200.000 revoluciones por minuto,"
 },
 {
-"start": 78.54,
-"end": 80.74,
-"text": "En papel es una maravilla de confort."
+"start": 108.0,
+"end": 116.0,
+"text": "200.000 vueltas por minuto, el motor de tu coche gira a 3000 o 4000, el turbo gira a 50 veces más rápido."
 },
 {
-"start": 80.74,
-"end": 83.14,
-"text": "En la realidad de un coche con años y kilómetros,"
+"start": 116.0,
+"end": 120.0,
+"text": "Y mientras gira esa velocidad de vértigo, alcanza temperaturas extremas."
 },
 {
-"start": 83.24,
-"end": 86.04,
-"text": "es una de las aberías más caras y predecibles."
+"start": 120.0,
+"end": 122.0,
+"text": "Los talleres especializados lo confirman."
 },
 {
-"start": 86.04,
-"end": 90.14,
-"text": "Esos folles neuáticos tienden a presentar fugas con el paso del tiempo."
+"start": 122.0,
+"end": 132.0,
+"text": "Cuando el motor trabaja a pleno rendimiento, el turbo alcanza temperaturas muy elevadas, entre 600 y 1000 grados centígrados en el lado de los gases de escape."
 },
 {
-"start": 90.14,
-"end": 92.44,
-"text": "Y una fuga, aunque sea pequeña,"
+"start": 132.0,
+"end": 135.0,
+"text": "1000 grados girando a 200.000 revoluciones."
 },
 {
-"start": 92.44,
-"end": 94.44,
-"text": "tiene un síntoma inconfundible."
+"start": 135.0,
+"end": 140.0,
+"text": "Y qué protegen a esa pieza del auto destrucción en esas condiciones brutales?"
 },
 {
-"start": 94.44,
-"end": 97.74,
-"text": "El coche se inclina visiblemente hacia un lado cuando está aparcado."
+"start": 140.0,
+"end": 141.0,
+"text": "Una sola cosa."
 },
 {
-"start": 97.74,
-"end": 99.84,
-"text": "Si ves un cusiete aparcado que está cojo,"
+"start": 141.0,
+"end": 145.0,
+"text": "El aceite del motor, el aceite lubrica el eje para que no roce."
 },
 {
-"start": 99.84,
-"end": 102.94,
-"text": "inclinado hacia una esquina, ya sabes lo que le pasa."
+"start": 145.0,
+"end": 147.0,
+"text": "Y lo refrigera para que no se funda."
 },
 {
-"start": 102.94,
-"end": 104.24,
-"text": "Y no es lo único."
+"start": 147.0,
+"end": 156.0,
+"text": "Mientras el motor está en marcha, la bomba de aceite envía un flujo constante que mantiene ese eje flotando sobre una fina película de aceite, sin contacto metal con metal."
 },
 {
-"start": 104.24,
-"end": 105.74,
-"text": "Cuando un folle tiene fuga,"
+"start": 156.0,
+"end": 159.0,
+"text": "El turbo depende del aceite para sobrevivir."
 },
 {
-"start": 105.74,
-"end": 108.94,
-"text": "el compresor que mantiene la presión trabaja de más para compensar."
+"start": 160.0,
+"end": 161.0,
+"text": "Absolutamente."
 },
 {
-"start": 108.94,
-"end": 112.14,
-"text": "Y ese compresor, forzado, acaba quemándose."
+"start": 161.0,
+"end": 163.0,
+"text": "Y aquí es donde empieza el problema."
 },
 {
-"start": 112.24,
-"end": 113.94,
-"text": "Una vería lleva a la otra."
+"start": 163.0,
+"end": 164.0,
+"text": "Partidos."
 },
 {
-"start": 113.94,
-"end": 115.54,
-"text": "El resultado."
+"start": 164.0,
+"end": 169.0,
+"text": "El error, que lo destroza a apagar el motor en caliente, ahora vamos a el error."
 },
 {
-"start": 115.54,
-"end": 118.04,
-"text": "Lo que empieza como el cambio de un folle"
+"start": 169.0,
+"end": 172.0,
+"text": "El gesto de 3 segundos que mata turbos."
 },
 {
-"start": 118.04,
-"end": 121.64,
-"text": "puede convertirse en la renovación de todo el sistema neuático."
+"start": 172.0,
+"end": 173.0,
+"text": "Imagina la situación."
 },
 {
-"start": 121.64,
-"end": 123.54,
-"text": "Una factura de cuatro cifras."
+"start": 173.0,
+"end": 175.0,
+"text": "Has estado en autopista."
 },
 {
-"start": 123.54,
-"end": 126.94,
-"text": "Es exactamente el mismo problema del que hablen el vídeo del Range Rover."
+"start": 175.0,
+"end": 177.0,
+"text": "O ha subido un puerto de montaña."
 },
 {
-"start": 126.94,
-"end": 131.14,
-"text": "La suspensión neuática es espectacular cuando funciona y ruinosa cuando falla."
+"start": 177.0,
+"end": 183.0,
+"text": "O ha conducido con carga, con el aire acondicionado a tope en verano, exigiéndole al motor."
 },
 {
-"start": 131.14,
-"end": 132.44,
-"text": "Dos."
+"start": 183.0,
+"end": 187.0,
+"text": "El turbo ha estado trabajando duro, girando a altísima velocidad."
 },
 {
-"start": 132.44,
-"end": 133.74,
-"text": "Forz Focus."
+"start": 187.0,
+"end": 189.0,
+"text": "A cientos de grados de temperatura."
 },
 {
-"start": 133.74,
-"end": 135.54,
-"text": "Cuatronera generación."
+"start": 189.0,
+"end": 191.0,
+"text": "Llegas a tu destino."
 },
 {
-"start": 135.54,
-"end": 138.34,
-"text": "2019 hasta 2021."
+"start": 191.0,
+"end": 192.0,
+"text": "Aparcas."
 },
 {
-"start": 138.34,
-"end": 140.24,
-"text": "La fuga que mata la caja."
+"start": 192.0,
+"end": 195.0,
+"text": "Y apagas el motor inmediatamente."
 },
 {
-"start": 140.34,
-"end": 142.34,
-"text": "Bajamos de segmento pero no de gravedad."
+"start": 195.0,
+"end": 196.0,
+"text": "Ese gesto."
 },
 {
-"start": 142.34,
-"end": 145.14,
-"text": "Las primeras unidades de la cuarta generación del Forz Focus,"
+"start": 196.0,
+"end": 199.0,
+"text": "Ese ha pagado inmediato después de haber exigido el motor."
 },
 {
-"start": 145.14,
-"end": 147.34,
-"text": "las de 2019 a 2021,"
+"start": 199.0,
+"end": 201.0,
+"text": "Es el error que destroza el turbo."
 },
 {
-"start": 147.34,
-"end": 149.54,
-"text": "arrastraron varios problemas de juventud."
+"start": 201.0,
+"end": 203.0,
+"text": "¿Por qué es tan destructivo?"
 },
 {
-"start": 149.54,
-"end": 153.64,
-"text": "Esos fallos típicos de cuando un modelo es nuevo y todavía no está depurado."
+"start": 203.0,
+"end": 207.0,
+"text": "Aquí está la explicación técnica que los talleres especializados describen con precisión."
 },
 {
-"start": 153.64,
-"end": 155.54,
-"text": "El problema más grave y reportado."
+"start": 207.0,
+"end": 211.0,
+"text": "Cuando apagas el motor, la bomba de aceite deja de funcionar de golpe."
 },
 {
-"start": 155.54,
-"end": 158.04,
-"text": "Las fugas de aceite en la caja de cambios."
+"start": 211.0,
+"end": 214.0,
+"text": "El aceite deja de circular instantáneamente."
 },
 {
-"start": 158.04,
-"end": 158.74,
-"text": "Y ojo,"
+"start": 214.0,
+"end": 216.0,
+"text": "Pero el turbo no se enfria de golpe."
 },
 {
-"start": 158.74,
-"end": 161.74,
-"text": "porque afecta tanto a la versión manual como a la automática."
+"start": 216.0,
+"end": 219.0,
+"text": "Sigue estando a cientos de grados de temperatura por el calor residual."
 },
 {
-"start": 161.74,
-"end": 165.54,
-"text": "Una fuga de aceite en la transmisión es especialmente peligrosa por una razón."
+"start": 219.0,
+"end": 221.0,
+"text": "Y ahí queda."
 },
 {
-"start": 165.54,
-"end": 167.44,
-"text": "No es como una fuga de aceite del motor,"
+"start": 221.0,
+"end": 223.0,
+"text": "El aceite que se quedó dentro del turbo."
 },
 {
-"start": 167.44,
-"end": 169.34,
-"text": "que la ves en el suelo y la detectas."
+"start": 223.0,
+"end": 224.0,
+"text": "Atrapado."
 },
 {
-"start": 169.44,
-"end": 174.44,
-"text": "Una fuga lenta en la caja de cambios puede pasar desapercibida durante mucho tiempo."
+"start": 224.0,
+"end": 225.0,
+"text": "Estático."
 },
 {
-"start": 174.44,
-"end": 175.44,
-"text": "Y mientras tanto,"
+"start": 225.0,
+"end": 227.0,
+"text": "A altísima temperatura."
 },
 {
-"start": 175.44,
-"end": 177.64,
-"text": "el nivel de aceite de la transmisión baja."
+"start": 227.0,
+"end": 228.0,
+"text": "Sin circular."
 },
 {
-"start": 177.64,
-"end": 179.74,
-"text": "Cuando la caja trabaja con poco aceite,"
+"start": 228.0,
+"end": 230.0,
+"text": "Los especialistas lo explican así."
 },
 {
-"start": 179.74,
-"end": 181.24,
-"text": "los componentes internos,"
+"start": 230.0,
+"end": 234.0,
+"text": "Con el calor residual del turbo, ese aceite se degrada rápidamente y se carboniza."
 },
 {
-"start": 181.24,
-"end": 182.24,
-"text": "los engranajes,"
+"start": 234.0,
+"end": 238.0,
+"text": "Formando depósitos sólidos de carbon dentro de los conductos de lubricación."
 },
 {
-"start": 182.24,
-"end": 183.74,
-"text": "los sincronizadores,"
+"start": 238.0,
+"end": 240.0,
+"text": "Ese proceso tiene un nombre técnico."
 },
 {
-"start": 183.74,
-"end": 184.74,
-"text": "los embrages,"
+"start": 240.0,
+"end": 242.0,
+"text": "La coquificación de la aceite."
 },
 {
-"start": 184.74,
-"end": 186.74,
-"text": "funcionan sin la lubricación adecuada."
+"start": 242.0,
+"end": 243.0,
+"text": "El aceite."
 },
 {
-"start": 186.74,
-"end": 188.04,
-"text": "El resultado."
+"start": 243.0,
+"end": 244.0,
+"text": "Literalmente."
 },
 {
-"start": 188.04,
-"end": 192.74,
-"text": "Un desgaste catastrófico de los componentes internos que lleva a una vería muy cara."
+"start": 244.0,
+"end": 245.0,
+"text": "Se cuese."
 },
 {
-"start": 192.74,
-"end": 194.74,
-"text": "Lo que empezó como una junta que goceaba,"
+"start": 245.0,
+"end": 249.0,
+"text": "Se convierte en carbón sólido dentro de los conductos finos por donde debería circular."
 },
 {
-"start": 194.74,
-"end": 197.14,
-"text": "acaba siendo una caja de cambios destrozada."
+"start": 249.0,
+"end": 251.0,
+"text": "Y aquí está la parte más cruel."
 },
 {
-"start": 197.14,
-"end": 198.94,
-"text": "Si miras un focus de estos años,"
+"start": 251.0,
+"end": 253.0,
+"text": "Ese proceso es irreversible."
 },
 {
-"start": 199.04,
-"end": 203.34,
-"text": "revisa el historial de la transmisión y busca cualquier rastro de fuga bajo el coche."
+"start": 253.0,
+"end": 255.0,
+"text": "Los talleres lo confirman."
 },
 {
-"start": 203.34,
-"end": 207.34,
-"text": "Es la diferencia entre una reparación menor a tiempo y una catástrofe."
+"start": 255.0,
+"end": 258.0,
+"text": "Los depósitos bloquean parcialmente los conductos."
 },
 {
-"start": 207.34,
-"end": 208.24,
-"text": "Tres."
+"start": 258.0,
+"end": 261.0,
+"text": "Reduce en el caudal de aceite en los siguientes arranques."
 },
 {
-"start": 208.24,
-"end": 210.14,
-"text": "Los primos británicos."
+"start": 261.0,
+"end": 265.0,
+"text": "Y aceleran el desgaste de los cojinetes hasta que el turbo falla definitivamente."
 },
 {
-"start": 210.14,
-"end": 211.54,
-"text": "Jaguar y Pace."
+"start": 265.0,
+"end": 269.0,
+"text": "Cada vez que apagas el motor en caliente, se forma un poco más de carbón."
 },
 {
-"start": 211.54,
-"end": 213.34,
-"text": "Land Rover Discovery Sport."
+"start": 269.0,
+"end": 271.0,
+"text": "Se obstruyen un poco más los conductos."
 },
 {
-"start": 213.34,
-"end": 214.14,
-"text": "Y evoque."
+"start": 271.0,
+"end": 274.0,
+"text": "Y en el siguiente arranque llega un poco menos de aceite al turbo."
 },
 {
-"start": 214.14,
-"end": 215.54,
-"text": "2019."
+"start": 274.0,
+"end": 276.0,
+"text": "Es un daño acumulativo."
 },
 {
-"start": 215.54,
-"end": 216.94,
-"text": "Hasta 2024."
+"start": 276.0,
+"end": 277.0,
+"text": "Invisible."
 },
 {
-"start": 216.94,
-"end": 220.54,
-"text": "A grupos estos tres porque comparten plataforma y lamentablemente."
+"start": 277.0,
+"end": 278.0,
+"text": "Silencioso."
 },
 {
-"start": 220.54,
-"end": 222.14,
-"text": "Comparten problemas."
+"start": 278.0,
+"end": 282.0,
+"text": "Que se va sumando kilómetro a kilómetro apagado tras apagado."
 },
 {
-"start": 222.14,
-"end": 223.24,
-"text": "El Jaguar y Pace,"
+"start": 282.0,
+"end": 287.0,
+"text": "Hasta que alrededor de los 60.000 u 80.000 kilómetros, el turbo dice basta."
 },
 {
-"start": 223.24,
-"end": 226.54,
-"text": "el Land Rover Discovery Sport y el Range Rover Book de estos años"
+"start": 287.0,
+"end": 288.0,
+"text": "Parte 3."
 },
 {
-"start": 226.54,
-"end": 228.34,
-"text": "son primos hermanos por dentro."
+"start": 288.0,
+"end": 290.0,
+"text": "¿Por qué le estaré stopa graba el problema?"
 },
 {
-"start": 228.44,
-"end": 230.64,
-"text": "El principal foco de averías."
+"start": 290.0,
+"end": 292.0,
+"text": "Aquí hay un giro que muy poca gente conoce."
 },
 {
-"start": 230.64,
-"end": 232.14,
-"text": "Los motores Ingenium."
+"start": 292.0,
+"end": 295.0,
+"text": "Y que afecta a casi todos los coches modernos."
 },
 {
-"start": 232.14,
-"end": 234.24,
-"text": "Tanto en versión 10 el como gasolina."
+"start": 295.0,
+"end": 297.0,
+"text": "El sistema Star Desktop."
 },
 {
-"start": 234.24,
-"end": 238.04,
-"text": "Los motores Ingenium tienen casos documentados de tres problemas serios."
+"start": 297.0,
+"end": 300.0,
+"text": "Es que apaga el motor automáticamente en los semáforos para ahorrar combustible."
 },
 {
-"start": 238.04,
-"end": 238.84,
-"text": "Primero."
+"start": 300.0,
+"end": 304.0,
+"text": "Los especialistas en turbos advierten específicamente de esto."
 },
 {
-"start": 238.84,
-"end": 240.74,
-"text": "Consumo excesivo de aceite."
+"start": 304.0,
+"end": 307.0,
+"text": "Algunos vehículos con arranque parada automático pueden provocar situaciones"
 },
 {
-"start": 240.74,
-"end": 243.34,
-"text": "El motor quemada aceite a un ritmo que no es normal."
+"start": 307.0,
+"end": 310.0,
+"text": "en las que el motor se apaga sin tiempo de enfriamiento."
 },
 {
-"start": 243.34,
-"end": 244.24,
-"text": "Segundo."
+"start": 310.0,
+"end": 311.0,
+"text": "Piense en la situación."
 },
 {
-"start": 244.24,
-"end": 245.74,
-"text": "Sobre calentamiento."
+"start": 311.0,
+"end": 315.0,
+"text": "Vienes del autopista, con el turbo caliente, sales en la primera rotonda,"
 },
 {
-"start": 245.74,
-"end": 248.04,
-"text": "Problemas en la gestión térmica del motor."
+"start": 315.0,
+"end": 319.0,
+"text": "te paras en un semáforo, y el estar stopa apaga el motor."
 },
 {
-"start": 248.04,
-"end": 249.14,
-"text": "Y tercero."
+"start": 319.0,
+"end": 322.0,
+"text": "El turbo, que venía caliente del autopista,"
 },
 {
-"start": 249.14,
-"end": 250.14,
-"text": "El más grave."
+"start": 322.0,
+"end": 325.0,
+"text": "se queda de repente sin circulación de aceite."
 },
 {
-"start": 250.14,
-"end": 252.44,
-"text": "Problemas con la cadena de distribución."
+"start": 325.0,
+"end": 330.0,
+"text": "Es exactamente el escenario de la coquificación, pero provocado automáticamente por el coche."
 },
 {
-"start": 252.44,
-"end": 255.24,
-"text": "Cuando la cadena de distribución de un motor da problemas,"
+"start": 330.0,
+"end": 332.0,
+"text": "Por eso, los especialistas insisten."
 },
 {
-"start": 255.24,
-"end": 256.94,
-"text": "no es una reparación menor."
+"start": 332.0,
+"end": 337.0,
+"text": "En estos vehículos con estar stop, es especialmente importante la calidad y el estado de la aceite."
 },
 {
-"start": 257.04,
-"end": 260.04,
-"text": "Es una intervención mayor que puede terminar en daño interno del motor"
+"start": 337.0,
+"end": 340.0,
+"text": "Y por eso, cuando vienes de conducción exigida,"
 },
 {
-"start": 260.04,
-"end": 261.34,
-"text": "si la cadena falla."
+"start": 340.0,
+"end": 343.0,
+"text": "conviene que los últimos minutos antes de parar sean suaves,"
 },
 {
-"start": 261.34,
-"end": 264.44,
-"text": "A esto se suma lo que ya sabemos del Land Rover por otros vídeos."
+"start": 343.0,
+"end": 346.0,
+"text": "para que el turbo llegue frío a la parada."
 },
 {
-"start": 264.44,
-"end": 268.84,
-"text": "La marca ocupa el último puesto del ranking de fiabilidad de la OQ-2026."
+"start": 346.0,
+"end": 347.0,
+"text": "Parte 4."
 },
 {
-"start": 268.84,
-"end": 269.84,
-"text": "Con 64 puntos."
+"start": 347.0,
+"end": 350.0,
+"text": "El segundo gran error exigir el turbo en frío."
 },
 {
-"start": 269.84,
-"end": 271.24,
-"text": "El farolillo rojo."
+"start": 350.0,
+"end": 354.0,
+"text": "Si el primer error es apagar en caliente, el segundo es su espejo."
 },
 {
-"start": 271.24,
-"end": 272.34,
-"text": "El resultado."
+"start": 354.0,
+"end": 356.0,
+"text": "Exigir el motor en frío."
 },
 {
-"start": 272.34,
-"end": 276.24,
-"text": "S.I.U.V Premium con imagen atractiva y precio de segunda mano tentador."
+"start": 356.0,
+"end": 359.0,
+"text": "Es el mismo problema de lubricación, pero al revés."
 },
 {
-"start": 276.24,
-"end": 280.34,
-"text": "Pero con motorizaciones que pueden generar facturas desproporcionadas."
+"start": 359.0,
+"end": 361.0,
+"text": "Los talleres lo explican con claridad."
 },
 {
-"start": 280.34,
-"end": 282.74,
-"text": "La combinación más peligrosa que existe."
+"start": 361.0,
+"end": 365.0,
+"text": "Dar a celerones en frío, antes de que el motor alcance la temperatura de servicio,"
 },
 {
-"start": 282.74,
-"end": 283.74,
-"text": "Cuatro."
+"start": 365.0,
+"end": 370.0,
+"text": "implica una mala lubricación del turbo, debido a que el aceite no está todo lo fluido que debería."
 },
 {
-"start": 283.74,
-"end": 285.64,
-"text": "Nissan Quaskye."
+"start": 370.0,
+"end": 373.0,
+"text": "Cuando el motor está frío, el aceite está espeso."
 },
 {
-"start": 285.74,
-"end": 287.64,
-"text": "Tres era generación."
+"start": 373.0,
+"end": 374.0,
+"text": "Frío y espeso."
 },
 {
-"start": 287.64,
-"end": 290.74,
-"text": "2021 hasta 2022."
+"start": 374.0,
+"end": 376.0,
+"text": "Circula de espacio y con dificultad."
 },
 {
-"start": 290.74,
-"end": 293.34,
-"text": "La electrónica que no estuvo a la altura."
+"start": 377.0,
+"end": 380.0,
+"text": "Si en ese momento pisas a fondo y haces girar el turbo alta velocidad,"
 },
 {
-"start": 293.34,
-"end": 297.24,
-"text": "El Cascay es uno de los SUV más vendidos de Europa."
+"start": 380.0,
+"end": 383.0,
+"text": "el turbo está girando a decenas de miles de revoluciones,"
 },
 {
-"start": 297.24,
-"end": 300.74,
-"text": "Y su tercera generación dio un salto enorme en diseño y tecnología."
+"start": 383.0,
+"end": 387.0,
+"text": "mientras el aceite todavía no le llega con la fluidez y la presión adecuadas."
 },
 {
-"start": 300.74,
-"end": 302.54,
-"text": "Pero las primeras unidades."
+"start": 387.0,
+"end": 392.0,
+"text": "Metal rozando metal con lubricación insuficiente, desgaste prematuro de leje y de los cocinetes."
 },
 {
-"start": 302.54,
-"end": 307.74,
-"text": "Las de 2021 y 2022 tuvieron un problema que empañó ese salto."
+"start": 392.0,
+"end": 395.0,
+"text": "Los especialistas lo confirman como una de las causas de fallo."
 },
 {
-"start": 307.74,
-"end": 309.04,
-"text": "El problema."
+"start": 395.0,
+"end": 399.0,
+"text": "Motor parado durante largos periodos, especialmente en climas fríos,"
 },
 {
-"start": 309.04,
-"end": 312.54,
-"text": "Los fallos del sistema multimedia y la electrónica general."
+"start": 399.0,
+"end": 401.0,
+"text": "y arranques rápidos en frío."
 },
 {
-"start": 312.54,
-"end": 314.34,
-"text": "Pantallas que se bloquean."
+"start": 401.0,
+"end": 404.0,
+"text": "La combinación de aceite frío y turbo exigido,"
 },
 {
-"start": 314.34,
-"end": 316.04,
-"text": "Que se reinician solas."
+"start": 404.0,
+"end": 406.0,
+"text": "está en destructiva como el apagado en caliente."
 },
 {
-"start": 316.04,
-"end": 317.64,
-"text": "Que dejan de responder."
+"start": 406.0,
+"end": 407.0,
+"text": "Parte 5."
 },
 {
-"start": 317.64,
-"end": 321.64,
-"text": "En un coche moderno donde gran parte de las funciones dependen de esa pantalla central."
+"start": 407.0,
+"end": 409.0,
+"text": "El enemigo silencioso."
 },
 {
-"start": 321.64,
-"end": 325.44,
-"text": "Klimatización, navegación, cámaras, ajustes."
+"start": 409.0,
+"end": 411.0,
+"text": "La geometría variable y la carbonilla."
 },
 {
-"start": 325.44,
-"end": 328.14,
-"text": "Una pantalla que se bloquea no es solo una molestia."
+"start": 411.0,
+"end": 417.0,
+"text": "Hay un tercer factor, específico de la mayoría de turbos 10 el modernos y de muchos de gasolina."
 },
 {
-"start": 328.14,
-"end": 330.44,
-"text": "Es perder el acceso a funciones del coche."
+"start": 417.0,
+"end": 418.0,
+"text": "La geometría variable."
 },
 {
-"start": 330.44,
-"end": 335.24,
-"text": "Estos fallos electrónicos fueron especialmente frecuentes en las primeras series de esta generación."
+"start": 418.0,
+"end": 423.0,
+"text": "El turbo de geometría variable, que en inglés se abrevia como VGT,"
 },
 {
-"start": 335.24,
-"end": 337.44,
-"text": "Cuando el sistema todavía no estaba depurado."
+"start": 423.0,
+"end": 428.0,
+"text": "tiene unos álaves móviles, unas pequeñas paletas que se orientan para optimizar el flujo de gases"
 },
 {
-"start": 337.44,
-"end": 339.04,
-"text": "El matiz importante."
+"start": 428.0,
+"end": 429.0,
+"text": "según las revoluciones del motor."
 },
 {
-"start": 339.14,
-"end": 343.74,
-"text": "Ni se han fuertes olviendo estos problemas con actualizaciones de software en unidades posteriores."
+"start": 429.0,
+"end": 433.0,
+"text": "Es una tecnología brillante y es también un punto delicado."
 },
 {
-"start": 343.74,
-"end": 349.94,
-"text": "Por eso este problema afecta específicamente a las primeras unidades de 2021 y principios de 2022."
+"start": 433.0,
+"end": 436.0,
+"text": "Los talleres especializados lo confirman."
 },
 {
-"start": 349.94,
-"end": 351.94,
-"text": "Si miras un casca y de esta generación."
+"start": 436.0,
+"end": 441.0,
+"text": "La segunda causa más habitual de fallo de turbo es la geometría variable bloqueada por carbonilla,"
 },
 {
-"start": 351.94,
-"end": 357.44,
-"text": "Verifica que el software está actualizado la última versión y prueba a fondo el sistema multimedia antes de comprar."
+"start": 441.0,
+"end": 443.0,
+"text": "especialmente en motores 10 el con muchos kilómetros."
 },
 {
-"start": 357.44,
-"end": 358.44,
-"text": "5."
+"start": 443.0,
+"end": 445.0,
+"text": "¿Por qué se bloquea?"
 },
 {
-"start": 358.44,
-"end": 361.04,
-"text": "Renold, Cleo, OV y Captur E."
+"start": 445.0,
+"end": 448.0,
+"text": "Los gases de escape del motor llevan carbonilla."
 },
 {
-"start": 361.04,
-"end": 362.54,
-"text": "ITEK y Bridos."
+"start": 448.0,
+"end": 452.0,
+"text": "Con el tiempo, esa carbonilla se depositan el mecanismo de los álaves móviles."
 },
 {
-"start": 362.54,
-"end": 365.24,
-"text": "2020 hasta 2023."
+"start": 452.0,
+"end": 456.0,
+"text": "Poco a poco, los álaves empiezan a moverse con dificultad."
 },
 {
-"start": 365.24,
-"end": 367.04,
-"text": "La caja que pierde aceite."
+"start": 456.0,
+"end": 457.0,
+"text": "Se vuelven."
 },
 {
-"start": 367.14,
-"end": 372.04,
-"text": "Aquí tengo un dato contrastado que refuerza tu información y que hace este punto especialmente sólido."
+"start": 457.0,
+"end": 460.0,
+"text": "En palabras de los técnicos, álaves pegajosos."
 },
 {
-"start": 372.04,
-"end": 375.54,
-"text": "Las versiones y Bridos ITEK del Renold Cleo, OV y Captur 2."
+"start": 460.0,
+"end": 462.0,
+"text": "Y llega un momento en que se bloquean."
 },
 {
-"start": 375.54,
-"end": 378.24,
-"text": "Fabricadas entre 2020 y 2022."
+"start": 462.0,
+"end": 465.0,
+"text": "El turbo pierde la capacidad de regular el flujo."
 },
 {
-"start": 378.24,
-"end": 380.44,
-"text": "Tienen un problema documentado en la transmisión."
+"start": 465.0,
+"end": 470.0,
+"text": "Aparece la pérdida de potencia, el testigo de motor, y en muchos casos, el modo de emergencia."
 },
 {
-"start": 380.44,
-"end": 381.74,
-"text": "Y no lo digo yo solo."
+"start": 470.0,
+"end": 474.0,
+"text": "El factor que más lo agraba, el uso exclusivamente urbano."
 },
 {
-"start": 381.74,
-"end": 383.24,
-"text": "Lo dice el propio Renold."
+"start": 474.0,
+"end": 476.0,
+"text": "Los especialistas son claros."
 },
 {
-"start": 383.24,
-"end": 384.44,
-"text": "Con sus actos."
+"start": 476.0,
+"end": 481.0,
+"text": "En un coche que solo hace ciudad, con trayectos cortos y siempre abajas revoluciones,"
 },
 {
-"start": 384.44,
-"end": 392.04,
-"text": "Renold puso en marcha una operación técnica especial que afecta a más de 334.000 vehículos fabricados entre septiembre de 2020."
+"start": 481.0,
+"end": 485.0,
+"text": "los gases de escape nunca alcanzan la temperatura suficiente para quemar la carbonilla."
 },
 {
-"start": 392.04,
-"end": 394.04,
-"text": "Y septiembre de 2022."
+"start": 485.0,
+"end": 488.0,
+"text": "Los depósitos se acumulan mucho más rápido."
 },
 {
-"start": 394.04,
-"end": 396.74,
-"text": "En España casi 25.000 coches."
+"start": 488.0,
+"end": 493.0,
+"text": "El turbo de un 10 el que solo hace ciudad, se carboniza mucho antes que el de uno que hace carretera con regularidad."
 },
 {
-"start": 396.74,
-"end": 398.04,
-"text": "Los modelos afectados."
+"start": 493.0,
+"end": 494.0,
+"text": "Parte 6."
 },
 {
-"start": 398.04,
-"end": 399.14,
-"text": "Cleo, OV, ITEK."
+"start": 494.0,
+"end": 496.0,
+"text": "Como cuidar el turbo las reglas que los alban."
 },
 {
-"start": 399.14,
-"end": 404.24,
-"text": "Captur 2. ITEK tanto híbrido convencional como enchufable, Megane y Arcana, ITEK."
+"start": 496.0,
+"end": 498.0,
+"text": "Ahora, la parte práctica."
 },
 {
-"start": 404.24,
-"end": 405.74,
-"text": "El origen del problema."
+"start": 498.0,
+"end": 504.0,
+"text": "Todo lo que puedes empezar a hacer hoy mismo, sin gastar un euro, para que tu turbo llegue a los 300.000 kilómetros."
 },
 {
-"start": 405.74,
-"end": 410.34,
-"text": "Un posible defecto en la Junta de Estanqueidad del Circuito de Lubricación de la Caja de Cambios."
+"start": 504.0,
+"end": 505.0,
+"text": "Regla 1."
 },
 {
-"start": 410.34,
-"end": 414.24,
-"text": "Es decir, una fuga en el sistema de lubricación de la transmisión híbrida."
+"start": 505.0,
+"end": 508.0,
+"text": "Nunca apague el motor justo después de conducción exigida."
 },
 {
-"start": 414.24,
-"end": 420.24,
-"text": "La caja de cambios de estos híbridos, la caja Acra Bots sin embrague convencional, es innovadora."
+"start": 508.0,
+"end": 510.0,
+"text": "Esta es la regla de oro."
 },
 {
-"start": 420.24,
-"end": 426.34,
-"text": "Pero esa Junta de Estanqueidad ha generado suficientes casos como para que Renold ya me amas de 300.000 coches"
+"start": 510.0,
+"end": 512.0,
+"text": "Los talleres la resumen perfectamente."
 },
 {
-"start": 426.44,
-"end": 428.64,
-"text": "a pasar por el taller de forma preventiva."
+"start": 512.0,
+"end": 517.0,
+"text": "Después de operar bajo una carga pesada, déjalo al ralentí de 30 a 60 segundos antes de apagarlo."
 },
 {
-"start": 428.64,
-"end": 435.94,
-"text": "Los foros de propietarios documentan tirones, ruidos y en casos graves presupuestos de reparación de transmisión que superan los 3.000 euros."
+"start": 517.0,
+"end": 526.0,
+"text": "Cuando vengas de autopista, depuerto de montaña o de conducción exigida, antes de apagar deja el motor al ralentí entre 30 segundos y un par de minutos."
 },
 {
-"start": 435.94,
-"end": 436.84,
-"text": "El Matiz."
+"start": 526.0,
+"end": 533.0,
+"text": "En ese tiempo, el aceite sigue circulando y enfría el turbo de forma controlada, evitando que se carboniza en su interior."
 },
 {
-"start": 436.84,
-"end": 443.14,
-"text": "Renold recalibró el sistema a partir de mayo de 2021 y está haciendo las intervenciones preventivas."
+"start": 533.0,
+"end": 535.0,
+"text": "30 segundos de ralentí."
 },
 {
-"start": 443.14,
-"end": 448.14,
-"text": "Si consideras uno de estos, verifica que haya pasado la operación técnica especial de Renold."
+"start": 535.0,
+"end": 539.0,
+"text": "Esta es la diferencia entre un turbo que dura y un turbo que se coquifica."
 },
 {
-"start": 448.14,
-"end": 450.64,
-"text": "Sin ese sello, precaución máxima."
+"start": 539.0,
+"end": 545.0,
+"text": "Y si haces conducción suave en los últimos minutos antes de llegar a casa, el turbo llega ya frío y no necesitas ni esperar."
 },
 {
-"start": 450.64,
-"end": 451.64,
-"text": "6."
+"start": 545.0,
+"end": 547.0,
+"text": "Regla 2."
 },
 {
-"start": 451.64,
-"end": 455.84,
-"text": "Este y antes, Citroen, Fiat, Pugh, Opel."
+"start": 547.0,
+"end": 549.0,
+"text": "No exigas el motor en frío."
 },
 {
-"start": 455.94,
-"end": 459.94,
-"text": "Los dos problemas mayúsculos, 2019 hasta 2024."
+"start": 549.0,
+"end": 551.0,
+"text": "Los primeros kilómetros."
 },
 {
-"start": 459.94,
-"end": 464.44,
-"text": "Con el grupo Stellantis tenemos que hablar de dos problemas que afectan a un enorme número de coches."
+"start": 551.0,
+"end": 554.0,
+"text": "Hasta que el motor alcance temperatura de servicio conduce suave."
 },
 {
-"start": 464.44,
-"end": 465.44,
-"text": "Problema 1."
+"start": 554.0,
+"end": 555.0,
+"text": "Sin acelerones."
 },
 {
-"start": 465.44,
-"end": 467.14,
-"text": "El motor 1.2."
+"start": 555.0,
+"end": 557.0,
+"text": "Sin revoluciones altas."
 },
 {
-"start": 467.14,
-"end": 468.14,
-"text": "Putec."
+"start": 557.0,
+"end": 561.0,
+"text": "Deja que el aceite se caliente y fluya bien antes de pedirle potencia al turbo."
 },
 {
-"start": 468.14,
-"end": 470.44,
-"text": "2019 hasta 2024."
+"start": 561.0,
+"end": 562.0,
+"text": "Regla 3."
 },
 {
-"start": 470.44,
-"end": 474.74,
-"text": "Ya le he dedicado tiempo en otros vídeos, pero hay que repetirlo porque afecta muchísimos coches."
+"start": 562.0,
+"end": 563.0,
+"text": "El aceite correcto."
 },
 {
-"start": 474.74,
-"end": 479.14,
-"text": "El 1.2 Putec usa una correa de distribución sumergida en el aceite del motor."
+"start": 563.0,
+"end": 566.0,
+"text": "Cambiado a tiempo, es innegociable."
 },
 {
-"start": 479.14,
-"end": 481.34,
-"text": "Esa correa se degrada prematuramente."
+"start": 566.0,
+"end": 569.0,
+"text": "El turbo se lubrica y se refrigera con el aceite del motor."
 },
 {
-"start": 481.44,
-"end": 485.94,
-"text": "Y cuando se degrada, sus fragmentos contaminan el circuito de lubricación,"
+"start": 569.0,
+"end": 574.0,
+"text": "Un aceite degradado, sucio o incorrecto es la sentencia de muerte del turbo."
 },
 {
-"start": 485.94,
-"end": 490.44,
-"text": "pudiendo dañar la bomba de aceite y provocar averías catastróficas de motor."
+"start": 574.0,
+"end": 576.0,
+"text": "Los especialistas lo confirman."
 },
 {
-"start": 490.44,
-"end": 495.74,
-"text": "Afecta a Pugh, Citroen, Opel y otros modelos del grupo con este motor."
+"start": 576.0,
+"end": 582.0,
+"text": "Partículas, aditivos degradados o intervalos de cambio demasiado largos aceleran el desgaste de cocinetes y jejes."
 },
 {
-"start": 495.74,
-"end": 499.74,
-"text": "Es probablemente el problema mecánico más extendido del mercado europeo actual."
+"start": 582.0,
+"end": 585.0,
+"text": "Usa exactamente el aceite que especifica el fabricante."
 },
 {
-"start": 499.74,
-"end": 500.94,
-"text": "Problema 2."
+"start": 585.0,
+"end": 589.0,
+"text": "Y cambiarlo en el intervalo correcto, o incluso antes si haces mucha ciudad."
 },
 {
-"start": 500.94,
-"end": 504.14,
-"text": "El sistema AdBlue de los 10 el Blue HD,"
+"start": 589.0,
+"end": 593.0,
+"text": "Con un turbo, a largar el cambio de aceite, es jugar con fuego."
 },
 {
-"start": 504.14,
-"end": 507.24,
-"text": "2019 hasta 2024."
+"start": 593.0,
+"end": 596.0,
+"text": "Y presta atención a un detalle que los técnicos destacan."
 },
 {
-"start": 507.34,
-"end": 512.34,
-"text": "Los 10 el Blue HD del grupo tienen historial documentado de problemas con el sistema AdBlue."
+"start": 596.0,
+"end": 598.0,
+"text": "El filtro de aceite."
 },
 {
-"start": 512.34,
-"end": 519.34,
-"text": "Fajos en los sensores, cristalización del líquido, mensajes de arranque bloqueado por fallo del sistema anti-contaminación."
+"start": 598.0,
+"end": 600.0,
+"text": "Un filtro de baja calidad osaturado."
 },
 {
-"start": 519.34,
-"end": 522.84,
-"text": "Ya explique en profundidad el problema del AdBlue en otro vídeo."
+"start": 600.0,
+"end": 602.0,
+"text": "Restringe el flujo de aceite al turbo."
 },
 {
-"start": 522.84,
-"end": 526.34,
-"text": "En estos modelos Estelantis es un punto de fallo recurrente."
+"start": 602.0,
+"end": 604.0,
+"text": "Usa siempre filtros de calidad."
 },
 {
-"start": 526.34,
-"end": 527.34,
-"text": "El resultado."
+"start": 604.0,
+"end": 605.0,
+"text": "Regla 4."
 },
 {
-"start": 527.34,
-"end": 532.34,
-"text": "Dos de las motorizaciones más vendidas del grupo, tanto en gasolina como en 10 el,"
+"start": 605.0,
+"end": 607.0,
+"text": "Haz salidas periódicas por carretera."
 },
 {
-"start": 532.34,
-"end": 534.14,
-"text": "con problemas documentados."
+"start": 607.0,
+"end": 611.0,
+"text": "Esta es clave, sobre todo si tu coche es diesel y hace mucha ciudad."
 },
 {
-"start": 534.24,
-"end": 538.04,
-"text": "Si miras un Estelantis de estos años, la motorización lo es todo."
+"start": 611.0,
+"end": 614.0,
+"text": "Los especialistas lo recomiendan explícitamente."
 },
 {
-"start": 538.04,
-"end": 539.24,
-"text": "Siete."
+"start": 614.0,
+"end": 622.0,
+"text": "Haz salidas periódicas por carretera arregimen medio alto para regenerar la parte caliente del escape y evitar la acumulación de carbonilla."
 },
 {
-"start": 539.24,
-"end": 540.44,
-"text": "Tes la model,"
+"start": 622.0,
+"end": 628.0,
+"text": "De vez en cuando lleva el coche al autopista y deja que el motor trabaje a revoluciones medias altas durante un rato."
 },
 {
-"start": 540.44,
-"end": 541.24,
-"text": "tres,"
+"start": 629.0,
+"end": 634.0,
+"text": "El calor de los gases quema parte de la carbonilla y mantiene los álaves de la geometría variable limpios y móviles."
 },
 {
-"start": 541.24,
-"end": 542.54,
-"text": "dos mil diecinueve,"
+"start": 634.0,
+"end": 638.0,
+"text": "Es el mismo principio de la limpieza italiana de la que he hablado en otros vídeos."
 },
 {
-"start": 542.54,
-"end": 544.64,
-"text": "hasta dos mil veintidós."
+"start": 638.0,
+"end": 642.0,
+"text": "Un motor que solo hace ciudad se aogan su propia carbonilla."
 },
 {
-"start": 544.64,
-"end": 547.94,
-"text": "Brillante en concepto y regular en fabricación,"
+"start": 642.0,
+"end": 644.0,
+"text": "Dale carretera de vez en cuando."
 },
 {
-"start": 547.94,
-"end": 551.04,
-"text": "el Tes la model tres es un coche brillante en su concepto."
+"start": 644.0,
+"end": 645.0,
+"text": "Regla 5."
 },
 {
-"start": 551.04,
-"end": 552.94,
-"text": "Tecnologicamente adelantado."
+"start": 645.0,
+"end": 647.0,
+"text": "Vigila la ventilación del cárter."
 },
 {
-"start": 552.94,
-"end": 554.54,
-"text": "Comprescaciones que asombran."
+"start": 647.0,
+"end": 649.0,
+"text": "Este es un secreto técnico que muy pocos conocen."
 },
 {
-"start": 554.54,
-"end": 555.94,
-"text": "Pero su ejecución,"
+"start": 649.0,
+"end": 651.0,
+"text": "Los especialistas lo documentan."
 },
 {
-"start": 555.94,
-"end": 562.04,
-"text": "especialmente en las unidades fabricadas en la planta de fremonten Estados Unidos entre 2019 y 2022,"
+"start": 651.0,
+"end": 657.0,
+"text": "Si el respiradero del motor, el sistema de ventilación del cárter se obstruye, aumenta la presión interna."
 },
 {
-"start": 562.04,
-"end": 563.54,
-"text": "deja mucho que desear."
+"start": 657.0,
+"end": 662.0,
+"text": "Y fuerza la aceite a subir hacia el turbo, provocando fugas y acumulación de carbonilla en los álaves."
 },
 {
-"start": 563.64,
-"end": 565.24,
-"text": "El problema no es mecánico."
+"start": 662.0,
+"end": 667.0,
+"text": "Un sistema de ventilación del cárter obstruido, que cuesta poco dinero de revisar,"
 },
 {
-"start": 565.24,
-"end": 568.24,
-"text": "Es de calidad de fabricación ajuste y acabado."
+"start": 667.0,
+"end": 671.0,
+"text": "puede ser la causa oculta de un fallo de turbo que cuesta una fortuna."
 },
 {
-"start": 568.24,
-"end": 571.44,
-"text": "Paneles de carrocería con separaciones y regulares."
+"start": 671.0,
+"end": 672.0,
+"text": "Mantén lo limpio."
 },
 {
-"start": 571.44,
-"end": 573.64,
-"text": "Molduras mal ajustadas."
+"start": 672.0,
+"end": 673.0,
+"text": "Parte 7."
 },
 {
-"start": 573.64,
-"end": 577.24,
-"text": "Problemas desellado que generan ruidos de aireofiltraciones."
+"start": 673.0,
+"end": 675.0,
+"text": "Las señales de que tu turbo está muriendo."
 },
 {
-"start": 577.24,
-"end": 578.94,
-"text": "Pintura con defectos."
+"start": 675.0,
+"end": 677.0,
+"text": "El turbo avisa antes de fallar del todo."
 },
 {
-"start": 578.94,
-"end": 582.14,
-"text": "Estos no son problemas que dejen el coche tirado en la carretera."
+"start": 677.0,
+"end": 681.0,
+"text": "Estas son las señales que los talleres identifican como los primeros avisos."
 },
 {
-"start": 582.14,
-"end": 585.34,
-"text": "El tren motor y eléctrico de Tesla es en general robusto."
+"start": 681.0,
+"end": 684.0,
+"text": "Si detectas alguna, actúa antes de que sea tarde."
 },
 {
-"start": 585.34,
-"end": 587.04,
-"text": "Pero son problemas de calidad,"
+"start": 685.0,
+"end": 689.0,
+"text": "Humo azulado o blanquecino por el escape, especialmente a la arrancar o a la acelerar."
 },
 {
-"start": 587.04,
-"end": 588.84,
-"text": "que en un coche de ese precio,"
+"start": 689.0,
+"end": 692.0,
+"text": "Indica que el turbo está dejando pasar aceite."
 },
 {
-"start": 588.84,
-"end": 590.24,
-"text": "no deberían existir."
+"start": 692.0,
+"end": 694.0,
+"text": "Es uno de los síntomas más claros."
 },
 {
-"start": 590.24,
-"end": 592.54,
-"text": "Y que pueden generar molestias constantes."
+"start": 694.0,
+"end": 697.0,
+"text": "Consumo elevado de aceite sin que haya fuga visible por fuera del motor."
 },
 {
-"start": 592.64,
-"end": 593.44,
-"text": "Ruidos."
+"start": 697.0,
+"end": 701.0,
+"text": "El turbos está bebiendo el aceite por dentro, perdida de potencia progresiva."
 },
 {
-"start": 593.44,
-"end": 594.54,
-"text": "Filtraciones."
+"start": 701.0,
+"end": 704.0,
+"text": "Especialmente, al acelerar desde bajas revoluciones."
 },
 {
-"start": 594.54,
-"end": 595.14,
-"text": "Piezas."
+"start": 704.0,
+"end": 707.0,
+"text": "La geometría variable puede estar empezando a bloquearse."
 },
 {
-"start": 595.14,
-"end": 596.44,
-"text": "Que hay que reajustar."
+"start": 707.0,
+"end": 711.0,
+"text": "Un silbido o ruido agudo procedente del turbo que antes no existía,"
 },
 {
-"start": 596.44,
-"end": 598.24,
-"text": "El matiz importante."
+"start": 711.0,
+"end": 714.0,
+"text": "el eje puede tener olvura por desgaste de los cocinetes."
 },
 {
-"start": 598.24,
-"end": 602.44,
-"text": "Tesla ha mejorado significativamente la calidad de fabricación en unidades posteriores,"
+"start": 714.0,
+"end": 718.0,
+"text": "Tirones o irregularidades en el comportamiento del motor a ciertas velocidades."
 },
 {
-"start": 602.44,
-"end": 606.14,
-"text": "especialmente las fabricadas en la fábrica de Berlim para el mercado europeo."
+"start": 718.0,
+"end": 722.0,
+"text": "Si tu coach empieza a hacer un azul o a consumir aceite, no esperes."
 },
 {
-"start": 606.14,
-"end": 609.44,
-"text": "El problema se concentra en las primeras unidades de fremont."
+"start": 722.0,
+"end": 726.0,
+"text": "Cada kilómetro que sigues conduciendo con un turbo que empieza a fallar, empeoras el daño."
 },
 {
-"start": 609.44,
-"end": 611.74,
-"text": "Si consideras un modelo 3 de estos años,"
+"start": 726.0,
+"end": 730.0,
+"text": "Y hay un detalle crítico que los especialistas repiten una y otra vez."
 },
 {
-"start": 611.74,
-"end": 614.14,
-"text": "revisa afondo los ajustes de carrocería,"
+"start": 730.0,
+"end": 733.0,
+"text": "Cuando un turbo falla, siempre hay una razón."
 },
 {
-"start": 614.14,
-"end": 616.44,
-"text": "los sellados y el historial de la unidad."
+"start": 733.0,
+"end": 737.0,
+"text": "Y si no se detecta y corrijes a razón antes de instalar el turbo nuevo,"
 },
 {
-"start": 616.44,
-"end": 617.44,
-"text": "8."
+"start": 737.0,
+"end": 739.0,
+"text": "el siguiente turbo también fallará."
 },
 {
-"start": 617.44,
-"end": 618.64,
-"text": "Grupo Volkswagen."
+"start": 739.0,
+"end": 743.0,
+"text": "Es decir, si te cambian el turbo pero no resuelven por qué falló,"
 },
 {
-"start": 618.64,
-"end": 619.44,
-"text": "Audi."
+"start": 743.0,
+"end": 745.0,
+"text": "el turbo nuevo se destruirá igual."
 },
 {
-"start": 619.44,
-"end": 620.24,
-"text": "Seat."
+"start": 745.0,
+"end": 749.0,
+"text": "Por eso, el diagnóstico de la causa es tan importante como la reparación."
 },
 {
-"start": 620.34,
-"end": 621.14,
-"text": "UB."
+"start": 749.0,
+"end": 752.0,
+"text": "Conclusión, tres segundos que valen mil euros."
 },
 {
-"start": 621.14,
-"end": 623.24,
-"text": "El software y la caja de SG."
+"start": 752.0,
+"end": 755.0,
+"text": "El turbo es una de las piezas más sofisticadas de tu coche."
 },
 {
-"start": 623.24,
-"end": 625.24,
-"text": "El grupo Volkswagen tampoco se libra,"
+"start": 755.0,
+"end": 758.0,
+"text": "Gira 50 veces más rápido que el motor."
 },
 {
-"start": 625.24,
-"end": 627.24,
-"text": "con dos problemas muy extendidos."
+"start": 758.0,
+"end": 760.0,
+"text": "Soporta temperaturas de hasta mil grados."
 },
 {
-"start": 627.24,
-"end": 628.64,
-"text": "Problema 1."
+"start": 760.0,
+"end": 763.0,
+"text": "Y lo único que lo mantiene con vida es el aceite."
 },
 {
-"start": 628.64,
-"end": 631.24,
-"text": "El software de la plataforma MQB Evo."
+"start": 763.0,
+"end": 767.0,
+"text": "Casi todos los fallos de turbo que llegan a los talleres tienen su origen en la lubricación."
 },
 {
-"start": 631.24,
-"end": 633.84,
-"text": "2020 hasta 2022."
+"start": 767.0,
+"end": 770.0,
+"text": "Y la mayoría de esos fallos serán perfectamente habitables."
 },
 {
-"start": 633.84,
-"end": 637.04,
-"text": "Los primeros coches del grupo con la plataforma MQB Evo"
+"start": 770.0,
+"end": 776.0,
+"text": "El error que lo destroza a los 60.000 kilómetros es tan simple como apagar el motor en caliente después de exigirlo."
 },
 {
-"start": 637.04,
-"end": 638.54,
-"text": "y el nuevo sistema de software"
+"start": 776.0,
+"end": 779.0,
+"text": "Un gesto de tres segundos, repetido durante años,"
 },
 {
-"start": 638.54,
-"end": 642.44,
-"text": "tuvieron problemas documentados de fallos electrónicos y de info entretenimiento."
+"start": 779.0,
+"end": 783.0,
+"text": "que va cocinando el aceite dentro del turbo hasta obstruir sus conductos."
 },
 {
-"start": 642.44,
-"end": 643.64,
-"text": "Pantallas que fallan,"
+"start": 783.0,
+"end": 785.0,
+"text": "Y la solución es igual de simple."
 },
 {
-"start": 643.64,
-"end": 645.14,
-"text": "sistemas que se reinician,"
+"start": 785.0,
+"end": 789.0,
+"text": "30 segundos de ralentía antes de apagar cuando viene de conducción exigida."
 },
 {
-"start": 645.14,
-"end": 646.84,
-"text": "funciones que no responden."
+"start": 789.0,
+"end": 791.0,
+"text": "El aceite correcto cambiado a tiempo."
 },
 {
-"start": 646.84,
-"end": 648.74,
-"text": "El golf ocho fue el ejemplo más sonado,"
+"start": 791.0,
+"end": 792.0,
+"text": "Suavidad en frío."
 },
 {
-"start": 648.74,
-"end": 652.14,
-"text": "con quejas tan generalizadas sobre su electrónica y su sistema tactil"
+"start": 792.0,
+"end": 794.0,
+"text": "Y algo de carretera de vez en cuando."
 },
 {
-"start": 652.14,
-"end": 654.34,
-"text": "que Volkswagen tuvo que lanzar actualizaciones"
+"start": 794.0,
+"end": 796.0,
+"text": "Nada de eso cuesta dinero."
 },
 {
-"start": 654.34,
-"end": 657.64,
-"text": "y acabó recuperando botones físicos en generaciones posteriores."
+"start": 796.0,
+"end": 800.0,
+"text": "Todo eso puede ahorrarte la factura de cuatro cifras que supone un turbo nuevo."
 },
 {
-"start": 657.64,
-"end": 658.64,
-"text": "Problema 2."
+"start": 800.0,
+"end": 806.0,
+"text": "La diferencia entre un turbo que muere a los 60.000 kilómetros y uno que llega a los 300.000 no está en la marca del coche."
 },
 {
-"start": 658.64,
-"end": 660.54,
-"text": "La caja de cambios de SG."
+"start": 806.0,
+"end": 808.0,
+"text": "Está en las manos del que lo conduce."
 },
 {
-"start": 660.54,
-"end": 663.14,
-"text": "2019 hasta 2024."
+"start": 808.0,
+"end": 811.0,
+"text": "Y a partir de hoy, esas manos son las tuyas."
 },
 {
-"start": 663.14,
-"end": 665.74,
-"text": "Ya le dediqué un vídeo entero a las cajas automáticas."
+"start": 811.0,
+"end": 813.0,
+"text": "Con el conocimiento que antes no tenías."
 },
 {
-"start": 665.74,
-"end": 667.74,
-"text": "La DSG es brillante conduciendo,"
+"start": 813.0,
+"end": 816.0,
+"text": "¿Sabías que apagar el motor en caliente destrozaba el turbo?"
 },
 {
-"start": 667.74,
-"end": 671.44,
-"text": "pero su mecatronica es el componente más caro y crítico cuando falla"
+"start": 816.0,
+"end": 818.0,
+"text": "¿Ueres de los que lo apaga inmediatamente al llegar?"
 },
 {
-"start": 671.44,
-"end": 673.74,
-"text": "y el mantenimiento de la aceite es obligatorio,"
+"start": 818.0,
+"end": 820.0,
+"text": "¿Has tenido alguna vez una vería de turbo?"
 },
 {
-"start": 673.74,
-"end": 676.14,
-"text": "aunque el fabricante lo pinte como de por vida."
+"start": 820.0,
+"end": 823.0,
+"text": "¿Cuántos kilómetros tenía el coche y qué te costó?"
 },
 {
-"start": 676.14,
-"end": 678.54,
-"text": "La DSG de siete velocidades en seco"
-},
-{
-"start": 678.54,
-"end": 681.14,
-"text": "es especialmente sensible en un urbano intensivo."
-},
-{
-"start": 681.14,
-"end": 682.44,
-"text": "El resultado."
-},
-{
-"start": 682.44,
-"end": 684.14,
-"text": "Coches por lo demás competentes,"
-},
-{
-"start": 684.14,
-"end": 686.34,
-"text": "pero con dos puntos de fallo que hay que vigilar"
-},
-{
-"start": 686.34,
-"end": 690.14,
-"text": "y que requieren mantenimiento riguroso de la caja y software actualizado."
-},
-{
-"start": 690.14,
-"end": 690.94,
-"text": "9."
-},
-{
-"start": 690.94,
-"end": 693.94,
-"text": "Volvo XC60 2era generación."
-},
-{
-"start": 693.94,
-"end": 697.44,
-"text": "Sensus 2019 hasta 2022."
-},
-{
-"start": 697.44,
-"end": 699.34,
-"text": "La pantalla que se cuelga."
-},
-{
-"start": 699.34,
-"end": 702.14,
-"text": "Cerramos con un coche que en fiabilidad mecánica es bastante bueno,"
-},
-{
-"start": 702.14,
-"end": 705.34,
-"text": "pero que tiene un punto débil concreto que genera muchas quejas."
-},
-{
-"start": 705.34,
-"end": 708.14,
-"text": "El Volvo XC60 de segunda generación."
-},
-{
-"start": 708.24,
-"end": 713.24,
-"text": "En los modelos con el sistema de Info entretenimiento sensus de 2019 a 2022."
-},
-{
-"start": 713.24,
-"end": 714.24,
-"text": "El problema."
-},
-{
-"start": 714.24,
-"end": 715.74,
-"text": "El sistema sensus."
-},
-{
-"start": 715.74,
-"end": 718.24,
-"text": "Fallos diversos en el sistema de Info entretenimiento"
-},
-{
-"start": 718.24,
-"end": 720.54,
-"text": "que puede bloquearse o funcionar con lentitud."
-},
-{
-"start": 720.54,
-"end": 724.44,
-"text": "Pantallas que tardan en responder, que se reinician, que se cuelgan."
-},
-{
-"start": 724.44,
-"end": 727.54,
-"text": "No es un problema que afecte a la fiabilidad mecánica del coche,"
-},
-{
-"start": 727.54,
-"end": 728.54,
-"text": "que es sólida,"
-},
-{
-"start": 728.54,
-"end": 729.84,
-"text": "pero en un coche premium,"
-},
-{
-"start": 729.84,
-"end": 733.54,
-"text": "un sistema de Info entretenimiento que funciona con lentitud o se bloquea"
-},
-{
-"start": 733.54,
-"end": 736.14,
-"text": "es una molestia constante que empaña la experiencia."
-},
-{
-"start": 736.14,
-"end": 737.14,
-"text": "El Matiz."
-},
-{
-"start": 737.24,
-"end": 741.54,
-"text": "Volvo migró posteriormente a un sistema basado en Android que mejoró notablemente."
-},
-{
-"start": 741.54,
-"end": 745.24,
-"text": "El problema se concentra en las unidades con el sistema sensus antiguo."
-},
-{
-"start": 745.24,
-"end": 747.84,
-"text": "El patrón que conecta a todos estos coches."
-},
-{
-"start": 747.84,
-"end": 749.14,
-"text": "Si te has fijado,"
-},
-{
-"start": 749.14,
-"end": 752.24,
-"text": "hay un hilo conductor que recorre casi toda la lista."
-},
-{
-"start": 752.24,
-"end": 755.84,
-"text": "La mayoría de estos problemas no son de mecánica tradicional."
-},
-{
-"start": 755.84,
-"end": 757.74,
-"text": "Son de complejidad añadida."
-},
-{
-"start": 757.74,
-"end": 759.94,
-"text": "Sus pensión neumática en lugar de muelles."
-},
-{
-"start": 759.94,
-"end": 762.94,
-"text": "Transmisiones híbridas innovadoras, pero no depuradas."
-},
-{
-"start": 762.94,
-"end": 765.94,
-"text": "Sistemas de Info entretenimiento cada vez más complejos."
-},
-{
-"start": 766.04,
-"end": 768.24,
-"text": "Software que gobierna funciones críticas."
-},
-{
-"start": 768.24,
-"end": 772.04,
-"text": "Motores de Downsizing con soluciones arriesgadas como la Corea en aceite."
-},
-{
-"start": 772.04,
-"end": 774.64,
-"text": "Y hay un segundo patrón todavía más importante."
-},
-{
-"start": 774.64,
-"end": 778.34,
-"text": "Casi todos son problemas de las primeras unidades de cada modelo tecnología."
-},
-{
-"start": 778.34,
-"end": 781.14,
-"text": "El Focus 2019 hasta 2021."
-},
-{
-"start": 781.14,
-"end": 784.04,
-"text": "El Cascay 2021 hasta 2022."
-},
-{
-"start": 784.04,
-"end": 787.34,
-"text": "El Renold etec 2020 hasta 2022."
-},
-{
-"start": 787.34,
-"end": 788.64,
-"text": "El Tesla de Fremont,"
-},
-{
-"start": 788.64,
-"end": 791.94,
-"text": "el MQB Evo 2020 hasta 2022."
-},
-{
-"start": 792.04,
-"end": 796.14,
-"text": "Los fabricantes fueron corrigiendo muchos de estos problemas en unidades posteriores."
-},
-{
-"start": 796.14,
-"end": 798.74,
-"text": "Eso nos deja una lección práctica muy valiosa."
-},
-{
-"start": 798.74,
-"end": 799.74,
-"text": "La lección."
-},
-{
-"start": 799.74,
-"end": 802.74,
-"text": "Nunca compres la primera ornada de una tecnología nueva."
-},
-{
-"start": 802.74,
-"end": 806.34,
-"text": "La conclusión más útil de este vídeo no es una lista de coches a evitar."
-},
-{
-"start": 806.34,
-"end": 808.74,
-"text": "Es un principio que te servirá para siempre."
-},
-{
-"start": 808.74,
-"end": 812.44,
-"text": "Las primeras unidades de un modelo nuevo o de una tecnología nueva."
-},
-{
-"start": 812.44,
-"end": 815.04,
-"text": "Son las que más problemas de juventud arrastran."
-},
-{
-"start": 815.04,
-"end": 819.64,
-"text": "Son en la práctica los conejillos de índias que pagan por depurar la tecnología."
-},
-{
-"start": 819.74,
-"end": 823.04,
-"text": "Los fabricantes lanzan, detectan los problemas con los primeros clientes"
-},
-{
-"start": 823.04,
-"end": 825.04,
-"text": "y los corrigen en la siguiente serie."
-},
-{
-"start": 825.04,
-"end": 828.34,
-"text": "Por eso, si vas a comprar un coche con tecnología nueva,"
-},
-{
-"start": 828.34,
-"end": 831.34,
-"text": "la sabiduría del mecánico es esperar."
-},
-{
-"start": 831.34,
-"end": 833.74,
-"text": "Dejar que pasen dos o tres años."
-},
-{
-"start": 833.74,
-"end": 836.84,
-"text": "Comprar la versión ya depurada no la primera ornada."
-},
-{
-"start": 836.84,
-"end": 840.34,
-"text": "Un coche con la misma tecnología pero fabricado dos años después"
-},
-{
-"start": 840.34,
-"end": 843.64,
-"text": "suele tener la mayoría de estos problemas ya resuelto de fábrica."
-},
-{
-"start": 843.64,
-"end": 847.74,
-"text": "Y si vas a comprar de segunda mano una de estas unidades problemáticas concretas,"
-},
-{
-"start": 847.74,
-"end": 848.94,
-"text": "la regla es clara."
-},
-{
-"start": 849.04,
-"end": 852.34,
-"text": "Verifica que haya pasado las campañas y actualizaciones del fabricante."
-},
-{
-"start": 852.34,
-"end": 854.04,
-"text": "Exige el historial completo."
-},
-{
-"start": 854.04,
-"end": 857.54,
-"text": "Y si no lo tiene, alejate por muy atractivo que sea el precio."
-},
-{
-"start": 857.54,
-"end": 861.54,
-"text": "Porque el precio atractivo de un coche problemático no es una ganga."
-},
-{
-"start": 861.54,
-"end": 865.04,
-"text": "Es el anticipo de la factura que su anterior dueño no quiso pagar."
-},
-{
-"start": 865.04,
-"end": 867.04,
-"text": "¿Tienes alguno de estos coches?"
-},
-{
-"start": 867.04,
-"end": 869.54,
-"text": "¿Coincide tu experiencia con lo que he contado?"
-},
-{
-"start": 869.54,
-"end": 871.54,
-"text": "¿O has tenido suerte ni ningún problema?"
-},
-{
-"start": 871.54,
-"end": 874.34,
-"text": "¿Crees que falta algún modelo que debería estar en esta lista?"
-},
-{
-"start": 874.34,
-"end": 875.84,
+"start": 823.0,
+"end": 824.0,
 "text": "Cuéntame lo en los comentarios."
 },
 {
-"start": 875.84,
-"end": 878.84,
-"text": "Con marca, modelo, año exacto y qué problema tuviste."
+"start": 824.0,
+"end": 827.0,
+"text": "Con marca, modelo, motor y kilómetros."
 },
 {
-"start": 878.84,
-"end": 879.94,
-"text": "Si lo tuviste."
+"start": 827.0,
+"end": 830.0,
+"text": "Y si tienes un coche turbo que hoy en día son casi todos,"
 },
 {
-"start": 879.94,
-"end": 883.94,
-"text": "Construyamos entre todos la guía más honesta de coches a evitar del mercado español"
+"start": 830.0,
+"end": 833.0,
+"text": "comparte este vídeo con quien conduzca uno."
 },
 {
-"start": 883.94,
-"end": 886.14,
-"text": "con experiencias reales de propietarios."
+"start": 833.0,
+"end": 837.0,
+"text": "Ese gesto de 30 segundos al ralentí puedes salvarle el turbo y ahorrarle una fortuna."
 },
 {
-"start": 886.14,
-"end": 890.14,
-"text": "Y si conoces a alguien que está a punto de comprar uno de estos modelos concretos,"
+"start": 837.0,
+"end": 841.0,
+"text": "Suscríbete para más secretos técnicos que protege en tu coche y tu bolsillo."
 },
 {
-"start": 890.14,
-"end": 892.64,
-"text": "comparte este vídeo con él antes de que firme."
-},
-{
-"start": 892.64,
-"end": 895.84,
-"text": "Puede ahorrarle miles de euros y muchos dolores de cabeza."
-},
-{
-"start": 895.84,
-"end": 899.84,
-"text": "Suscríbete para más verdades que los vendedores de segunda mano prefieren que no sepas."
-},
-{
-"start": 899.84,
-"end": 901.14,
+"start": 841.0,
+"end": 842.0,
 "text": "Nos vemos en el próximo."
 }
 ]

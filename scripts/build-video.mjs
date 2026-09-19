@@ -34,18 +34,18 @@ const CLIPS_PER_QUERY = 8;
 // son tematicos de su seccion.
 // VÍDEO 10 (COCHES QUE NUNCA DEBES COMPRAR): por MODELOS concretos. B-roll de
 // coche/premium de Pexels de FONDO; cada modelo va como imagen "sticky" (MODELS).
+// VÍDEO 11 — SECRETOS DEL TURBO (técnico/educativo, vía Pexels). Cada PARTE del
+// guion tiene su pool de b-roll temático (turbo/motor/aceite/humo/autopista).
 const PARTS = [
-  { key: "intro", anchor: null, queries: ["used car dealership", "suv driving highway", "car key handover", "luxury car showroom"] },
-  { key: "q7", anchor: "1. AUDI Q7", queries: ["luxury suv air suspension", "premium suv driving", "suv parked street", "car suspension repair"] },
-  { key: "focus", anchor: "2. FORD FOCUS", queries: ["car gearbox transmission", "mechanic transmission oil leak", "hatchback driving road", "car under repair garage"] },
-  { key: "brit", anchor: "3. LOS PRIMOS BRITÁNICOS", queries: ["car engine timing chain", "luxury suv engine bay", "mechanic engine repair", "premium suv road"] },
-  { key: "qashqai", anchor: "4. NISSAN QASHQAI", queries: ["car dashboard touchscreen", "car infotainment screen", "suv interior dashboard", "car multimedia system"] },
-  { key: "renault", anchor: "5. RENAULT CLIO V", queries: ["hybrid car engine", "car transmission gearbox", "hybrid car driving city", "car service garage"] },
-  { key: "stellantis", anchor: "6. STELLANTIS", queries: ["car engine timing belt", "diesel engine bay", "car engine oil", "car exhaust pipe"] },
-  { key: "tesla", anchor: "7. TESLA MODEL 3", queries: ["electric car assembly factory", "car body panel", "electric car charging", "car production line"] },
-  { key: "vw", anchor: "8. GRUPO VOLKSWAGEN", queries: ["car touchscreen dashboard", "dual clutch gearbox", "car dashboard buttons", "car software screen"] },
-  { key: "volvo", anchor: "9. VOLVO XC60", queries: ["car infotainment screen", "premium suv interior", "suv dashboard touchscreen", "premium suv driving"] },
-  { key: "patron", anchor: "EL PATRÓN QUE CONECTA", queries: ["used car dealership", "car key handover", "mechanic inspecting car", "car driving road"] },
+  { key: "intro", anchor: null, queries: ["turbocharger close up", "car engine bay running", "highway driving fast", "blue exhaust smoke car"] },
+  { key: "p1", anchor: "PARTE 1:", queries: ["turbocharger spinning turbine", "turbo turbine blades", "engine oil flowing", "car engine turbo"] },
+  { key: "p2", anchor: "PARTE 2:", queries: ["car engine turning off", "engine bay hot", "car parked engine off", "engine oil dark burnt"] },
+  { key: "p3", anchor: "PARTE 3:", queries: ["car stopped traffic light", "city traffic driving", "car dashboard start stop", "car in traffic jam"] },
+  { key: "p4", anchor: "PARTE 4:", queries: ["cold morning car start", "car engine cold start", "thick engine oil pouring", "car accelerating road"] },
+  { key: "p5", anchor: "PARTE 5:", queries: ["diesel engine soot", "engine carbon deposits", "diesel car exhaust smoke", "diesel engine bay"] },
+  { key: "p6", anchor: "PARTE 6:", queries: ["engine oil change garage", "car engine idling", "car highway cruising", "mechanic oil filter"] },
+  { key: "p7", anchor: "PARTE 7:", queries: ["blue exhaust smoke tailpipe", "car dashboard warning light", "mechanic diagnostic scanner car", "car engine check"] },
+  { key: "cierre", anchor: "CONCLUSIÓN:", queries: ["turbocharger detail macro", "car engine running", "highway driving sunset", "mechanic engine inspection"] },
 ];
 
 // Vídeo 10: clips reales de modelo (ENTITIES/SECTIONS), no imágenes sticky.
@@ -58,68 +58,51 @@ const MODELS = [];
 // Vídeo 6 (LSPI) es conceptual: sin pool de imágenes de SUV (serían fuera de tema).
 const SUV_MODELS = [];
 
-// VÍDEO 10 — COCHES QUE NUNCA DEBES COMPRAR (modelos y años). Anclas verificadas
-// literalmente en input/guion-completo.txt.
+// VÍDEO 11 — SECRETOS DEL TURBO. Anclas verificadas literalmente en
+// input/guion-completo.txt, en ORDEN cronológico del guion.
 const OVERLAYS = [
   // HOOK
-  { anchor: "nombrar años exactos", kind: "hook", text: "COCHES QUE NUNCA\nDEBES COMPRAR" },
-  { anchor: "más en reparaciones que el propio coche", kind: "caption", text: "REPARACIONES QUE CUESTAN MÁS QUE EL COCHE" },
+  { anchor: "Un gesto de tres segundos", kind: "hook", text: "EL GESTO DE 3 SEGUNDOS\nQUE MATA TU TURBO" },
+  { anchor: "una factura de cuatro cifras", kind: "stat", value: "FACTURA DE 4 CIFRAS", sub: "LO QUE CUESTA UN TURBO NUEVO" },
+  { anchor: "sesenta por ciento de los turbos", kind: "stat", value: "60%", sub: "DE LOS TURBOS FALLAN POR LUBRICACIÓN" },
 
-  // 1. Audi Q7
-  { anchor: "1. AUDI Q7", kind: "hook", text: "AUDI Q7 (2ª GEN)\n2019-2024" },
-  { anchor: "la suspensión neumática", kind: "stat", value: "SUSPENSIÓN NEUMÁTICA", sub: "FUGAS + COMPRESOR QUEMADO" },
-  { anchor: "el coche se inclina visiblemente hacia un lado", kind: "caption", text: "SÍNTOMA: APARCADO, SE INCLINA HACIA UN LADO" },
-  { anchor: "Una factura de cuatro cifras", kind: "stat", value: "4 CIFRAS", sub: "RENOVAR EL SISTEMA NEUMÁTICO" },
+  // PARTE 1 — qué es un turbo
+  { anchor: "doscientas mil revoluciones por minuto", kind: "stat", value: "200.000 RPM", sub: "50× MÁS RÁPIDO QUE EL MOTOR" },
+  { anchor: "entre seiscientos y mil grados centígrados", kind: "stat", value: "600–1000 °C", sub: "LADO DE LOS GASES DE ESCAPE" },
+  { anchor: "Una sola cosa", kind: "caption", text: "LO ÚNICO QUE LO PROTEGE: EL ACEITE" },
 
-  // 2. Ford Focus
-  { anchor: "2. FORD FOCUS", kind: "hook", text: "FORD FOCUS (4ª GEN)\n2019-2021" },
-  { anchor: "las fugas de aceite en la caja de cambios", kind: "stat", value: "FUGA DE ACEITE", sub: "EN LA CAJA (MANUAL Y AUTOMÁTICA)" },
-  { anchor: "un desgaste catastrófico de los componentes internos", kind: "caption", text: "SIN ACEITE = CAJA DE CAMBIOS DESTROZADA" },
+  // PARTE 2 — apagar en caliente
+  { anchor: "apagas el motor inmediatamente", kind: "hook", text: "EL ERROR:\nAPAGAR EN CALIENTE" },
+  { anchor: "la cokificación del aceite", kind: "stat", value: "COKIFICACIÓN", sub: "EL ACEITE SE CUECE Y SE VUELVE CARBÓN" },
+  { anchor: "ese proceso es irreversible", kind: "caption", text: "DAÑO IRREVERSIBLE Y ACUMULATIVO" },
 
-  // 3. Británicos (Ingenium)
-  { anchor: "3. LOS PRIMOS BRITÁNICOS", kind: "hook", text: "JAGUAR E-PACE · DISCOVERY\nSPORT · EVOQUE (2019-24)" },
-  { anchor: "los motores Ingenium", kind: "stat", value: "MOTOR INGENIUM", sub: "ACEITE + CALOR + CADENA" },
-  { anchor: "problemas con la cadena de distribución", kind: "caption", text: "LO MÁS GRAVE: CADENA DE DISTRIBUCIÓN" },
-  { anchor: "último puesto del ranking de fiabilidad de la OCU 2026 con sesenta y cuatro puntos", kind: "stat", value: "OCU 64/100", sub: "LAND ROVER · ÚLTIMO PUESTO" },
+  // PARTE 3 — start-stop
+  { anchor: "El sistema Start-Stop", kind: "hook", text: "OJO AL\nSTART-STOP" },
+  { anchor: "sin tiempo de enfriamiento", kind: "caption", text: "APAGA EL MOTOR SIN ENFRIAR EL TURBO" },
 
-  // 4. Nissan Qashqai
-  { anchor: "4. NISSAN QASHQAI", kind: "hook", text: "NISSAN QASHQAI (3ª GEN)\n2021-2022" },
-  { anchor: "los fallos del sistema multimedia y la electrónica", kind: "stat", value: "ELECTRÓNICA", sub: "PANTALLAS QUE SE BLOQUEAN Y REINICIAN" },
-  { anchor: "verifica que el software esté actualizado", kind: "caption", text: "SOLO 1ª SERIES · COMPRUEBA EL SOFTWARE AL DÍA" },
+  // PARTE 4 — exigir en frío
+  { anchor: "Exigir el motor en frío", kind: "hook", text: "2º ERROR:\nEXIGIR EN FRÍO" },
+  { anchor: "el aceite está espeso", kind: "caption", text: "ACEITE FRÍO Y ESPESO = MALA LUBRICACIÓN" },
 
-  // 5. Renault E-Tech
-  { anchor: "5. RENAULT CLIO V", kind: "hook", text: "RENAULT CLIO V · CAPTUR II\nE-TECH (2020-2022)" },
-  { anchor: "más de trescientos treinta y cuatro mil vehículos", kind: "stat", value: "+334.000", sub: "COCHES EN LA CAMPAÑA DE RENAULT" },
-  { anchor: "junta de estanqueidad del circuito de lubricación", kind: "caption", text: "FUGA EN LA JUNTA DE LUBRICACIÓN DE LA CAJA" },
-  { anchor: "verifica que haya pasado la operación técnica especial", kind: "caption", text: "EXIGE QUE HAYA PASADO LA CAMPAÑA RENAULT" },
+  // PARTE 5 — geometría variable / carbonilla
+  { anchor: "La geometría variable", kind: "hook", text: "GEOMETRÍA\nVARIABLE (VGT)" },
+  { anchor: "la geometría variable bloqueada por carbonilla", kind: "stat", value: "CARBONILLA", sub: "2ª CAUSA DE FALLO DE TURBO" },
+  { anchor: "el uso exclusivamente urbano", kind: "caption", text: "SOLO CIUDAD = SE CARBONIZA ANTES" },
 
-  // 6. Stellantis
-  { anchor: "6. STELLANTIS", kind: "hook", text: "STELLANTIS (CITROËN·FIAT·\nPEUGEOT·OPEL) 2019-24" },
-  { anchor: "el motor 1.2 PureTech", kind: "stat", value: "1.2 PureTech", sub: "CORREA DE DISTRIBUCIÓN EN ACEITE" },
-  { anchor: "el problema mecánico más extendido del mercado europeo", kind: "caption", text: "EL FALLO MECÁNICO MÁS EXTENDIDO DE EUROPA" },
-  { anchor: "el sistema AdBlue de los diésel BlueHDi", kind: "stat", value: "BlueHDi + AdBlue", sub: "SENSORES · CRISTALIZACIÓN · ARRANQUE BLOQUEADO" },
+  // PARTE 6 — reglas que lo salvan
+  { anchor: "nunca apagues el motor justo después", kind: "hook", text: "LAS REGLAS\nQUE LO SALVAN" },
+  { anchor: "treinta a sesenta segundos", kind: "stat", value: "30–60 SEG", sub: "AL RALENTÍ ANTES DE APAGAR" },
+  { anchor: "salidas periódicas por carretera", kind: "caption", text: "DA CARRETERA: QUEMA LA CARBONILLA" },
+  { anchor: "la ventilación del cárter", kind: "caption", text: "REVISA LA VENTILACIÓN DEL CÁRTER" },
 
-  // 7. Tesla Model 3
-  { anchor: "7. TESLA MODEL 3", kind: "hook", text: "TESLA MODEL 3\n(FREMONT 2019-2022)" },
-  { anchor: "calidad de fabricación, ajuste y acabado", kind: "stat", value: "CALIDAD DE FABRICACIÓN", sub: "PANELES · MOLDURAS · SELLADO · PINTURA" },
-  { anchor: "fabricadas en la fábrica de Berlín", kind: "caption", text: "LAS DE BERLÍN (EUROPA) VAN MEJOR" },
+  // PARTE 7 — señales de fallo
+  { anchor: "LAS SEÑALES DE QUE TU TURBO", kind: "hook", text: "SEÑALES DE QUE\nTU TURBO MUERE" },
+  { anchor: "Humo azulado o blanquecino", kind: "stat", value: "HUMO AZUL", sub: "EL TURBO DEJA PASAR ACEITE" },
+  { anchor: "Pérdida de potencia progresiva", kind: "caption", text: "PÉRDIDA DE POTENCIA + SILBIDO NUEVO" },
+  { anchor: "el siguiente turbo también fallará", kind: "caption", text: "SIN CORREGIR LA CAUSA, EL NUEVO TAMBIÉN CAE" },
 
-  // 8. Grupo VW
-  { anchor: "8. GRUPO VOLKSWAGEN", kind: "hook", text: "GRUPO VW (AUDI·SEAT·VW)\nSOFTWARE + CAJA DSG" },
-  { anchor: "el software de la plataforma MQB Evo", kind: "stat", value: "MQB EVO", sub: "SOFTWARE + INFOTAINMENT (2020-2022)" },
-  { anchor: "El Golf 8 fue el ejemplo más sonado", kind: "caption", text: "GOLF 8: TANTAS QUEJAS QUE VOLVIERON LOS BOTONES" },
-  { anchor: "la caja de cambios DSG", kind: "stat", value: "CAJA DSG", sub: "MECATRÓNICA CARA · ACEITE OBLIGATORIO" },
-
-  // 9. Volvo XC60
-  { anchor: "9. VOLVO XC60", kind: "hook", text: "VOLVO XC60 (2ª GEN)\nSENSUS 2019-2022" },
-  { anchor: "el sistema Sensus", kind: "stat", value: "SISTEMA SENSUS", sub: "SE CUELGA · LENTO · SE REINICIA" },
-  { anchor: "migró posteriormente a un sistema basado en Android", kind: "caption", text: "LOS POSTERIORES (ANDROID) VAN MEJOR" },
-
-  // PATRÓN + LECCIÓN
-  { anchor: "EL PATRÓN QUE CONECTA", kind: "hook", text: "EL PATRÓN:\nCOMPLEJIDAD + PRIMERAS SERIES" },
-  { anchor: "casi todos son problemas de las PRIMERAS unidades", kind: "caption", text: "CASI TODO: FALLOS DE LAS PRIMERAS SERIES" },
-  { anchor: "NUNCA COMPRES LA PRIMERA HORNADA", kind: "hook", text: "LA LECCIÓN:\nNUNCA LA PRIMERA HORNADA" },
-  { anchor: "Dejar que pasen dos o tres años", kind: "caption", text: "ESPERA 2-3 AÑOS: COMPRA LA VERSIÓN DEPURADA" },
+  // CONCLUSIÓN
+  { anchor: "Treinta segundos de ralentí antes de apagar", kind: "stat", value: "30 SEG", sub: "= AHORRAR LA AVERÍA MÁS CARA Y EVITABLE" },
   { anchor: "Suscríbete para más", kind: "hook", text: "SUSCRÍBETE" },
 ];
 
@@ -139,21 +122,9 @@ const PINS = [];
 // por marca -> refuerzan la "regla roja" también en la síntesis final.
 // VÍDEO 10 — COCHES QUE NUNCA COMPRAR: 1 CLIP real por modelo (marca-<key>.mp4 en
 // public/assets/yt-nocompres). Cada modelo se ve EN MOVIMIENTO durante su sección.
-const ENTITIES = [
-  { key: "q7", label: "", query: "", videos: ["q7"], anchors: ["Audi Q7", "Q7"] },
-  { key: "focus", label: "", query: "", videos: ["focus"], anchors: ["Ford Focus", "Focus"] },
-  { key: "evoque", label: "", query: "", videos: ["evoque"],
-    anchors: ["Evoque", "Discovery Sport", "E-Pace", "Ingenium"] },
-  { key: "qashqai", label: "", query: "", videos: ["qashqai"], anchors: ["Qashqai"] },
-  { key: "captur", label: "", query: "", videos: ["captur"],
-    anchors: ["Clio V", "Captur", "E-Tech", "Arkana", "Mégane"] },
-  { key: "peugeot", label: "", query: "", videos: ["peugeot"],
-    anchors: ["Peugeot", "Citroën", "PureTech", "BlueHDi", "Opel", "Stellantis"] },
-  { key: "tesla", label: "", query: "", videos: ["tesla"], anchors: ["Tesla", "Model 3", "Fremont"] },
-  { key: "golf", label: "", query: "", videos: ["golf"], anchors: ["Golf 8", "MQB Evo", "DSG"] },
-  { key: "volvo", label: "", query: "", videos: ["volvo"], anchors: ["Volvo", "XC60", "Sensus"] },
-  { key: "cierre", label: "", query: "", videos: [], anchors: [] },
-];
+// VÍDEO 11 — SECRETOS DEL TURBO: vía Pexels (b-roll temático por PARTE), sin clips
+// de modelo ni imágenes sticky. ENTITIES/SECTIONS vacíos -> usa PARTS (Pexels).
+const ENTITIES = [];
 
 // SECCIONES: cada tramo tiene una MARCA principal. Mientras dura la sección, si no
 // se menciona explícitamente otra cosa, se muestra el vídeo de ESA marca (no uno
@@ -161,18 +132,7 @@ const ENTITIES = [
 // queda sin principal -> vídeo general.
 // VÍDEO 10 — cada sección muestra el CLIP del modelo del que se habla. La sección
 // de patrón/lección cae a "cierre" (rotación de todos los modelos).
-const SECTIONS = [
-  { anchor: "1. AUDI Q7", primary: "q7" },
-  { anchor: "2. FORD FOCUS", primary: "focus" },
-  { anchor: "3. LOS PRIMOS BRITÁNICOS", primary: "evoque" },
-  { anchor: "4. NISSAN QASHQAI", primary: "qashqai" },
-  { anchor: "5. RENAULT CLIO V", primary: "captur" },
-  { anchor: "6. STELLANTIS", primary: "peugeot" },
-  { anchor: "7. TESLA MODEL 3", primary: "tesla" },
-  { anchor: "8. GRUPO VOLKSWAGEN", primary: "golf" },
-  { anchor: "9. VOLVO XC60", primary: "volvo" },
-  { anchor: "EL PATRÓN QUE CONECTA", primary: "cierre" },
-];
+const SECTIONS = [];
 
 async function loadEnv() {
   try {

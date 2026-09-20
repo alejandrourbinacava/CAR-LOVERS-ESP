@@ -37,15 +37,15 @@ const CLIPS_PER_QUERY = 8;
 // VÍDEO 11 — SECRETOS DEL TURBO (técnico/educativo, vía Pexels). Cada PARTE del
 // guion tiene su pool de b-roll temático (turbo/motor/aceite/humo/autopista).
 const PARTS = [
-  { key: "intro", anchor: null, queries: ["turbocharger close up", "car engine bay running", "highway driving fast", "blue exhaust smoke car"] },
-  { key: "p1", anchor: "PARTE 1:", queries: ["turbocharger spinning turbine", "turbo turbine blades", "engine oil flowing", "car engine turbo"] },
-  { key: "p2", anchor: "PARTE 2:", queries: ["car engine turning off", "engine bay hot", "car parked engine off", "engine oil dark burnt"] },
-  { key: "p3", anchor: "PARTE 3:", queries: ["car stopped traffic light", "city traffic driving", "car dashboard start stop", "car in traffic jam"] },
-  { key: "p4", anchor: "PARTE 4:", queries: ["cold morning car start", "car engine cold start", "thick engine oil pouring", "car accelerating road"] },
-  { key: "p5", anchor: "PARTE 5:", queries: ["diesel engine soot", "engine carbon deposits", "diesel car exhaust smoke", "diesel engine bay"] },
-  { key: "p6", anchor: "PARTE 6:", queries: ["engine oil change garage", "car engine idling", "car highway cruising", "mechanic oil filter"] },
-  { key: "p7", anchor: "PARTE 7:", queries: ["blue exhaust smoke tailpipe", "car dashboard warning light", "mechanic diagnostic scanner car", "car engine check"] },
-  { key: "cierre", anchor: "CONCLUSIÓN:", queries: ["turbocharger detail macro", "car engine running", "highway driving sunset", "mechanic engine inspection"] },
+  { key: "intro", anchor: null, queries: ["turbocharger close up", "car engine bay running", "car driving highway", "car engine detail"] },
+  { key: "p1", anchor: "PARTE 1:", queries: ["turbocharger detail", "car turbo engine", "engine oil pouring macro", "car engine bay closeup"] },
+  { key: "p2", anchor: "PARTE 2:", queries: ["car engine turning off", "car parked engine bay", "engine oil dark", "mechanic engine bay"] },
+  { key: "p3", anchor: "PARTE 3:", queries: ["car in traffic jam", "city traffic cars", "car dashboard driving city", "cars at traffic light"] },
+  { key: "p4", anchor: "PARTE 4:", queries: ["car cold start winter", "frost on car windshield", "engine oil pouring thick", "car accelerating road"] },
+  { key: "p5", anchor: "PARTE 5:", queries: ["diesel engine bay", "car engine carbon", "car exhaust pipe", "mechanic cleaning engine"] },
+  { key: "p6", anchor: "PARTE 6:", queries: ["engine oil change garage", "car engine idling", "car cruising highway road", "mechanic car oil filter"] },
+  { key: "p7", anchor: "PARTE 7:", queries: ["car exhaust pipe closeup", "car dashboard warning light", "mechanic car diagnostic scanner", "car engine check bay"] },
+  { key: "cierre", anchor: "CONCLUSIÓN:", queries: ["turbocharger macro detail", "car engine running bay", "car driving highway road", "mechanic inspecting car engine"] },
 ];
 
 // Vídeo 10: clips reales de modelo (ENTITIES/SECTIONS), no imágenes sticky.
@@ -201,6 +201,23 @@ async function serpImages(query, base, need) {
 const BLACKLIST_IDS = [26620319, 26620441, 8987271];
 const seenIds = new Set(BLACKLIST_IDS);
 
+// Palabras que delatan un clip FUERA DE TEMA (la URL de Pexels lleva el slug
+// descriptivo, p.ej. .../wind-turbines-on-a-field/). Si el slug contiene alguna,
+// se descarta el clip aunque la query lo devuelva. Clave para evitar molinos de
+// viento con "turbine", dunas, playas, chimeneas industriales, etc.
+const REJECT_WORDS = [
+  "windmill", "wind-turbine", "wind-mill", "wind-farm", "wind-power", "wind-energy",
+  "turbines", "aerogenerator", "propeller", "helicopter", "airplane", "aircraft", "jet-engine",
+  "desert", "dune", "sahara", "beach", "ocean", "sea-", "seascape", "coast", "waterfall", "river",
+  "solar", "agricultur", "farm", "meadow", "wheat", "forest", "mountain-landscape", "windy",
+  "chimney", "smokestack", "power-plant", "cooling-tower", "factory-", "refinery", "nuclear",
+  "fan-", "ceiling-fan", "cooking", "kitchen", "food",
+];
+function offTopic(video) {
+  const meta = (video.url || "").toLowerCase();
+  return REJECT_WORDS.some((w) => meta.includes(w));
+}
+
 // Descarga hasta `max` clips de una busqueda. Devuelve [{src,duration}].
 async function getClips(query, max) {
   const apiKey = process.env.PEXELS_API_KEY;
@@ -217,6 +234,7 @@ async function getClips(query, max) {
   for (const video of json.videos || []) {
     if (out.length >= max) break;
     if (seenIds.has(video.id)) continue;
+    if (offTopic(video)) { seenIds.add(video.id); continue; }
     const fileName = `v-${video.id}.mp4`;
     const dest = path.join(CLIPS_DIR, fileName);
     const rel = `assets/clips/${fileName}`;

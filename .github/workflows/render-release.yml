@@ -76,9 +76,30 @@ jobs:
       - name: Generar montaje (config.ts)
         env:
           YT_SUBDIR: ${{ github.event.inputs.subdir }}
+          PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
         run: |
           df -h /
           node scripts/build-video.mjs
+
+      - name: Normalizar b-roll Pexels de relleno a CFR 30fps
+        run: |
+          cd public/assets/clips 2>/dev/null || exit 0
+          norm() {
+            local f="$1"; local o="${f%.mp4}.fix.mp4"
+            ffmpeg -y -hide_banner -loglevel error -fflags +genpts -i "$f" \
+              -vf "fps=30,setpts=PTS-STARTPTS,scale=-2:'min(1080,ih)'" -c:v libx264 -preset ultrafast -crf 23 \
+              -g 15 -keyint_min 15 -sc_threshold 0 -pix_fmt yuv420p -an \
+              -vsync cfr -avoid_negative_ts make_zero -movflags +faststart "$o" \
+              && mv -f "$o" "$f" || echo "  (aviso: no se normalizó $f)"
+          }
+          N=0
+          for f in v-*.mp4; do
+            [ -f "$f" ] || continue
+            norm "$f" &
+            N=$((N+1)); [ $((N % 3)) -eq 0 ] && wait
+          done
+          wait
+          echo "Pexels normalizados: $(ls v-*.mp4 2>/dev/null | wc -l)"
 
       - name: Renderizar
         run: npm run render

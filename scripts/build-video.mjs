@@ -36,16 +36,17 @@ const CLIPS_PER_QUERY = 8;
 // coche/premium de Pexels de FONDO; cada modelo va como imagen "sticky" (MODELS).
 // VÍDEO 11 — SECRETOS DEL TURBO (técnico/educativo, vía Pexels). Cada PARTE del
 // guion tiene su pool de b-roll temático (turbo/motor/aceite/humo/autopista).
+// VÍDEO 12 — b-roll de relleno (los modelos vienen de ENTITIES). Genérico de
+// concesionario / conducción / familia por sección.
 const PARTS = [
-  { key: "intro", anchor: null, queries: ["turbocharger close up", "car engine bay running", "car driving highway", "car engine detail"] },
-  { key: "p1", anchor: "PARTE 1:", queries: ["turbocharger detail", "car turbo engine", "engine oil pouring macro", "car engine bay closeup"] },
-  { key: "p2", anchor: "PARTE 2:", queries: ["car engine turning off", "car parked engine bay", "engine oil dark", "mechanic engine bay"] },
-  { key: "p3", anchor: "PARTE 3:", queries: ["car in traffic jam", "city traffic cars", "car dashboard driving city", "cars at traffic light"] },
-  { key: "p4", anchor: "PARTE 4:", queries: ["car cold start winter", "frost on car windshield", "engine oil pouring thick", "car accelerating road"] },
-  { key: "p5", anchor: "PARTE 5:", queries: ["diesel engine bay", "car engine carbon", "car exhaust pipe", "mechanic cleaning engine"] },
-  { key: "p6", anchor: "PARTE 6:", queries: ["engine oil change garage", "car engine idling", "car cruising highway road", "mechanic car oil filter"] },
-  { key: "p7", anchor: "PARTE 7:", queries: ["car exhaust pipe closeup", "car dashboard warning light", "mechanic car diagnostic scanner", "car engine check bay"] },
-  { key: "cierre", anchor: "CONCLUSIÓN:", queries: ["turbocharger macro detail", "car engine running bay", "car driving highway road", "mechanic inspecting car engine"] },
+  { key: "intro", anchor: null, queries: ["car dealership showroom", "person buying car", "car keys handover", "family car driving"] },
+  { key: "sandero", anchor: "COCHE 1:", queries: ["small car city driving", "hatchback parked street", "affordable car dealership", "car driving town"] },
+  { key: "corolla", anchor: "COCHE 2:", queries: ["hybrid car driving", "sedan car highway", "car dashboard display", "car driving road"] },
+  { key: "yariscross", anchor: "COCHE 3:", queries: ["small suv city", "compact suv driving", "suv parked street", "crossover car road"] },
+  { key: "jogger", anchor: "COCHE 4:", queries: ["family loading car trunk", "family with car", "estate car luggage", "family suv driving"] },
+  { key: "crv", anchor: "COCHE 5:", queries: ["family suv highway", "suv driving road trip", "suv interior family", "suv on mountain road"] },
+  { key: "tucson", anchor: "LA MENCIÓN ESPECIAL", queries: ["modern suv driving", "suv dashboard technology", "suv city street", "suv parked showroom"] },
+  { key: "cierre", anchor: "CÓMO ELEGIR", queries: ["car dealership showroom", "car keys handover", "person choosing car", "family car driving"] },
 ];
 
 // Vídeo 10: clips reales de modelo (ENTITIES/SECTIONS), no imágenes sticky.
@@ -58,51 +59,48 @@ const MODELS = [];
 // Vídeo 6 (LSPI) es conceptual: sin pool de imágenes de SUV (serían fuera de tema).
 const SUV_MODELS = [];
 
-// VÍDEO 11 — SECRETOS DEL TURBO. Anclas verificadas literalmente en
-// input/guion-completo.txt, en ORDEN cronológico del guion.
+// VÍDEO 12 — 5 COCHES PARA QUIENES ODIAN COMPRAR COCHE (2026). Anclas verificadas
+// literalmente en input/guion-completo.txt, en ORDEN cronológico.
 const OVERLAYS = [
   // HOOK
-  { anchor: "Un gesto de tres segundos", kind: "hook", text: "EL GESTO DE 3 SEGUNDOS\nQUE MATA TU TURBO" },
-  { anchor: "una factura de cuatro cifras", kind: "stat", value: "FACTURA DE 4 CIFRAS", sub: "LO QUE CUESTA UN TURBO NUEVO" },
-  { anchor: "sesenta por ciento de los turbos", kind: "stat", value: "60%", sub: "DE LOS TURBOS FALLAN POR LUBRICACIÓN" },
+  { anchor: "Los que odiamos comprar coche", kind: "hook", text: "5 COCHES PARA LOS QUE\nODIAN COMPRAR COCHE" },
+  { anchor: "compras, olvidas que existen, y simplemente funcionan", kind: "caption", text: "COMPRA · OLVIDA · FUNCIONA 15 AÑOS" },
 
-  // PARTE 1 — qué es un turbo
-  { anchor: "doscientas mil revoluciones por minuto", kind: "stat", value: "200.000 RPM", sub: "50× MÁS RÁPIDO QUE EL MOTOR" },
-  { anchor: "entre seiscientos y mil grados centígrados", kind: "stat", value: "600–1000 °C", sub: "LADO DE LOS GASES DE ESCAPE" },
-  { anchor: "Una sola cosa", kind: "caption", text: "LO ÚNICO QUE LO PROTEGE: EL ACEITE" },
+  // 1. Dacia Sandero
+  { anchor: "COCHE 1: DACIA SANDERO", kind: "hook", text: "1. DACIA SANDERO" },
+  { anchor: "el coche nuevo más vendido de España", kind: "stat", value: "Nº1 EN VENTAS", sub: "EL COCHE NUEVO MÁS VENDIDO DE ESPAÑA" },
+  { anchor: "trece mil quinientos euros", kind: "stat", value: "DESDE 13.500 €", sub: "ECO-G GLP ~15.400 €" },
+  { anchor: "da paz mental", kind: "caption", text: "MECÁNICA SIMPLE = PAZ MENTAL" },
 
-  // PARTE 2 — apagar en caliente
-  { anchor: "apagas el motor inmediatamente", kind: "hook", text: "EL ERROR:\nAPAGAR EN CALIENTE" },
-  { anchor: "la cokificación del aceite", kind: "stat", value: "COKIFICACIÓN", sub: "EL ACEITE SE CUECE Y SE VUELVE CARBÓN" },
-  { anchor: "ese proceso es irreversible", kind: "caption", text: "DAÑO IRREVERSIBLE Y ACUMULATIVO" },
+  // 2. Toyota Corolla Híbrido
+  { anchor: "COCHE 2: TOYOTA COROLLA", kind: "hook", text: "2. TOYOTA COROLLA\nHÍBRIDO" },
+  { anchor: "la fama de irrompible", kind: "stat", value: "IRROMPIBLE", sub: "HÍBRIDO SIN ENCHUFE" },
+  { anchor: "quince años o doscientos cincuenta mil kilómetros", kind: "stat", value: "HASTA 15 AÑOS", sub: "O 250.000 KM · GARANTÍA TOYOTA RELAX" },
+  { anchor: "cuatro litros y medio a los cien kilómetros en uso real", kind: "stat", value: "~4,5 L/100", sub: "CONSUMO REAL" },
 
-  // PARTE 3 — start-stop
-  { anchor: "El sistema Start-Stop", kind: "hook", text: "OJO AL\nSTART-STOP" },
-  { anchor: "sin tiempo de enfriamiento", kind: "caption", text: "APAGA EL MOTOR SIN ENFRIAR EL TURBO" },
+  // 3. Toyota Yaris Cross Híbrido
+  { anchor: "COCHE 3: TOYOTA YARIS CROSS", kind: "hook", text: "3. TOYOTA YARIS CROSS\nHÍBRIDO" },
+  { anchor: "el mismo corazón fiable del Corolla", kind: "caption", text: "MISMO HÍBRIDO FIABLE DEL COROLLA" },
+  { anchor: "el SUV híbrido más vendido del mercado", kind: "stat", value: "SUV HÍBRIDO Nº1", sub: "EN VENTAS" },
+  { anchor: "veinticinco mil novecientos euros", kind: "stat", value: "DESDE 25.900 €", sub: "FINANCIANDO" },
 
-  // PARTE 4 — exigir en frío
-  { anchor: "Exigir el motor en frío", kind: "hook", text: "2º ERROR:\nEXIGIR EN FRÍO" },
-  { anchor: "el aceite está espeso", kind: "caption", text: "ACEITE FRÍO Y ESPESO = MALA LUBRICACIÓN" },
+  // 4. Dacia Jogger
+  { anchor: "COCHE 4: DACIA JOGGER", kind: "hook", text: "4. DACIA JOGGER" },
+  { anchor: "el coche de siete plazas más asequible", kind: "stat", value: "7 PLAZAS", sub: "EL MÁS BARATO DE ESPAÑA" },
+  { anchor: "más espacio por euro que cualquier otro coche nuevo", kind: "caption", text: "MÁS ESPACIO POR EURO QUE NINGUNO" },
 
-  // PARTE 5 — geometría variable / carbonilla
-  { anchor: "La geometría variable", kind: "hook", text: "GEOMETRÍA\nVARIABLE (VGT)" },
-  { anchor: "la geometría variable bloqueada por carbonilla", kind: "stat", value: "CARBONILLA", sub: "2ª CAUSA DE FALLO DE TURBO" },
-  { anchor: "el uso exclusivamente urbano", kind: "caption", text: "SOLO CIUDAD = SE CARBONIZA ANTES" },
+  // 5. Honda CR-V / Toyota RAV4 Híbrido
+  { anchor: "COCHE 5: HONDA CR-V", kind: "hook", text: "5. HONDA CR-V /\nTOYOTA RAV4 HÍBRIDO" },
+  { anchor: "el estándar de fiabilidad del segmento", kind: "stat", value: "SUV FAMILIAR SERIO", sub: "RAV4 vs CR-V: ELIGE UNO" },
+  { anchor: "el Honda CR-V es ligeramente más eficiente en entorno urbano", kind: "caption", text: "CIUDAD → CR-V · MIXTO Y KM → RAV4" },
 
-  // PARTE 6 — reglas que lo salvan
-  { anchor: "nunca apagues el motor justo después", kind: "hook", text: "LAS REGLAS\nQUE LO SALVAN" },
-  { anchor: "treinta a sesenta segundos", kind: "stat", value: "30–60 SEG", sub: "AL RALENTÍ ANTES DE APAGAR" },
-  { anchor: "salidas periódicas por carretera", kind: "caption", text: "DA CARRETERA: QUEMA LA CARBONILLA" },
-  { anchor: "la ventilación del cárter", kind: "caption", text: "REVISA LA VENTILACIÓN DEL CÁRTER" },
+  // +1. Hyundai Tucson Híbrido
+  { anchor: "HYUNDAI TUCSON", kind: "hook", text: "+1. HYUNDAI TUCSON\nHÍBRIDO" },
+  { anchor: "cinco años de garantía sin límite de kilometraje", kind: "stat", value: "5 AÑOS DE GARANTÍA", sub: "SIN LÍMITE DE KM, INCLUIDA" },
 
-  // PARTE 7 — señales de fallo
-  { anchor: "LAS SEÑALES DE QUE TU TURBO", kind: "hook", text: "SEÑALES DE QUE\nTU TURBO MUERE" },
-  { anchor: "Humo azulado o blanquecino", kind: "stat", value: "HUMO AZUL", sub: "EL TURBO DEJA PASAR ACEITE" },
-  { anchor: "Pérdida de potencia progresiva", kind: "caption", text: "PÉRDIDA DE POTENCIA + SILBIDO NUEVO" },
-  { anchor: "el siguiente turbo también fallará", kind: "caption", text: "SIN CORREGIR LA CAUSA, EL NUEVO TAMBIÉN CAE" },
-
-  // CONCLUSIÓN
-  { anchor: "Treinta segundos de ralentí antes de apagar", kind: "stat", value: "30 SEG", sub: "= AHORRAR LA AVERÍA MÁS CARA Y EVITABLE" },
+  // CÓMO ELEGIR + CONCLUSIÓN
+  { anchor: "CÓMO ELEGIR EL TUYO EN 30 SEGUNDOS", kind: "hook", text: "ELIGE EL TUYO\nEN 30 SEGUNDOS" },
+  { anchor: "el mejor coche no es el que más impresiona", kind: "caption", text: "EL MEJOR ES EL QUE NO TE DA GUERRA" },
   { anchor: "Suscríbete para más", kind: "hook", text: "SUSCRÍBETE" },
 ];
 
@@ -122,9 +120,18 @@ const PINS = [];
 // por marca -> refuerzan la "regla roja" también en la síntesis final.
 // VÍDEO 10 — COCHES QUE NUNCA COMPRAR: 1 CLIP real por modelo (marca-<key>.mp4 en
 // public/assets/yt-nocompres). Cada modelo se ve EN MOVIMIENTO durante su sección.
-// VÍDEO 11 — SECRETOS DEL TURBO: vía Pexels (b-roll temático por PARTE), sin clips
-// de modelo ni imágenes sticky. ENTITIES/SECTIONS vacíos -> usa PARTS (Pexels).
-const ENTITIES = [];
+// VÍDEO 12 — 5 COCHES QUE ODIAN COMPRAR: por MODELOS. `videos:[key]` usa el clip
+// marca-<key>.mp4 (public/assets/yt-oian) si existe; si no, cae a IMAGEN por `query`.
+const ENTITIES = [
+  { key: "sandero", label: "", query: "Dacia Sandero 2026", videos: ["sandero"], anchors: ["Dacia Sandero", "Sandero"] },
+  { key: "corolla", label: "", query: "Toyota Corolla hybrid 2026", videos: ["corolla"], anchors: ["Corolla"] },
+  { key: "yariscross", label: "", query: "Toyota Yaris Cross hybrid 2026", videos: ["yariscross"], anchors: ["Yaris Cross"] },
+  { key: "jogger", label: "", query: "Dacia Jogger 2026", videos: ["jogger"], anchors: ["Jogger"] },
+  { key: "crv", label: "", query: "Toyota RAV4 hybrid 2026", videos: ["crv"],
+    anchors: ["CR-V", "RAV4", "rav cuatro", "e:HEV", "e-hev"] },
+  { key: "tucson", label: "", query: "Hyundai Tucson hybrid 2026", videos: ["tucson"], anchors: ["Tucson"] },
+  { key: "cierre", label: "", query: "", videos: [], anchors: [] },
+];
 
 // SECCIONES: cada tramo tiene una MARCA principal. Mientras dura la sección, si no
 // se menciona explícitamente otra cosa, se muestra el vídeo de ESA marca (no uno
@@ -132,7 +139,15 @@ const ENTITIES = [];
 // queda sin principal -> vídeo general.
 // VÍDEO 10 — cada sección muestra el CLIP del modelo del que se habla. La sección
 // de patrón/lección cae a "cierre" (rotación de todos los modelos).
-const SECTIONS = [];
+const SECTIONS = [
+  { anchor: "COCHE 1: DACIA SANDERO", primary: "sandero" },
+  { anchor: "COCHE 2: TOYOTA COROLLA", primary: "corolla" },
+  { anchor: "COCHE 3: TOYOTA YARIS CROSS", primary: "yariscross" },
+  { anchor: "COCHE 4: DACIA JOGGER", primary: "jogger" },
+  { anchor: "COCHE 5: HONDA CR-V", primary: "crv" },
+  { anchor: "LA MENCIÓN ESPECIAL: HYUNDAI TUCSON", primary: "tucson" },
+  { anchor: "CÓMO ELEGIR EL TUYO", primary: "cierre" },
+];
 
 async function loadEnv() {
   try {
@@ -595,7 +610,8 @@ async function main() {
   let allClips = [];
   let suvImages = [];
   let marks = [];
-  if (!usingYt) {
+  { // Pool Pexels SIEMPRE: en vídeos de MARCA sirve de RELLENO temático cuando un
+    // clip corto se agota (evita repetir el mismo clip -> regla del cliente).
     console.log("[2b] Pool de clips Pexels...");
     const qCache = new Map();
     for (const part of PARTS) {
@@ -607,7 +623,7 @@ async function main() {
       part.pool = [...new Map(part.pool.map((c) => [c.src, c])).values()];
     }
     allClips = [...new Map([...qCache.values()].flat().map((c) => [c.src, c])).values()];
-    if (!allClips.length) throw new Error("No se descargo ningun clip ni hay YouTube.");
+    if (!allClips.length && !usingYt) throw new Error("No se descargo ningun clip ni hay YouTube.");
     console.log(`     ${allClips.length} clips Pexels`);
     console.log("[2c] Pool de imagenes de SUV...");
     for (const m of SUV_MODELS) {
@@ -672,11 +688,22 @@ async function main() {
       const w = pool[((startK % n) + s) % n];
       if (!usedWin.has(winKey(w))) { usedWin.add(winKey(w)); return w; }
     }
-    repeats++; return pool[startK % n]; // agotado -> repite (raro)
+    return null; // agotado -> el llamante usa relleno temático (no repite)
   };
   const DUR_BRAND = [6, 5, 7, 5, 6];   // vídeo de marca: cortes largos (5-7s)
   const DUR_IMG = [4, 5, 4];           // imagen de rival/tema (4-5s)
   const DUR_GEN = [5, 4, 6, 4, 5];     // vídeo general (4-6s)
+  // Relleno de b-roll temático de coche (Pexels de la sección activa) para cuando
+  // el clip de una MARCA corta se agota -> variedad sin repetir el mismo clip.
+  const pickFiller = (tt) => {
+    const ap = activePart(tt);
+    const pool = ap && ap.pool && ap.pool.length ? ap.pool : allClips;
+    if (!pool || !pool.length) return null;
+    const a = pick(pool);
+    const maxStart = Math.max(0, (a.duration || 6) - 3 - 0.2);
+    const sf = !a.isImage && maxStart > 0.2 ? +(((usedCount[keyOf(a)] - 1) * 1.7) % maxStart).toFixed(2) : 0;
+    return { src: a.src, startFrom: sf, isImage: !!a.isImage };
+  };
   let brandShots = 0;
   let t = 0, i = 0;
   while (t < total - 0.15) {
@@ -688,23 +715,28 @@ async function main() {
       // VÍDEO(S) de esa marca: pool intercalado de sus varios modelos.
       const k = (brandIdx[ent.key] = (brandIdx[ent.key] ?? -1) + 1);
       const w = takeUnused(vpool, k);
-      clipSrc = w.src; startFrom = w.fixedStart; isImage = false; framed = true;
-      d = DUR_BRAND[i % DUR_BRAND.length];
-      brandShots++;
+      if (w) {
+        clipSrc = w.src; startFrom = w.fixedStart; isImage = false; framed = true;
+        d = DUR_BRAND[i % DUR_BRAND.length]; brandShots++;
+      } else {
+        // pool de la marca AGOTADO -> b-roll de coche temático (no repetir).
+        const f = pickFiller(t);
+        if (f) { clipSrc = f.src; startFrom = f.startFrom; isImage = f.isImage; framed = true; d = DUR_GEN[i % DUR_GEN.length]; }
+        else { const w2 = vpool[k % vpool.length]; clipSrc = w2.src; startFrom = w2.fixedStart; isImage = false; framed = true; d = DUR_BRAND[i % DUR_BRAND.length]; brandShots++; repeats++; }
+      }
     } else if (usingYt && ent && ent.images && ent.images.length) {
       // IMAGEN correcta del rival/tema (no hay vídeo de esa marca). Sin repetir.
       const k = (entImgIdx[ent.key] = (entImgIdx[ent.key] ?? -1) + 1);
       const w = takeUnused(ent.images, k);
-      clipSrc = w.src; isImage = true; framed = true; startFrom = 0;
-      d = DUR_IMG[i % DUR_IMG.length];
+      if (w) { clipSrc = w.src; isImage = true; framed = true; startFrom = 0; d = DUR_IMG[i % DUR_IMG.length]; }
+      else { const f = pickFiller(t); if (f) { clipSrc = f.src; startFrom = f.startFrom; isImage = f.isImage; framed = true; d = DUR_GEN[i % DUR_GEN.length]; } else { const w2 = ent.images[k % ent.images.length]; clipSrc = w2.src; isImage = true; framed = true; startFrom = 0; d = DUR_IMG[i % DUR_IMG.length]; repeats++; } }
     } else if (usingYt) {
-      // Genérico (intro/conclusión/transiciones). Si no hay clips generales
-      // propios (yt-*), rota entre TODAS las marcas del vídeo (variedad máxima).
-      const w = generalWindows.length
-        ? pick(generalWindows)
-        : (genInterleaved.length ? takeUnused(genInterleaved, genIdx++) : pick(ytWindows));
-      clipSrc = w.src; startFrom = w.fixedStart; isImage = false; framed = true;
-      d = DUR_GEN[i % DUR_GEN.length];
+      // Genérico (intro/conclusión/transiciones): rota entre TODAS las marcas;
+      // al agotarse, b-roll de coche temático.
+      const w = generalWindows.length ? pick(generalWindows)
+        : (genInterleaved.length ? takeUnused(genInterleaved, genIdx++) : null);
+      if (w) { clipSrc = w.src; startFrom = w.fixedStart; isImage = false; framed = true; d = DUR_GEN[i % DUR_GEN.length]; }
+      else { const f = pickFiller(t); if (f) { clipSrc = f.src; startFrom = f.startFrom; isImage = f.isImage; framed = true; d = DUR_GEN[i % DUR_GEN.length]; } else { const w2 = (genInterleaved.length ? genInterleaved : ytWindows)[i % (genInterleaved.length || ytWindows.length)]; clipSrc = w2.src; startFrom = w2.fixedStart; isImage = false; framed = true; d = DUR_GEN[i % DUR_GEN.length]; repeats++; } }
     } else {
       const useImg = suvImages.length && i % 6 === 5;
       const asset = useImg ? pick(suvImages) : pick(activePart(t).pool);

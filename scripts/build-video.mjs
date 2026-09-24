@@ -223,7 +223,8 @@ const seenIds = new Set(BLACKLIST_IDS);
 const REJECT_WORDS = [
   "windmill", "wind-turbine", "wind-mill", "wind-farm", "wind-power", "wind-energy",
   "turbines", "aerogenerator", "propeller", "helicopter", "airplane", "aircraft", "jet-engine",
-  "desert", "dune", "sahara", "beach", "ocean", "sea-", "seascape", "coast", "waterfall", "river",
+  "desert", "dune", "sahara", "arid", "canyon", "steppe", "savanna", "safari", "prairie", "badland", "mesa", "dusty",
+  "beach", "ocean", "sea-", "seascape", "coast", "waterfall", "river",
   "solar", "agricultur", "farm", "meadow", "wheat", "forest", "mountain-landscape", "windy",
   "chimney", "smokestack", "power-plant", "cooling-tower", "factory-", "refinery", "nuclear",
   "fan-", "ceiling-fan", "cooking", "kitchen", "food",

@@ -36,17 +36,18 @@ const CLIPS_PER_QUERY = 8;
 // coche/premium de Pexels de FONDO; cada modelo va como imagen "sticky" (MODELS).
 // VÍDEO 11 — SECRETOS DEL TURBO (técnico/educativo, vía Pexels). Cada PARTE del
 // guion tiene su pool de b-roll temático (turbo/motor/aceite/humo/autopista).
-// VÍDEO 12 — b-roll de relleno (los modelos vienen de ENTITIES). Genérico de
-// concesionario / conducción / familia por sección.
+// VÍDEO 13 — b-roll de relleno (los modelos vienen de ENTITIES). Genérico de
+// fiabilidad / taller / conducción por sección.
 const PARTS = [
-  { key: "intro", anchor: null, queries: ["car dealership showroom", "person buying car", "car keys handover", "family car driving"] },
-  { key: "sandero", anchor: "COCHE 1:", queries: ["small car city driving", "hatchback parked street", "affordable car dealership", "car driving town"] },
-  { key: "corolla", anchor: "COCHE 2:", queries: ["hybrid car driving", "sedan car highway", "car dashboard display", "car driving road"] },
-  { key: "yariscross", anchor: "COCHE 3:", queries: ["small suv city", "compact suv driving", "suv parked street", "crossover car road"] },
-  { key: "jogger", anchor: "COCHE 4:", queries: ["family loading car trunk", "family with car", "estate car luggage", "family suv driving"] },
-  { key: "crv", anchor: "COCHE 5:", queries: ["family suv highway", "suv driving road trip", "suv interior family", "suv on mountain road"] },
-  { key: "tucson", anchor: "LA MENCIÓN ESPECIAL", queries: ["modern suv driving", "suv dashboard technology", "suv city street", "suv parked showroom"] },
-  { key: "cierre", anchor: "CÓMO ELEGIR", queries: ["car dealership showroom", "car keys handover", "person choosing car", "family car driving"] },
+  { key: "intro", anchor: null, queries: ["car mechanic checklist", "cars on road traffic", "car dealership showroom", "car engine bay clean"] },
+  { key: "aygo", anchor: "COCHE 1:", queries: ["small city car driving", "compact car parked street", "small car engine bay", "hatchback city road"] },
+  { key: "rav4", anchor: "COCHE 2:", queries: ["family suv highway", "suv driving road trip", "suv interior family", "hybrid suv driving"] },
+  { key: "chr", anchor: "COCHE 3:", queries: ["compact suv city driving", "crossover car road", "suv dashboard display", "modern suv parked"] },
+  { key: "niro", anchor: "COCHE 4:", queries: ["electric car charging", "ev suv driving", "car charging home", "electric car dashboard"] },
+  { key: "vitara", anchor: "COCHE 5:", queries: ["small suv road", "compact suv countryside", "suv parked street", "crossover driving"] },
+  { key: "stonic", anchor: "COCHE 6:", queries: ["small suv city", "compact crossover driving", "suv dashboard technology", "small suv parked"] },
+  { key: "mazda2", anchor: "COCHE 7:", queries: ["small car driving road", "hatchback city driving", "compact car cornering", "small car parked"] },
+  { key: "cierre", anchor: "EL PATRÓN QUE CONECTA", queries: ["car mechanic workshop", "cars parked dealership", "person choosing car", "car engine reliable"] },
 ];
 
 // Vídeo 10: clips reales de modelo (ENTITIES/SECTIONS), no imágenes sticky.
@@ -59,48 +60,54 @@ const MODELS = [];
 // Vídeo 6 (LSPI) es conceptual: sin pool de imágenes de SUV (serían fuera de tema).
 const SUV_MODELS = [];
 
-// VÍDEO 12 — 5 COCHES PARA QUIENES ODIAN COMPRAR COCHE (2026). Anclas verificadas
+// VÍDEO 13 — 7 COCHES CASI PERFECTOS SEGÚN LA OCU 2026. Anclas verificadas
 // literalmente en input/guion-completo.txt, en ORDEN cronológico.
 const OVERLAYS = [
   // HOOK
-  { anchor: "Los que odiamos comprar coche", kind: "hook", text: "5 COCHES PARA LOS QUE\nODIAN COMPRAR COCHE" },
-  { anchor: "compras, olvidas que existen, y simplemente funcionan", kind: "caption", text: "COMPRA · OLVIDA · FUNCIONA 15 AÑOS" },
+  { anchor: "La OCU acaba de publicar", kind: "hook", text: "7 COCHES CASI PERFECTOS\nSEGÚN LA OCU 2026" },
+  { anchor: "ochenta y cinco mil quinientos noventa conductores", kind: "stat", value: "85.590 CONDUCTORES", sub: "10 PAÍSES · 392 MODELOS ANALIZADOS" },
+  { anchor: "puntuaciones de noventa y seis o más sobre cien", kind: "caption", text: "96+ / 100 EN FIABILIDAD REAL" },
 
-  // 1. Dacia Sandero
-  { anchor: "COCHE 1: DACIA SANDERO", kind: "hook", text: "1. DACIA SANDERO" },
-  { anchor: "el coche nuevo más vendido de España", kind: "stat", value: "Nº1 EN VENTAS", sub: "EL COCHE NUEVO MÁS VENDIDO DE ESPAÑA" },
-  { anchor: "trece mil quinientos euros", kind: "stat", value: "DESDE 13.500 €", sub: "ECO-G GLP ~15.400 €" },
-  { anchor: "da paz mental", kind: "caption", text: "MECÁNICA SIMPLE = PAZ MENTAL" },
+  // 1. Toyota Aygo X Cross — 98
+  { anchor: "COCHE 1:", kind: "hook", text: "1. TOYOTA AYGO X CROSS" },
+  { anchor: "La puntuación más alta de todo el estudio", kind: "stat", value: "98/100", sub: "LA NOTA MÁS ALTA · Nº1 ABSOLUTO" },
+  { anchor: "la mejor ingeniería que existe", kind: "caption", text: "ATMOSFÉRICO · SIN TURBO = FIABLE" },
 
-  // 2. Toyota Corolla Híbrido
-  { anchor: "COCHE 2: TOYOTA COROLLA", kind: "hook", text: "2. TOYOTA COROLLA\nHÍBRIDO" },
-  { anchor: "la fama de irrompible", kind: "stat", value: "IRROMPIBLE", sub: "HÍBRIDO SIN ENCHUFE" },
-  { anchor: "quince años o doscientos cincuenta mil kilómetros", kind: "stat", value: "HASTA 15 AÑOS", sub: "O 250.000 KM · GARANTÍA TOYOTA RELAX" },
-  { anchor: "cuatro litros y medio a los cien kilómetros en uso real", kind: "stat", value: "~4,5 L/100", sub: "CONSUMO REAL" },
+  // 2. Toyota RAV4 — 96
+  { anchor: "COCHE 2:", kind: "hook", text: "2. TOYOTA RAV4\nHÍBRIDO" },
+  { anchor: "Líder entre los SUV grandes", kind: "stat", value: "96/100", sub: "LÍDER SUV GRANDE (HÍBRIDO Y PHEV)" },
+  { anchor: "el coche más equilibrado del mercado global", kind: "caption", text: "EL SUV MÁS EQUILIBRADO DEL MERCADO" },
 
-  // 3. Toyota Yaris Cross Híbrido
-  { anchor: "COCHE 3: TOYOTA YARIS CROSS", kind: "hook", text: "3. TOYOTA YARIS CROSS\nHÍBRIDO" },
-  { anchor: "el mismo corazón fiable del Corolla", kind: "caption", text: "MISMO HÍBRIDO FIABLE DEL COROLLA" },
-  { anchor: "el SUV híbrido más vendido del mercado", kind: "stat", value: "SUV HÍBRIDO Nº1", sub: "EN VENTAS" },
-  { anchor: "veinticinco mil novecientos euros", kind: "stat", value: "DESDE 25.900 €", sub: "FINANCIANDO" },
+  // 3. Toyota C-HR — 96
+  { anchor: "COCHE 3:", kind: "hook", text: "3. TOYOTA C-HR\nHÍBRIDO" },
+  { anchor: "destacando entre los coches medianos con etiqueta ECO", kind: "stat", value: "96/100", sub: "SUV COMPACTO HÍBRIDO (2016-2023)" },
+  { anchor: "sin sacrificar un ápice de fiabilidad", kind: "caption", text: "DISEÑO CON CARÁCTER + FIABILIDAD TOYOTA" },
 
-  // 4. Dacia Jogger
-  { anchor: "COCHE 4: DACIA JOGGER", kind: "hook", text: "4. DACIA JOGGER" },
-  { anchor: "el coche de siete plazas más asequible", kind: "stat", value: "7 PLAZAS", sub: "EL MÁS BARATO DE ESPAÑA" },
-  { anchor: "más espacio por euro que cualquier otro coche nuevo", kind: "caption", text: "MÁS ESPACIO POR EURO QUE NINGUNO" },
+  // 4. Kia Niro Eléctrico — 96
+  { anchor: "COCHE 4:", kind: "hook", text: "4. KIA NIRO\nELÉCTRICO" },
+  { anchor: "El líder de los eléctricos medianos", kind: "stat", value: "96/100", sub: "EL ELÉCTRICO MEDIANO Nº1" },
+  { anchor: "evita los fallos de software comunes en otros eléctricos", kind: "caption", text: "SIN LOS FALLOS DE SOFTWARE DE OTROS EV" },
+  { anchor: "garantía de Kia, de siete años", kind: "stat", value: "7 AÑOS", sub: "DE GARANTÍA KIA" },
 
-  // 5. Honda CR-V / Toyota RAV4 Híbrido
-  { anchor: "COCHE 5: HONDA CR-V", kind: "hook", text: "5. HONDA CR-V /\nTOYOTA RAV4 HÍBRIDO" },
-  { anchor: "el estándar de fiabilidad del segmento", kind: "stat", value: "SUV FAMILIAR SERIO", sub: "RAV4 vs CR-V: ELIGE UNO" },
-  { anchor: "el Honda CR-V es ligeramente más eficiente en entorno urbano", kind: "caption", text: "CIUDAD → CR-V · MIXTO Y KM → RAV4" },
+  // 5. Suzuki Vitara — 96
+  { anchor: "COCHE 5:", kind: "hook", text: "5. SUZUKI VITARA" },
+  { anchor: "Uno de los SUV pequeños más fiables del mercado", kind: "stat", value: "96/100", sub: "SUV PEQUEÑO · MECÁNICA PROBADA" },
+  { anchor: "una de las cuatro marcas más fiables del estudio", kind: "caption", text: "SUZUKI: TOP-4 MARCAS MÁS FIABLES (91)" },
 
-  // +1. Hyundai Tucson Híbrido
-  { anchor: "HYUNDAI TUCSON", kind: "hook", text: "+1. HYUNDAI TUCSON\nHÍBRIDO" },
-  { anchor: "cinco años de garantía sin límite de kilometraje", kind: "stat", value: "5 AÑOS DE GARANTÍA", sub: "SIN LÍMITE DE KM, INCLUIDA" },
+  // 6. Kia Stonic — 96
+  { anchor: "COCHE 6:", kind: "hook", text: "6. KIA STONIC" },
+  { anchor: "apenas presenta incidencias en sus primeros años", kind: "stat", value: "96/100", sub: "ELECTRÓNICA SIN INCIDENCIAS" },
+  { anchor: "ya no es la mecánica, es la electrónica", kind: "caption", text: "HOY FALLA LA ELECTRÓNICA, NO LA MECÁNICA" },
 
-  // CÓMO ELEGIR + CONCLUSIÓN
-  { anchor: "CÓMO ELEGIR EL TUYO EN 30 SEGUNDOS", kind: "hook", text: "ELIGE EL TUYO\nEN 30 SEGUNDOS" },
-  { anchor: "el mejor coche no es el que más impresiona", kind: "caption", text: "EL MEJOR ES EL QUE NO TE DA GUERRA" },
+  // 7. Mazda 2 — 96
+  { anchor: "COCHE 7:", kind: "hook", text: "7. MAZDA 2" },
+  { anchor: "compartiendo puntuación con modelos como", kind: "stat", value: "96/100", sub: "UTILITARIO · TAMBIÉN i20, RIO, 108" },
+  { anchor: "conduce mejor que casi cualquier rival directo", kind: "caption", text: "EL MÁS DIVERTIDO DE CONDUCIR" },
+
+  // PATRÓN + CIERRE
+  { anchor: "EL PATRÓN QUE CONECTA A LOS SIETE", kind: "hook", text: "EL PATRÓN:\nJAPONÉS + HÍBRIDO SIMPLE" },
+  { anchor: "elige japonés e híbrido no enchufable", kind: "caption", text: "JAPONÉS + HÍBRIDO NO ENCHUFABLE" },
+  { anchor: "no te fíes solo de la marca", kind: "caption", text: "MIRA EL MODELO Y EL MOTOR, NO SOLO LA MARCA" },
   { anchor: "Suscríbete para más", kind: "hook", text: "SUSCRÍBETE" },
 ];
 
@@ -120,16 +127,16 @@ const PINS = [];
 // por marca -> refuerzan la "regla roja" también en la síntesis final.
 // VÍDEO 10 — COCHES QUE NUNCA COMPRAR: 1 CLIP real por modelo (marca-<key>.mp4 en
 // public/assets/yt-nocompres). Cada modelo se ve EN MOVIMIENTO durante su sección.
-// VÍDEO 12 — 5 COCHES QUE ODIAN COMPRAR: por MODELOS. `videos:[key]` usa el clip
-// marca-<key>.mp4 (public/assets/yt-oian) si existe; si no, cae a IMAGEN por `query`.
+// VÍDEO 13 — 7 COCHES CASI PERFECTOS (OCU): por MODELOS. `videos:[key]` usa el clip
+// marca-<key>.mp4 (public/assets/yt-ocu) si existe; si no, cae a IMAGEN por `query`.
 const ENTITIES = [
-  { key: "sandero", label: "", query: "Dacia Sandero 2026", videos: ["sandero"], anchors: ["Dacia Sandero", "Sandero"] },
-  { key: "corolla", label: "", query: "Toyota Corolla hybrid 2026", videos: ["corolla"], anchors: ["Corolla"] },
-  { key: "yariscross", label: "", query: "Toyota Yaris Cross hybrid 2026", videos: ["yariscross"], anchors: ["Yaris Cross"] },
-  { key: "jogger", label: "", query: "Dacia Jogger 2026", videos: ["jogger"], anchors: ["Jogger"] },
-  { key: "crv", label: "", query: "Toyota RAV4 hybrid 2026", videos: ["crv"],
-    anchors: ["CR-V", "RAV4", "rav cuatro", "e:HEV", "e-hev"] },
-  { key: "tucson", label: "", query: "Hyundai Tucson hybrid 2026", videos: ["tucson"], anchors: ["Tucson"] },
+  { key: "aygo", label: "", query: "Toyota Aygo X Cross 2026", videos: ["aygo"], anchors: ["Aygo", "Aigo"] },
+  { key: "rav4", label: "", query: "Toyota RAV4 hybrid 2026", videos: ["rav4"], anchors: ["RAV4", "rav cuatro"] },
+  { key: "chr", label: "", query: "Toyota C-HR hybrid 2026", videos: ["chr"], anchors: ["C-HR", "ce hache erre"] },
+  { key: "niro", label: "", query: "Kia Niro EV 2026", videos: ["niro"], anchors: ["Niro"] },
+  { key: "vitara", label: "", query: "Suzuki Vitara 2026", videos: ["vitara"], anchors: ["Vitara"] },
+  { key: "stonic", label: "", query: "Kia Stonic 2026", videos: ["stonic"], anchors: ["Stonic", "Stónic"] },
+  { key: "mazda2", label: "", query: "Mazda 2 2026", videos: ["mazda2"], anchors: ["Mazda 2", "Mazda dos"] },
   { key: "cierre", label: "", query: "", videos: [], anchors: [] },
 ];
 
@@ -139,14 +146,16 @@ const ENTITIES = [
 // queda sin principal -> vídeo general.
 // VÍDEO 10 — cada sección muestra el CLIP del modelo del que se habla. La sección
 // de patrón/lección cae a "cierre" (rotación de todos los modelos).
+// Anclas por "COCHE N:" (el prefijo NO cambia aunque el nombre se escriba fonético).
 const SECTIONS = [
-  { anchor: "COCHE 1: DACIA SANDERO", primary: "sandero" },
-  { anchor: "COCHE 2: TOYOTA COROLLA", primary: "corolla" },
-  { anchor: "COCHE 3: TOYOTA YARIS CROSS", primary: "yariscross" },
-  { anchor: "COCHE 4: DACIA JOGGER", primary: "jogger" },
-  { anchor: "COCHE 5: HONDA CR-V", primary: "crv" },
-  { anchor: "LA MENCIÓN ESPECIAL: HYUNDAI TUCSON", primary: "tucson" },
-  { anchor: "CÓMO ELEGIR EL TUYO", primary: "cierre" },
+  { anchor: "COCHE 1:", primary: "aygo" },
+  { anchor: "COCHE 2:", primary: "rav4" },
+  { anchor: "COCHE 3:", primary: "chr" },
+  { anchor: "COCHE 4:", primary: "niro" },
+  { anchor: "COCHE 5:", primary: "vitara" },
+  { anchor: "COCHE 6:", primary: "stonic" },
+  { anchor: "COCHE 7:", primary: "mazda2" },
+  { anchor: "EL PATRÓN QUE CONECTA A LOS SIETE", primary: "cierre" },
 ];
 
 async function loadEnv() {

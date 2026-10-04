@@ -39,7 +39,17 @@ export const Broll: React.FC<{ shot: Shot; index: number }> = ({
   const frame = useCurrentFrame();
   const startFromFrames = Math.round((shot.startFromSeconds ?? 0) * FPS);
   const kb = shot.kenBurns ?? (index % 2 === 0 ? "in" : "out");
-  const punch = interpolate(frame, [0, 4], [1.05, 1], { extrapolateRight: "clamp" });
+  // Transicion de entrada VARIADA (cada corte distinto): zoom-punch, slide con
+  // desenfoque, flash blanco o whip-zoom con giro. Rota por indice de plano.
+  const fx = index % 4;
+  const e = (a: number, b: number, from: number, to: number) =>
+    interpolate(frame, [a, b], [from, to], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
+  const punch = fx === 0 ? e(0, 6, 1.14, 1) : fx === 2 ? e(0, 5, 1.05, 1) : fx === 3 ? e(0, 8, 0.93, 1) : 1;
+  const tx = fx === 1 ? e(0, 7, (index % 8 < 4 ? 1 : -1) * 90, 0) : 0;
+  const rot = fx === 3 ? e(0, 8, (index % 8 < 4 ? 1 : -1) * 2.2, 0) : 0;
+  const blur = fx === 1 ? e(0, 7, 9, 0) : fx === 3 ? e(0, 6, 5, 0) : 0;
+  const flash = fx === 2 ? e(0, 5, 0.75, 0) : 0;
+  const entry = `translateX(${tx}px) scale(${punch}) rotate(${rot}deg)`;
   const framed = shot.isImage ? true : !!shot.framed;
 
   // objPos: en framed sesgamos hacia arriba (42%) para recortar el
@@ -78,7 +88,7 @@ export const Broll: React.FC<{ shot: Shot; index: number }> = ({
           style={{ background: "radial-gradient(60% 55% at 50% 45%, rgba(37,227,234,0.06), rgba(0,0,0,0) 70%)" }}
         />
         {/* Tarjeta con el clip */}
-        <AbsoluteFill style={{ alignItems: "center", justifyContent: "center", transform: `scale(${punch})` }}>
+        <AbsoluteFill style={{ alignItems: "center", justifyContent: "center", transform: entry, filter: blur ? `blur(${blur}px)` : undefined }}>
           <div
             style={{
               position: "relative",
@@ -95,6 +105,7 @@ export const Broll: React.FC<{ shot: Shot; index: number }> = ({
           </div>
         </AbsoluteFill>
         <AbsoluteFill style={{ pointerEvents: "none", boxShadow: "inset 0 0 260px rgba(0,0,0,0.6)" }} />
+        {flash > 0 && <AbsoluteFill style={{ backgroundColor: "#fff", opacity: flash }} />}
       </AbsoluteFill>
     );
   }
@@ -102,12 +113,13 @@ export const Broll: React.FC<{ shot: Shot; index: number }> = ({
   return (
     <AbsoluteFill style={{ backgroundColor: "#07070c" }}>
       {shot.sfx && <Audio src={staticFile(CUT_SFX[index % CUT_SFX.length])} volume={0.4} />}
-      <AbsoluteFill style={{ transform: `scale(${punch})` }}>
+      <AbsoluteFill style={{ transform: entry, filter: blur ? `blur(${blur}px)` : undefined }}>
         <KenBurns mode={kb} durationInFrames={dur} seed={index} intensity={1.09}>
           {asset("contrast(1.06) saturate(1.10)", "center")}
         </KenBurns>
       </AbsoluteFill>
       <AbsoluteFill style={{ pointerEvents: "none", boxShadow: "inset 0 0 200px rgba(0,0,0,0.35)" }} />
+      {flash > 0 && <AbsoluteFill style={{ backgroundColor: "#fff", opacity: flash }} />}
     </AbsoluteFill>
   );
 };

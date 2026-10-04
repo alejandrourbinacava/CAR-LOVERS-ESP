@@ -7,10 +7,14 @@ import { Stat } from "./aw/Stat";
 import { HookCard } from "./aw/HookCard";
 import { PinImage } from "./aw/PinImage";
 import { DuoPin } from "./aw/DuoPin";
+import { EngineTag } from "./aw/EngineTag";
+import { ChapterBar } from "./aw/ChapterBar";
 
 export const CarVideo: React.FC = () => {
   const { shots, overlays, narrationSrc, musicSrc } = videoConfig as typeof videoConfig & { musicSrc?: string };
   const pins = videoConfig.pins ?? [];
+  const tags = videoConfig.tags ?? [];
+  const chapters = videoConfig.chapters ?? [];
 
   // Pista de b-roll: cada shot va detras del anterior (corte cada ~3s)
   let cursor = 0;
@@ -46,6 +50,18 @@ export const CarVideo: React.FC = () => {
             {p.kind === "duo" && (
               <DuoPin srcA={p.srcA} srcB={p.srcB} labelA={p.labelA} labelB={p.labelB} />
             )}
+          </Sequence>
+        );
+      })}
+
+      {/* PISTA 2b: motion graphics persistentes (barra de capitulos + etiqueta de motor) */}
+      {chapters.length > 0 && <ChapterBar chapters={chapters} total={videoConfig.totalDurationInSeconds} />}
+      {tags.map((g, i) => {
+        const from = Math.max(0, Math.round(g.fromSeconds * FPS));
+        const dur = Math.max(1, Math.round(g.durationInSeconds * FPS));
+        return (
+          <Sequence key={`t${i}`} from={from} durationInFrames={dur}>
+            <EngineTag code={g.code} name={g.name} verdict={g.verdict} />
           </Sequence>
         );
       })}

@@ -1,0 +1,67 @@
+name: Renderizar planos ya cortados (nube)
+
+# Para vídeos con PLANOS PRE-CORTADOS (scripts/prep-shots.py): cada plano es su propio
+# clip (matrículas ya tapadas) subido a un Release. src/config.ts va en el repo y ya
+# apunta a assets/<carpeta>/shot-XXX.mp4, así que aquí NO se regenera el montaje.
+
+on:
+  workflow_dispatch:
+    inputs:
+      subdir:
+        description: "Carpeta de planos (public/assets/<carpeta>)"
+        default: "shots-diesel"
+      tag:
+        description: "Tag del Release con los planos"
+        default: "shots-diesel"
+
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    timeout-minutes: 320
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 20 }
+
+      - name: Liberar disco
+        run: |
+          sudo rm -rf /usr/share/dotnet /opt/ghc /usr/local/lib/android \
+            /opt/hostedtoolcache/CodeQL /usr/local/share/boost "$AGENT_TOOLSDIRECTORY" || true
+          df -h /
+
+      - name: Instalar ffmpeg + libs de Chrome (Remotion)
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg libnss3 libatk1.0-0 libatk-bridge2.0-0 \
+            libcups2 libdrm2 libxkbcommon0 libxcomposite1 libxdamage1 libxfixes3 \
+            libxrandr2 libgbm1 libasound2t64 libpango-1.0-0 libcairo2 libatspi2.0-0
+
+      - name: npm install (Remotion)
+        run: npm ci || npm install
+
+      - name: Descargar planos del Release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          SUB="${{ github.event.inputs.subdir }}"
+          mkdir -p "public/assets/$SUB"
+          gh release download "${{ github.event.inputs.tag }}" -D "public/assets/$SUB" -p 'shot-*.mp4' --clobber
+          echo "Planos: $(ls public/assets/$SUB | grep -c '\.mp4$')"
+          du -sh "public/assets/$SUB"
+
+      - name: Preparar narración y título
+        run: |
+          mkdir -p public/assets/audio out
+          cp input/narration.mp3 public/assets/audio/narration.mp3
+          cat input/titulo.txt | tr -d '\r\n:' | head -c 120 > out/_titulo.txt
+          cat out/_titulo.txt; echo
+
+      - name: Renderizar
+        run: npm run render
+
+      - name: Subir el vídeo final
+        uses: actions/upload-artifact@v4
+        with:
+          name: video-final
+          path: out/*.mp4
+          retention-days: 7

@@ -39,13 +39,13 @@ const CLIPS_PER_QUERY = 8;
 // VÍDEO 13 — b-roll de relleno (los modelos vienen de ENTITIES). Genérico de
 // fiabilidad / taller / conducción por sección.
 const PARTS = [
-  { key: "intro", anchor: null, queries: ["highway driving car", "motorway traffic cars", "car odometer dashboard", "car fuel pump station"] },
+  { key: "intro", anchor: null, queries: ["highway driving car", "motorway traffic cars", "mechanic repairing engine", "diesel fuel nozzle"] },
   { key: "regla", anchor: "PARTE UNO: LA REGLA DE ORO", queries: ["car engine bay", "mechanic repairing car engine", "car exhaust pipe", "garage mechanic workshop"] },
   { key: "buenos", anchor: "PARTE DOS: LOS DIÉSEL QUE SÍ", queries: ["taxi driving city", "van driving road", "mechanic inspecting engine", "car engine running"] },
   { key: "malos", anchor: "PARTE TRES: LOS DIÉSEL QUE UN MECÁNICO NO", queries: ["car engine smoke exhaust", "mechanic repairing engine", "car broken down roadside", "engine bay open hood"] },
   { key: "adblue", anchor: "LOS DIÉSEL CON ADBLU Y FILTRO", queries: ["diesel fuel nozzle", "exhaust smoke car", "car dashboard warning light", "mechanic car diagnostic"] },
   { key: "comprar", anchor: "PARTE CUATRO: CÓMO COMPRAR", queries: ["used car buying inspection", "mechanic checking car", "car oil change", "car dashboard warning light"] },
-  { key: "deberias", anchor: "PARTE CINCO: ¿DEBERÍAS COMPRAR", queries: ["highway driving long distance", "city traffic congestion", "fuel gas station diesel", "car driving road"] },
+  { key: "deberias", anchor: "PARTE CINCO: ¿DEBERÍAS COMPRAR", queries: ["highway driving long distance", "city traffic congestion", "truck highway driving", "car driving road"] },
   { key: "cierre", anchor: "CONCLUSIÓN: EL DIÉSEL CORRECTO", queries: ["car driving highway sunset", "mechanic workshop", "car engine bay clean", "cars on road traffic"] },
 ];
 
@@ -144,7 +144,7 @@ const PINS = [];
 // VÍDEO 13 — 7 COCHES CASI PERFECTOS (OCU): por MODELOS. `videos:[key]` usa el clip
 // marca-<key>.mp4 (public/assets/yt-ocu) si existe; si no, cae a IMAGEN por `query`.
 const ENTITIES = [
-  { key: "general", label: "", query: "", videos: ["moderno"], anchors: [] },
+  { key: "general", label: "", query: "", videos: ["moderno", "vw20", "psa", "bluehdi", "merc", "renault3", "toyota", "stock"], anchors: [] },
   { key: "renault", label: "", query: "", videos: ["renault", "renault2", "renault3"], anchors: ["ka nueve ka", "Renó uno coma cinco", "Clío", "Cashcai", "Dacha Dáster"] },
   { key: "toyota", label: "", query: "", videos: ["toyota"], anchors: ["dos a de efe te uve", "Avénsis", "Rav cuatro", "Corolla Verso", "Toyota dos coma dos", "uno ce de efe te uve"] },
   { key: "psa", label: "", query: "", videos: ["psa"], anchors: ["de uve doce", "dos coma dos ache de i", "Peyó y Sitroén"] },
@@ -249,7 +249,7 @@ async function serpImages(query, base, need) {
 
 // Clips Pexels vetados (colaron fuera de tema, p.ej. aceite de COCINA en el vídeo
 // de averías). Se pre-siembran en seenIds para que getClips no los use nunca.
-const BLACKLIST_IDS = [26620319, 26620441, 8987271];
+const BLACKLIST_IDS = [26620319, 26620441, 8987271, 3010448, 39839659, 35661513, 6817044, 17854218, 9369898, 27974753, 19728719, 13790663, 4223775, 20693178, 29576552, 39112150, 20156194, 32329376, 20693196, 11785727, 29760618, 34960298];
 const seenIds = new Set(BLACKLIST_IDS);
 
 // Palabras que delatan un clip FUERA DE TEMA (la URL de Pexels lleva el slug
@@ -464,6 +464,40 @@ function videoDurationSec(file) {
   return 0;
 }
 
+
+// Motion graphics (VÍDEO 14): etiqueta SÍ/NO + código de motor durante cada sección y barra
+// de capítulos. La etiqueta entra DESPUÉS de la cartela de la sección (+2.8s).
+const TAGS = [
+  { anchor: "EL REY ABSOLUTO", end: "EL IMBATIBLE", code: "K9K", name: "Renault 1.5 dCi", verdict: "yes" },
+  { anchor: "EL IMBATIBLE", end: "EL BLOQUE INDESTRUCTIBLE", code: "2AD-FTV", name: "Toyota 2.2 D-4D", verdict: "yes" },
+  { anchor: "EL BLOQUE INDESTRUCTIBLE", end: "EL EVOLUCIONADO", code: "DW12", name: "Peugeot / Citroën 2.2 HDi", verdict: "yes" },
+  { anchor: "EL EVOLUCIONADO", end: "EL VETERANO SEGURO", code: "BlueHDi 130", name: "Peugeot 1.5", verdict: "yes" },
+  { anchor: "EL VETERANO SEGURO", end: "Y dentro de los dos coma cero te de i", code: "1.9 TDI", name: "Volkswagen · AFN / ASZ", verdict: "yes" },
+  { anchor: "Y dentro de los dos coma cero te de i", end: "LA REFERENCIA ALEMANA", code: "2.0 TDI 140", name: "Volkswagen · BKD", verdict: "yes" },
+  { anchor: "LA REFERENCIA ALEMANA", end: "PARTE TRES: LOS DIÉSEL QUE UN MECÁNICO NO", code: "OM651", name: "Mercedes 2.2 CDI", verdict: "yes" },
+  { anchor: "LA ADVERTENCIA NÚMERO UNO", end: "LOS DIÉSEL CON ADBLU Y FILTRO", code: "N47", name: "BMW 2.0 diésel · 2007-2014", verdict: "no" },
+  { anchor: "LOS DIÉSEL CON ADBLU Y FILTRO", end: "LOS DIÉSEL ANTIGUOS DE BE EME UVE DOBLE", code: "ADBLUE + FAP", name: "Diésel moderno · +200.000 km", verdict: "no" },
+  { anchor: "LOS DIÉSEL ANTIGUOS DE BE EME UVE DOBLE", end: "LOS PRIMEROS DIÉSEL DE ALTA PRESIÓN", code: "NOx", name: "BMW y Mercedes antiguos", verdict: "no" },
+  { anchor: "LOS PRIMEROS DIÉSEL DE ALTA PRESIÓN", end: "PARTE CUATRO: CÓMO COMPRAR", code: "1CD-FTV", name: "Toyota · primer D-4D", verdict: "no" },
+];
+const CHAPTERS = [
+  { anchor: "Déjame aclarar algo", label: "El diésel no ha muerto" },
+  { anchor: "PARTE UNO: LA REGLA DE ORO", label: "La regla de oro" },
+  { anchor: "EL REY ABSOLUTO", label: "Renault 1.5 dCi" },
+  { anchor: "EL IMBATIBLE", label: "Toyota 2.2 D-4D" },
+  { anchor: "EL BLOQUE INDESTRUCTIBLE", label: "Peugeot/Citroën 2.2 HDi" },
+  { anchor: "EL EVOLUCIONADO", label: "Peugeot BlueHDi 130" },
+  { anchor: "EL VETERANO SEGURO", label: "Volkswagen TDI" },
+  { anchor: "LA REFERENCIA ALEMANA", label: "Mercedes OM651" },
+  { anchor: "LA ADVERTENCIA NÚMERO UNO", label: "BMW N47" },
+  { anchor: "LOS DIÉSEL CON ADBLU Y FILTRO", label: "AdBlue y filtro" },
+  { anchor: "LOS DIÉSEL ANTIGUOS DE BE EME UVE DOBLE", label: "NOx alemanes" },
+  { anchor: "LOS PRIMEROS DIÉSEL DE ALTA PRESIÓN", label: "Primeros D-4D" },
+  { anchor: "PARTE CUATRO: CÓMO COMPRAR", label: "Cómo comprar" },
+  { anchor: "PARTE CINCO: ¿DEBERÍAS COMPRAR", label: "¿Diésel en 2026?" },
+  { anchor: "CONCLUSIÓN: EL DIÉSEL CORRECTO", label: "Conclusión" },
+];
+
 // Reglas por clip (VÍDEO 14, yt-diesel): `allow` = solo estos tramos [s,e]; `skip` = tramos
 // con presentador/rótulos/logos de otro canal que NO deben salir (detectados a mano + script).
 const CLIP_RULES = {
@@ -501,15 +535,15 @@ async function getYtWindows() {
     const endMargin = shortClip ? 9 : 45;
     const step = shortClip ? 4 : 7;
     const rule = CLIP_RULES[YT_SUBDIR]?.[brand];
-    const overlaps = (t) => (rule?.skip || []).some(([a, b]) => t < b && t + 7 > a);
+    const overlaps = (t) => (rule?.skip || []).some(([a, b]) => t < b && t + 5 > a);
     if (rule?.allow) {
       for (const [a, b] of rule.allow)
-        for (let t = a; t + 7 <= b; t += 6) wins.push({ src, key: `${src}#${Math.round(t)}`, file: src, fixedStart: +t.toFixed(1), brand });
+        for (let t = a; t + 5 <= b; t += 2.5) wins.push({ src, key: `${src}#${t.toFixed(1)}`, file: src, fixedStart: +t.toFixed(1), brand });
       continue;
     }
-    for (let t = margin; t < dur - endMargin; t += step) {
+    for (let t = margin; t + 5 < dur - endMargin + 5; t += 2.5) {
       if (overlaps(t)) continue;
-      wins.push({ src, key: `${src}#${Math.round(t)}`, file: src, fixedStart: +t.toFixed(1), brand });
+      wins.push({ src, key: `${src}#${t.toFixed(1)}`, file: src, fixedStart: +t.toFixed(1), brand });
     }
   }
   return wins;
@@ -727,6 +761,15 @@ async function main() {
   const shots = [];
   const brandIdx = {};
   const entImgIdx = {};
+  // STOCK Pexels como "marca" genérica: ventanas de 5s de cada clip de stock. Se mezclan con el
+  // material propio SOLO en tramos genéricos (intro, reglas, consejos) para dar variedad real.
+  brandPools.stock = [];
+  for (const c of allClips) {
+    if (c.isImage || !c.duration) continue;
+    for (let s0 = 0; s0 + 5 <= c.duration; s0 += 5)
+      brandPools.stock.push({ src: c.src, key: `${c.src}#${s0}`, file: c.src, fixedStart: s0, brand: "stock" });
+  }
+  console.log(`     stock Pexels: ${brandPools.stock.length} ventanas`);
   // Pool GENERAL (intro/cierre) cuando no hay clips "yt-*" propios: intercala una
   // ventana de CADA marca en round-robin -> máxima variedad de coches del vídeo,
   // sin reutilizar nada de otros vídeos.
@@ -739,20 +782,36 @@ async function main() {
   // ventanas ya usadas. `takeUnused` devuelve la siguiente ventana NO usada del
   // pool (empezando en startK) y la marca; si el pool se agota, repite como
   // último recurso y lo cuenta.
-  const usedWin = new Set();
+  // CORTES DINAMICOS (pedido del cliente): cada plano dura 3-5s y cada plano
+  // sale de OTRO punto del material: se prefiere cambiar de fichero y, dentro del
+  // mismo fichero, saltar lo MAS LEJOS posible del ultimo tramo usado. Nunca se
+  // solapan dos tramos del mismo fichero.
+  const WIN = 5;
+  const usedRanges = {};            // src -> [[ini, fin], ...]
+  const lastStartBySrc = {};
+  let lastSrcUsed = null;
   let repeats = 0;
-  const winKey = (w) => `${w.src}@${w.fixedStart ?? "img"}`;
-  const takeUnused = (pool, startK) => {
-    const n = pool.length;
-    for (let s = 0; s < n; s++) {
-      const w = pool[((startK % n) + s) % n];
-      if (!usedWin.has(winKey(w))) { usedWin.add(winKey(w)); return w; }
+  const hashW = (w) => { let h = 0; for (const c of w.key) h = (h * 31 + c.charCodeAt(0)) >>> 0; return (h % 1000) / 1000; };
+  const isFree = (w) => !(usedRanges[w.src] || []).some(([a, b]) => w.fixedStart < b && w.fixedStart + WIN > a);
+  const takeUnused = (pool, _startK, pref) => {
+    let best = null, bestScore = -1;
+    for (const w of pool) {
+      if (!isFree(w)) continue;
+      const dist = lastStartBySrc[w.src] === undefined ? 400 : Math.abs(w.fixedStart - lastStartBySrc[w.src]);
+      let score = (w.src === lastSrcUsed ? 0 : 1000) + Math.min(dist, 400) + hashW(w) * 60;
+      if (pref === "stock") score += w.brand === "stock" ? 3000 : 0;
+      else if (pref === "car") score -= w.brand === "stock" ? 3000 : 0;
+      if (score > bestScore) { bestScore = score; best = w; }
     }
-    return null; // agotado -> el llamante usa relleno temático (no repite)
+    if (!best) return null; // agotado -> el llamante usa relleno temático (no repite)
+    (usedRanges[best.src] ??= []).push([best.fixedStart, best.fixedStart + WIN]);
+    lastStartBySrc[best.src] = best.fixedStart;
+    lastSrcUsed = best.src;
+    return best;
   };
-  const DUR_BRAND = [6, 5, 7, 5, 6];   // vídeo de marca: cortes largos (5-7s)
-  const DUR_IMG = [4, 5, 4];           // imagen de rival/tema (4-5s)
-  const DUR_GEN = [5, 4, 6, 4, 5];     // vídeo general (4-6s)
+  const DUR_BRAND = [4, 3.5, 5, 3, 4.5, 4, 3.5, 5, 3, 4];   // cortes DINÁMICOS 3-5s
+  const DUR_IMG = [4, 3.5, 4];
+  const DUR_GEN = [4, 3, 5, 3.5, 4.5];     // 3-5s
   // Relleno de b-roll temático de coche (Pexels de la sección activa) para cuando
   // el clip de una MARCA corta se agota -> variedad sin repetir el mismo clip.
   const pickFiller = (tt) => {
@@ -774,7 +833,7 @@ async function main() {
     if (usingYt && vpool && vpool.length) {
       // VÍDEO(S) de esa marca: pool intercalado de sus varios modelos.
       const k = (brandIdx[ent.key] = (brandIdx[ent.key] ?? -1) + 1);
-      const w = takeUnused(vpool, k);
+      const w = takeUnused(vpool, k, ent.key === "general" ? (i % 4 === 3 ? "stock" : "car") : undefined);
       if (w) {
         clipSrc = w.src; startFrom = w.fixedStart; isImage = false; framed = true;
         d = DUR_BRAND[i % DUR_BRAND.length]; brandShots++;
@@ -794,7 +853,7 @@ async function main() {
       // Genérico (intro/conclusión/transiciones): rota entre TODAS las marcas;
       // al agotarse, b-roll de coche temático.
       const w = generalWindows.length ? pick(generalWindows)
-        : (genInterleaved.length ? takeUnused(genInterleaved, genIdx++) : null);
+        : (genInterleaved.length ? takeUnused(genInterleaved, genIdx++, i % 4 === 3 ? "stock" : "car") : null);
       if (w) { clipSrc = w.src; startFrom = w.fixedStart; isImage = false; framed = true; d = DUR_GEN[i % DUR_GEN.length]; }
       else { const f = pickFiller(t); if (f) { clipSrc = f.src; startFrom = f.startFrom; isImage = f.isImage; framed = true; d = DUR_GEN[i % DUR_GEN.length]; } else { const w2 = (genInterleaved.length ? genInterleaved : ytWindows)[i % (genInterleaved.length || ytWindows.length)]; clipSrc = w2.src; startFrom = w2.fixedStart; isImage = false; framed = true; d = DUR_GEN[i % DUR_GEN.length]; repeats++; } }
     } else {
@@ -812,7 +871,7 @@ async function main() {
       durationInSeconds: +d.toFixed(2),
       startFromSeconds: startFrom,
       kenBurns: i % 2 === 0 ? "in" : "out",
-      framed,
+      framed: framed && !(i % 3 === 2 && !isImage),
       isImage,
       sfx: t < 60,
     });
@@ -840,15 +899,31 @@ async function main() {
   }
   console.log(`     ${overlays.length} overlays`);
 
+  const tags = [];
+  for (const g of TAGS) {
+    const a = guion.indexOf(g.anchor), b = guion.indexOf(g.end);
+    if (a < 0 || b < 0) { console.warn(`[!] tag sin ancla: ${g.code}`); continue; }
+    const from = (timeAt(a) ?? 0) + 2.8, to = (timeAt(b) ?? total) - 0.2;
+    if (to - from > 3) tags.push({ code: g.code, name: g.name, verdict: g.verdict, fromSeconds: +from.toFixed(2), durationInSeconds: +(to - from).toFixed(2) });
+  }
+  const chapters = [];
+  for (const c of CHAPTERS) {
+    const a = guion.indexOf(c.anchor);
+    if (a < 0) { console.warn(`[!] capítulo sin ancla: ${c.label}`); continue; }
+    chapters.push({ label: c.label, fromSeconds: +(Math.max(0, timeAt(a) ?? 0)).toFixed(2) });
+  }
+  console.log(`     ${tags.length} etiquetas de motor · ${chapters.length} capítulos`);
+  await fs.writeFile(path.join(ROOT, "out", "_shots-plan.json"), JSON.stringify(shots.map((s, k) => ({ i: k, clipSrc: s.clipSrc, startFrom: s.startFromSeconds, dur: s.durationInSeconds, isImage: !!s.isImage })), null, 1), "utf-8");
+
   await fs.copyFile(NARRATION, path.join(AUDIO_DIR, "narration.mp3"));
   // Música de fondo: solo si el cliente la ha puesto en el proyecto (regla:
   // normalmente se añade aparte con ducking; en la nube no está y no se incrusta).
   const hasMusic = await fileExists(path.join(AUDIO_DIR, "musica-fondo.mp3"));
-  await fs.writeFile(CONFIG_PATH, emitConfig(total, shots, overlays, pins, hasMusic), "utf-8");
+  await fs.writeFile(CONFIG_PATH, emitConfig(total, shots, overlays, pins, hasMusic, tags, chapters), "utf-8");
   console.log(`\n✅ Listo. total=${total.toFixed(1)}s · ${shots.length} planos · ${overlays.length} overlays · ${pins.length} pins.`);
 }
 
-function emitConfig(total, shots, overlays, pins, hasMusic) {
+function emitConfig(total, shots, overlays, pins, hasMusic, tags, chapters) {
   const shotsCode = shots
     .map((s) => `  { clipSrc: ${JSON.stringify(s.clipSrc)}, durationInSeconds: ${s.durationInSeconds}, startFromSeconds: ${s.startFromSeconds}, kenBurns: ${JSON.stringify(s.kenBurns)}, framed: ${s.framed}, isImage: ${!!s.isImage}, sfx: ${!!s.sfx} }`)
     .join(",\n");
@@ -888,10 +963,13 @@ export type Pin =
   | { kind: "image"; src: string; label?: string; fromSeconds: number; durationInSeconds: number }
   | { kind: "duo"; srcA: string; srcB: string; labelA: string; labelB: string; fromSeconds: number; durationInSeconds: number };
 
+export type Tag = { code: string; name: string; verdict: "yes" | "no"; fromSeconds: number; durationInSeconds: number };
+export type Chapter = { label: string; fromSeconds: number };
+
 export type VideoConfig = {
   width: number; height: number; fps: number;
   narrationSrc?: string; musicSrc?: string; totalDurationInSeconds: number;
-  shots: Shot[]; overlays: Overlay[]; pins: Pin[];
+  shots: Shot[]; overlays: Overlay[]; pins: Pin[]; tags?: Tag[]; chapters?: Chapter[];
 };
 
 // Tipos antiguos (compatibilidad; sin uso)
@@ -923,6 +1001,8 @@ ${ovCode}
   pins: [
 ${pinsCode}
   ],
+  tags: ${JSON.stringify(tags)},
+  chapters: ${JSON.stringify(chapters)},
 };
 `;
 }

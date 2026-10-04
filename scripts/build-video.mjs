@@ -39,16 +39,16 @@ const CLIPS_PER_QUERY = 8;
 // VÍDEO 13 — b-roll de relleno (los modelos vienen de ENTITIES). Genérico de
 // fiabilidad / taller / conducción por sección.
 const PARTS = [
-  { key: "intro", anchor: null, queries: ["car mechanic checklist", "cars on road traffic", "car dealership showroom", "car engine bay clean"] },
-  { key: "aygo", anchor: "COCHE 1:", queries: ["small city car driving", "compact car parked street", "small car engine bay", "hatchback city road"] },
-  { key: "rav4", anchor: "COCHE 2:", queries: ["family suv highway", "suv driving road trip", "suv interior family", "hybrid suv driving"] },
-  { key: "chr", anchor: "COCHE 3:", queries: ["compact suv city driving", "crossover car road", "suv dashboard display", "modern suv parked"] },
-  { key: "niro", anchor: "COCHE 4:", queries: ["electric car charging", "ev suv driving", "car charging home", "electric car dashboard"] },
-  { key: "vitara", anchor: "COCHE 5:", queries: ["small suv road", "compact suv countryside", "suv parked street", "crossover driving"] },
-  { key: "stonic", anchor: "COCHE 6:", queries: ["small suv city", "compact crossover driving", "suv dashboard technology", "small suv parked"] },
-  { key: "mazda2", anchor: "COCHE 7:", queries: ["small car driving road", "hatchback city driving", "compact car cornering", "small car parked"] },
-  { key: "cierre", anchor: "EL PATRÓN QUE CONECTA", queries: ["car mechanic workshop", "cars parked dealership", "person choosing car", "car engine reliable"] },
+  { key: "intro", anchor: null, queries: ["highway driving car", "motorway traffic cars", "car odometer dashboard", "car fuel pump station"] },
+  { key: "regla", anchor: "PARTE UNO: LA REGLA DE ORO", queries: ["car engine bay", "mechanic repairing car engine", "car exhaust pipe", "garage mechanic workshop"] },
+  { key: "buenos", anchor: "PARTE DOS: LOS DIÉSEL QUE SÍ", queries: ["taxi driving city", "van driving road", "mechanic inspecting engine", "car engine running"] },
+  { key: "malos", anchor: "PARTE TRES: LOS DIÉSEL QUE UN MECÁNICO NO", queries: ["car engine smoke exhaust", "mechanic repairing engine", "car broken down roadside", "engine bay open hood"] },
+  { key: "adblue", anchor: "LOS DIÉSEL CON ADBLU Y FILTRO", queries: ["diesel fuel nozzle", "exhaust smoke car", "car dashboard warning light", "mechanic car diagnostic"] },
+  { key: "comprar", anchor: "PARTE CUATRO: CÓMO COMPRAR", queries: ["used car buying inspection", "mechanic checking car", "car oil change", "car dashboard warning light"] },
+  { key: "deberias", anchor: "PARTE CINCO: ¿DEBERÍAS COMPRAR", queries: ["highway driving long distance", "city traffic congestion", "fuel gas station diesel", "car driving road"] },
+  { key: "cierre", anchor: "CONCLUSIÓN: EL DIÉSEL CORRECTO", queries: ["car driving highway sunset", "mechanic workshop", "car engine bay clean", "cars on road traffic"] },
 ];
+
 
 // Vídeo 10: clips reales de modelo (ENTITIES/SECTIONS), no imágenes sticky.
 const MODELS = [];
@@ -60,56 +60,70 @@ const MODELS = [];
 // Vídeo 6 (LSPI) es conceptual: sin pool de imágenes de SUV (serían fuera de tema).
 const SUV_MODELS = [];
 
-// VÍDEO 13 — 7 COCHES CASI PERFECTOS SEGÚN LA OCU 2026. Anclas verificadas
-// literalmente en input/guion-completo.txt, en ORDEN cronológico.
+// VÍDEO 14 — DIÉSEL EN 2026: motores que SÍ / que NO. Anclas literales de input/guion-completo.txt.
 const OVERLAYS = [
-  // HOOK
-  { anchor: "La OCU acaba de publicar", kind: "hook", text: "7 COCHES CASI PERFECTOS\nSEGÚN LA OCU 2026" },
-  { anchor: "ochenta y cinco mil quinientos noventa conductores", kind: "stat", value: "85.590 CONDUCTORES", sub: "10 PAÍSES · 392 MODELOS ANALIZADOS" },
-  { anchor: "puntuaciones de noventa y seis o más sobre cien", kind: "caption", text: "96+ / 100 EN FIABILIDAD REAL" },
-
-  // 1. Toyota Aygo X Cross — 98
-  { anchor: "COCHE 1:", kind: "hook", text: "1. TOYOTA AYGO X CROSS" },
-  { anchor: "La puntuación más alta de todo el estudio", kind: "stat", value: "98/100", sub: "LA NOTA MÁS ALTA · Nº1 ABSOLUTO" },
-  { anchor: "la mejor ingeniería que existe", kind: "caption", text: "ATMOSFÉRICO · SIN TURBO = FIABLE" },
-
-  // 2. Toyota RAV4 — 96
-  { anchor: "COCHE 2:", kind: "hook", text: "2. TOYOTA RAV4\nHÍBRIDO" },
-  { anchor: "Líder entre los SUV grandes", kind: "stat", value: "96/100", sub: "LÍDER SUV GRANDE (HÍBRIDO Y PHEV)" },
-  { anchor: "el coche más equilibrado del mercado global", kind: "caption", text: "EL SUV MÁS EQUILIBRADO DEL MERCADO" },
-
-  // 3. Toyota C-HR — 96
-  { anchor: "COCHE 3:", kind: "hook", text: "3. TOYOTA C-HR\nHÍBRIDO" },
-  { anchor: "destacando entre los coches medianos con etiqueta ECO", kind: "stat", value: "96/100", sub: "SUV COMPACTO HÍBRIDO (2016-2023)" },
-  { anchor: "sin sacrificar un ápice de fiabilidad", kind: "caption", text: "DISEÑO CON CARÁCTER + FIABILIDAD TOYOTA" },
-
-  // 4. Kia Niro Eléctrico — 96
-  { anchor: "COCHE 4:", kind: "hook", text: "4. KIA NIRO\nELÉCTRICO" },
-  { anchor: "El líder de los eléctricos medianos", kind: "stat", value: "96/100", sub: "EL ELÉCTRICO MEDIANO Nº1" },
-  { anchor: "evita los fallos de software comunes en otros eléctricos", kind: "caption", text: "SIN LOS FALLOS DE SOFTWARE DE OTROS EV" },
-  { anchor: "garantía de Kia, de siete años", kind: "stat", value: "7 AÑOS", sub: "DE GARANTÍA KIA" },
-
-  // 5. Suzuki Vitara — 96
-  { anchor: "COCHE 5:", kind: "hook", text: "5. SUZUKI VITARA" },
-  { anchor: "Uno de los SUV pequeños más fiables del mercado", kind: "stat", value: "96/100", sub: "SUV PEQUEÑO · MECÁNICA PROBADA" },
-  { anchor: "una de las cuatro marcas más fiables del estudio", kind: "caption", text: "SUZUKI: TOP-4 MARCAS MÁS FIABLES (91)" },
-
-  // 6. Kia Stonic — 96
-  { anchor: "COCHE 6:", kind: "hook", text: "6. KIA STONIC" },
-  { anchor: "apenas presenta incidencias en sus primeros años", kind: "stat", value: "96/100", sub: "ELECTRÓNICA SIN INCIDENCIAS" },
-  { anchor: "ya no es la mecánica, es la electrónica", kind: "caption", text: "HOY FALLA LA ELECTRÓNICA, NO LA MECÁNICA" },
-
-  // 7. Mazda 2 — 96
-  { anchor: "COCHE 7:", kind: "hook", text: "7. MAZDA 2" },
-  { anchor: "compartiendo puntuación con modelos como", kind: "stat", value: "96/100", sub: "UTILITARIO · TAMBIÉN i20, RIO, 108" },
-  { anchor: "conduce mejor que casi cualquier rival directo", kind: "caption", text: "EL MÁS DIVERTIDO DE CONDUCIR" },
-
-  // PATRÓN + CIERRE
-  { anchor: "EL PATRÓN QUE CONECTA A LOS SIETE", kind: "hook", text: "EL PATRÓN:\nJAPONÉS + HÍBRIDO SIMPLE" },
-  { anchor: "elige japonés e híbrido no enchufable", kind: "caption", text: "JAPONÉS + HÍBRIDO NO ENCHUFABLE" },
-  { anchor: "no te fíes solo de la marca", kind: "caption", text: "MIRA EL MODELO Y EL MOTOR, NO SOLO LA MARCA" },
-  { anchor: "Suscríbete para más", kind: "hook", text: "SUSCRÍBETE" },
+  { anchor: "El diésel no ha muerto.", kind: "hook", text: "EL DIÉSEL\nNO HA MUERTO" },
+  { anchor: "veinticinco mil kilómetros al año fuera de la ciudad", kind: "caption", text: "+20.000 KM/AÑO POR CARRETERA = DIÉSEL SÍ" },
+  { anchor: "Hay motores diésel que un mecánico compraría", kind: "caption", text: "UN MECÁNICO LOS COMPRARÍA CON LOS OJOS CERRADOS" },
+  { anchor: "superan los cuatrocientos mil kilómetros sin abrir el motor", kind: "stat", value: "+400.000 KM", sub: "SIN ABRIR EL MOTOR" },
+  { anchor: "Con códigos de motor concretos", kind: "caption", text: "CÓDIGOS DE MOTOR · KILOMETRAJES REALES · DATOS 2026" },
+  { anchor: "PARTE UNO: LA REGLA DE ORO", kind: "hook", text: "LA REGLA DE ORO\nDEL DIÉSEL EN 2026" },
+  { anchor: "entre dos mil diez y dos mil dieciséis", kind: "stat", value: "2010 – 2016", sub: "EURO 5 / INICIOS DE EURO 6" },
+  { anchor: "máximo recomendable de unos doscientos mil kilómetros", kind: "stat", value: "200.000 KM", sub: "CON FILTRO DE PARTÍCULAS + ADBLUE" },
+  { anchor: "más tecnología anticontaminación significa menos durabilidad", kind: "caption", text: "MÁS ANTICONTAMINACIÓN = MENOS DURABILIDAD" },
+  { anchor: "PARTE DOS: LOS DIÉSEL QUE SÍ", kind: "hook", text: "LOS DIÉSEL QUE SÍ\nCOMPRARÍA UN MECÁNICO" },
+  { anchor: "EL REY ABSOLUTO", kind: "hook", text: "1. RENAULT 1.5 dCi\nK9K" },
+  { anchor: "Los datos de taller son contundentes", kind: "stat", value: "+400.000 KM", sub: "HABITUAL EN TAXIS Y FURGONETAS" },
+  { anchor: "motor diésel más producido de Europa", kind: "caption", text: "EL DIÉSEL MÁS PRODUCIDO DE EUROPA" },
+  { anchor: "cuatro coma cinco litros a los cien", kind: "stat", value: "4,5 L / 100 KM", sub: "CONSUMO REAL" },
+  { anchor: "la válvula e ge erre y el turbo", kind: "caption", text: "VIGILAR: VÁLVULA EGR Y TURBO (+150.000 KM)" },
+  { anchor: "EL IMBATIBLE", kind: "hook", text: "2. TOYOTA 2.2 D-4D\n2AD-FTV" },
+  { anchor: "el motor diésel más fiable jamás fabricado según", kind: "caption", text: "EL DIÉSEL MÁS FIABLE JAMÁS FABRICADO" },
+  { anchor: "supera regularmente los cuatrocientos mil", kind: "stat", value: "+400.000 KM", sub: "CADENA · SOBREDIMENSIONADO" },
+  { anchor: "las primeras versiones tuvieron algún caso de junta de culata", kind: "caption", text: "VIGILAR: JUNTA DE CULATA EN LAS PRIMERAS VERSIONES" },
+  { anchor: "EL BLOQUE INDESTRUCTIBLE", kind: "hook", text: "3. PEUGEOT / CITROËN\n2.2 HDi · DW12" },
+  { anchor: "un bloque de hierro indestructible", kind: "caption", text: "BLOQUE DE HIERRO INDESTRUCTIBLE" },
+  { anchor: "alrededor de los doscientos mil kilómetros", kind: "stat", value: "200.000 KM", sub: "CAMBIAR EL VOLANTE BIMASA" },
+  { anchor: "EL EVOLUCIONADO", kind: "hook", text: "4. PEUGEOT\n1.5 BlueHDi 130" },
+  { anchor: "consumo de cuatro coma ocho litros", kind: "stat", value: "4,8 L / 100 KM", sub: "EN CARRETERA" },
+  { anchor: "hasta trescientos cincuenta mil kilómetros", kind: "stat", value: "350.000 KM", sub: "FIABILIDAD MEJORADA" },
+  { anchor: "no lo confundas con el gasolina Pure Tec", kind: "caption", text: "NO CONFUNDIR CON EL GASOLINA PURETECH" },
+  { anchor: "EL VETERANO SEGURO", kind: "hook", text: "5. VOLKSWAGEN\n1.9 TDI" },
+  { anchor: "Cuatrocientos mil kilómetros con mantenimiento básico", kind: "stat", value: "400.000 KM", sub: "MANTENIMIENTO BÁSICO" },
+  { anchor: "hay uno concreto que los mecánicos rescatan", kind: "hook", text: "VW 2.0 TDI 140 CV\nBKD · 2005-2010" },
+  { anchor: "última generación con inyectores bomba fiables", kind: "caption", text: "LA ÚLTIMA CON INYECTORES BOMBA FIABLES" },
+  { anchor: "cambios de aceite cada quince mil kilómetros", kind: "caption", text: "ACEITE CADA 15.000 KM = COMPRA SEGURA" },
+  { anchor: "LA REFERENCIA ALEMANA", kind: "hook", text: "6. MERCEDES 2.2 CDI\nOM651" },
+  { anchor: "Equipa la Clase ce", kind: "caption", text: "CLASE C · CLASE E · GLC · VITO · SPRINTER" },
+  { anchor: "más de trescientos mil kilómetros sin problemas", kind: "stat", value: "+300.000 KM", sub: "CADENA ROBUSTA" },
+  { anchor: "PARTE TRES: LOS DIÉSEL QUE UN MECÁNICO NO", kind: "hook", text: "LOS DIÉSEL QUE\nUN MECÁNICO NO COMPRARÍA" },
+  { anchor: "LA ADVERTENCIA NÚMERO UNO", kind: "hook", text: "⚠ BMW 2.0 DIÉSEL\nN47 · 2007-2014" },
+  { anchor: "la cadena de distribución situada en la parte trasera", kind: "caption", text: "LA CADENA VA DETRÁS, PEGADA AL VOLANTE MOTOR" },
+  { anchor: "Si la cadena salta, destroza el motor", kind: "caption", text: "SI LA CADENA SALTA, MOTOR DESTROZADO" },
+  { anchor: "en versiones posteriores a dos mil once", kind: "caption", text: "2011+: PROBLEMA EN GRAN PARTE CORREGIDO" },
+  { anchor: "LOS DIÉSEL CON ADBLU Y FILTRO", kind: "hook", text: "DIÉSEL MODERNO\nADBLUE + FILTRO DE PARTÍCULAS" },
+  { anchor: "ronda los doscientos mil kilómetros", kind: "stat", value: "200.000 KM", sub: "MÁXIMO RECOMENDABLE DE COMPRA" },
+  { anchor: "LOS DIÉSEL ANTIGUOS DE BE EME UVE DOBLE", kind: "hook", text: "BMW Y MERCEDES ANTIGUOS\nPROBLEMAS DE ÓXIDOS DE NITRÓGENO" },
+  { anchor: "se convierte en un pozo de averías", kind: "caption", text: "EL BLOQUE NO ES MALO · EL ANTICONTAMINACIÓN, SÍ" },
+  { anchor: "LOS PRIMEROS DIÉSEL DE ALTA PRESIÓN", kind: "hook", text: "TOYOTA 1CD-FTV\nEL PRIMER D-4D" },
+  { anchor: "suele ser el conejillo de indias", kind: "caption", text: "TECNOLOGÍA NUEVA = CONEJILLO DE INDIAS" },
+  { anchor: "PARTE CUATRO: CÓMO COMPRAR", kind: "hook", text: "5 REGLAS PARA COMPRAR\nUN DIÉSEL SIN EQUIVOCARTE" },
+  { anchor: "Primera: exige el historial de aceite", kind: "caption", text: "1· HISTORIAL DE ACEITE (10-15.000 KM)" },
+  { anchor: "Segunda: pregunta por el uso", kind: "caption", text: "2· ¿AUTOPISTA O CIUDAD?" },
+  { anchor: "Tercera: revisa el volante bimasa", kind: "caption", text: "3· VOLANTE BIMASA Y EMBRAGUE" },
+  { anchor: "Cuarta: verifica el sistema", kind: "caption", text: "4· FILTRO, ADBLUE Y TESTIGOS" },
+  { anchor: "Quinta, y la más importante", kind: "caption", text: "5· LA REGLA DE LOS KILÓMETROS" },
+  { anchor: "hasta cuatrocientos mil kilómetros es viable", kind: "stat", value: "≤ 400.000 KM", sub: "DIÉSEL SIMPLE ANTERIOR A 2016" },
+  { anchor: "no pases de doscientos mil", kind: "stat", value: "≤ 200.000 KM", sub: "DIÉSEL MODERNO CON ADBLUE" },
+  { anchor: "PARTE CINCO: ¿DEBERÍAS COMPRAR DIÉSEL", kind: "hook", text: "¿COMPRAR DIÉSEL\nEN 2026?" },
+  { anchor: "Si haces más de veinte mil o veinticinco mil kilómetros al año, principalmente", kind: "stat", value: "20-25.000 KM/AÑO", sub: "POR CARRETERA = DIÉSEL SÍ" },
+  { anchor: "más de mil kilómetros por depósito", kind: "stat", value: "+1.000 KM", sub: "DE AUTONOMÍA POR DEPÓSITO" },
+  { anchor: "menos de quince mil kilómetros al año, olvídate", kind: "caption", text: "CIUDAD / <15.000 KM: MEJOR UN HÍBRIDO" },
+  { anchor: "CONCLUSIÓN: EL DIÉSEL CORRECTO", kind: "hook", text: "EL DIÉSEL CORRECTO\nEN LAS MANOS CORRECTAS" },
+  { anchor: "la simplicidad y el mantenimiento mandan", kind: "caption", text: "SIMPLICIDAD + MANTENIMIENTO" },
+  { anchor: "Suscríbete para más guías", kind: "hook", text: "SUSCRÍBETE" },
 ];
+
 
 // PINS: imagen del MODELO exacto anclada a donde se menciona.
 // kind "image" = un modelo; kind "duo" = comparativa de dos.
@@ -130,15 +144,19 @@ const PINS = [];
 // VÍDEO 13 — 7 COCHES CASI PERFECTOS (OCU): por MODELOS. `videos:[key]` usa el clip
 // marca-<key>.mp4 (public/assets/yt-ocu) si existe; si no, cae a IMAGEN por `query`.
 const ENTITIES = [
-  { key: "aygo", label: "", query: "Toyota Aygo X Cross 2026", videos: ["aygo"], anchors: ["Aygo", "Aigo"] },
-  { key: "rav4", label: "", query: "Toyota RAV4 hybrid 2026", videos: ["rav4"], anchors: ["RAV4", "rav cuatro"] },
-  { key: "chr", label: "", query: "Toyota C-HR hybrid 2026", videos: ["chr"], anchors: ["C-HR", "ce hache erre"] },
-  { key: "niro", label: "", query: "Kia Niro EV 2026", videos: ["niro"], anchors: ["Niro"] },
-  { key: "vitara", label: "", query: "Suzuki Vitara 2026", videos: ["vitara"], anchors: ["Vitara"] },
-  { key: "stonic", label: "", query: "Kia Stonic 2026", videos: ["stonic"], anchors: ["Stonic", "Stónic"] },
-  { key: "mazda2", label: "", query: "Mazda 2 2026", videos: ["mazda2"], anchors: ["Mazda 2", "Mazda dos"] },
+  { key: "general", label: "", query: "", videos: ["moderno"], anchors: [] },
+  { key: "renault", label: "", query: "", videos: ["renault", "renault2", "renault3"], anchors: ["ka nueve ka", "Renó uno coma cinco", "Clío", "Cashcai", "Dacha Dáster"] },
+  { key: "toyota", label: "", query: "", videos: ["toyota"], anchors: ["dos a de efe te uve", "Avénsis", "Rav cuatro", "Corolla Verso", "Toyota dos coma dos", "uno ce de efe te uve"] },
+  { key: "psa", label: "", query: "", videos: ["psa"], anchors: ["de uve doce", "dos coma dos ache de i", "Peyó y Sitroén"] },
+  { key: "bluehdi", label: "", query: "", videos: ["bluehdi"], anchors: ["blu ache de i", "Pure Tec"] },
+  { key: "vw19", label: "", query: "", videos: ["vw19"], anchors: ["uno coma nueve te de i", "a efe ene", "a ese zeta"] },
+  { key: "vw20", label: "", query: "", videos: ["vw20"], anchors: ["dos coma cero te de i", "be ka de o be eme eme", "inyectores bomba"] },
+  { key: "merc", label: "", query: "", videos: ["merc"], anchors: ["Mercedes", "o eme seiscientos cincuenta y uno"] },
+  { key: "bmw", label: "", query: "", videos: ["bmw1", "bmw2"], anchors: ["ene cuarenta y siete", "be eme uve doble"] },
+  { key: "moderno", label: "", query: "", videos: ["moderno"], anchors: [] },
   { key: "cierre", label: "", query: "", videos: [], anchors: [] },
 ];
+
 
 // SECCIONES: cada tramo tiene una MARCA principal. Mientras dura la sección, si no
 // se menciona explícitamente otra cosa, se muestra el vídeo de ESA marca (no uno
@@ -148,15 +166,24 @@ const ENTITIES = [
 // de patrón/lección cae a "cierre" (rotación de todos los modelos).
 // Anclas por "COCHE N:" (el prefijo NO cambia aunque el nombre se escriba fonético).
 const SECTIONS = [
-  { anchor: "COCHE 1:", primary: "aygo" },
-  { anchor: "COCHE 2:", primary: "rav4" },
-  { anchor: "COCHE 3:", primary: "chr" },
-  { anchor: "COCHE 4:", primary: "niro" },
-  { anchor: "COCHE 5:", primary: "vitara" },
-  { anchor: "COCHE 6:", primary: "stonic" },
-  { anchor: "COCHE 7:", primary: "mazda2" },
-  { anchor: "EL PATRÓN QUE CONECTA A LOS SIETE", primary: "cierre" },
+  { anchor: "Déjame aclarar algo", primary: "general" },
+  { anchor: "PARTE UNO: LA REGLA DE ORO", primary: "general" },
+  { anchor: "EL REY ABSOLUTO", primary: "renault" },
+  { anchor: "EL IMBATIBLE", primary: "toyota" },
+  { anchor: "EL BLOQUE INDESTRUCTIBLE", primary: "psa" },
+  { anchor: "EL EVOLUCIONADO", primary: "bluehdi" },
+  { anchor: "EL VETERANO SEGURO", primary: "vw19" },
+  { anchor: "Y dentro de los dos coma cero te de i", primary: "vw20" },
+  { anchor: "LA REFERENCIA ALEMANA", primary: "merc" },
+  { anchor: "LA ADVERTENCIA NÚMERO UNO", primary: "bmw" },
+  { anchor: "LOS DIÉSEL CON ADBLU Y FILTRO", primary: "moderno" },
+  { anchor: "LOS DIÉSEL ANTIGUOS DE BE EME UVE DOBLE", primary: "bmw" },
+  { anchor: "LOS PRIMEROS DIÉSEL DE ALTA PRESIÓN", primary: "toyota" },
+  { anchor: "PARTE CUATRO: CÓMO COMPRAR", primary: "general" },
+  { anchor: "PARTE CINCO: ¿DEBERÍAS COMPRAR", primary: "general" },
+  { anchor: "CONCLUSIÓN: EL DIÉSEL CORRECTO", primary: "cierre" },
 ];
+
 
 async function loadEnv() {
   try {
@@ -437,6 +464,19 @@ function videoDurationSec(file) {
   return 0;
 }
 
+// Reglas por clip (VÍDEO 14, yt-diesel): `allow` = solo estos tramos [s,e]; `skip` = tramos
+// con presentador/rótulos/logos de otro canal que NO deben salir (detectados a mano + script).
+const CLIP_RULES = {
+  "yt-diesel": {
+    renault: { allow: [[6, 34], [52, 80], [93, 119]] },
+    renault2: { allow: [[2, 155]] },
+    renault3: { allow: [[2, 325]] },
+    merc: { allow: [[2, 372]] },
+    vw19: { allow: [[2, 84], [121, 440]] },
+    bmw1: { skip: [[0, 50], [131, 142], [149, 161], [202, 215], [231, 242], [244, 256], [264, 274], [310, 321], [361, 373], [516, 526], [531, 544], [559, 582], [587, 599], [603, 614], [625, 637], [641, 650], [656, 669], [696, 709], [737, 750], [785, 812]] },
+  },
+};
+
 // Biblioteca de YouTube -> ventanas de 3s (b-roll real). Cada ventana apunta al
 // mismo fichero con un startFrom distinto (no hay que trocear a disco).
 async function getYtWindows() {
@@ -458,7 +498,15 @@ async function getYtWindows() {
     const margin = shortClip ? Math.min(6, dur * 0.05) : 45;
     const endMargin = shortClip ? 9 : 45;
     const step = shortClip ? 4 : 7;
+    const rule = CLIP_RULES[YT_SUBDIR]?.[brand];
+    const overlaps = (t) => (rule?.skip || []).some(([a, b]) => t < b && t + 7 > a);
+    if (rule?.allow) {
+      for (const [a, b] of rule.allow)
+        for (let t = a; t + 7 <= b; t += 6) wins.push({ src, key: `${src}#${Math.round(t)}`, file: src, fixedStart: +t.toFixed(1), brand });
+      continue;
+    }
     for (let t = margin; t < dur - endMargin; t += step) {
+      if (overlaps(t)) continue;
       wins.push({ src, key: `${src}#${Math.round(t)}`, file: src, fixedStart: +t.toFixed(1), brand });
     }
   }

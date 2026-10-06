@@ -501,6 +501,13 @@ const CHAPTERS = [
 // Reglas por clip (VÍDEO 14, yt-diesel): `allow` = solo estos tramos [s,e]; `skip` = tramos
 // con presentador/rótulos/logos de otro canal que NO deben salir (detectados a mano + script).
 const CLIP_RULES = {
+  // SUV 2027: tucson = logo "Silent Drives" cada ~110s (13s); qashqai = rótulo inicial + captura de consumo;
+  // modely = botón SUBSCRIBE/logo GDrives (~2:50-3:20); cx5 = marca de agua SPEEDHEADS fija (se desenfoca en prep-shots).
+  "yt-suv": {
+    tucson: { skip: [[0, 16], [107, 124], [223, 240], [331, 348], [439, 457], [548, 565], [664, 681], [772, 786]] },
+    qashqai: { skip: [[0, 28], [645, 680]] },
+    modely: { skip: [[0, 8], [170, 186], [600, 620], [1196, 1221]] },
+  },
   "yt-diesel": {
     renault: { allow: [[6, 34], [63, 86], [90, 118]] },
     renault2: { allow: [[2, 155]] },

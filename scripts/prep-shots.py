@@ -89,6 +89,9 @@ def good_plate(r, relax):
         return True
     if relax and c >= 0.3 and 1.0 <= ar <= 7.5 and area <= 0.15:  # tramos exteriores: sin pantallas
         return True
+    # matrículas PEQUEÑAS de otros coches en el tráfico (ancha, <1,3 % del cuadro, conf baja): nunca pantallas
+    if c >= 0.28 and 1.6 <= ar <= 7.5 and area <= 0.013:
+        return True
     return False
 
 
@@ -114,6 +117,8 @@ def process_shot(job):
     idx, src_path, start, dur, out_path, relax = job
     if os.path.exists(out_path) and os.path.getsize(out_path) > 20000:
         return idx, 0, "ya existía"
+    final_path = out_path
+    out_path = final_path + ".tmp.mp4"
     det = get_detector()
     cap = cv2.VideoCapture(src_path)
     if not cap.isOpened():
@@ -121,7 +126,7 @@ def process_shot(job):
     sfps = cap.get(cv2.CAP_PROP_FPS) or 30.0
     cap.release()
     nframes = int(round((dur + PAD) * sfps))
-    stride = 2 if relax else DET_EVERY
+    stride = 2 if relax else 3
     hold = 12 if relax else HOLD
     # PASADA 1: detectar matrículas (cada `stride` fotogramas)
     dets = {}
@@ -150,15 +155,24 @@ def process_shot(job):
             for k in near:
                 boxes.extend(dets[k])
             fr = blur_boxes(fr.copy(), boxes, 1.9 if relax else 1.0)
-        pr.stdin.write(fr.tobytes())
-    pr.stdin.close()
-    pr.wait()
-    return idx, ndet, "ok"
+        try:
+            pr.stdin.write(fr.tobytes())
+        except (BrokenPipeError, OSError):
+            break
+    try:
+        pr.stdin.close()
+    except Exception:
+        pass
+    rc = pr.wait()
+    if rc == 0 and os.path.exists(out_path) and os.path.getsize(out_path) > 20000:
+        os.replace(out_path, final_path)
+        return idx, ndet, "ok"
+    return idx, -1, f"ffmpeg rc={rc}"
 
 
 def shot_key(s):
     import hashlib
-    return hashlib.md5(f"{s['clipSrc']}|{s['startFrom']}|{s['dur']}|{'v6r' if is_relaxed(s['clipSrc'], s['startFrom']) else 'v6'}".encode()).hexdigest()[:10]
+    return hashlib.md5(f"{s['clipSrc']}|{s['startFrom']}|{s['dur']}|{'v7r' if is_relaxed(s['clipSrc'], s['startFrom']) else 'v7'}".encode()).hexdigest()[:10]
 
 
 def main():

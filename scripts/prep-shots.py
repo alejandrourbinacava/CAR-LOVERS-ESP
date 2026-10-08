@@ -30,7 +30,9 @@ HOLD = 8             # fotogramas que se mantiene una caja tras perderla
 CONF = 0.35
 DETECTOR = None
 # Tramos EXTERIORES (sin pantallas) de cada clip donde se acepta cualquier matrícula en ángulo/primer plano
-RELAX = {"marca-bluehdi": 45, "marca-toyota": 80, "marca-moderno": 150}
+RELAX = {"marca-bluehdi": 45, "marca-toyota": 80, "marca-moderno": 150, "marca-rav4": 40, "marca-qashqai": 45, "marca-arona": 70, "marca-t2008": 50, "marca-captur": 45, "marca-stonic": 30, "marca-vitara": 70, "marca-niro": 70, "marca-kona": 45, "marca-model3": 30, "marca-mgzs": 30, "marca-chr": 45, "marca-yariscross": 45, "marca-atto2": 30, "marca-cx5": 40, "marca-tucson": 30}
+# Marcas de agua FIJAS (x1,y1,x2,y2) que se desenfocan en TODOS los fotogramas de ese clip
+STATIC_MASKS = {"marca-cx5": [(1735, 22, 1905, 98)]}
 
 
 def is_relaxed(clip_src, start):
@@ -142,8 +144,9 @@ def process_shot(job):
     keys = sorted(dets)
     for n, fr in enumerate(read_frames(src_path, start, nframes)):
         near = [k for k in keys if abs(k - n) <= hold]
-        if near:
-            boxes = []
+        smask = STATIC_MASKS.get(os.path.basename(src_path)[:-4], [])
+        if near or smask:
+            boxes = list(smask)
             for k in near:
                 boxes.extend(dets[k])
             fr = blur_boxes(fr.copy(), boxes, 1.9 if relax else 1.0)
@@ -155,7 +158,7 @@ def process_shot(job):
 
 def shot_key(s):
     import hashlib
-    return hashlib.md5(f"{s['clipSrc']}|{s['startFrom']}|{s['dur']}|{'v5r' if is_relaxed(s['clipSrc'], s['startFrom']) else 'v3'}".encode()).hexdigest()[:10]
+    return hashlib.md5(f"{s['clipSrc']}|{s['startFrom']}|{s['dur']}|{'v6r' if is_relaxed(s['clipSrc'], s['startFrom']) else 'v6'}".encode()).hexdigest()[:10]
 
 
 def main():

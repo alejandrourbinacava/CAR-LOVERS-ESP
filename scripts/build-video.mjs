@@ -558,6 +558,10 @@ const CLIP_RULES = {
     tucson: { skip: [[0, 16], [107, 124], [223, 240], [331, 348], [439, 457], [548, 565], [664, 681], [772, 786]] },
     qashqai: { skip: [[0, 28], [645, 680]] },
     modely: { skip: [[0, 8], [170, 186], [600, 620], [1196, 1221]] },
+    vitara: { skip: [[742, 775]] },
+    kona: { skip: [[0, 30], [868, 918]] },
+    t2008: { skip: [[0, 16]] },
+    niro: { skip: [[76, 90], [120, 134], [312, 330], [448, 464]] },
   },
   "yt-diesel": {
     renault: { allow: [[6, 34], [63, 86], [90, 118]] },
@@ -849,19 +853,21 @@ async function main() {
   const lastStartBySrc = {};
   let lastSrcUsed = null;
   let repeats = 0;
-  const hashW = (w) => { let h = 0; for (const c of w.key) h = (h * 31 + c.charCodeAt(0)) >>> 0; return (h % 1000) / 1000; };
-  const isFree = (w) => !(usedRanges[w.src] || []).some(([a, b]) => w.fixedStart < b && w.fixedStart + WIN > a);
+  const hashW = (w) => { let h = 0; for (const c of String(w.key ?? w.src)) h = (h * 31 + c.charCodeAt(0)) >>> 0; return (h % 1000) / 1000; };
+  const usedImgs = new Set();
+  const isFree = (w) => w.fixedStart === undefined ? !usedImgs.has(w.src) : !(usedRanges[w.src] || []).some(([a, b]) => w.fixedStart < b && w.fixedStart + WIN > a);
   const takeUnused = (pool, _startK, pref) => {
     let best = null, bestScore = -1;
     for (const w of pool) {
       if (!isFree(w)) continue;
-      const dist = lastStartBySrc[w.src] === undefined ? 400 : Math.abs(w.fixedStart - lastStartBySrc[w.src]);
+      const dist = (lastStartBySrc[w.src] === undefined || w.fixedStart === undefined) ? 400 : Math.abs(w.fixedStart - lastStartBySrc[w.src]);
       let score = (w.src === lastSrcUsed ? 0 : 1000) + Math.min(dist, 400) + hashW(w) * 60;
       if (pref === "stock") score += w.brand === "stock" ? 3000 : 0;
       else if (pref === "car") score -= w.brand === "stock" ? 3000 : 0;
       if (score > bestScore) { bestScore = score; best = w; }
     }
     if (!best) return null; // agotado -> el llamante usa relleno temático (no repite)
+    if (best.fixedStart === undefined) { usedImgs.add(best.src); lastSrcUsed = best.src; return best; }
     (usedRanges[best.src] ??= []).push([best.fixedStart, best.fixedStart + WIN]);
     lastStartBySrc[best.src] = best.fixedStart;
     lastSrcUsed = best.src;

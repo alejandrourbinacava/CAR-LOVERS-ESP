@@ -305,7 +305,7 @@ async function serpImages(query, base, need) {
 
 // Clips Pexels vetados (colaron fuera de tema, p.ej. aceite de COCINA en el vídeo
 // de averías). Se pre-siembran en seenIds para que getClips no los use nunca.
-const BLACKLIST_IDS = [26620319, 26620441, 8987271, 3010448, 39839659, 35661513, 6817044, 17854218, 9369898, 27974753, 19728719, 13790663, 4223775, 20693178, 29576552, 39112150, 20156194, 32329376, 20693196, 11785727, 29760618, 34960298];
+const BLACKLIST_IDS = [30283095, 5450251, 17026821, 29740277, 32386567, 26620319, 26620441, 8987271, 3010448, 39839659, 35661513, 6817044, 17854218, 9369898, 27974753, 19728719, 13790663, 4223775, 20693178, 29576552, 39112150, 20156194, 32329376, 20693196, 11785727, 29760618, 34960298];
 const seenIds = new Set(BLACKLIST_IDS);
 
 // Palabras que delatan un clip FUERA DE TEMA (la URL de Pexels lleva el slug
@@ -557,7 +557,7 @@ const CLIP_RULES = {
   "yt-suv": {
     tucson: { skip: [[0, 16], [107, 124], [223, 240], [331, 348], [439, 457], [548, 565], [664, 681], [772, 786]] },
     qashqai: { skip: [[0, 28], [645, 680]] },
-    modely: { skip: [[0, 8], [170, 186], [600, 620], [1196, 1221]] },
+    modely: { skip: [[0, 120], [170, 186], [600, 620], [1196, 1221]] },
     vitara: { skip: [[742, 775]] },
     kona: { skip: [[0, 30], [868, 918]] },
     t2008: { skip: [[0, 16]] },

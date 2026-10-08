@@ -30,7 +30,7 @@ HOLD = 8             # fotogramas que se mantiene una caja tras perderla
 CONF = 0.35
 DETECTOR = None
 # Tramos EXTERIORES (sin pantallas) de cada clip donde se acepta cualquier matrícula en ángulo/primer plano
-RELAX = {"marca-bluehdi": 45, "marca-toyota": 80, "marca-moderno": 150, "marca-rav4": 40, "marca-qashqai": 45, "marca-arona": 70, "marca-t2008": 50, "marca-captur": 45, "marca-stonic": 30, "marca-vitara": 70, "marca-niro": 70, "marca-kona": 45, "marca-model3": 30, "marca-mgzs": 30, "marca-chr": 45, "marca-yariscross": 45, "marca-atto2": 30, "marca-cx5": 40, "marca-tucson": 30}
+RELAX = {"marca-bluehdi": 45, "marca-toyota": 80, "marca-moderno": 150, "marca-rav4": 120, "marca-qashqai": 100, "marca-arona": 120, "marca-t2008": 35, "marca-captur": 50, "marca-stonic": 35, "marca-vitara": 100, "marca-niro": 220, "marca-kona": 80, "marca-model3": 40, "marca-mgzs": 40, "marca-chr": 40, "marca-yariscross": 45, "marca-atto2": 55, "marca-cx5": 160, "marca-q2": 45}
 # Marcas de agua FIJAS (x1,y1,x2,y2) que se desenfocan en TODOS los fotogramas de ese clip
 STATIC_MASKS = {"marca-cx5": [(1735, 22, 1905, 98)]}
 
@@ -76,23 +76,26 @@ def blur_boxes(frame, boxes, grow=1.0):
     return frame
 
 
-def good_plate(r, relax):
+def is_exterior(fr):
+    """Plano EXTERIOR (sin salpicadero): el tercio inferior no es mayoritariamente oscuro."""
+    g = cv2.cvtColor(cv2.resize(fr, (192, 108)), cv2.COLOR_BGR2GRAY)
+    dark = (g[int(108 * 0.65):, :] < 70).mean()
+    return dark < 0.30
+
+
+def good_plate(r, relax, stock=False):
     bw, bh = r.bounding_box.x2 - r.bounding_box.x1, r.bounding_box.y2 - r.bounding_box.y1
     ar = bw / max(1, bh)
     area = bw * bh / (W * H)
     c = r.confidence
-    # Matrícula de frente: ancha (2.3-7.5). En ÁNGULO sale casi cuadrada: se acepta si es pequeña (<=2.5%).
-    # Las pantallas del salpicadero (aspecto <2.3 y grandes) se descartan. Primer plano grande: conf>=0.6.
-    if c >= CONF and 1.0 <= ar <= 7.5 and ((ar >= 2.3 and area <= 0.07) or (ar < 2.3 and area <= 0.025)):
-        return True
-    if c >= 0.6 and 2.0 <= ar <= 7.5 and area <= 0.35:
-        return True
-    if relax and c >= 0.3 and 1.0 <= ar <= 7.5 and area <= 0.15:  # tramos exteriores: sin pantallas
-        return True
-    # matrículas PEQUEÑAS de otros coches en el tráfico (ancha, <1,3 % del cuadro, conf baja): nunca pantallas
-    if c >= 0.28 and 1.6 <= ar <= 7.5 and area <= 0.013:
-        return True
-    return False
+    if relax or stock:
+        # TRAMOS EXTERIORES / STOCK (no hay salpicadero): se acepta cualquier matrícula razonable
+        if c >= 0.3 and 1.0 <= ar <= 7.5 and area <= 0.15:
+            return True
+        return False
+    # TRAMOS DE CONDUCCIÓN (interior): las pantallas del salpicadero se confunden con matrículas.
+    # Solo se tapan matrículas PEQUEÑAS y anchas de coches lejanos (tráfico).
+    return c >= 0.28 and 2.4 <= ar <= 7.5 and area <= 0.012
 
 
 def read_frames(src_path, start, nframes):
@@ -115,6 +118,7 @@ def read_frames(src_path, start, nframes):
 
 def process_shot(job):
     idx, src_path, start, dur, out_path, relax = job
+    stock = '/clips/' in src_path.replace(chr(92), '/')
     if os.path.exists(out_path) and os.path.getsize(out_path) > 20000:
         return idx, 0, "ya existía"
     final_path = out_path
@@ -133,7 +137,8 @@ def process_shot(job):
     ndet = 0
     for n, fr in enumerate(read_frames(src_path, start, nframes)):
         if n % stride == 0:
-            res = [r for r in det.predict(fr) if good_plate(r, relax)]
+            ext = relax or stock or is_exterior(fr)
+            res = [r for r in det.predict(fr) if good_plate(r, ext, stock)]
             if res:
                 dets[n] = [(int(r.bounding_box.x1), int(r.bounding_box.y1), int(r.bounding_box.x2), int(r.bounding_box.y2)) for r in res]
                 ndet += len(res)
@@ -172,7 +177,7 @@ def process_shot(job):
 
 def shot_key(s):
     import hashlib
-    return hashlib.md5(f"{s['clipSrc']}|{s['startFrom']}|{s['dur']}|{'v7r' if is_relaxed(s['clipSrc'], s['startFrom']) else 'v7'}".encode()).hexdigest()[:10]
+    return hashlib.md5(f"{s['clipSrc']}|{s['startFrom']}|{s['dur']}|{'v8r' if is_relaxed(s['clipSrc'], s['startFrom']) else 'v8'}".encode()).hexdigest()[:10]
 
 
 def main():

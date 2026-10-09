@@ -39,205 +39,185 @@ const CLIPS_PER_QUERY = 8;
 // VÍDEO 13 — b-roll de relleno (los modelos vienen de ENTITIES). Genérico de
 // fiabilidad / taller / conducción por sección.
 const PARTS = [
-  { key: "intro", anchor: null, queries: ["suv driving road", "car dealership showroom", "cars on highway traffic", "car keys handover"] },
-  { key: "ventas", anchor: "PARTE 1: QUÉ COMPRA ESPAÑA", queries: ["cars parked street city", "car showroom customers", "traffic cars city aerial", "new cars lot dealership"] },
-  { key: "fiab", anchor: "PARTE 2: LA FIABILIDAD REAL", queries: ["mechanic checking car engine", "suv driving highway", "car engine bay", "car service garage"] },
-  { key: "consumo", anchor: "PARTE 3: CUÁNTO GASTA", queries: ["car fuel gas station", "hybrid car driving city", "car dashboard consumption display", "driving suv road trip"] },
-  { key: "reventa", anchor: "PARTE 4: PRECIO DE COMPRA", queries: ["car dealership handshake", "person signing car contract", "calculator money car", "used car lot"] },
-  { key: "ayudas", anchor: "PARTE 5: EL PLAN AUTO PLUS", queries: ["electric car charging", "ev charging home", "electric suv driving", "charging station cars"] },
-  { key: "novedades", anchor: "PARTE 6: LO QUE LLEGA EN 2027", queries: ["new suv unveiling", "car factory production line", "electric suv driving road", "suv driving countryside"] },
-  { key: "veredicto", anchor: "PARTE 7: EL VEREDICTO", queries: ["family suv driving", "couple buying car", "suv highway sunset", "car keys handover"] },
-  { key: "cierre", anchor: "CONCLUSIÓN: COMPRA CON DATOS", queries: ["suv driving highway sunset", "car dealership showroom", "cars on road traffic", "person choosing car"] },
+  { key: "intro", anchor: null, queries: ["used car dealership lot", "mechanic inspecting car", "car inspection garage", "car keys handover"] },
+  { key: "datos", anchor: "ANTES DE EMPEZAR: DE DÓNDE SALEN LOS DATOS", queries: ["mechanic checking car engine", "car diagnostic tool", "car service garage", "cars on highway traffic"] },
+  { key: "lista", anchor: "NÚMERO 10: SMART FORTWO Y FORFOUR", queries: ["car engine bay", "mechanic working under car", "used car lot", "car dashboard warning light"] },
+  { key: "premium", anchor: "NÚMERO 4: AUDI A4 Y A5", queries: ["car engine oil dipstick", "mechanic checking oil", "car engine repair", "car workshop"] },
+  { key: "tesla", anchor: "NÚMERO 1: TESLA MODEL Y Y MODEL 3", queries: ["electric car charging", "car brake disc", "mechanic car brakes", "electric car driving"] },
+  { key: "metodo", anchor: "CÓMO COMPRAR UN COCHE DE SEGUNDA MANO SIN ARRUINARTE", queries: ["person buying used car", "car test drive", "mechanic inspecting used car", "car dealership handshake"] },
+  { key: "alternativas", anchor: "¿Y QUÉ COMPRO ENTONCES? LAS ALTERNATIVAS", queries: ["hybrid car driving", "car showroom customers", "family car driving road", "car dealership showroom"] },
+  { key: "cierre", anchor: "CONCLUSIÓN: LA FIABILIDAD NO ESTÁ EN LA MARCA", queries: ["car keys handover", "driving highway sunset", "person choosing car", "cars on road traffic"] },
 ];
 
 
-// Vídeo 10: clips reales de modelo (ENTITIES/SECTIONS), no imágenes sticky.
+// Vídeo 16: clips reales de modelo (ENTITIES/SECTIONS), no imágenes sticky.
 const MODELS = [];
-
-// Modelos SUV para el POOL DE IMAGENES (relleno garantizado de SUV real cuando
-// los clips no basten). Se usan como planos de b-roll (tarjeta + Ken Burns).
-// Modelos con imagen ya en disco (evita depender de descargas nuevas, que
-// Wikimedia esta limitando por IP en esta sesion).
-// Vídeo 6 (LSPI) es conceptual: sin pool de imágenes de SUV (serían fuera de tema).
 const SUV_MODELS = [];
 
-// VÍDEO 15 — MEJORES SUV PARA COMPRAR EN 2027. Anclas literales de input/guion-completo.txt (= guion-suv.txt).
+// VÍDEO 16 — COCHES DE SEGUNDA MANO QUE NO DEBES COMPRAR EN 2027. Anclas literales de input/guion-completo.txt.
 const OVERLAYS = [
-  { anchor: "El segundo SUV más vendido de España", kind: "hook", text: "MG ZS: Nº2 EN VENTAS\nPENÚLTIMA MARCA EN FIABILIDAD" },
-  { anchor: "Dieciséis mil setecientas ocho matriculaciones", kind: "stat", value: "16.708", sub: "MATRICULACIONES MG ZS · ENE-SEP 2026" },
-  { anchor: "con 72 puntos sobre 100", kind: "stat", value: "72 / 100", sub: "MG · PENÚLTIMA EN FIABILIDAD (OCU 2026)" },
-  { anchor: "Solo por delante de Land Rover", kind: "caption", text: "SOLO POR DELANTE DE LAND ROVER" },
-  { anchor: "el SUV más vendido no es el mejor para ti", kind: "caption", text: "EL MÁS VENDIDO ≠ EL MEJOR PARA TI" },
-  { anchor: "hay un SUV muy popular que está a punto de cambiar de generación", kind: "caption", text: "⚠ UN SUV POPULAR CAMBIA DE GENERACIÓN" },
-  { anchor: "PARTE 1: QUÉ COMPRA ESPAÑA", kind: "hook", text: "PARTE 1\nQUÉ COMPRA ESPAÑA" },
-  { anchor: "España ha matriculado 912.059 turismos", kind: "stat", value: "912.059", sub: "TURISMOS MATRICULADOS · ENE-SEP 2026" },
-  { anchor: "el 64,3 por ciento del mercado", kind: "stat", value: "64,3 %", sub: "DEL MERCADO SON SUV" },
-  { anchor: "En primer lugar, el Toyota c,h,r", kind: "caption", text: "1º TOYOTA C-HR · 18.051" },
-  { anchor: "En segundo lugar, el m,g z,s", kind: "caption", text: "2º MG ZS · 16.708" },
-  { anchor: "En tercer lugar, el Seat Arona", kind: "caption", text: "3º SEAT ARONA · 16.406" },
-  { anchor: "Y en cuarto lugar, el Toyota Yaris Cross", kind: "caption", text: "4º TOYOTA YARIS CROSS · 15.738" },
-  { anchor: "Completan el grupo de cabeza", kind: "caption", text: "5º 2008 · 6º TUCSON · 7º QASHQAI · 8º CAPTUR · 9º T-ROC · 10º ATTO 2" },
-  { anchor: "Toyota coloca dos modelos entre los cuatro primeros", kind: "caption", text: "TOYOTA: 2 MODELOS EN EL TOP 4" },
-  { anchor: "Las ventas del m,g z,s caen un 13,2 por ciento", kind: "stat", value: "-13,2 %", sub: "VENTAS MG ZS vs 2025" },
-  { anchor: "el coche más vendido de todo el país fue el Tesla Model 3", kind: "stat", value: "2.528", sub: "TESLA MODEL 3 · Nº1 EN SEPTIEMBRE" },
-  { anchor: "PARTE 2: LA FIABILIDAD REAL", kind: "hook", text: "PARTE 2\nLA FIABILIDAD REAL" },
-  { anchor: "La ocu 2026 se basa en la experiencia de 85.590 conductores", kind: "stat", value: "85.590", sub: "CONDUCTORES · 10 PAÍSES · OCU 2026" },
-  { anchor: "no te fíes solo de la marca", kind: "caption", text: "MIRA EL MODELO Y EL MOTOR, NO SOLO LA MARCA" },
-  { anchor: "Lexus lidera con 93 puntos", kind: "stat", value: "93 / 100", sub: "LEXUS · LA MARCA MÁS FIABLE" },
-  { anchor: "Land Rover con 64 y m,g con 72", kind: "caption", text: "LAND ROVER 64 · MG 72" },
-  { anchor: "Es el líder de los SUV grandes, con 96 puntos", kind: "stat", value: "96 / 100", sub: "TOYOTA RAV4 HÍBRIDO · LÍDER SUV GRANDE" },
-  { anchor: "Otros 96 puntos", kind: "stat", value: "96 / 100", sub: "SUZUKI VITARA 1.5 MHEV · SUV PEQUEÑO" },
-  { anchor: "Además, Kia da siete años de garantía", kind: "stat", value: "7 AÑOS", sub: "DE GARANTÍA KIA" },
-  { anchor: "96 puntos y líder de los eléctricos medianos", kind: "stat", value: "96 / 100", sub: "KIA NIRO EV · LÍDER ELÉCTRICOS MEDIANOS" },
-  { anchor: "Audi, como marca, está en una posición intermedia con 84 puntos", kind: "stat", value: "84 → 96", sub: "AUDI (MARCA) vs Q2 1.5 TSI" },
-  { anchor: "Y fíjate en quién no está en esta lista de excelencia", kind: "caption", text: "EL MG ZS NO ESTÁ EN LA LISTA" },
-  { anchor: "los 96 puntos son de la generación anterior", kind: "caption", text: "C-HR: LOS 96 PUNTOS SON DE LA GENERACIÓN 2016-2023" },
-  { anchor: "PARTE 3: CUÁNTO GASTA", kind: "hook", text: "PARTE 3\nCUÁNTO GASTA UN SUV HÍBRIDO" },
-  { anchor: "Lo que importa es el consumo real", kind: "caption", text: "CONSUMO REAL, NO EL DEL FOLLETO" },
-  { anchor: "El Toyota Yaris Cross se mueve entre 4,1 y 4,4", kind: "stat", value: "4,1 – 4,4 L", sub: "YARIS CROSS HÍBRIDO · /100 KM REALES" },
-  { anchor: "El Hyundai Kona híbrido, entre 3,9 y 4,6", kind: "stat", value: "3,9 – 4,6 L", sub: "HYUNDAI KONA HÍBRIDO" },
-  { anchor: "El Toyota c,h,r, unos 5 litros", kind: "stat", value: "≈ 5 L", sub: "TOYOTA C-HR HÍBRIDO" },
-  { anchor: "El Renault Captur E-Tech, entre 4,7 y 5,0", kind: "stat", value: "4,7 – 5,0 L", sub: "RENAULT CAPTUR E-TECH" },
-  { anchor: "Y el Hyundai Tucson híbrido, entre 5,0 y 5,3", kind: "stat", value: "5,0 – 5,3 L", sub: "HYUNDAI TUCSON HÍBRIDO" },
-  { anchor: "Renault abrió una operación técnica sobre más de 334.000 coches", kind: "stat", value: "334.000", sub: "COCHES · OPERACIÓN TÉCNICA RENAULT E-TECH" },
-  { anchor: "A 15.000 kilómetros al año", kind: "stat", value: "+1.000 L", sub: "DE DIFERENCIA EN 8 AÑOS (15.000 KM/AÑO)" },
-  { anchor: "PARTE 4: PRECIO DE COMPRA", kind: "hook", text: "PARTE 4\nPRECIO DE COMPRA Y REVENTA" },
-  { anchor: "Su precio de lista es de 35.750 euros", kind: "stat", value: "35.750 €", sub: "TOYOTA C-HR 140H · PRECIO DE LISTA" },
-  { anchor: "desde unos 28.650 hasta 30.750 euros", kind: "stat", value: "28.650 – 30.750 €", sub: "PRECIO REAL CON DESCUENTOS" },
-  { anchor: "nunca pagues el precio de lista", kind: "caption", text: "NUNCA PAGUES EL PRECIO DE LISTA" },
-  { anchor: "conserva en torno al 68 por ciento de su valor", kind: "stat", value: "≈ 68 %", sub: "RAV4 HÍBRIDO · VALOR A LOS 3 AÑOS" },
-  { anchor: "Has perdido unos 13.000 euros en tres años", kind: "stat", value: "-13.000 €", sub: "EN 3 AÑOS (COCHE DE 40.000 €)" },
-  { anchor: "habría perdido 20.000", kind: "stat", value: "-20.000 €", sub: "SI SOLO CONSERVA EL 50 %" },
-  { anchor: "el SUV más barato no siempre es el más rentable", kind: "caption", text: "EL MÁS BARATO NO SIEMPRE ES EL MÁS RENTABLE" },
-  { anchor: "PARTE 5: EL PLAN AUTO PLUS", kind: "hook", text: "PARTE 5\nEL PLAN AUTO PLUS" },
-  { anchor: "hasta 4.500 euros a particulares", kind: "stat", value: "4.500 €", sub: "AYUDA MÁXIMA · ELÉCTRICO PURO" },
-  { anchor: "presupuesto de 400 millones", kind: "stat", value: "400 M€", sub: "PRESUPUESTO DEL PLAN" },
-  { anchor: "solo los recibes si cumples tres condiciones a la vez", kind: "caption", text: "3 CONDICIONES A LA VEZ" },
-  { anchor: "Que su precio esté por debajo de 35.000 euros", kind: "caption", text: "ELÉCTRICO PURO · < 35.000 € · FABRICADO EN EUROPA" },
-  { anchor: "Por encima de 45.000 euros antes de impuestos", kind: "stat", value: "+45.000 €", sub: "SIN AYUDA" },
-  { anchor: "descuento mínimo de 1.000 euros", kind: "stat", value: "1.000 €", sub: "DESCUENTO MÍNIMO DEL CONCESIONARIO" },
-  { anchor: "los híbridos no enchufables, como el c,h,r", kind: "caption", text: "HÍBRIDOS NO ENCHUFABLES: SIN AYUDA" },
-  { anchor: "PARTE 6: LO QUE LLEGA EN 2027", kind: "hook", text: "PARTE 6\nLO QUE LLEGA EN 2027" },
-  { anchor: "El nuevo Hyundai Tucson. Es la novedad", kind: "hook", text: "NUEVO HYUNDAI TUCSON\n5ª GENERACIÓN" },
-  { anchor: "crece hasta 4,70 metros", kind: "stat", value: "4,70 M", sub: "+19 CM RESPECTO AL ACTUAL" },
-  { anchor: "pantalla grande de 17 pulgadas", kind: "stat", value: "17 PULG.", sub: "PANTALLA DEL NUEVO TUCSON" },
-  { anchor: "desaparece el diésel", kind: "caption", text: "ADIÓS AL DIÉSEL: GASOLINA · HÍBRIDO · ENCHUFABLE" },
-  { anchor: "A los concesionarios españoles a principios de 2027", kind: "caption", text: "EN CONCESIONARIOS: PRINCIPIOS DE 2027" },
-  { anchor: "Comprar un coche justo antes de un cambio de generación sale peor", kind: "hook", text: "⚠ NO COMPRES JUSTO ANTES\nDEL CAMBIO DE GENERACIÓN" },
-  { anchor: "descuentos que superan los 7.000 euros", kind: "stat", value: "-7.000 €", sub: "DESCUENTO DEL TUCSON ACTUAL SOBRE TARIFA" },
-  { anchor: "El peor error es comprar el actual a precio casi de lista", kind: "caption", text: "EL PEOR ERROR: EL ACTUAL A PRECIO DE LISTA" },
-  { anchor: "El Skoda Epiq", kind: "caption", text: "SKODA EPIQ · ELÉCTRICO URBANO · ≈ 25.000 €" },
-  { anchor: "El nuevo Nissan Juke, que será solo eléctrico", kind: "caption", text: "NISSAN JUKE ELÉCTRICO · PRIMAVERA 2027 · 450 KM" },
-  { anchor: "El Omoda 4, un SUV compacto chino", kind: "caption", text: "OMODA 4 · 224 CV HÍBRIDO / 211 CV ELÉCTRICO · 1T 2027" },
-  { anchor: "de cuarta generación, a finales de 2027", kind: "caption", text: "BMW X1 4ª GENERACIÓN · FINALES DE 2027" },
-  { anchor: "Y el Audi cu nueve", kind: "caption", text: "AUDI Q9 · MEDIADOS DE 2027 · 4-7 PLAZAS" },
-  { anchor: "No cambies tu compra por una promesa de catálogo", kind: "caption", text: "NO CAMBIES TU COMPRA POR UNA PROMESA DE CATÁLOGO" },
-  { anchor: "PARTE 7: EL VEREDICTO", kind: "hook", text: "PARTE 7\nEL VEREDICTO" },
-  { anchor: "Si quieres la compra más segura y con mejor reventa", kind: "hook", text: "COMPRA MÁS SEGURA\nTOYOTA RAV4 HÍBRIDO" },
-  { anchor: "Si haces sobre todo ciudad y quieres gastar lo mínimo", kind: "hook", text: "CIUDAD Y GASTAR MÍNIMO\nYARIS CROSS / KONA HÍBRIDO" },
-  { anchor: "Si buscas fiabilidad al mejor precio", kind: "hook", text: "FIABILIDAD AL MEJOR PRECIO\nVITARA 1.5 MHEV / STONIC 1.0 MHEV" },
-  { anchor: "Si puedes cargar en casa y quieres eléctrico", kind: "hook", text: "ELÉCTRICO\nKIA NIRO EV" },
-  { anchor: "Si quieres el SUV más vendido del país", kind: "hook", text: "EL MÁS VENDIDO\nTOYOTA C-HR" },
-  { anchor: "Si te gusta el Tucson", kind: "hook", text: "TUCSON\nACTUAL CON DESCUENTO O NUEVO ESPERANDO" },
-  { anchor: "Y si estás tentado por el m,g z,s", kind: "hook", text: "¿TE TIENTA EL MG ZS?\nPRECIO A CAMBIO DE INCERTIDUMBRE" },
-  { anchor: "CONCLUSIÓN: COMPRA CON DATOS", kind: "hook", text: "COMPRA CON DATOS\nNO CON LA LISTA DE LOS MÁS VENDIDOS" },
-  { anchor: "lo más vendido no es lo mejor", kind: "caption", text: "LO MÁS VENDIDO NO ES LO MEJOR" },
-  { anchor: "haz cuatro comprobaciones", kind: "caption", text: "4 COMPROBACIONES ANTES DE FIRMAR" },
-  { anchor: "Suscríbete para más análisis", kind: "hook", text: "SUSCRÍBETE" },
+  { anchor: "más de uno de cada seis no pasa la revisión técnica", kind: "hook", text: "1 DE CADA 6 NO PASA\nLA REVISIÓN TÉCNICA" },
+  { anchor: "analizó 9,5 millones de inspecciones", kind: "stat", value: "9,5 M", sub: "INSPECCIONES ANALIZADAS · TÜV 2026" },
+  { anchor: "tiene un 17,3 por ciento de defectos", kind: "stat", value: "17,3 %", sub: "TESLA MODEL Y (2-3 AÑOS) · DEFECTOS TÜV 2026" },
+  { anchor: "La media de su edad es del 6,5", kind: "stat", value: "6,5 %", sub: "MEDIA DE SU EDAD" },
+  { anchor: "un Mercedes de diez años tiene un 18,5 por ciento", kind: "stat", value: "18,5 %", sub: "MERCEDES DE 10 AÑOS · TÜV 2026" },
+  { anchor: "Algunos son los coches más vendidos de España", kind: "caption", text: "ALGUNOS SON LOS MÁS VENDIDOS DE ESPAÑA" },
+  { anchor: "qué versión sí podrías comprar", kind: "caption", text: "QUÉ VERSIÓN SÍ PODRÍAS COMPRAR" },
+  { anchor: "ANTES DE EMPEZAR: DE DÓNDE SALEN LOS DATOS", kind: "hook", text: "ANTES DE EMPEZAR\nDE DÓNDE SALEN LOS DATOS" },
+  { anchor: "más de 85.000 conductores en diez países", kind: "stat", value: "85.000+", sub: "CONDUCTORES · 10 PAÍSES · OCU 2026" },
+  { anchor: "Casi ningún coche de esta lista es malo en todas sus versiones", kind: "caption", text: "EVITA UNA COMBINACIÓN: MODELO + MOTOR + AÑO" },
+  { anchor: "hazte siempre tres preguntas", kind: "caption", text: "¿QUÉ MOTOR? ¿QUÉ AÑO? ¿QUÉ HISTORIAL?" },
+
+  { anchor: "NÚMERO 10: SMART FORTWO Y FORFOUR", kind: "hook", text: "Nº 10\nSMART FORTWO Y FORFOUR" },
+  { anchor: "los de 2016 tienen 23,1", kind: "stat", value: "23,1", sub: "AVERÍAS / 1.000 · FORTWO 2016 (ADAC)" },
+  { anchor: "Los de 2017, 26,4", kind: "stat", value: "26,4", sub: "AVERÍAS / 1.000 · FORTWO 2017" },
+  { anchor: "El ForTwo de 2020 baja a 9,1", kind: "stat", value: "9,1", sub: "FORTWO 2020 · MEJORA MUCHO" },
+  { anchor: "con apenas 1,1 averías por cada mil", kind: "stat", value: "1,1", sub: "FORTWO 2006 · EL MÁS FIABLE DEL ADAC" },
+  { anchor: "la batería de arranque, la cerradura de contacto, el alternador y el motor de arranque", kind: "caption", text: "BATERÍA · CERRADURA · ALTERNADOR · ARRANQUE" },
+
+  { anchor: "NÚMERO 9: PEUGEOT 208 / 2008 Y CITROËN C3", kind: "hook", text: "Nº 9\nPEUGEOT 208/2008 · CITROËN C3 PURETECH" },
+  { anchor: "más de 15.000 matriculaciones hasta septiembre", kind: "stat", value: "15.000+", sub: "PEUGEOT 2008 · MATRICULACIONES ENE-SEP 2026" },
+  { anchor: "la correa de distribución trabaja bañada en aceite", kind: "caption", text: "CORREA DE DISTRIBUCIÓN BAÑADA EN ACEITE" },
+  { anchor: "Primero, exige facturas", kind: "caption", text: "EXIGE FACTURAS DEL ACEITE EXACTO" },
+
+  { anchor: "NÚMERO 8: HYUNDAI I20 Y KIA CEED", kind: "hook", text: "Nº 8\nHYUNDAI I20 Y KIA CEED" },
+  { anchor: "Los de 2011, 70,5", kind: "stat", value: "70,5", sub: "AVERÍAS / 1.000 · KIA CEED 2011 (ADAC)" },
+  { anchor: "con 52,7 averías por cada mil vehículos", kind: "stat", value: "52,7", sub: "KIA CEED · EL MENOS FIABLE DE LA LISTA" },
+  { anchor: "casi 18.000 coches en España", kind: "stat", value: "18.000", sub: "HYUNDAI I20/BAYON · REVISIÓN BOMBA DE COMBUSTIBLE" },
+  { anchor: "busca los de 2015 en adelante", kind: "caption", text: "SI QUIERES UN COREANO: 2015 EN ADELANTE" },
+
+  { anchor: "NÚMERO 7: NISSAN CASHCAI Y JUKE", kind: "hook", text: "Nº 7\nNISSAN QASHQAI Y JUKE 1.2 DIG-T" },
+  { anchor: "traqueteo metálico al arrancar en frío", kind: "caption", text: "TRAQUETEO EN FRÍO = CADENA ESTIRADA" },
+  { anchor: "entre 800 y 1.400 euros", kind: "stat", value: "800 – 1.400 €", sub: "CAMBIO DEL KIT DE DISTRIBUCIÓN" },
+  { anchor: "con unos 83.000 kilómetros", kind: "stat", value: "83.000 KM", sub: "JUKE · CADENA CAMBIADA (CASOS REALES)" },
+  { anchor: "como máximo cada 10.000 kilómetros", kind: "caption", text: "ACEITE CADA 10.000 KM COMO MÁXIMO" },
+
+  { anchor: "NÚMERO 6: DACIA DUSTER", kind: "hook", text: "Nº 6\nDACIA DUSTER (2010-2018)" },
+  { anchor: "el Duster tiene un 23,5 por ciento", kind: "stat", value: "23,5 %", sub: "DUSTER 6-7 AÑOS · MEDIA 13,6 % (TÜV)" },
+  { anchor: "el Duster llega al 34,2 por ciento", kind: "stat", value: "34,2 %", sub: "DUSTER 10-11 AÑOS · MEDIA 22,9 %" },
+  { anchor: "Tres años seguidos con el mismo patrón", kind: "caption", text: "TRES EDICIONES DEL TÜV · MISMO PATRÓN" },
+  { anchor: "no averías de motor", kind: "caption", text: "EL TÜV MIDE DEFECTOS DE INSPECCIÓN, NO AVERÍAS DE MOTOR" },
+  { anchor: "frenos, suspensión, silentblocks, rótulas y luces", kind: "caption", text: "REVISA FRENOS · SUSPENSIÓN · RÓTULAS · LUCES" },
+
+  { anchor: "NÚMERO 5: VOLKSWAGEN GOLF Y SEAT LEÓN", kind: "hook", text: "Nº 5\nGOLF Y LEÓN · 1.2 Y 1.4 TSI (PRIMERAS SERIES)" },
+  { anchor: "entre los 40.000 y los 100.000", kind: "stat", value: "40.000 – 100.000 KM", sub: "CADENA DE DISTRIBUCIÓN 1.2 / 1.4 TSI" },
+  { anchor: "antes del 18 de junio de 2011", kind: "caption", text: "1.2 TSI ANTERIORES AL 18 JUN 2011: LOS MÁS EXPUESTOS" },
+  { anchor: "entre 700 y 1.200 euros", kind: "stat", value: "700 – 1.200 €", sub: "KIT DE CADENA + TENSOR + GUÍAS" },
+  { anchor: "Twincharger, con compresor y turbo", kind: "caption", text: "1.4 TSI TWINCHARGER · LA PEOR VARIANTE" },
+  { anchor: "el mismo coche más vendido, pero con la versión equivocada", kind: "caption", text: "EL MISMO COCHE MÁS VENDIDO, CON LA VERSIÓN EQUIVOCADA" },
+
+  { anchor: "NÚMERO 4: AUDI A4 Y A5", kind: "hook", text: "Nº 4\nAUDI A4 Y A5 · 2.0 TFSI (2008-2012)" },
+  { anchor: "hasta un litro cada 2.000 kilómetros", kind: "stat", value: "1 L / 2.000 KM", sub: "CONSUMO DE ACEITE QUE AUDI DA POR NORMAL" },
+  { anchor: "medio litro cada 10.000 kilómetros", kind: "stat", value: "0,5 L / 10.000 KM", sub: "CONSUMO DE ACEITE SANO" },
+  { anchor: "mira la varilla en frío", kind: "caption", text: "MIRA LA VARILLA EN FRÍO" },
+
+  { anchor: "NÚMERO 3: BMW 320D Y 520D", kind: "hook", text: "Nº 3\nBMW 320d Y 520d · MOTOR N47 (2007-2014)" },
+  { anchor: "la cadena de distribución está en la parte trasera del motor", kind: "caption", text: "CADENA DE DISTRIBUCIÓN EN LA PARTE TRASERA" },
+  { anchor: "entre 12 y 20 horas de trabajo", kind: "stat", value: "12 – 20 H", sub: "MANO DE OBRA SOLO PARA LLEGAR A LA CADENA" },
+  { anchor: "de los 5.000 a los 9.000 euros", kind: "stat", value: "5.000 – 9.000 €", sub: "SI LA CADENA SE ROMPE" },
+  { anchor: "entre 1.500 y 3.000 euros", kind: "stat", value: "1.500 – 3.000 €", sub: "KIT COMPLETO A TIEMPO · ESPECIALISTA" },
+  { anchor: "guarda todas las facturas", kind: "caption", text: "GUARDA TODAS LAS FACTURAS" },
+
+  { anchor: "NÚMERO 2: LAND ROVER EVOQUE Y DISCOVERY SPORT", kind: "hook", text: "Nº 2\nEVOQUE Y DISCOVERY SPORT · INGENIUM" },
+  { anchor: "con 64 puntos sobre 100", kind: "stat", value: "64 / 100", sub: "LAND ROVER · ÚLTIMA MARCA OCU 2026" },
+  { anchor: "el Juzgado de Primera Instancia número 5 de Gandía", kind: "caption", text: "SENTENCIA 2023 · JUZGADO Nº 5 DE GANDÍA" },
+  { anchor: "entre 1.200 y 2.000 euros", kind: "stat", value: "1.200 – 2.000 €", sub: "CADENA INGENIUM · REPARADA A TIEMPO" },
+  { anchor: "evita sobre todo las unidades de 2015 a 2018", kind: "caption", text: "EVITA 2015-2018 · DIÉSEL INGENIUM" },
+
+  { anchor: "NÚMERO 1: TESLA MODEL Y Y MODEL 3", kind: "hook", text: "Nº 1\nTESLA MODEL Y Y MODEL 3" },
+  { anchor: "con un 17,3 por ciento de defectos significativos", kind: "stat", value: "17,3 %", sub: "MODEL Y · EL PEOR DE 110 MODELOS" },
+  { anchor: "El Model 3, un 13,1 por ciento", kind: "stat", value: "13,1 %", sub: "TESLA MODEL 3 · 2-3 AÑOS" },
+  { anchor: "El Mini Cooper S,E, un 3,5 por ciento", kind: "stat", value: "3,5 %", sub: "MINI COOPER SE · EL MEJOR ELÉCTRICO DEL TÜV" },
+  { anchor: "con 2.528 unidades", kind: "stat", value: "2.528", sub: "TESLA MODEL 3 · Nº1 EN ESPAÑA EN SEPTIEMBRE" },
+  { anchor: "la suspensión y los ejes, los discos de freno y la iluminación", kind: "caption", text: "SUSPENSIÓN · DISCOS DE FRENO · ILUMINACIÓN" },
+
+  { anchor: "CÓMO COMPRAR UN COCHE DE SEGUNDA MANO SIN ARRUINARTE", kind: "hook", text: "CÓMO COMPRAR UN USADO\nSIN ARRUINARTE" },
+  { anchor: "Una: el código exacto del motor y la fecha de fabricación", kind: "caption", text: "1 · CÓDIGO DE MOTOR Y FECHA DE FABRICACIÓN" },
+  { anchor: "Dos: campañas y operaciones técnicas del fabricante", kind: "caption", text: "2 · CAMPAÑAS DEL FABRICANTE (POR BASTIDOR)" },
+  { anchor: "Tres: el arranque en frío, con el capó abierto", kind: "caption", text: "3 · ARRANQUE EN FRÍO CON EL CAPÓ ABIERTO" },
+  { anchor: "Cuatro: el aceite", kind: "caption", text: "4 · NIVEL Y CONSUMO DE ACEITE" },
+  { anchor: "Cinco: el historial de mantenimiento con facturas", kind: "caption", text: "5 · HISTORIAL CON FACTURAS" },
+  { anchor: "Seis: el informe del vehículo y el historial de la ITV", kind: "caption", text: "6 · INFORME DEL VEHÍCULO E HISTORIAL ITV" },
+  { anchor: "Siete: lector de diagnosis", kind: "caption", text: "7 · LECTOR DE DIAGNOSIS" },
+  { anchor: "Ocho: prueba larga", kind: "caption", text: "8 · PRUEBA LARGA (MOTOR FRÍO Y CALIENTE)" },
+  { anchor: "Nueve: revisión por un taller independiente", kind: "caption", text: "9 · REVISIÓN EN UN TALLER INDEPENDIENTE" },
+  { anchor: "Y diez: el colchón", kind: "caption", text: "10 · COLCHÓN PARA EL PRIMER AÑO" },
+  { anchor: "Si el precio parece demasiado bueno", kind: "caption", text: "SI EL PRECIO PARECE DEMASIADO BUENO, DESCONFÍA" },
+
+  { anchor: "¿Y QUÉ COMPRO ENTONCES? LAS ALTERNATIVAS", kind: "hook", text: "¿Y QUÉ COMPRO ENTONCES?\nLAS ALTERNATIVAS CON MEJORES DATOS" },
+  { anchor: "mira el Mazda 2", kind: "caption", text: "ALTERNATIVA: MAZDA 2" },
+
+  { anchor: "CONCLUSIÓN: LA FIABILIDAD NO ESTÁ EN LA MARCA", kind: "hook", text: "LA FIABILIDAD NO ESTÁ EN LA MARCA\nESTÁ EN LOS DETALLES" },
+  { anchor: "desconfía del chollo, investiga el motor y no te enamores del anuncio", kind: "caption", text: "DESCONFÍA DEL CHOLLO · INVESTIGA EL MOTOR" },
+  { anchor: "LLAMADA A LA ACCIÓN", kind: "hook", text: "¿TIENES UNO DE ESTOS 10?\nCUÉNTALO EN LOS COMENTARIOS" },
+  { anchor: "Suscríbete para no perderte los próximos análisis", kind: "hook", text: "SUSCRÍBETE" },
 ];
 
 
 // PINS: imagen del MODELO exacto anclada a donde se menciona.
-// kind "image" = un modelo; kind "duo" = comparativa de dos.
 const PINS = [];
 
-// ENTIDADES: de qué se habla en cada momento -> qué material poner.
-// El sistema escanea el guion, y en cada tramo donde se menciona una
-// entidad, pone material de ESA entidad (imagen del modelo/marca/tema).
-// query = término de búsqueda de imágenes. anchors = subcadenas del guion
-// (poner las específicas ANTES que las genéricas).
-// Una ENTIDAD por MARCA. `videos` = lista de claves marca-<key>.mp4 disponibles
-// (se rotan/intercalan para dar variedad dentro de la sección). Si `videos` está
-// vacío, la marca cae a IMÁGENES (Wikimedia/SerpAPI) usando `query`.
-// `anchors` = subcadenas del guion; se usan CÓDIGOS DE MOTOR porque son únicos
-// por marca -> refuerzan la "regla roja" también en la síntesis final.
-// VÍDEO 10 — COCHES QUE NUNCA COMPRAR: 1 CLIP real por modelo (marca-<key>.mp4 en
-// public/assets/yt-nocompres). Cada modelo se ve EN MOVIMIENTO durante su sección.
-// VÍDEO 13 — 7 COCHES CASI PERFECTOS (OCU): por MODELOS. `videos:[key]` usa el clip
-// marca-<key>.mp4 (public/assets/yt-ocu) si existe; si no, cae a IMAGEN por `query`.
+// ENTIDADES: de qué se habla en cada momento -> qué material poner. `videos` = claves marca-<key>.mp4
+// (public/assets/yt-usados). Sin vídeo -> IMÁGENES del modelo por `query` (Wikimedia/SerpAPI).
 const ENTITIES = [
-  { key: "general", label: "", query: "", videos: ["cx5", "rav4", "chr", "yariscross", "qashqai", "mgzs", "atto2", "stock"], anchors: [] },
-  { key: "chr", label: "", query: "Toyota C-HR 2026", videos: ["chr"], anchors: ["c,h,r"] },
-  { key: "mgzs", label: "", query: "MG ZS 2026", videos: ["mgzs"], anchors: ["m,g z,s"] },
-  { key: "arona", label: "", query: "Seat Arona 2026", videos: ["arona"], anchors: ["Arona"] },
-  { key: "yariscross", label: "", query: "Toyota Yaris Cross 2026", videos: ["yariscross"], anchors: ["Yaris Cross"] },
-  { key: "t2008", label: "", query: "Peugeot 2008 2026", videos: ["t2008"], anchors: ["Peugeot 2008"] },
-  { key: "tucson", label: "", query: "Hyundai Tucson 2026", videos: ["tucson"], anchors: ["Tucson"] },
-  { key: "qashqai", label: "", query: "Nissan Qashqai 2026", videos: ["qashqai"], anchors: ["Qashqai"] },
-  { key: "captur", label: "", query: "Renault Captur E-Tech 2026", videos: ["captur"], anchors: ["Captur"] },
-  { key: "atto2", label: "", query: "BYD Atto 2 2026", videos: ["atto2"], anchors: ["b,y,d Atto 2", "Atto 2"] },
-  { key: "rav4", label: "", query: "Toyota RAV4 hybrid 2026", videos: ["rav4"], anchors: ["Rav cuatro"] },
-  { key: "vitara", label: "", query: "Suzuki Vitara 2026", videos: ["vitara"], anchors: ["Vitara"] },
-  { key: "stonic", label: "", query: "Kia Stonic 2026", videos: ["stonic"], anchors: ["Stonic"] },
-  { key: "niro", label: "", query: "Kia Niro EV 2026", videos: ["niro"], anchors: ["Niro"] },
-  { key: "q2", label: "", query: "Audi Q2 2026", videos: ["q2"], anchors: ["Audi cu dos"] },
-  { key: "kona", label: "", query: "Hyundai Kona hybrid 2026", videos: ["kona"], anchors: ["Kona"] },
-  { key: "electrico", label: "", query: "", videos: ["atto2", "modely"], anchors: [] },
+  { key: "general", label: "", query: "", videos: ["smart", "smartb", "puretech", "puretechb", "ceed", "qashqai", "qashqaib", "duster", "dusterb", "golf", "golfb", "a4", "a4b", "bmw320", "bmw320b", "evoque", "evoqueb", "modely", "modelyb", "stock"], anchors: [] },
+  // con vídeo propio
+  { key: "smart", label: "", query: "Smart fortwo 2017", videos: ["smart", "smartb"], imgEvery: 4, anchors: ["ForTwo"] },
+  { key: "puretech", label: "", query: "Peugeot 2008 2015", videos: ["puretech", "puretechb"], imgEvery: 4, anchors: ["PureTech", "Peugeot 2008"] },
+  { key: "ceed", label: "", query: "Kia Ceed 2011", videos: ["ceed"], imgEvery: 4, anchors: ["Kia Ceed", "Ceed"] },
+  { key: "qashqai", label: "", query: "Nissan Qashqai 2015", videos: ["qashqai", "qashqaib"], imgEvery: 4, anchors: ["Cashcai"] },
+  { key: "duster", label: "", query: "Dacia Duster 2015", videos: ["duster", "dusterb"], imgEvery: 4, anchors: ["Duster"] },
+  { key: "golf", label: "", query: "Volkswagen Golf VI 2012", videos: ["golf", "golfb"], imgEvery: 4, anchors: ["Golf"] },
+  { key: "a4", label: "", query: "Audi A4 B8 2010", videos: ["a4", "a4b"], imgEvery: 4, anchors: ["Audi A4"] },
+  { key: "bmw320", label: "", query: "BMW 320d E90", videos: ["bmw320", "bmw320b"], imgEvery: 4, anchors: ["tres veinte d", "n,47"] },
+  { key: "evoque", label: "", query: "Range Rover Evoque 2016", videos: ["evoque", "evoqueb"], imgEvery: 4, anchors: ["Evoque"] },
+  { key: "modely", label: "", query: "Tesla Model Y", videos: ["modely", "modelyb"], imgEvery: 4, anchors: ["Tesla Model Y", "Model Y"] },
+  // solo imagen (el 2º modelo de cada pareja y las alternativas)
+  { key: "forfour", label: "", query: "Smart forfour 2017", videos: [], anchors: ["ForFour"] },
+  { key: "p208", label: "", query: "Peugeot 208 2015", videos: [], anchors: ["Peugeot 208"] },
+  { key: "c3", label: "", query: "Citroën C3 2018", videos: [], anchors: ["Citroën C3"] },
+  { key: "i20", label: "", query: "Hyundai i20 2012", videos: [], anchors: ["Hyundai i20", "el i20"] },
+  { key: "juke", label: "", query: "Nissan Juke 2014", videos: [], anchors: ["Juke"] },
+  { key: "leon", label: "", query: "Seat Leon 2012", videos: [], anchors: ["el León", "un León"] },
+  { key: "a5", label: "", query: "Audi A5 2010", videos: [], anchors: ["el A5", "A5 con"] },
+  { key: "bmw520", label: "", query: "BMW 520d F10", videos: [], anchors: ["cinco veinte d"] },
+  { key: "discsport", label: "", query: "Land Rover Discovery Sport 2016", videos: [], anchors: ["Discovery Sport con"] },
+  { key: "model3", label: "", query: "Tesla Model 3 2019", videos: [], anchors: ["Tesla Model 3", "El Model 3"] },
+  { key: "mini", label: "", query: "Mini Cooper SE", videos: [], anchors: ["Mini Cooper S,E"] },
+  { key: "fiat500e", label: "", query: "Fiat 500e 2021", videos: [], anchors: ["Fiat 500e"] },
+  { key: "q4", label: "", query: "Audi Q4 e-tron", videos: [], anchors: ["Audi Q4 e-tron"] },
+  { key: "id3", label: "", query: "Volkswagen ID.3", videos: [], anchors: ["Volkswagen ID.3"] },
+  { key: "mazda2", label: "", query: "Mazda 2 2019", videos: [], anchors: ["Mazda 2"] },
+  { key: "yaris", label: "", query: "Toyota Yaris Hybrid 2018", videos: [], anchors: ["Toyota Yaris Hybrid"] },
+  { key: "vitara", label: "", query: "Suzuki Vitara 2018", videos: [], anchors: ["Suzuki Vitara"] },
+  { key: "stonic", label: "", query: "Kia Stonic 2020", videos: [], anchors: ["Kia Stonic"] },
+  { key: "auris", label: "", query: "Toyota Auris Hybrid 2015", videos: [], anchors: ["Toyota Auris"] },
+  { key: "civic", label: "", query: "Honda Civic 1.6 i-DTEC 2015", videos: [], anchors: ["Honda Civic"] },
+  { key: "lexus", label: "", query: "Lexus NX 300h", videos: [], anchors: ["Lexus NX"] },
+  { key: "merc", label: "", query: "Mercedes-Benz E-Class W212", videos: [], anchors: ["un Mercedes con el motor"] },
+  { key: "cx5", label: "", query: "Mazda CX-5 2016", videos: [], anchors: ["Mazda CX-5"] },
+  { key: "chr", label: "", query: "Toyota C-HR 2018", videos: [], anchors: ["Toyota C-HR"] },
   { key: "cierre", label: "", query: "", videos: [], anchors: [] },
 ];
 
 
-// SECCIONES: cada tramo tiene una MARCA principal. Mientras dura la sección, si no
-// se menciona explícitamente otra cosa, se muestra el vídeo de ESA marca (no uno
-// genérico). anchor = cabecera de sección en el guion. La intro (antes de TOYOTA)
-// queda sin principal -> vídeo general.
-// VÍDEO 10 — cada sección muestra el CLIP del modelo del que se habla. La sección
-// de patrón/lección cae a "cierre" (rotación de todos los modelos).
-// Anclas por "COCHE N:" (el prefijo NO cambia aunque el nombre se escriba fonético).
+// SECCIONES: cada tramo tiene un modelo principal con CLIP propio.
 const SECTIONS = [
-  { anchor: "El segundo SUV más vendido de España", primary: "mgzs" },
-  { anchor: "Este vídeo es una guía completa", primary: "general" },
-  { anchor: "PARTE 1: QUÉ COMPRA ESPAÑA", primary: "general" },
-  { anchor: "En primer lugar, el Toyota c,h,r", primary: "chr" },
-  { anchor: "En segundo lugar, el m,g z,s", primary: "mgzs" },
-  { anchor: "En tercer lugar, el Seat Arona", primary: "arona" },
-  { anchor: "Y en cuarto lugar, el Toyota Yaris Cross", primary: "yariscross" },
-  { anchor: "Completan el grupo de cabeza", primary: "general" },
-  { anchor: "Pero hay un dato que casi nadie menciona", primary: "mgzs" },
-  { anchor: "Y hay otra curiosidad del último mes", primary: "electrico" },
-  { anchor: "PARTE 2: LA FIABILIDAD REAL", primary: "general" },
-  { anchor: "El Toyota Rav cuatro híbrido. Es el líder", primary: "rav4" },
-  { anchor: "El Suzuki Vitara con motor 1,5", primary: "vitara" },
-  { anchor: "El Kia Stonic con motor 1,0", primary: "stonic" },
-  { anchor: "El Kia Niro eléctrico. 96 puntos", primary: "niro" },
-  { anchor: "Y el Audi cu dos con motor", primary: "q2" },
-  { anchor: "Y fíjate en quién no está en esta lista de excelencia", primary: "mgzs" },
-  { anchor: "Y hay un matiz más sobre el Toyota c,h,r", primary: "chr" },
-  { anchor: "PARTE 3: CUÁNTO GASTA", primary: "general" },
-  { anchor: "El Toyota Yaris Cross se mueve entre 4,1 y 4,4", primary: "yariscross" },
-  { anchor: "El Hyundai Kona híbrido, entre 3,9 y 4,6", primary: "kona" },
-  { anchor: "El Toyota c,h,r, unos 5 litros", primary: "chr" },
-  { anchor: "El Renault Captur E-Tech, entre 4,7 y 5,0", primary: "captur" },
-  { anchor: "Y el Hyundai Tucson híbrido, entre 5,0 y 5,3", primary: "tucson" },
-  { anchor: "Pero atención con el Captur E-Tech", primary: "captur" },
-  { anchor: "La conclusión práctica es sencilla", primary: "general" },
-  { anchor: "PARTE 4: PRECIO DE COMPRA", primary: "chr" },
-  { anchor: "Ahora la otra mitad. ¿Cuánto vale tu coche", primary: "rav4" },
-  { anchor: "PARTE 5: EL PLAN AUTO PLUS", primary: "electrico" },
-  { anchor: "¿Qué implica esto para tu compra de SUV?", primary: "general" },
-  { anchor: "Esto explica por qué el Tesla Model 3", primary: "electrico" },
-  { anchor: "PARTE 6: LO QUE LLEGA EN 2027", primary: "general" },
-  { anchor: "El nuevo Hyundai Tucson. Es la novedad", primary: "tucson" },
-  { anchor: "El resto de novedades de 2027", primary: "general" },
-  { anchor: "PARTE 7: EL VEREDICTO", primary: "general" },
-  { anchor: "Si quieres la compra más segura y con mejor reventa", primary: "rav4" },
-  { anchor: "Si haces sobre todo ciudad y quieres gastar lo mínimo", primary: "yariscross" },
-  { anchor: "Si buscas fiabilidad al mejor precio", primary: "vitara" },
-  { anchor: "Si puedes cargar en casa y quieres eléctrico", primary: "niro" },
-  { anchor: "Si quieres el SUV más vendido del país", primary: "chr" },
-  { anchor: "Si te gusta el Tucson", primary: "tucson" },
-  { anchor: "Y si estás tentado por el m,g z,s", primary: "mgzs" },
-  { anchor: "CONCLUSIÓN: COMPRA CON DATOS", primary: "cierre" },
+  { anchor: "Un coche de dos años", primary: "modely" },
+  { anchor: "ANTES DE EMPEZAR: DE DÓNDE SALEN LOS DATOS", primary: "general" },
+  { anchor: "NÚMERO 10: SMART FORTWO Y FORFOUR", primary: "smart" },
+  { anchor: "NÚMERO 9: PEUGEOT 208 / 2008 Y CITROËN C3", primary: "puretech" },
+  { anchor: "NÚMERO 8: HYUNDAI I20 Y KIA CEED", primary: "ceed" },
+  { anchor: "NÚMERO 7: NISSAN CASHCAI Y JUKE", primary: "qashqai" },
+  { anchor: "NÚMERO 6: DACIA DUSTER", primary: "duster" },
+  { anchor: "NÚMERO 5: VOLKSWAGEN GOLF Y SEAT LEÓN", primary: "golf" },
+  { anchor: "NÚMERO 4: AUDI A4 Y A5", primary: "a4" },
+  { anchor: "NÚMERO 3: BMW 320D Y 520D", primary: "bmw320" },
+  { anchor: "NÚMERO 2: LAND ROVER EVOQUE Y DISCOVERY SPORT", primary: "evoque" },
+  { anchor: "NÚMERO 1: TESLA MODEL Y Y MODEL 3", primary: "modely" },
+  { anchor: "CÓMO COMPRAR UN COCHE DE SEGUNDA MANO SIN ARRUINARTE", primary: "general" },
+  { anchor: "¿Y QUÉ COMPRO ENTONCES? LAS ALTERNATIVAS", primary: "general" },
+  { anchor: "CONCLUSIÓN: LA FIABILIDAD NO ESTÁ EN LA MARCA", primary: "general" },
 ];
 
 
@@ -307,6 +287,9 @@ async function serpImages(query, base, need) {
 // de averías). Se pre-siembran en seenIds para que getClips no los use nunca.
 const BLACKLIST_IDS = [30283095, 5450251, 17026821, 29740277, 32386567, 26620319, 26620441, 8987271, 3010448, 39839659, 35661513, 6817044, 17854218, 9369898, 27974753, 19728719, 13790663, 4223775, 20693178, 29576552, 39112150, 20156194, 32329376, 20693196, 11785727, 29760618, 34960298];
 const seenIds = new Set(BLACKLIST_IDS);
+// Fotos de modelo descartadas tras revisarlas (marca de agua de webs, carteles de concesionario, modelo equivocado, personas).
+let BAD_IMGS = new Set();
+try { BAD_IMGS = new Set(JSON.parse(await fs.readFile(path.join(ROOT, "scripts", "bad-images.json"), "utf-8"))); } catch {}
 
 // Palabras que delatan un clip FUERA DE TEMA (la URL de Pexels lleva el slug
 // descriptivo, p.ej. .../wind-turbines-on-a-field/). Si el slug contiene alguna,
@@ -521,57 +504,55 @@ function videoDurationSec(file) {
 }
 
 
-// Motion graphics (VÍDEO 14): etiqueta SÍ/NO + código de motor durante cada sección y barra
-// de capítulos. La etiqueta entra DESPUÉS de la cartela de la sección (+2.8s).
+// Motion graphics (VÍDEO 16): etiqueta "NO" + modelo/motor durante cada sección y barra de capítulos.
+// La etiqueta entra DESPUÉS de la cartela de la sección (+2.8s).
 const TAGS = [
-  { anchor: "El Toyota Rav cuatro híbrido. Es el líder", end: "El Suzuki Vitara con motor 1,5", code: "RAV4 HÍBRIDO", name: "OCU 96/100 · SUV grande", verdict: "yes" },
-  { anchor: "El Suzuki Vitara con motor 1,5", end: "El Kia Stonic con motor 1,0", code: "VITARA 1.5 MHEV", name: "OCU 96/100 · SUV pequeño", verdict: "yes" },
-  { anchor: "El Kia Stonic con motor 1,0", end: "El Kia Niro eléctrico. 96 puntos", code: "STONIC 1.0 MHEV", name: "OCU 96/100 · 7 años garantía", verdict: "yes" },
-  { anchor: "El Kia Niro eléctrico. 96 puntos", end: "Y el Audi cu dos con motor", code: "NIRO EV", name: "OCU 96/100 · eléctrico", verdict: "yes" },
-  { anchor: "Y el Audi cu dos con motor", end: "Y fíjate en quién no está en esta lista de excelencia", code: "AUDI Q2 1.5 TSI", name: "OCU 96/100 · el tapado", verdict: "yes" },
-  { anchor: "Y fíjate en quién no está en esta lista de excelencia", end: "Y hay un matiz más sobre el Toyota c,h,r", code: "MG ZS", name: "Marca MG: 72/100 (OCU)", verdict: "no" },
-  { anchor: "Si quieres la compra más segura y con mejor reventa", end: "Si haces sobre todo ciudad y quieres gastar lo mínimo", code: "RAV4 HÍBRIDO", name: "La compra más segura", verdict: "yes" },
-  { anchor: "Si haces sobre todo ciudad y quieres gastar lo mínimo", end: "Si buscas fiabilidad al mejor precio", code: "YARIS CROSS", name: "Ciudad · gasto mínimo", verdict: "yes" },
-  { anchor: "Si buscas fiabilidad al mejor precio", end: "Si puedes cargar en casa y quieres eléctrico", code: "VITARA / STONIC", name: "Fiabilidad al mejor precio", verdict: "yes" },
-  { anchor: "Si puedes cargar en casa y quieres eléctrico", end: "Si quieres el SUV más vendido del país", code: "KIA NIRO EV", name: "El eléctrico a elegir", verdict: "yes" },
-  { anchor: "Si quieres el SUV más vendido del país", end: "Si te gusta el Tucson", code: "TOYOTA C-HR", name: "El más vendido · razonable", verdict: "yes" },
-  { anchor: "Y si estás tentado por el m,g z,s", end: "CONCLUSIÓN: COMPRA CON DATOS", code: "MG ZS", name: "Precio a cambio de incertidumbre", verdict: "no" },
+  { anchor: "NÚMERO 10: SMART FORTWO Y FORFOUR", end: "NÚMERO 9: PEUGEOT", code: "SMART FORTWO / FORFOUR", name: "ADAC 2016-19 · 20-27 averías/1.000", verdict: "no" },
+  { anchor: "NÚMERO 9: PEUGEOT", end: "NÚMERO 8: HYUNDAI", code: "208/2008 · C3 1.2 PURETECH", name: "Correa en baño de aceite", verdict: "no" },
+  { anchor: "NÚMERO 8: HYUNDAI", end: "NÚMERO 7: NISSAN", code: "KIA CEED / HYUNDAI I20", name: "2009-2014 · batería y arranque", verdict: "no" },
+  { anchor: "NÚMERO 7: NISSAN", end: "NÚMERO 6: DACIA", code: "QASHQAI / JUKE 1.2 DIG-T", name: "Cadena de distribución", verdict: "no" },
+  { anchor: "NÚMERO 6: DACIA", end: "NÚMERO 5: VOLKSWAGEN", code: "DACIA DUSTER 2010-2018", name: "TÜV: 23,5 % a los 6-7 años", verdict: "no" },
+  { anchor: "NÚMERO 5: VOLKSWAGEN", end: "NÚMERO 4: AUDI", code: "GOLF / LEÓN 1.2 · 1.4 TSI", name: "Primeras series (EA111)", verdict: "no" },
+  { anchor: "NÚMERO 4: AUDI", end: "NÚMERO 3: BMW", code: "AUDI A4 / A5 2.0 TFSI", name: "2008-2012 · consumo de aceite", verdict: "no" },
+  { anchor: "NÚMERO 3: BMW", end: "NÚMERO 2: LAND ROVER", code: "BMW 320d / 520d N47", name: "2007-2014 · cadena trasera", verdict: "no" },
+  { anchor: "NÚMERO 2: LAND ROVER", end: "NÚMERO 1: TESLA", code: "EVOQUE / DISCOVERY SPORT", name: "Ingenium · OCU 64/100", verdict: "no" },
+  { anchor: "NÚMERO 1: TESLA", end: "CÓMO COMPRAR UN COCHE DE SEGUNDA MANO", code: "TESLA MODEL Y / MODEL 3", name: "TÜV 2026: 17,3 % / 13,1 %", verdict: "no" },
 ];
 const CHAPTERS = [
-  { anchor: "El segundo SUV más vendido de España", label: "La paradoja del MG ZS" },
-  { anchor: "PARTE 1: QUÉ COMPRA ESPAÑA", label: "Qué compra España" },
-  { anchor: "PARTE 2: LA FIABILIDAD REAL", label: "Fiabilidad OCU" },
-  { anchor: "PARTE 3: CUÁNTO GASTA", label: "Consumo real" },
-  { anchor: "PARTE 4: PRECIO DE COMPRA", label: "Precio y reventa" },
-  { anchor: "PARTE 5: EL PLAN AUTO PLUS", label: "Plan Auto Plus" },
-  { anchor: "PARTE 6: LO QUE LLEGA EN 2027", label: "Novedades 2027" },
-  { anchor: "PARTE 7: EL VEREDICTO", label: "Veredicto" },
-  { anchor: "CONCLUSIÓN: COMPRA CON DATOS", label: "Conclusión" },
+  { anchor: "Un coche de dos años", label: "El dato que lo cambia todo" },
+  { anchor: "ANTES DE EMPEZAR: DE DÓNDE SALEN LOS DATOS", label: "De dónde salen los datos" },
+  { anchor: "NÚMERO 10: SMART FORTWO Y FORFOUR", label: "10 · Smart ForTwo y ForFour" },
+  { anchor: "NÚMERO 9: PEUGEOT 208 / 2008 Y CITROËN C3", label: "9 · Peugeot 208/2008 PureTech" },
+  { anchor: "NÚMERO 8: HYUNDAI I20 Y KIA CEED", label: "8 · Hyundai i20 y Kia Ceed" },
+  { anchor: "NÚMERO 7: NISSAN CASHCAI Y JUKE", label: "7 · Nissan Qashqai y Juke" },
+  { anchor: "NÚMERO 6: DACIA DUSTER", label: "6 · Dacia Duster" },
+  { anchor: "NÚMERO 5: VOLKSWAGEN GOLF Y SEAT LEÓN", label: "5 · Golf y León TSI" },
+  { anchor: "NÚMERO 4: AUDI A4 Y A5", label: "4 · Audi A4 y A5 TFSI" },
+  { anchor: "NÚMERO 3: BMW 320D Y 520D", label: "3 · BMW 320d y 520d" },
+  { anchor: "NÚMERO 2: LAND ROVER EVOQUE Y DISCOVERY SPORT", label: "2 · Evoque y Discovery Sport" },
+  { anchor: "NÚMERO 1: TESLA MODEL Y Y MODEL 3", label: "1 · Tesla Model Y y Model 3" },
+  { anchor: "CÓMO COMPRAR UN COCHE DE SEGUNDA MANO SIN ARRUINARTE", label: "Cómo comprar sin arruinarte" },
+  { anchor: "¿Y QUÉ COMPRO ENTONCES? LAS ALTERNATIVAS", label: "Qué comprar en su lugar" },
+  { anchor: "CONCLUSIÓN: LA FIABILIDAD NO ESTÁ EN LA MARCA", label: "Conclusión" },
 ];
 
-// Reglas por clip (VÍDEO 14, yt-diesel): `allow` = solo estos tramos [s,e]; `skip` = tramos
-// con presentador/rótulos/logos de otro canal que NO deben salir (detectados a mano + script).
+// Reglas por clip (yt-usados): se rellenan tras revisar cada clip (presentador/rótulos/logos de otro canal).
 const CLIP_RULES = {
-  // SUV 2027: tucson = logo "Silent Drives" cada ~110s (13s); qashqai = rótulo inicial + captura de consumo;
-  // modely = botón SUBSCRIBE/logo GDrives (~2:50-3:20); cx5 = marca de agua SPEEDHEADS fija (se desenfoca en prep-shots).
-  "yt-suv": {
-    tucson: { skip: [[0, 16], [107, 124], [223, 240], [331, 348], [439, 457], [548, 565], [664, 681], [772, 786]] },
-    qashqai: { skip: [[0, 28], [645, 680]] },
-    modely: { skip: [[0, 120], [170, 186], [600, 620], [1196, 1221]] },
-    vitara: { skip: [[742, 775]] },
-    kona: { skip: [[0, 30], [868, 918]] },
-    t2008: { skip: [[0, 16]] },
-    niro: { skip: [[76, 90], [120, 134], [312, 330], [448, 464]] },
-  },
-  "yt-diesel": {
-    renault: { allow: [[6, 34], [63, 86], [90, 118]] },
-    renault2: { allow: [[2, 155]] },
-    renault3: { allow: [[2, 325]] },
-    merc: { allow: [[10, 372]] },
-    bluehdi: { allow: [[1, 40], [160, 516]] },
-    bmw2: { skip: [[105, 135], [636, 652]] },
-    vw19: { allow: [[2, 84], [121, 440]] },
-    bmw1: { skip: [[0, 50], [76, 90], [131, 142], [149, 161], [202, 215], [231, 242], [244, 256], [264, 274], [310, 321], [361, 373], [516, 526], [531, 544], [559, 582], [587, 599], [603, 614], [625, 637], [641, 650], [656, 669], [696, 709], [737, 750], [766, 782], [785, 812]] },
+  // m0/m1 = margen inicial/final (los walkarounds empiezan con el exterior: NO saltar 45 s).
+  // skip = presentador, rótulos/capturas de otro canal, tramos corruptos o motor equivocado (TDI).
+  "yt-usados": {
+    smart: { m0: 0, m1: 8 }, puretech: { m0: 0, m1: 8 }, a4: { m0: 0, m1: 8 }, golf: { m0: 0, m1: 8 }, qashqai: { m0: 0, m1: 8 },
+    bmw320: { m0: 0, m1: 8, skip: [[535, 641]] },
+    modely: { m0: 0, m1: 8, skip: [[880, 907]] },
+    evoque: { m0: 0, m1: 8, skip: [[0, 6], [18, 30], [662, 682], [975, 990], [1004, 1013]] },
+    duster: { m0: 0, m1: 8, skip: [[205, 222], [655, 687]] },
+    smartb: { m0: 0, m1: 8, skip: [[0, 10], [22, 38]] },
+    puretechb: { m0: 0, m1: 8, skip: [[0, 10]] }, ceed: { m0: 0, m1: 8 }, qashqaib: { m0: 0, m1: 8 }, modelyb: { m0: 0, m1: 8 },
+    dusterb: { m0: 0, m1: 8, skip: [[20, 68], [452, 501]] },
+    evoqueb: { m0: 0, m1: 8, skip: [[55, 79], [83, 88], [94, 109], [115, 121], [124, 130], [139, 145], [151, 166], [170, 175], [182, 206], [800, 832]] },
+    a4b: { m0: 0, m1: 8, skip: [[798, 810]] },
+    golfb: { m0: 0, m1: 8, skip: [[748, 783]] },
+    bmw320b: { m0: 0, m1: 8, skip: [[0, 10], [18, 36], [72, 84], [96, 126], [384, 421]] },
   },
 };
 
@@ -593,10 +574,10 @@ async function getYtWindows() {
     // animación TSI) no tienen careta -> margen pequeño para no quedarnos sin
     // ventanas. Se deja siempre ≥8s de cola para que quepa el plano (hasta 7s).
     const shortClip = dur < 200;
-    const margin = shortClip ? Math.min(6, dur * 0.05) : 45;
-    const endMargin = shortClip ? 9 : 45;
-    const step = shortClip ? 4 : 7;
     const rule = CLIP_RULES[YT_SUBDIR]?.[brand];
+    const margin = rule?.m0 ?? (shortClip ? Math.min(6, dur * 0.05) : 45);
+    const endMargin = rule?.m1 ?? (shortClip ? 9 : 45);
+    const step = shortClip ? 4 : 7;
     const overlaps = (t) => (rule?.skip || []).some(([a, b]) => t < b && t + 5 > a);
     if (rule?.allow) {
       for (const [a, b] of rule.allow)
@@ -735,10 +716,10 @@ async function main() {
   const usedKeys = new Set(mentions.map((m) => m.e.key));
   for (const e of ENTITIES) {
     if (!usedKeys.has(e.key)) continue;
-    if (entHasVideo(e)) continue; // esta marca ya tiene VÍDEO, no necesita imagen
+    if (entHasVideo(e) && !e.imgEvery) continue; // con VÍDEO no necesita imagen, salvo que pida fotos intercaladas (imgEvery)
     if (!e.query) continue;       // entidad "cierre" -> vídeo general, sin imagen
-    const imgs = await getWikiImages(e.query, 8);
-    e.images = imgs.map((src) => ({ src }));
+    const imgs = await getWikiImages(e.query, 12);
+    e.images = imgs.filter((src) => !BAD_IMGS.has(path.basename(src))).map((src) => ({ src }));
   }
   console.log(`     marcas con vídeo + temas con imagen. (imagen: ${ENTITIES.filter((e) => e.images && e.images.length).map((e) => e.key).join(", ")})`);
   // Entidad activa (mención) + coche PRINCIPAL de la sección.
@@ -894,7 +875,17 @@ async function main() {
     const ent = usingYt ? activeEntity(t) || sectionPrimary(t) : null;
     const vpool = ent ? entVideoPool(ent) : null;
     let clipSrc, startFrom, isImage, framed, d;
-    if (usingYt && vpool && vpool.length) {
+    // FOTO de exterior del modelo intercalada cada `imgEvery` planos (variedad: no todo es salpicadero).
+    if (usingYt && ent && ent.imgEvery && ent.images && ent.images.length && vpool && vpool.length) {
+      const nextK = (brandIdx[ent.key] ?? -1) + 1;
+      if (nextK % ent.imgEvery === ent.imgEvery - 1) {
+        const wi = takeUnused(ent.images, nextK);
+        if (wi) { brandIdx[ent.key] = nextK; clipSrc = wi.src; isImage = true; framed = true; startFrom = 0; d = DUR_IMG[i % DUR_IMG.length]; }
+        else ent.imgEvery = 0; // fotos agotadas: solo vídeo
+      }
+    }
+    if (clipSrc) { /* plano de foto ya decidido */ }
+    else if (usingYt && vpool && vpool.length) {
       // VÍDEO(S) de esa marca: pool intercalado de sus varios modelos.
       const k = (brandIdx[ent.key] = (brandIdx[ent.key] ?? -1) + 1);
       const w = takeUnused(vpool, k, ent.key === "general" ? (i % 4 === 3 ? "stock" : "car") : undefined);
@@ -912,6 +903,7 @@ async function main() {
       const k = (entImgIdx[ent.key] = (entImgIdx[ent.key] ?? -1) + 1);
       const w = takeUnused(ent.images, k);
       if (w) { clipSrc = w.src; isImage = true; framed = true; startFrom = 0; d = DUR_IMG[i % DUR_IMG.length]; }
+      else if ((() => { const pe = sectionPrimary(t); const pp = pe ? entVideoPool(pe) : null; const w3 = pp && pp.length ? takeUnused(pp, 0) : null; if (w3) { clipSrc = w3.src; startFrom = w3.fixedStart; isImage = false; framed = true; d = DUR_BRAND[i % DUR_BRAND.length]; brandShots++; return true; } return false; })()) { /* clip del modelo principal de la sección */ }
       else { const f = pickFiller(t); if (f) { clipSrc = f.src; startFrom = f.startFrom; isImage = f.isImage; framed = true; d = DUR_GEN[i % DUR_GEN.length]; } else { const w2 = ent.images[k % ent.images.length]; clipSrc = w2.src; isImage = true; framed = true; startFrom = 0; d = DUR_IMG[i % DUR_IMG.length]; repeats++; } }
     } else if (usingYt) {
       // Genérico (intro/conclusión/transiciones): rota entre TODAS las marcas;

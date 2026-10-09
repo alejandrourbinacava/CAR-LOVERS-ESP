@@ -30,13 +30,26 @@ HOLD = 8             # fotogramas que se mantiene una caja tras perderla
 CONF = 0.35
 DETECTOR = None
 # Tramos EXTERIORES (sin pantallas) de cada clip donde se acepta cualquier matrícula en ángulo/primer plano
-RELAX = {"marca-bluehdi": 45, "marca-toyota": 80, "marca-moderno": 150, "marca-rav4": 120, "marca-qashqai": 100, "marca-arona": 120, "marca-t2008": 35, "marca-captur": 50, "marca-stonic": 35, "marca-vitara": 100, "marca-niro": 220, "marca-kona": 80, "marca-model3": 40, "marca-mgzs": 40, "marca-chr": 40, "marca-yariscross": 45, "marca-atto2": 55, "marca-cx5": 160, "marca-q2": 45}
+RELAX = {"marca-bluehdi": 45, "marca-toyota": 80, "marca-moderno": 150, "marca-rav4": 120, "marca-qashqai": 40, "marca-arona": 120, "marca-t2008": 35, "marca-captur": 50, "marca-stonic": 35, "marca-vitara": 100, "marca-niro": 220, "marca-kona": 80, "marca-model3": 40, "marca-mgzs": 40, "marca-chr": 40, "marca-yariscross": 45, "marca-atto2": 55, "marca-cx5": 160, "marca-q2": 45, "marca-smart": 40, "marca-puretech": 70, "marca-a4": 30, "marca-duster": 60, "marca-golf": 35, "marca-evoque": 90, "marca-modely": 40}
 # Marcas de agua FIJAS (x1,y1,x2,y2) que se desenfocan en TODOS los fotogramas de ese clip
-STATIC_MASKS = {"marca-cx5": [(1735, 22, 1905, 98)]}
+STATIC_MASKS = {"marca-cx5": [(1735, 22, 1905, 98)], "marca-evoqueb": [(30, 975, 350, 1050)]}
+
+
+def _force_set():
+    p = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "out", "_force-relax.txt")
+    try:
+        return set(x.strip() for x in open(p, encoding="utf-8") if x.strip())
+    except OSError:
+        return set()
+
+
+FORCE = _force_set()
 
 
 def is_relaxed(clip_src, start):
     name = os.path.basename(clip_src)[:-4]
+    if f"{name}@{float(start or 0)}" in FORCE:   # planos donde el QA vio una matrícula sin tapar
+        return True
     return name in RELAX and float(start or 0) < RELAX[name]
 
 
@@ -186,6 +199,8 @@ def main():
     os.makedirs(out_dir, exist_ok=True)
     jobs = []
     for s in plan:
+        if s.get("isImage"):
+            continue  # las fotos se quedan como imagen (Ken Burns en Remotion); van en el repo
         out = os.path.join(out_dir, f"shot-{shot_key(s)}.mp4")
         jobs.append((s["i"], os.path.join(ROOT, "public", s["clipSrc"]), float(s["startFrom"] or 0), float(s["dur"]), out, is_relaxed(s["clipSrc"], s["startFrom"])))
     t0 = time.time()
@@ -203,6 +218,8 @@ def main():
 
     def repl(m):
         s = next(it)
+        if s.get("isImage"):
+            return m.group(0)
         return f'  {{ clipSrc: "assets/{OUT_DIR}/shot-{shot_key(s)}.mp4", durationInSeconds: {m.group(2)}, startFromSeconds: 0,'
 
     new, n = re.subn(r'  \{ clipSrc: "([^"]+)", durationInSeconds: ([\d.]+), startFromSeconds: [\d.]+,', repl, cfg)

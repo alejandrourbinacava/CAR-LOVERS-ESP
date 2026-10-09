@@ -1,0 +1,41 @@
+TÍTULO (opciones)
+1. Coches de Segunda Mano Que NO Debes Comprar en 2027 (Los 10 Que Más Dinero Te Van a Costar)
+2. 10 Coches Usados Que NO Debes Comprar en 2027 (Modelo, Motor y Año Exactos)
+3. Un Tesla de 2 Años Falla Como un Mercedes de 10: Los 10 Usados a Evitar en 2027
+
+DESCRIPCIÓN
+¿Vas a comprar un coche de segunda mano en 2027? Antes de pagar, mira esto. Cruzamos el informe TÜV 2026 (9,5 millones de inspecciones), las estadísticas de averías del ADAC, el estudio de fiabilidad de la OCU (más de 85.000 conductores) y casos reales para señalar 10 coches de ocasión que te pueden costar muchísimo dinero, y qué versión sí puedes comprar en su lugar.
+
+Casi ningún coche de la lista es malo en todas sus versiones: lo que hay que evitar es una combinación concreta de modelo, motor y año. Te lo explico con datos, con el fallo exacto, lo que cuesta repararlo y qué alternativa tiene mejores números.
+
+⏱️ CAPÍTULOS
+0:00 El dato que lo cambia todo
+1:22 De dónde salen los datos
+3:06 10 · Smart ForTwo y ForFour
+5:43 9 · Peugeot 208/2008 y Citroën C3 PureTech
+7:15 8 · Hyundai i20 y Kia Ceed
+10:17 7 · Nissan Qashqai y Juke 1.2 DIG-T
+12:58 6 · Dacia Duster
+16:02 5 · VW Golf y SEAT León 1.2 y 1.4 TSI
+19:26 4 · Audi A4 y A5 2.0 TFSI
+22:25 3 · BMW 320d y 520d (motor N47)
+25:50 2 · Land Rover Evoque y Discovery Sport
+28:44 1 · Tesla Model Y y Model 3
+32:12 Cómo comprar un usado sin arruinarte (10 comprobaciones)
+34:38 Qué comprar en su lugar
+37:19 Conclusión
+
+⚠️ Los datos del TÜV miden defectos de inspección (frenos, suspensión, luces), no averías de motor, y son de Alemania: sirven de referencia, no son la ITV española. Los precios de reparación son orientativos y dependen del taller. Verifica siempre el coche concreto con un peritaje independiente antes de comprar.
+
+👍 Si este vídeo te ha ahorrado un disgusto, compártelo con alguien que vaya a comprar un coche usado y suscríbete a Car Lovers Español. Cuéntame en los comentarios qué coche estás mirando (marca, modelo, motor y año) y analizo los más pedidos.
+
+#CochesSegundaMano #CocheUsado #QueCocheComprar #Fiabilidad #Averias
+
+PALABRAS CLAVE (≈500 caracteres)
+coches de segunda mano que no comprar, coches usados que evitar 2027, mejores coches de segunda mano, qué coche usado comprar, coche de segunda mano fiable, averías coches usados, comprar coche usado consejos, cadena de distribución, tüv 2026, adac averías, tesla model y usado, tesla model 3 fiabilidad, dacia duster usado, land rover evoque problemas, bmw 320d n47, audi a4 2.0 tfsi consumo aceite, golf 1.2 tsi cadena, nissan qashqai 1.2 dig-t, kia ceed hyundai i20 averías, smart fortwo fiabilidad, puretech peugeot 2008, peritaje coche usado, car lovers español
+
+NOTAS A VERIFICAR (guion)
+- "Mazda 2 con 96/100 en la OCU" y "Model 3 más vendido en septiembre con 2.528 unidades": sin confirmar en fuentes.
+- Datos ADAC por año de Ceed/i20/Smart y casos de reclamaciones BMW/Land Rover: de foros/prensa, no oficiales.
+- Audi A4: el dato de Consumer Reports se quitó del guion por no poder confirmarlo.
+- Chapters calculados con la voz real (config.ts).

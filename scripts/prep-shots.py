@@ -30,7 +30,7 @@ HOLD = 8             # fotogramas que se mantiene una caja tras perderla
 CONF = 0.35
 DETECTOR = None
 # Tramos EXTERIORES (sin pantallas) de cada clip donde se acepta cualquier matrícula en ángulo/primer plano
-RELAX = {"marca-bluehdi": 45, "marca-toyota": 80, "marca-moderno": 150, "marca-rav4": 120, "marca-qashqai": 40, "marca-arona": 120, "marca-t2008": 35, "marca-captur": 50, "marca-stonic": 35, "marca-vitara": 100, "marca-niro": 220, "marca-kona": 80, "marca-model3": 40, "marca-mgzs": 40, "marca-chr": 40, "marca-yariscross": 45, "marca-atto2": 55, "marca-cx5": 160, "marca-q2": 45, "marca-smart": 40, "marca-puretech": 70, "marca-a4": 30, "marca-duster": 60, "marca-golf": 35, "marca-evoque": 90, "marca-modely": 40}
+RELAX = {"marca-bluehdi": 45, "marca-toyota": 80, "marca-moderno": 150, "marca-rav4": 80, "marca-qashqai": 40, "marca-arona": 120, "marca-t2008": 35, "marca-captur": 50, "marca-stonic": 35, "marca-vitara": 100, "marca-niro": 220, "marca-kona": 80, "marca-model3": 40, "marca-mgzs": 40, "marca-chr": 40, "marca-yariscross": 45, "marca-atto2": 55, "marca-cx5": 160, "marca-q2": 45, "marca-smart": 40, "marca-puretech": 70, "marca-a4": 30, "marca-duster": 130, "marca-golf": 35, "marca-evoque": 90, "marca-modely": 40, "marca-lexus": 140, "marca-sandero": 120, "marca-corolla": 45, "marca-macan": 40, "marca-jimny": 40, "marca-leaf": 35, "marca-ipace": 60, "marca-polestar": 180}
 # Marcas de agua FIJAS (x1,y1,x2,y2) que se desenfocan en TODOS los fotogramas de ese clip
 STATIC_MASKS = {"marca-cx5": [(1735, 22, 1905, 98)], "marca-evoqueb": [(30, 975, 350, 1050)], "marca-bmw320b": [(35, 30, 335, 100)]}
 

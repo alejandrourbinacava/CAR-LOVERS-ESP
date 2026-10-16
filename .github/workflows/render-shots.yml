@@ -13,6 +13,12 @@ on:
       tag:
         description: "Tag del Release con los planos"
         default: "shots-diesel"
+      narration:
+        description: "Narración (ruta dentro del repo)"
+        default: "input/narration.mp3"
+      titulo_file:
+        description: "Fichero con el título (ruta dentro del repo)"
+        default: "input/titulo.txt"
 
 jobs:
   render:
@@ -52,8 +58,8 @@ jobs:
       - name: Preparar narración y título
         run: |
           mkdir -p public/assets/audio out
-          cp input/narration.mp3 public/assets/audio/narration.mp3
-          cat input/titulo.txt | tr -d '\r\n:' | head -c 120 > out/_titulo.txt
+          cp "${{ github.event.inputs.narration || 'input/narration.mp3' }}" public/assets/audio/narration.mp3
+          cat "${{ github.event.inputs.titulo_file || 'input/titulo.txt' }}" | tr -d '\r\n:' | head -c 120 > out/_titulo.txt
           cat out/_titulo.txt; echo
 
       - name: Renderizar

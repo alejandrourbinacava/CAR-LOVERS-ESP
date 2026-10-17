@@ -7,7 +7,7 @@ import json, os, re, sys
 
 video, lang = sys.argv[1], sys.argv[2]
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
-cfg = open(f"{ROOT}/src/config.ts", encoding="utf-8").read()
+cfg = open(os.environ.get("CFG", f"{ROOT}/src/config.ts"), encoding="utf-8").read()   # CFG=<ruta> para un montaje que ya no esté en src/config.ts
 chs = json.loads(re.search(r"chapters: (\[.*?\]),\n", cfg).group(1))
 loc = json.load(open(f"{ROOT}/input/loc/{video}/{lang}.json", encoding="utf-8"))
 lines, last = [], -99

@@ -26,7 +26,7 @@ while true; do
   N=$(curl -s -H "Authorization: Bearer $TOKEN" "$API/releases/$RID/assets?per_page=100&page=$PAGE" | python -c "import sys,json;d=json.load(sys.stdin);[print(a['name']) for a in d];" | tee -a /tmp/_shots_have.txt | wc -l)
   [ "$N" -lt 100 ] && break; PAGE=$((PAGE+1))
 done
-sort -u /tmp/_shots_have.txt -o /tmp/_shots_have.txt
+tr -d "" < /tmp/_shots_have.txt | sort -u > /tmp/_h2.txt; mv /tmp/_h2.txt /tmp/_shots_have.txt; tr -d "" < /tmp/_shots_need.txt | sort -u > /tmp/_n2.txt; mv /tmp/_n2.txt /tmp/_shots_need.txt
 comm -23 /tmp/_shots_need.txt /tmp/_shots_have.txt > /tmp/_shots_todo.txt
 echo "Planos necesarios: $(wc -l < /tmp/_shots_need.txt) · ya subidos: $(comm -12 /tmp/_shots_need.txt /tmp/_shots_have.txt | wc -l) · por subir: $(wc -l < /tmp/_shots_todo.txt)"
 
@@ -39,7 +39,7 @@ up_one() {
   echo "$f $code"
 }
 export -f up_one
-xargs -a /tmp/_shots_todo.txt -P 6 -I{} bash -c 'up_one {}' | awk '{ if ($2!="201") print "FALLO:", $0; n++ } END { print "=== subidos:", n+0, "===" }'
+xargs -a /tmp/_shots_todo.txt -P 3 -I{} bash -c 'up_one {}' | awk '{ if ($2!="201") print "FALLO:", $0; n++ } END { print "=== subidos:", n+0, "===" }'
 
 if [ "$GO" = "montar" ]; then
   echo ">>> disparando render-shots.yml (subdir=$SUB tag=$TAG)..."

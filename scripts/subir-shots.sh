@@ -18,17 +18,22 @@ if [ -z "$RID" ]; then
 fi
 echo "Release '$TAG' id=$RID"
 
-# lista de planos referenciados + los que ya están subidos
-grep -o "assets/$SUB/shot-[a-z0-9]*\.mp4" src/config.ts | sed "s#assets/$SUB/##" | sort -u > /tmp/_shots_need.txt
-curl -s -H "Authorization: Bearer $TOKEN" "$API/releases/$RID/assets?per_page=100" | python -c "import sys,json;[print(a['name']) for a in json.load(sys.stdin)]" > /tmp/_shots_have.txt
-PAGE=2
-while true; do
-  N=$(curl -s -H "Authorization: Bearer $TOKEN" "$API/releases/$RID/assets?per_page=100&page=$PAGE" | python -c "import sys,json;d=json.load(sys.stdin);[print(a['name']) for a in d];" | tee -a /tmp/_shots_have.txt | wc -l)
-  [ "$N" -lt 100 ] && break; PAGE=$((PAGE+1))
-done
-tr -d "" < /tmp/_shots_have.txt | sort -u > /tmp/_h2.txt; mv /tmp/_h2.txt /tmp/_shots_have.txt; tr -d "" < /tmp/_shots_need.txt | sort -u > /tmp/_n2.txt; mv /tmp/_n2.txt /tmp/_shots_need.txt
-comm -23 /tmp/_shots_need.txt /tmp/_shots_have.txt > /tmp/_shots_todo.txt
-echo "Planos necesarios: $(wc -l < /tmp/_shots_need.txt) · ya subidos: $(comm -12 /tmp/_shots_need.txt /tmp/_shots_have.txt | wc -l) · por subir: $(wc -l < /tmp/_shots_todo.txt)"
+# planos necesarios (config.ts) menos los que ya están en el Release (comparación en Python: sin problemas de CR)
+python - "$SUB" "$TOKEN" "$API" "$RID" <<'PYEOF' > /tmp/_shots_todo.txt
+import json, re, sys, urllib.request
+sub, token, api, rid = sys.argv[1:5]
+need = sorted(set(re.findall(r"assets/%s/(shot-[a-z0-9]+\.mp4)" % re.escape(sub), open("src/config.ts", encoding="utf-8").read())))
+have, page = set(), 1
+while True:
+    req = urllib.request.Request(f"{api}/releases/{rid}/assets?per_page=100&page={page}", headers={"Authorization": f"Bearer {token}"})
+    d = json.load(urllib.request.urlopen(req))
+    have |= {a["name"] for a in d}
+    if len(d) < 100:
+        break
+    page += 1
+sys.stderr.write("Planos necesarios: %d - ya subidos: %d - por subir: %d" % (len(need), len([n for n in need if n in have]), len([n for n in need if n not in have])) + chr(10))
+print(chr(10).join(n for n in need if n not in have))
+PYEOF
 
 UP="https://uploads.github.com/repos/$REPO/releases/$RID/assets"
 export TOKEN UP SUB
@@ -39,7 +44,7 @@ up_one() {
   echo "$f $code"
 }
 export -f up_one
-xargs -a /tmp/_shots_todo.txt -P 3 -I{} bash -c 'up_one {}' | awk '{ if ($2!="201") print "FALLO:", $0; n++ } END { print "=== subidos:", n+0, "===" }'
+[ -s /tmp/_shots_todo.txt ] && xargs -a /tmp/_shots_todo.txt -P 3 -I{} bash -c 'up_one {}' | awk '{ if ($2!="201" && $2!="422") print "FALLO:", $0; n++ } END { print "=== subidos:", n+0, "===" }'
 
 if [ "$GO" = "montar" ]; then
   echo ">>> disparando render-shots.yml (subdir=$SUB tag=$TAG)..."

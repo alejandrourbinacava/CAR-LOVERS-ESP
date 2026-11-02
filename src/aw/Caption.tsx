@@ -27,6 +27,8 @@ export const Caption: React.FC<{ text: string }> = ({ text }) => {
     { extrapolateLeft: "clamp" }
   );
   const opacity = Math.min(opIn, opOut);
+  // Textos largos (>56 car.) no caben en una línea a 66 px: se reducen y pasan a 2 líneas.
+  const long = text.length > 56;
 
   return (
     <div
@@ -53,13 +55,16 @@ export const Caption: React.FC<{ text: string }> = ({ text }) => {
         <span
           style={{
             fontFamily: FONT_DISPLAY,
-            fontSize: 66,
-            lineHeight: 1,
+            fontSize: long ? 50 : 66,
+            lineHeight: long ? 1.12 : 1,
+            display: "block",
+            maxWidth: 1740,
+            textAlign: "center",
             color: "#FFFFFF",
             textTransform: "uppercase",
             letterSpacing: 1,
             textShadow: "0 4px 16px rgba(0,0,0,0.7)",
-            whiteSpace: "nowrap",
+            whiteSpace: long ? "normal" : "nowrap",
           }}
         >
           {text}

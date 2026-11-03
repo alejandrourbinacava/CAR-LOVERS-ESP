@@ -9,6 +9,7 @@ import { loadFont as loadAnton } from "@remotion/google-fonts/Anton";
 import { loadFont as loadInter } from "@remotion/google-fonts/Inter";
 import { loadFont as loadOswald } from "@remotion/google-fonts/Oswald";
 import { loadFont as loadBarlow } from "@remotion/google-fonts/BarlowCondensed";
+import { loadFont as loadMontserrat } from "@remotion/google-fonts/Montserrat";
 
 // Anton: condensada, muy pesada -> titulares e impacto (Magnate + numeros Vox)
 export const FONT_DISPLAY = loadAnton().fontFamily;
@@ -23,6 +24,9 @@ export const FONT_KICKER = loadOswald("normal", {
 export const FONT_LABEL = loadBarlow("normal", {
   weights: ["500", "600", "700"],
 }).fontFamily;
+
+// Montserrat cursiva extra-gorda: texto cinético amarillo de fichas y capítulos
+export const FONT_KINETIC = loadMontserrat("italic", { weights: ["800", "900"] }).fontFamily;
 
 // Paleta unificada
 export const COLORS = {

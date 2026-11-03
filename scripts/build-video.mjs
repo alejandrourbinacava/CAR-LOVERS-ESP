@@ -714,7 +714,12 @@ async function main() {
     if (!usedKeys.has(e.key)) continue;
     if (entHasVideo(e) && !e.imgEvery) continue; // con VÍDEO no necesita imagen, salvo que pida fotos intercaladas (imgEvery)
     if (!e.query) continue;       // entidad "cierre" -> vídeo general, sin imagen
-    const imgs = await getWikiImages(e.query, 12);
+    // query puede ser un array (exterior, interior, motor...) -> se intercalan para dar variedad de imagen.
+    const qs = Array.isArray(e.query) ? e.query : [e.query];
+    const lists = [];
+    for (const q of qs) lists.push(await getWikiImages(q, Math.ceil(12 / qs.length) + 2));
+    const imgs = [];
+    for (let j = 0; lists.some((l) => j < l.length); j++) for (const l of lists) if (j < l.length) imgs.push(l[j]);
     e.images = imgs.filter((src) => !BAD_IMGS.has(path.basename(src))).map((src) => ({ src }));
   }
   console.log(`     marcas con vídeo + temas con imagen. (imagen: ${ENTITIES.filter((e) => e.images && e.images.length).map((e) => e.key).join(", ")})`);
@@ -971,11 +976,36 @@ async function main() {
   // Música de fondo: solo si el cliente la ha puesto en el proyecto (regla:
   // normalmente se añade aparte con ducking; en la nube no está y no se incrusta).
   const hasMusic = await fileExists(path.join(AUDIO_DIR, "musica-fondo.mp3"));
-  await fs.writeFile(CONFIG_PATH, emitConfig(total, shots, overlays, pins, hasMusic, tags, chapters), "utf-8");
+  // FICHAS de modelo/dato (estilo dinámico): rejilla + coche recortado + textos. CARDS = [{ anchor, name, lines, img, side, dur }]
+  // img = ruta relativa a public/ (foto limpia); se recorta con rembg a public/assets/cut/<nombre>.png (ver cutout_car.py).
+  const cards = [];
+  if (typeof CARDS !== "undefined") {
+    const { execFileSync } = await import("node:child_process");
+    for (const c of CARDS) {
+      const idx = guion.indexOf(c.anchor);
+      if (idx < 0) { console.warn(`[!] ficha ancla no encontrada: "${c.anchor}"`); continue; }
+      let cut;
+      if (c.img) {
+        const base = path.basename(c.img).replace(/\.[^.]+$/, "") + ".png";
+        const out = path.join(ROOT, "public", "assets", "cut", base);
+        if (!(await fileExists(out))) {
+          await fs.mkdir(path.dirname(out), { recursive: true });
+          try { execFileSync("python", ["-X", "utf8", path.join(ROOT, "scripts", "cutout_car.py"), path.join(ROOT, "public", c.img), out], { stdio: "inherit" }); }
+          catch { console.warn(`[!] recorte fallido: ${c.img}`); }
+        }
+        if (await fileExists(out)) cut = `assets/cut/${base}`;
+      }
+      const from = Math.max(0, timeAt(idx) ?? 0);
+      cards.push({ name: c.name, lines: c.lines || [], cut, side: c.side || "right", fromSeconds: +from.toFixed(2), durationInSeconds: c.dur || 4.5 });
+    }
+    console.log(`     ${cards.length} fichas de modelo (estilo dinámico)`);
+  }
+  const fx = typeof FX !== "undefined" ? !!FX : false;
+  await fs.writeFile(CONFIG_PATH, emitConfig(total, shots, overlays, pins, hasMusic, tags, chapters, fx, cards), "utf-8");
   console.log(`\n✅ Listo. total=${total.toFixed(1)}s · ${shots.length} planos · ${overlays.length} overlays · ${pins.length} pins.`);
 }
 
-function emitConfig(total, shots, overlays, pins, hasMusic, tags, chapters) {
+function emitConfig(total, shots, overlays, pins, hasMusic, tags, chapters, fx = false, cards = []) {
   const shotsCode = shots
     .map((s) => `  { clipSrc: ${JSON.stringify(s.clipSrc)}, durationInSeconds: ${s.durationInSeconds}, startFromSeconds: ${s.startFromSeconds}, kenBurns: ${JSON.stringify(s.kenBurns)}, framed: ${s.framed}, isImage: ${!!s.isImage}, sfx: ${!!s.sfx} }`)
     .join(",\n");
@@ -1017,11 +1047,13 @@ export type Pin =
 
 export type Tag = { code: string; name: string; verdict: "yes" | "no"; fromSeconds: number; durationInSeconds: number };
 export type Chapter = { label: string; fromSeconds: number };
+export type Card = { name: string; lines: string[]; cut?: string; side?: "left" | "right"; fromSeconds: number; durationInSeconds: number };
 
 export type VideoConfig = {
   width: number; height: number; fps: number;
   narrationSrc?: string; musicSrc?: string; totalDurationInSeconds: number;
   shots: Shot[]; overlays: Overlay[]; pins: Pin[]; tags?: Tag[]; chapters?: Chapter[];
+  fx?: boolean; cards?: Card[];
 };
 
 // Tipos antiguos (compatibilidad; sin uso)
@@ -1055,6 +1087,8 @@ ${pinsCode}
   ],
   tags: ${JSON.stringify(tags)},
   chapters: ${JSON.stringify(chapters)},
+  fx: ${fx},
+  cards: ${JSON.stringify(cards)},
 };
 `;
 }

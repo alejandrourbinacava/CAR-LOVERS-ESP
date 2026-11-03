@@ -32,9 +32,10 @@ const countUp = (value: string, progress: number): string =>
     return Math.round(v).toString();
   });
 
-export const Stat: React.FC<{ value: string; sub: string }> = ({
+export const Stat: React.FC<{ value: string; sub: string; algo?: boolean }> = ({
   value,
   sub,
+  algo = false,
 }) => {
   const frame = useCurrentFrame();
   const { fps, durationInFrames } = useVideoConfig();
@@ -63,7 +64,7 @@ export const Stat: React.FC<{ value: string; sub: string }> = ({
       }}
     >
       {/* Sonido al aparecer el dato (regla: sonar en datos importantes) */}
-      <Audio src={staticFile("assets/sfx/glitch.mp3")} volume={0.5} />
+      <Audio src={staticFile(algo ? "assets/sfx/algo.mp3" : "assets/sfx/glitch.mp3")} volume={algo ? 0.55 : 0.5} />
       {/* Scrim para legibilidad */}
       <AbsoluteFill
         style={{

@@ -9,9 +9,16 @@ import { PinImage } from "./aw/PinImage";
 import { DuoPin } from "./aw/DuoPin";
 import { EngineTag } from "./aw/EngineTag";
 import { ChapterBar } from "./aw/ChapterBar";
+import { ModelCard } from "./aw/ModelCard";
+import { ChapterWipe } from "./aw/ChapterWipe";
+import { CutFX } from "./aw/CutFX";
+
+// Estilo dinámico (opt-in por vídeo): config.fx = true activa transiciones de capítulo, efectos de corte y sonido
+// "algorítmico" en los datos; config.cards = fichas de modelo/dato en capas (rejilla + coche recortado + textos).
+type Card = { name: string; lines: string[]; cut?: string; side?: "left" | "right"; fromSeconds: number; durationInSeconds: number };
 
 export const CarVideo: React.FC = () => {
-  const { shots, overlays, narrationSrc, musicSrc } = videoConfig as typeof videoConfig & { musicSrc?: string };
+  const { shots, overlays, narrationSrc, musicSrc, fx = false, cards = [] } = videoConfig as typeof videoConfig & { musicSrc?: string; fx?: boolean; cards?: Card[] };
   const pins = videoConfig.pins ?? [];
   const tags = videoConfig.tags ?? [];
   const chapters = videoConfig.chapters ?? [];
@@ -23,9 +30,16 @@ export const CarVideo: React.FC = () => {
     const from = cursor;
     cursor += dur;
     return (
-      <Sequence key={`b${i}`} from={from} durationInFrames={dur}>
-        <Broll shot={shot} index={i} />
-      </Sequence>
+      <React.Fragment key={`b${i}`}>
+        <Sequence from={from} durationInFrames={dur}>
+          <Broll shot={shot} index={i} />
+        </Sequence>
+        {fx && i > 0 && (
+          <Sequence from={from} durationInFrames={8}>
+            <CutFX variant={i} />
+          </Sequence>
+        )}
+      </React.Fragment>
     );
   });
 
@@ -54,6 +68,13 @@ export const CarVideo: React.FC = () => {
         );
       })}
 
+      {/* PISTA 2a: fichas de modelo/dato en capas (rejilla + coche recortado + textos) */}
+      {cards.map((c, i) => (
+        <Sequence key={`c${i}`} from={Math.max(0, Math.round(c.fromSeconds * FPS))} durationInFrames={Math.max(1, Math.round(c.durationInSeconds * FPS))}>
+          <ModelCard name={c.name} lines={c.lines} cut={c.cut} side={c.side} />
+        </Sequence>
+      ))}
+
       {/* PISTA 2b: motion graphics persistentes (barra de capitulos + etiqueta de motor) */}
       {chapters.length > 0 && <ChapterBar chapters={chapters} total={videoConfig.totalDurationInSeconds} />}
       {tags.map((g, i) => {
@@ -66,6 +87,14 @@ export const CarVideo: React.FC = () => {
         );
       })}
 
+      {/* transiciones de capítulo (estilo dinámico) */}
+      {fx &&
+        chapters.slice(1).map((c, i) => (
+          <Sequence key={`w${i}`} from={Math.max(0, Math.round(c.fromSeconds * FPS))} durationInFrames={50}>
+            <ChapterWipe n={i + 2} label={c.label} />
+          </Sequence>
+        ))}
+
       {/* PISTA 3: textos/datos anclados a su segundo del audio */}
       {overlays.map((o, i) => {
         const from = Math.max(0, Math.round(o.fromSeconds * FPS));
@@ -73,7 +102,7 @@ export const CarVideo: React.FC = () => {
         return (
           <Sequence key={`o${i}`} from={from} durationInFrames={dur}>
             {o.kind === "caption" && <Caption text={o.text} />}
-            {o.kind === "stat" && <Stat value={o.value} sub={o.sub} />}
+            {o.kind === "stat" && <Stat value={o.value} sub={o.sub} algo={fx} />}
             {o.kind === "hook" && <HookCard text={o.text} />}
           </Sequence>
         );

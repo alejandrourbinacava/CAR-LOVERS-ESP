@@ -8,7 +8,7 @@ import { GridBG } from "./GridBG";
 import { KText } from "./KText";
 import { FONT_KINETIC } from "../theme";
 
-export const ChapterWipe: React.FC<{ n: number; label: string }> = ({ n, label }) => {
+export const ChapterWipe: React.FC<{ n: number; label: string; rank?: string; lang?: "es" | "en" }> = ({ n, label, rank, lang = "es" }) => {
   const frame = useCurrentFrame();
   const { durationInFrames } = useVideoConfig();
   const inP = interpolate(frame, [0, 10], [0, 1], { extrapolateRight: "clamp" });
@@ -31,8 +31,25 @@ export const ChapterWipe: React.FC<{ n: number; label: string }> = ({ n, label }
             opacity: interpolate(frame, [6, 14], [0, 1], { extrapolateRight: "clamp" }),
           }}
         >
-          CAPÍTULO {n}
+          {rank ? "" : lang === "en" ? `CHAPTER ${n}` : `CAPÍTULO ${n}`}
         </div>
+        {rank ? (
+          <div
+            style={{
+              fontFamily: FONT_KINETIC,
+              fontStyle: "italic",
+              fontWeight: 900,
+              fontSize: 230,
+              lineHeight: 0.9,
+              color: "#FFD400",
+              textShadow: "0 10px 40px rgba(0,0,0,0.6)",
+              transform: `scale(${interpolate(frame, [4, 14], [1.6, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" })})`,
+              opacity: interpolate(frame, [4, 10], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" }),
+            }}
+          >
+            {/^\d+$/.test(rank) ? `#${rank}` : lang === "en" ? `${rank} TIER` : rank}
+          </div>
+        ) : null}
         <div style={{ width: 960 }}>
           <KText text={label} size={118} delay={8} outAt={durationInFrames - 12} />
         </div>

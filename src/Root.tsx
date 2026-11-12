@@ -18,7 +18,7 @@ export const Root: React.FC = () => {
         width={videoConfig.width}
         height={videoConfig.height}
       />
-      <Composition id="StyleTest" component={StyleTest} durationInFrames={300} fps={30} width={1920} height={1080} />
+      <Composition id="StyleTest" component={StyleTest} durationInFrames={700} fps={30} width={1920} height={1080} />
     </>
   );
 };

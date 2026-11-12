@@ -12,13 +12,15 @@ import { ChapterBar } from "./aw/ChapterBar";
 import { ModelCard } from "./aw/ModelCard";
 import { ChapterWipe } from "./aw/ChapterWipe";
 import { CutFX } from "./aw/CutFX";
+import { QuoteCard } from "./aw/QuoteCard";
+import { RankBadge } from "./aw/RankBadge";
 
 // Estilo dinámico (opt-in por vídeo): config.fx = true activa transiciones de capítulo, efectos de corte y sonido
 // "algorítmico" en los datos; config.cards = fichas de modelo/dato en capas (rejilla + coche recortado + textos).
 type Card = { name: string; lines: string[]; cut?: string; side?: "left" | "right"; fromSeconds: number; durationInSeconds: number };
 
 export const CarVideo: React.FC = () => {
-  const { shots, overlays, narrationSrc, musicSrc, fx = false, cards = [] } = videoConfig as typeof videoConfig & { musicSrc?: string; fx?: boolean; cards?: Card[] };
+  const { shots, overlays, narrationSrc, musicSrc, fx = false, cards = [], lang = "es", badges = [] } = videoConfig as typeof videoConfig & { musicSrc?: string; fx?: boolean; cards?: Card[]; lang?: "es" | "en"; badges?: { rank: string; label: string; fromSeconds: number; durationInSeconds: number }[] };
   const pins = videoConfig.pins ?? [];
   const tags = videoConfig.tags ?? [];
   const chapters = videoConfig.chapters ?? [];
@@ -75,6 +77,13 @@ export const CarVideo: React.FC = () => {
         </Sequence>
       ))}
 
+      {/* PISTA 2a': etiqueta de puesto persistente ("12 | 2026 Buick Envision") */}
+      {badges.map((b, i) => (
+        <Sequence key={`rb${i}`} from={Math.max(0, Math.round(b.fromSeconds * FPS))} durationInFrames={Math.max(1, Math.round(b.durationInSeconds * FPS))}>
+          <RankBadge rank={b.rank} label={b.label} />
+        </Sequence>
+      ))}
+
       {/* PISTA 2b: motion graphics persistentes (barra de capitulos + etiqueta de motor) */}
       {chapters.length > 0 && <ChapterBar chapters={chapters} total={videoConfig.totalDurationInSeconds} />}
       {tags.map((g, i) => {
@@ -91,19 +100,23 @@ export const CarVideo: React.FC = () => {
       {fx &&
         chapters.slice(1).map((c, i) => (
           <Sequence key={`w${i}`} from={Math.max(0, Math.round(c.fromSeconds * FPS))} durationInFrames={50}>
-            <ChapterWipe n={i + 2} label={c.label} />
+            <ChapterWipe n={i + 2} label={c.label} rank={(c as { rank?: string }).rank} lang={lang} />
           </Sequence>
         ))}
 
       {/* PISTA 3: textos/datos anclados a su segundo del audio */}
-      {overlays.map((o, i) => {
+      {overlays
+        // con fx, el hook que coincide con un cambio de capítulo (ya lo rotula ChapterWipe) sobra
+        .filter((o) => !(fx && o.kind === "hook" && chapters.slice(1).some((c) => Math.abs(c.fromSeconds - o.fromSeconds) < 0.4)))
+        .map((o, i) => {
         const from = Math.max(0, Math.round(o.fromSeconds * FPS));
         const dur = Math.max(1, Math.round(o.durationInSeconds * FPS));
         return (
           <Sequence key={`o${i}`} from={from} durationInFrames={dur}>
             {o.kind === "caption" && <Caption text={o.text} />}
-            {o.kind === "stat" && <Stat value={o.value} sub={o.sub} algo={fx} />}
+            {o.kind === "stat" && <Stat value={o.value} sub={o.sub} algo={fx} lang={lang} />}
             {o.kind === "hook" && <HookCard text={o.text} />}
+            {o.kind === "quote" && <QuoteCard text={o.text} source={(o as { source?: string }).source} />}
           </Sequence>
         );
       })}

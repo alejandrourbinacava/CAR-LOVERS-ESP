@@ -18,24 +18,31 @@ import { FONT_DISPLAY, FONT_KICKER } from "../theme";
 
 
 // Cuenta hacia arriba cada numero del dato (no anima años tipo 2010).
-const countUp = (value: string, progress: number): string =>
-  value.replace(/\d[\d.,]*/g, (tok) => {
-    const thousands = /^\d{1,3}(\.\d{3})+$/.test(tok);
-    const decimal = /^\d+,\d+$/.test(tok);
-    const num = thousands ? parseInt(tok.replace(/\./g, ""), 10) : decimal ? parseFloat(tok.replace(",", ".")) : parseInt(tok, 10);
+// es: 13.600 / 4,5 · en: 13,600 / 4.5
+const countUp = (value: string, progress: number, lang: "es" | "en" = "es"): string => {
+  const T = lang === "en" ? "," : ".", D = lang === "en" ? "." : ",";
+  const reT = lang === "en" ? /^\d{1,3}(,\d{3})+$/ : /^\d{1,3}(\.\d{3})+$/;
+  const reD = lang === "en" ? /^\d+\.\d+$/ : /^\d+,\d+$/;
+  return value.replace(/\d[\d.,]*\d|\d/g, (tok) => {
+    const thousands = reT.test(tok);
+    const decimal = reD.test(tok);
+    if (!thousands && !decimal && /[.,]/.test(tok)) return tok;
+    const num = thousands ? parseInt(tok.split(T).join(""), 10) : decimal ? parseFloat(tok.replace(D, ".")) : parseInt(tok, 10);
     if (!isFinite(num)) return tok;
     if (!thousands && !decimal && num >= 1900 && num <= 2100) return tok; // años
     if (!thousands && !decimal && num < 10) return tok;
     const v = num * progress;
-    if (thousands) return Math.round(v).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-    if (decimal) return v.toFixed(tok.split(",")[1].length).replace(".", ",");
+    if (thousands) return Math.round(v).toString().replace(/\B(?=(\d{3})+(?!\d))/g, T);
+    if (decimal) return v.toFixed(tok.split(D)[1].length).replace(".", D);
     return Math.round(v).toString();
   });
+};
 
-export const Stat: React.FC<{ value: string; sub: string; algo?: boolean }> = ({
+export const Stat: React.FC<{ value: string; sub: string; algo?: boolean; lang?: "es" | "en" }> = ({
   value,
   sub,
   algo = false,
+  lang = "es",
 }) => {
   const frame = useCurrentFrame();
   const { fps, durationInFrames } = useVideoConfig();
@@ -53,7 +60,7 @@ export const Stat: React.FC<{ value: string; sub: string; algo?: boolean }> = ({
   const underline = spring({ frame: frame - 4, fps, config: { damping: 200 } });
   const prog = interpolate(frame, [4, 26], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
   const eased = 1 - Math.pow(1 - prog, 3);
-  const shown = countUp(value, eased);
+  const shown = countUp(value, eased, lang);
 
   return (
     <AbsoluteFill

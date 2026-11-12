@@ -937,7 +937,7 @@ async function main() {
   console.log(`     ${shots.length} planos · ${brandShots} de vídeo de MARCA · ${shots.length - brandShots} otros · dur media ${(total / shots.length).toFixed(1)}s · clips repetidos: ${repeats}`);
 
   console.log("[5/5] Anclando textos y evitando solapes...");
-  const DUR = { hook: 2.6, stat: 2.8, caption: 2.5 };
+  const DUR = { hook: 2.6, stat: 2.8, caption: 2.5, quote: 5.5 };
   const overlays = [];
   for (const o of OVERLAYS) {
     const idx = guion.indexOf(o.anchor);
@@ -946,6 +946,7 @@ async function main() {
     const base = { fromSeconds: +from.toFixed(2), durationInSeconds: DUR[o.kind] };
     if (o.kind === "stat") overlays.push({ kind: "stat", value: o.value, sub: o.sub, ...base });
     else if (o.kind === "hook") overlays.push({ kind: "hook", text: o.text, ...base });
+    else if (o.kind === "quote") overlays.push({ kind: "quote", text: o.text, source: o.source || "", ...base, durationInSeconds: o.dur || Math.min(7.5, Math.max(4.5, o.text.length / 14)) });
     else overlays.push({ kind: "caption", text: o.text, ...base });
   }
   overlays.sort((a, b) => a.fromSeconds - b.fromSeconds);
@@ -985,27 +986,54 @@ async function main() {
       const idx = guion.indexOf(c.anchor);
       if (idx < 0) { console.warn(`[!] ficha ancla no encontrada: "${c.anchor}"`); continue; }
       let cut;
+      if (!c.img && c.model) c.img = await getWikiImage(c.model); // foto de Commons (sin limpiar -> se tapan matrículas al recortar)
       if (c.img) {
         const base = path.basename(c.img).replace(/\.[^.]+$/, "") + ".png";
         const out = path.join(ROOT, "public", "assets", "cut", base);
         if (!(await fileExists(out))) {
           await fs.mkdir(path.dirname(out), { recursive: true });
-          try { execFileSync("python", ["-X", "utf8", path.join(ROOT, "scripts", "cutout_car.py"), path.join(ROOT, "public", c.img), out], { stdio: "inherit" }); }
+          try { execFileSync("python", ["-X", "utf8", path.join(ROOT, "scripts", "cutout_car.py"), path.join(ROOT, "public", c.img), out, ...(c.img.includes("img-clean") ? [] : ["--blur-plates"])], { stdio: "inherit" }); }
           catch { console.warn(`[!] recorte fallido: ${c.img}`); }
         }
         if (await fileExists(out)) cut = `assets/cut/${base}`;
       }
-      const from = Math.max(0, timeAt(idx) ?? 0);
-      cards.push({ name: c.name, lines: c.lines || [], cut, side: c.side || "right", fromSeconds: +from.toFixed(2), durationInSeconds: c.dur || 4.5 });
+      const from = Math.max(0, (timeAt(idx) ?? 0) + (c.delay || 0));
+      cards.push({ name: c.name, lines: c.lines || [], cut, side: c.side || "right", fromSeconds: +from.toFixed(2), durationInSeconds: c.dur || 4.5, _at: timeAt(idx) ?? 0, _anchor: c.anchor, _badge: c.badge });
     }
     console.log(`     ${cards.length} fichas de modelo (estilo dinámico)`);
   }
   const fx = typeof FX !== "undefined" ? !!FX : false;
-  await fs.writeFile(CONFIG_PATH, emitConfig(total, shots, overlays, pins, hasMusic, tags, chapters, fx, cards), "utf-8");
+  const lang = typeof LANG !== "undefined" ? LANG : "es";
+  // ETIQUETA DE PUESTO persistente (estilo the SUV geek: "12 | 2026 Buick Envision") desde el ancla de cada ficha
+  // hasta la siguiente ficha o el siguiente capítulo. El puesto sale del ancla ("NUMBER 12", "AVOID NUMBER 6", "F TIER", "10. ...").
+  const badges = [];
+  if (fx) {
+    const sorted = [...cards].sort((a, b) => a._at - b._at);
+    sorted.forEach((c, k) => {
+      let rank = c._badge;
+      if (!rank) {
+        const m = /(?:NUMBER|N[ºo°]\.?|#)\s*(\d+)/i.exec(c._anchor) || /^\s*(\d+)[.:]/.exec(c._anchor);
+        const t = /^\s*([SABCDF])\s+TIER/i.exec(c._anchor);
+        rank = m ? m[1] : t ? t[1].toUpperCase() : "";
+      }
+      const start = c._at;
+      const nextCard = k + 1 < sorted.length ? sorted[k + 1]._at : total;
+      const nextChap = chapters.map((x) => x.fromSeconds).filter((x) => x > start + 1).sort((a, b) => a - b)[0] ?? total;
+      const end = Math.min(nextCard, nextChap, total);
+      if (end - start > 4) badges.push({ rank, label: c.name, fromSeconds: +start.toFixed(2), durationInSeconds: +(end - start).toFixed(2) });
+    });
+    for (const ch of chapters) {
+      const b = badges.find((x) => Math.abs(x.fromSeconds - ch.fromSeconds) < 1.5);
+      if (b && b.rank) ch.rank = b.rank;
+    }
+    console.log(`     ${badges.length} etiquetas de puesto`);
+  }
+  for (const c of cards) { delete c._at; delete c._anchor; delete c._badge; }
+  await fs.writeFile(CONFIG_PATH, emitConfig(total, shots, overlays, pins, hasMusic, tags, chapters, fx, cards, lang, badges), "utf-8");
   console.log(`\n✅ Listo. total=${total.toFixed(1)}s · ${shots.length} planos · ${overlays.length} overlays · ${pins.length} pins.`);
 }
 
-function emitConfig(total, shots, overlays, pins, hasMusic, tags, chapters, fx = false, cards = []) {
+function emitConfig(total, shots, overlays, pins, hasMusic, tags, chapters, fx = false, cards = [], lang = "es", badges = []) {
   const shotsCode = shots
     .map((s) => `  { clipSrc: ${JSON.stringify(s.clipSrc)}, durationInSeconds: ${s.durationInSeconds}, startFromSeconds: ${s.startFromSeconds}, kenBurns: ${JSON.stringify(s.kenBurns)}, framed: ${s.framed}, isImage: ${!!s.isImage}, sfx: ${!!s.sfx} }`)
     .join(",\n");
@@ -1019,6 +1047,7 @@ function emitConfig(total, shots, overlays, pins, hasMusic, tags, chapters, fx =
     .map((o) => {
       if (o.kind === "stat") return `  { kind: "stat", value: ${JSON.stringify(o.value)}, sub: ${JSON.stringify(o.sub)}, fromSeconds: ${o.fromSeconds}, durationInSeconds: ${o.durationInSeconds} }`;
       if (o.kind === "hook") return `  { kind: "hook", text: ${JSON.stringify(o.text)}, fromSeconds: ${o.fromSeconds}, durationInSeconds: ${o.durationInSeconds} }`;
+      if (o.kind === "quote") return `  { kind: "quote", text: ${JSON.stringify(o.text)}, source: ${JSON.stringify(o.source)}, fromSeconds: ${o.fromSeconds}, durationInSeconds: ${o.durationInSeconds} }`;
       return `  { kind: "caption", text: ${JSON.stringify(o.text)}, fromSeconds: ${o.fromSeconds}, durationInSeconds: ${o.durationInSeconds} }`;
     })
     .join(",\n");
@@ -1039,21 +1068,23 @@ export type Shot = {
 export type Overlay =
   | { kind: "caption"; text: string; fromSeconds: number; durationInSeconds: number }
   | { kind: "stat"; value: string; sub: string; fromSeconds: number; durationInSeconds: number }
-  | { kind: "hook"; text: string; fromSeconds: number; durationInSeconds: number };
+  | { kind: "hook"; text: string; fromSeconds: number; durationInSeconds: number }
+  | { kind: "quote"; text: string; source: string; fromSeconds: number; durationInSeconds: number };
 
 export type Pin =
   | { kind: "image"; src: string; label?: string; fromSeconds: number; durationInSeconds: number }
   | { kind: "duo"; srcA: string; srcB: string; labelA: string; labelB: string; fromSeconds: number; durationInSeconds: number };
 
 export type Tag = { code: string; name: string; verdict: "yes" | "no"; fromSeconds: number; durationInSeconds: number };
-export type Chapter = { label: string; fromSeconds: number };
+export type Chapter = { label: string; fromSeconds: number; rank?: string };
+export type Badge = { rank: string; label: string; fromSeconds: number; durationInSeconds: number };
 export type Card = { name: string; lines: string[]; cut?: string; side?: "left" | "right"; fromSeconds: number; durationInSeconds: number };
 
 export type VideoConfig = {
   width: number; height: number; fps: number;
   narrationSrc?: string; musicSrc?: string; totalDurationInSeconds: number;
   shots: Shot[]; overlays: Overlay[]; pins: Pin[]; tags?: Tag[]; chapters?: Chapter[];
-  fx?: boolean; cards?: Card[];
+  fx?: boolean; cards?: Card[]; lang?: "es" | "en"; badges?: Badge[];
 };
 
 // Tipos antiguos (compatibilidad; sin uso)
@@ -1089,6 +1120,8 @@ ${pinsCode}
   chapters: ${JSON.stringify(chapters)},
   fx: ${fx},
   cards: ${JSON.stringify(cards)},
+  lang: ${JSON.stringify(lang)},
+  badges: ${JSON.stringify(badges)},
 };
 `;
 }

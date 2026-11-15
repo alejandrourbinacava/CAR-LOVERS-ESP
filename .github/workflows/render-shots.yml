@@ -59,7 +59,7 @@ jobs:
         run: |
           mkdir -p public/assets/audio out
           cp "${{ github.event.inputs.narration || 'input/narration.mp3' }}" public/assets/audio/narration.mp3
-          cat "${{ github.event.inputs.titulo_file || 'input/titulo.txt' }}" | tr -d '\r\n:' | head -c 120 > out/_titulo.txt
+          cat "${{ github.event.inputs.titulo_file || 'input/titulo.txt' }}" | tr -d '\r\n:' | sed 's/[¿?*"<>|/]//g' | head -c 120 > out/_titulo.txt
           cat out/_titulo.txt; echo
 
       - name: Renderizar

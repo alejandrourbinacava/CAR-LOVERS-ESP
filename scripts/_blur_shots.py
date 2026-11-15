@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """_blur_shots.py <v> <masks.json> [skip_idx,...]: difumina cajas (coords 1920x1080) en los PLANOS YA CORTADOS de un vídeo
-sin volver a bajar los fuentes. masks.json = {"clave_clip": [[x1,y1,x2,y2],...]}. El origen de cada plano sale de
+sin volver a bajar los fuentes. masks.json = {"clave_clip" o "#indice": [[x1,y1,x2,y2],...]}. El origen de cada plano sale de
 out/_config-<v>.ts; el plano actual de out/_patch-<v>-config.ts (se reescribe). Sube los planos nuevos al Release shots-<v>."""
 import sys, os, re, json, hashlib, subprocess, urllib.request
 import cv2
@@ -13,6 +13,18 @@ src = open(os.path.join(ROOT, "scripts", "prep-shots.py"), encoding="utf-8").rea
 ns = {"__file__": os.path.join(ROOT, "scripts", "prep-shots.py"), "__name__": "blur"}
 _a = sys.argv; sys.argv = ["prep-shots.py", f"shots-{v}", "2"]; exec(src.split("if __name__")[0], ns); sys.argv = _a
 blur_boxes = ns["blur_boxes"]
+if os.environ.get("STRONG"):
+    import numpy as np
+    def blur_boxes(frame, boxes):   # difuminado fuerte y liso (texto grande / matrículas cercanas)
+        for (x1, y1, x2, y2) in boxes:
+            x1, y1, x2, y2 = max(0, x1), max(0, y1), min(frame.shape[1], x2), min(frame.shape[0], y2)
+            roi = frame[y1:y2, x1:x2]
+            if roi.size == 0: continue
+            h, w = roi.shape[:2]
+            small = cv2.resize(roi, (max(2, w // 40), max(2, h // 40)), interpolation=cv2.INTER_AREA)
+            up = cv2.resize(small, (w, h), interpolation=cv2.INTER_LINEAR)
+            frame[y1:y2, x1:x2] = cv2.GaussianBlur(up, (31, 31), 0)
+        return frame
 rx = r'clipSrc: "([^"]+)", durationInSeconds: ([\d.]+), startFromSeconds: ([\d.]+)'
 orig = re.findall(rx, open(f"out/_config-{v}.ts", encoding="utf-8").read())
 cfgp = f"out/_patch-{v}-config.ts"
@@ -22,9 +34,10 @@ assert len(orig) == len(cur)
 new = []
 for i, (o, c) in enumerate(zip(orig, cur)):
     key = os.path.basename(o[0])[:-4].replace("marca-", "")
-    if f"/yt-{v}/" not in o[0] or key not in masks or i in skip: continue
+    boxes = [tuple(b) for b in masks.get(f"#{i}", [])]
+    if f"/yt-{v}/" in o[0] and key in masks and i not in skip: boxes += [tuple(b) for b in masks[key]]
+    if not boxes: continue
     f_in = c[0]
-    boxes = [tuple(b) for b in masks[key]]
     name = "shot-" + hashlib.md5(f"{f_in}|{boxes}|blur".encode()).hexdigest()[:10]
     f_out = f"assets/shots-{v}/{name}.mp4"
     cap = cv2.VideoCapture("public/" + f_in)

@@ -44,7 +44,10 @@ open(os.path.join(ROOT, "out", f"_patch-{v}-config.ts"), "w", encoding="utf-8", 
 tok = subprocess.run(["git", "credential", "fill"], input=b"protocol=https\nhost=github.com\n\n", capture_output=True, cwd=ROOT).stdout.decode()
 tok = re.search(r"^password=(.*)$", tok, re.M).group(1).strip()
 api = "https://api.github.com/repos/alejandrourbinacava/CAR-LOVERS-ESP"
-rid = json.load(urllib.request.urlopen(urllib.request.Request(f"{api}/releases/tags/shots-{v}", headers={"Authorization": f"Bearer {tok}"})))["id"]
+try:
+    rid = json.load(urllib.request.urlopen(urllib.request.Request(f"{api}/releases/tags/shots-{v}", headers={"Authorization": f"Bearer {tok}"})))["id"]
+except urllib.error.HTTPError:
+    print("sin Release shots-%s todavia: se subira con subir-shots.sh" % v); new_files = []
 for f in new_files:
     req = urllib.request.Request(f"https://uploads.github.com/repos/alejandrourbinacava/CAR-LOVERS-ESP/releases/{rid}/assets?name={os.path.basename(f)}",
                                  data=open(f, "rb").read(), method="POST",

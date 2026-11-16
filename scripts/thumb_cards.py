@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """thumb_cards.py <out.jpg> <mode> ... : miniatura 1280x720 con recortes de coche (public/assets/cut).
   pair <cutA> <cutB> <l1> <l2> <l3>   -> dos coches con "=" entre medias
-  label <cut> <letra> <l1> <l2> <l3>  -> un coche con pegatina DGT circular grande"""
+  label <cut> <letra> <l1> <l2> <l3>  -> un coche con pegatina DGT circular grande
+  versus <cutA> <notaA> <cutB> <notaB> <l1> <l2> <l3> -> dos coches con nota (A verde, B roja) y "VS"""
 import sys
 from PIL import Image, ImageDraw, ImageFont, ImageFilter
 out, mode = sys.argv[1], sys.argv[2]
@@ -35,6 +36,14 @@ if mode == "pair":
     a, b, l1, l2, l3 = sys.argv[3:8]
     car(a, (10, 230, 630, 610)); car(b, (650, 230, 1270, 610))
     txt("=", 300, 200, (255, 215, 0), x=W // 2 - 45, maxw=200)
+elif mode == "versus":
+    a, na, b, nb, l1, l2, l3 = sys.argv[3:10]
+    car(a, (10, 250, 630, 600)); car(b, (650, 250, 1270, 600))
+    for cx, n, col in ((210, na, (30, 170, 60)), (1070, nb, (210, 30, 30))):
+        cy, r = 300, 82
+        d.ellipse([cx - r - 8, cy - r - 8, cx + r + 8, cy + r + 8], fill=(255, 255, 255)); d.ellipse([cx - r, cy - r, cx + r, cy + r], fill=col)
+        f = ImageFont.truetype(F, 110); w = d.textlength(n, font=f); d.text((cx - w / 2, cy - 68), n, font=f, fill=(255, 255, 255))
+    txt("VS", 360, 150, (255, 215, 0), x=W // 2 - 70, maxw=200)
 else:
     a, letter, l1, l2, l3 = sys.argv[3:8]
     car(a, (40, 220, 900, 620))

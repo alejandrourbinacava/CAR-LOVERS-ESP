@@ -6,6 +6,7 @@ cd "$(dirname "$0")/.."
 N="$1"; CFG="$2"
 # comprobar que todo lo que usa el config (fichas, imágenes) está en git: si no, el render muere a mitad
 MISS=$(grep -oE 'assets/(cut|img|img-clean)/[^"]+' "$CFG" | sort -u | while read p; do git ls-files --error-unmatch "public/$p" >/dev/null 2>&1 || echo "public/$p"; done)
+for f in input/narration-$N.mp3 input/titulo-$N.txt; do [ -f "$f" ] && ! git ls-files --error-unmatch "$f" >/dev/null 2>&1 && MISS="$MISS $f"; true; done
 if [ -n "$MISS" ]; then echo "[$N] FALTAN en git, se añaden:"; echo "$MISS"; git add -f $MISS && git commit -q -m "Video $N: fichas/imagenes que faltaban en el repo
 
 Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>" && git push -q origin main; fi

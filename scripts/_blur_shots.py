@@ -61,7 +61,7 @@ api = "https://api.github.com/repos/alejandrourbinacava/CAR-LOVERS-ESP"
 try:
     rid = json.load(urllib.request.urlopen(urllib.request.Request(f"{api}/releases/tags/shots-{v}", headers={"Authorization": f"Bearer {tok}"})))["id"]
 except urllib.error.HTTPError:
-    print("sin Release shots-%s todavia: se subira con subir-shots.sh" % v); new_files = []
+    print("sin Release shots-%s todavia: se subira con subir-shots.sh" % v); new_files = []; new = []
 for f in new:
     req = urllib.request.Request(f"https://uploads.github.com/repos/alejandrourbinacava/CAR-LOVERS-ESP/releases/{rid}/assets?name={os.path.basename(f)}",
                                  data=open(f, "rb").read(), method="POST", headers={"Authorization": f"Bearer {tok}", "Content-Type": "video/mp4"})

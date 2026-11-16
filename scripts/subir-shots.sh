@@ -22,7 +22,7 @@ echo "Release '$TAG' id=$RID"
 python - "$SUB" "$TOKEN" "$API" "$RID" <<'PYEOF' > /tmp/_shots_todo.txt
 import json, re, sys, urllib.request
 sub, token, api, rid = sys.argv[1:5]
-need = sorted(set(re.findall(r"assets/%s/(shot-[a-z0-9]+\.mp4)" % re.escape(sub), open("src/config.ts", encoding="utf-8").read())))
+need = sorted(set(re.findall(r"assets/%s/(shot-[a-z0-9]+\.mp4)" % re.escape(sub), open(__import__("os").environ.get("CFG","src/config.ts"), encoding="utf-8").read())))
 have, page = set(), 1
 while True:
     req = urllib.request.Request(f"{api}/releases/{rid}/assets?per_page=100&page={page}", headers={"Authorization": f"Bearer {token}"})
